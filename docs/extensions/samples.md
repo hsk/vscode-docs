@@ -18,7 +18,7 @@ MetaDescription: Learn from existing Visual Studio Code extension examples.
 
 ## サンプル拡張
 
-サンプル|説明|タイプ|マーケットプレイス
+サンプル|説明|タイプ| Marketplace
 ------|-----------|----|---------
 **[Word Count](https://github.com/Microsoft/vscode-wordcount)**|編集イベントで更新されるマークダウンファイルのステータスバーに単語数を追加します。 [これがどのように作成されたかについてのウォークスルー](/docs/extensions/example-word-count.md) があります。 | [拡張](/docs/extensions/example-hello-world.md)|Y
 **[MDTools](https://github.com/Microsoft/vscode-MDTools)**|一般的なテキスト処理に基づいて選択や更新を行います。 ToUpper、HTMLEncode、...|[拡張](/docs/extensions/example-hello-world.md)|Y
