@@ -7,43 +7,43 @@ PageTitle: Visual Studio Code Extension Examples
 DateApproved: 5/4/2017
 MetaDescription: Learn from existing Visual Studio Code extension examples.
 ---
-# VS Code Extension Examples
+# VS Code 拡張の例
 
-## Extension Basics
+## 拡張の基礎
 
-We have two walkthroughs that cover many of the core concepts - start with these:
+コアコンセプトの多くをカバーする2つのウォークスルーがあります:
 
-* **[Your First Extension](/docs/extensions/example-hello-world.md)** - Explains the core extensibility concepts with a walkthrough.
-* **[Word Count Extension](/docs/extensions/example-word-count.md)** - Another walkthrough building on the last.
+* **[最初の拡張](/docs/extensions/example-hello-world.md)** - ウォークスルーでコアの拡張の概念を説明します。
+* **[Word Count 拡張](/docs/extensions/example-word-count.md)** - 最後の別のウォークスルービルド。
 
-## Sample Extensions
+## サンプル拡張
 
-Sample|Description|Type|In Marketplace
+サンプル|説明|タイプ|マーケットプレイス
 ------|-----------|----|---------
-**[Word Count](https://github.com/Microsoft/vscode-wordcount)**|Adds a word count to the status bar for Markdown files that updates on editing events.  We have a [walkthrough on how this was created](/docs/extensions/example-word-count.md).|[Extension](/docs/extensions/example-hello-world.md)|Y
-**[MDTools](https://github.com/Microsoft/vscode-MDTools)**|Work with selections and update based on common text processing e.g. ToUpper, HTMLEncode, ...|[Extension](/docs/extensions/example-hello-world.md)|Y
-**[Decorator](https://github.com/Microsoft/vscode-extension-samples/tree/master/decorator-sample)**|Shows how to decorate editor text with a border, colors, and a custom cursor as well as add an overview ruler highlight.|[Extension](/docs/extensions/example-hello-world.md)|N
-**[Preview Html](https://github.com/Microsoft/vscode-extension-samples/tree/master/previewhtml-sample)**|Shows how to create virtual documents together with the `vscode.previewHtml` [command](/docs/extensionAPI/vscode-api-commands.md#commands).|[Extension](/docs/extensions/example-hello-world.md)|Y
-**[Document Content Provider](https://github.com/Microsoft/vscode-extension-samples/tree/master/contentprovider-sample)**|Shows how to use API commands and how to create _virtual_ documents using the `TextDocumentContentProvider`-API.|[Extension](/docs/extensions/example-hello-world.md)|Y
-**[TSLint](https://github.com/Microsoft/vscode-tslint)**|Lint your TypeScript files based on TSLint|[Language Server](/docs/extensions/example-language-server.md)|Y
-**[Spelling and Grammar Checker](https://github.com/Microsoft/vscode-spell-check)**|Configurable Markdown spelling and grammar checker.  Calls an external web service for checking and supports activation, add to dictionary, error mapping.  Watches for config file changes in real time.|[Extension](/docs/extensions/example-hello-world.md)|Y
-**[Mock Debugger](https://github.com/Microsoft/vscode-mock-debug)**|Helps you build and test a debugger.|[Debuggers](/docs/extensions/example-debuggers.md)|Y
-**[Go Language Support](https://github.com/microsoft/vscode-go)**|Rich language support for [Go Lang](https://golang.org/) - IntelliSense, Debug, Peek, Rename, Syntax, ...|[Extension](/docs/extensionAPI/vscode-api.md#languages)|Y
+**[Word Count](https://github.com/Microsoft/vscode-wordcount)**|編集イベントで更新されるマークダウンファイルのステータスバーに単語数を追加します。 [これがどのように作成されたかについてのウォークスルー](/docs/extensions/ example-word-count.md) があります。 | [拡張](/docs/extensions/example-hello-world.md)|Y
+**[MDTools](https://github.com/Microsoft/vscode-MDTools)**|一般的なテキスト処理に基づいて選択や更新を行います。 ToUpper、HTMLEncode、...|[拡張](/docs/extensions/example-hello-world.md)|Y
+**[Decorator](https://github.com/Microsoft/vscode-extension-samples/tree/master/decorator-sample)**|境界線、色、およびカスタムカーソルを使用してエディタテキストを飾る方法を示します。|[拡張](/docs/extensions/example-hello-world.md)|N
+**[Preview Html](https://github.com/Microsoft/vscode-extension-samples/tree/master/previewhtml-sample)**| `vscode.previewHtml` [コマンドと一緒に仮想ドキュメントを作成する方法を示します](/docs/extensionAPI/vscode-api-commands.md#commands)。|[拡張](/docs/extensions/example-hello-world.md)|Y
+**[ドキュメントコンテンツプロバイダ](https://github.com/Microsoft/vscode-extension-samples/tree/master/contentprovider-sample)**|APIコマンドの使用方法と、 `TextDocumentContentProvider`-API を使用して _virtual_ ドキュメントを作成する方法を示します。|[拡張](/docs/extensions/example-hello-world.md)|Y
+**[TSLint](https://github.com/Microsoft/vscode-tslint)**| TSLint|[Language Server](/docs/extensions/example-language-server.md) に基づいて TypeScript ファイルをリントします。|Y
+**[スペルチェックと文章校正](https://github.com/Microsoft/vscode-spell-check)**|設定可能なマークダウンのスペルチェックと文章校正。チェックのために外部Webサービスを呼び出し、アクティベーションをサポートし、ディクショナリに追加し、エラーマッピングを行います。設定ファイルの変更をリアルタイムで監視する|[拡張](/docs/extensions/example-hello-world.md)|Y
+**[モックデバッガ](https://github.com/Microsoft/vscode-mock-debug)**|デバッガをビルドしてテストするのに役立ちます。 [デバッガ](/docs/extensions/example-debuggers.md)|Y
+**[Go言語サポート](https://github.com/microsoft/vscode-go)**| [Go Lang](https://golang.org/) の豊富な言語サポート - IntelliSense、 Debug、 Peek、 名前の変更、 構文、 ...|[拡張](/docs/extensionAPI/vscode-api.md#languages)|Y
 
-## Tools to Help you build an Extension
+## 拡張を構築するためのツール
 
-Tool|Purpose
+ツール|目的
 ----|-------
-**[Extension Generator](/docs/extensions/yocode.md)**|To help you getting started implementing an extension, we have a [Yeoman](http://yeoman.io/) generator.  This creates all the initial settings you need for the development environment to work well and includes the API Typing files and any relevant modules.  You can find the generator source code [here](https://github.com/Microsoft/vscode-generator-code).
-**[Debugging Extensions](/docs/extensions/debugging-extensions.md)**|We have worked hard to provide an easy way to develop, debug and locally test your extensions.
-**[Publishing Tool](/docs/extensions/publish-extension.md)**|Once you have a working extension, it's time to share it in the [extension Marketplace](/docs/editor/extension-gallery.md). We have a simple command line tool for this. You can find the source code [here](https://github.com/Microsoft/vsce).
+**[Extension Generator](/docs/extensions/yocode.md)**|拡張機能を実装するのを手助けするため、 [Yeoman](http://yeoman.io/) ジェネレータがあります。 これにより、開発環境がうまく動作するために必要なすべての初期設定が作成され、 API タイピングファイルと関連モジュールが含まれます。 ジェネレータのソースコードは [こちら](https://github.com/Microsoft/vscode-generator-code) にあります。
+**[Debugging Extensions](/docs/extensions/debugging-extensions.md)**|私たちは、拡張機能の開発、デバッグ、ローカルテストを簡単に行うために努力しました。
+**[Publishing Tool](/docs/extensions/publish-extension.md)**|有効な拡張機能があれば、それを [拡張マーケットプレイス](/docs/editor/extension-gallery.md)で共有しましょう。 このための簡単なコマンドラインツールがあります。
 
-## Tutorial samples
+## チュートリアルのサンプル
 
-Tutorial|Description
+チュートリアル|説明 
 --------|-----------
-**[Node.js](https://github.com/Microsoft/vscode-samples)**|Final output of the Node.js Express [tutorial](/docs/nodejs/nodejs-tutorial.md).
+**[Node.js](https://github.com/Microsoft/vscode-samples)**|Node.js Expressの[tutorial](/docs/nodejs/nodejs-tutorial.md)の最終結果
 
-## Next Steps
+## 次のステップ
 
-* [Extension Marketplace](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension Marketplace.
+* [拡張マーケットプレイス](/docs/editor/extension-gallery.md) -  VS Code の公開拡張マーケットプレイスの詳細をご覧ください。

@@ -7,23 +7,24 @@ PageTitle: Publishing Visual Studio Code Extensions
 DateApproved: 5/4/2017
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
 ---
-# Publishing Extensions
+# 公開拡張機能
 
-## vsce - Publishing Tool Reference
+## vsce  - 公開ツールのリファレンス
 
-[vsce](https://github.com/Microsoft/vsce) is the command line tool you'll use to publish extensions to the [Extension Marketplace](/docs/editor/extension-gallery.md).  You can also load extensions locally and share them via email or a UNC drive.
+[vsce](https://github.com/Microsoft/vsce) は、 [Extension Marketplace](/docs/editor/extension-gallery.md) に拡張機能を公開するために使用するコマンドラインツールです。
 
-## Installation
+## インストール
 
-Make sure you have [Node.js](https://nodejs.org/) installed. Then run:
+[Node.js](https://nodejs.org/) がインストールされていることを確認してください。 それから以下を実行します:
 
 ```
 npm install -g vsce
 ```
 
-## Usage
+## 使用法
 
-You'll use the `vsce` command directly from the command line. For example, here's how you can quickly publish an extension:
+`vsce`　コマンドをコマンドラインから直接使用します。
+たとえば、拡張機能をすばやく公開する方法は次のとおりです:
 
 ```
 $ vsce publish
@@ -31,97 +32,97 @@ Publishing uuid@0.0.1...
 Successfully published uuid@0.0.1!
 ```
 
-For a reference on all the available commands, run `vsce --help`.
+使用可能なすべてのコマンドのリファレンスを得るには、 `vsce --help`　を実行してください。
 
-## Publishing Extensions
+## 拡張の公開
 
-Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) for its Marketplace services. This means that authentication, hosting and management of extensions is provided through that service.
+Visual Studio Code は、マーケットプレースサービスについて[Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) を利用しています。 つまり、拡張機能の認証、ホスティング、および管理は、そのサービスを通じて提供されます。
 
-`vsce` can only publish extensions using [Personal Access Tokens](https://www.visualstudio.com/en-us/news/2015-jul-7-vso.aspx). You need to create at least one in order to publish an extension.
+`vsce` は [Personal Access Tokens](https://www.visualstudio.com/en-us/news/2015-jul-7-vso.aspx) を使って拡張機能を公開することしかできません。 拡張機能を公開するには、少なくとも1つ作成する必要があります。
 
-### Get a Personal Access Token
+### 個人アクセストークンを取得する
 
-First, make sure you have a [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) account.
+まず、 [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-visual-studio-online) アカウントがあることを確認します。
 
-In the following examples, the account name is `monacotools`. From your account's home page (eg: `https://monacotools.visualstudio.com`), go to the **Security** page:
+次の例では、アカウント名は `monacotools` です。 あなたのアカウントのホームページ (例えば、 `https：//monacotools.visualstudio.com`) から、 **セキュリティ** ページに行きます:
 
 ![Security page](images/publish-extension/publishers1.png)
 
-Click **Add** to create a new Personal Access Token:
+新しい個人用アクセストークンを作成するには、 **追加** をクリックします:
 
 ![Add personal access token](images/publish-extension/publishers2.png)
 
-Give the Personal Access Token a nice description, optionally extend its expiration date to 1 year, make it access every account and set the authorization to **all scopes**:
+パーソナルアクセストークンに素敵な説明を与え、オプションとして有効期限を1年間に延長し、すべてのアカウントにアクセスさせ、 **すべてのスコープ** への権限を設定します:
 
 ![Personal access token details](images/publish-extension/publishers3.png)
 
-The next screen will display your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
+次の画面には、新しく作成したパーソナルアクセストークンが表示されます。 **コピー** それは公開するために必要です。
 
-### Create a Publisher
+### Publisher を作成する
 
-A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/docs/extensionAPI/extension-manifest.md).
+**Publisher** は、 Visual Studio Code マーケットプレイスの拡張機能を公開できるユーザーです。 すべての拡張機能は、[`package.json` ファイル](/docs/extensionAPI/extension-manifest.md) に `publisher` という名前を入れる必要があります。
 
-Once you have a [Personal Access Token](/docs/extensions/publish-extension.md#get-a-personal-access-token), you can create a new publisher using `vsce`:
+[Personal Access Token](/docs/extensions/publish-extension.md#get-a-personal-access-token) を取得したら、 `vsce` を使用して新しいパブリッシャを作成することができます：
 
 ```bash
 vsce create-publisher (publisher name)
 ```
 
-`vsce` will remember the provided Personal Access Token for future references to this publisher.
+`vsce` は、この publisher への今後の参照のために提供された Personal Access Token を覚えています。
 
-**Note:** Alternatively, create your publisher in https://marketplace.visualstudio.com/manage and login in `vsce`, as described in the next section.
+**注意：** 次のセクションで説明するように、 https://marketplace.visualstudio.com/manage であなたのサイト運営者を作成し、 `vsce` でログインしてください。
 
-### Login to a Publisher
+### Publisher へのログイン
 
-If you already created a publisher before and want to use it with `vsce`:
+すでに Publisher を作成していて、 `vsce` でそれを使用したい場合は:
 
 ```bash
 vsce login (publisher name)
 ```
 
-Similarly to the `create-publisher` command, `vsce` will ask you for the Personal Access Token and remember it for future commands.
+`create-publisher` コマンドと同様に、 `vsce` はあなたに Personal Access Token を尋ね、将来のコマンドのためにそれを覚えています。
 
-You can also enter your Personal Access Token as you publish with an optional parameter `-p <token>`.
+また、オプションのパラメータ `-p <token>` を発行して Personal Access Token を入力することもできます。
 
 ```bash
 vsce publish -p <token>
 ```
 
-## Auto-incrementing the Extension Version
+##拡張バージョンの自動インクリメント
 
-You can auto-increment an extension's version number when you publish by specifying the [SemVer](http://semver.org/) compatible number to increment: `major`, `minor`, or `patch`.
+[SemVer](http://semver.org/) 互換番号を指定することで、拡張時に拡張子のバージョン番号を自動的にインクリメントすることができます： `major`、 `minor`、 `patch`。
 
-For example, if you want to update an extension's version from 1.0.0 to 1.1.0, you would specify `minor`:
+
+たとえば、拡張機能のバージョンを 1.0.0 から 1.1.0 に更新する場合は、 `minor` を指定します。
 
 ```bash
 vsce publish minor
 ```
 
-This will modify the extension's `package.json` [version](/docs/extensionAPI/extension-manifest.md#fields) attribute before publishing the extension.
-
-You can also specify a complete SemVer compatible version on the command line:
+これにより、拡張機能を公開する前に、拡張機能の `package.json` [version](/docs/extension-manifest.md#fields) 属性が変更されます。
+また、完全な SemVer 互換バージョンをコマンドラインで指定することもできます:
 
 ```bash
 vsce publish 2.0.1
 ```
 
-## Packaging Extensions
+## パッケージ拡張
 
-You may want to package extensions without publishing them to the store. Extensions will always be packaged into a `.vsix` file. Here's how:
+拡張機能をストアに公開せずにパッケージ化することができます。 拡張機能は常に `.vsix` ファイルにパッケージ化されます。 次を実行します:
 
 ```bash
 vsce package
 ```
 
-This will package your extension into a `.vsix` file and place it in the current directory. It's possible to install `.vsix` files into Visual Studio Code. See [Install from a VSIX](/docs/editor/extension-gallery.md#install-from-a-vsix) for more details.
+拡張モジュールを `.vsix`　ファイルにパッケージ化し、それを現在のディレクトリに置きます。 Visual Studio Code に `.vsix` ファイルをインストールすることは可能です。 詳細は、 [VSIXからのインストール](/docs/editor/extension-gallery.md#install-from-a-vsix) を参照してください。
 
-### Sharing Privately with Others
+### 他者と個人情報を共有する
 
-If you want to share your extension with others privately, you can send them your packaged extension `.vsix` file.
+あなたの拡張を個人的に他の人と共有したい場合は、あなたのパッケージ化された拡張子 `.vsix`　ファイルを送ることができます。
 
-## Visual Studio Code Compatiblity
+## Visual Studio Code の互換性
 
-When authoring an extension, you will need to describe what is the extension's compatibility to Visual Studio Code itself. This can done via the `engine.vscode` field inside `package.json`:
+拡張機能の作成時には、拡張機能が Visual Studio にどのような互換性があるかを記述する必要があります。 これは `package.json` 内の `engine.vscode` フィールドで行うことができます:
 
 ```json
 {
@@ -131,37 +132,37 @@ When authoring an extension, you will need to describe what is the extension's c
 }
 ```
 
-A value of `1.8.0` means that your extension is compatible only with VS Code `1.8.0`. A value of `^1.8.0` means that your extension is compatible with VS Code `1.8.0` and
-onwards, including `1.8.1`, `1.9.0`, etc.
+値 `1.8.0` は、あなたの拡張が VS Code `1.8.0` としか互換性がないことを意味します。 `^1.8.0` の値はあなたの拡張が VS Code `1.8.0` 以降と互換性があることを意味し、 `1.8.1`、 `1.9.0` などを含みます。
 
-You can use the `engine.vscode` field to make sure the extension only gets installed for clients which contain the API you depend on. This mechanism plays well with the
-Stable release as well as the Insiders one.
+`engine.vscode` フィールドを使って、あなたが依存している API を含むクライアントのためだけに拡張機能がインストールされるようにすることができます。
+このメカニズムは、安定版リリースと Insider リリースでうまくいきます。
 
-For example, imagine that the latest Stable version of VS Code is `1.8.0` and that during `1.9.0`'s development a new API is introduced and thus made available in the Insider release through version `1.9.0-insider`. If you want to publish an extension version which benefits from this API, you should indicate a version dependency of `^1.9.0`. Your new extension version will be installed only on VS Code `>=1.9.0`, which means all current Insider customers will get it, while the Stable ones will only get the update when Stable reaches `1.9.0`.
+たとえば、VSコードの最新の安定版が 1.8.0 で、 `1.9.0` の開発中に新しい API が導入され、 Insider リリースでバージョン 1.9.0-insider で利用可能になったとします。
+この API の恩恵を受ける拡張バージョンを公開したい場合は、バージョン依存性を `^1.9.0` で示す必要があります。 あなたの新しい拡張バージョンは、VS Code `>=1.9.0` にのみインストールされます。つまり、現在のすべての Insider のお客様はそれを取得しますが、安定版は Stable が 1.9.0 になったときにのみアップデートを取得します。
 
-## Advanced Usage
+## 高度な使用法
 
-### Marketplace Integration
+### マーケットプレース Integration
 
-You can customize how your extension looks in the Visual Studio Marketplace. See the [Go extension](https://marketplace.visualstudio.com/items/lukehoban.Go) for an example.
+Visual Studio マーケットプレース で拡張機能がどのように表示されるかをカスタマイズすることができます。 例については、[Go 拡張](https://marketplace.visualstudio.com/items/lukehoban.Go) を参照してください。
 
-Here are some tips for making your extension look great on the Marketplace:
+マーケットプレースでエクステンションをすばらしいものにするためのヒントをいくつか紹介します：
 
-- A `README.md` file at the root of your extension will be used to populate the extension's Marketplace page's contents. `vsce` will modify README links for you in two different ways:
-  - If you add a `repository` field to your `package.json` and if it is a public GitHub repository, `vsce` will automatically detect it and adjust the links accordingly.
-  - You can override that behavior and/or set it by using the `--baseContentUrl` and `--baseImagesUrl` flags when running `vsce package`. Then publish the extension by passing the path to the packaged `.vsix` file as an argument to `vsce publish`.
-- A `LICENSE` file at the root of your extension will be used as the contents for the extension's license.
-- A `CHANGELOG.md` file at the root of your extension will be used as the contents for the extension's changelog.
-- You can set the banner background color by setting `galleryBanner.color` to the intended hex value in `package.json`.
-- You can set an icon by setting `icon` to a relative path to a squared `128px` PNG file included in your extension, in `package.json`.
+ - 拡張機能のルートにある `README.md` ファイルを使用して、拡張機能の マーケットプレースページの内容を入力します。 `vsce`　は2種類の方法で　README　リンクを変更します：
+  - `package.json`　に `repository`フィールドを追加し、それが公開 GitHub リポジトリであれば、 `vsce` はそれを自動的に検出し、それに応じてリンクを調整します。
+  - `vsce package` を実行するときに `--baseContentUrl` と `--baseImagesUrl` フラグを使って、その動作を無効にしたり、設定したりすることができます。 次に、パッケージ化された `.vsix` ファイルへのパスを `vsce publish` の引数として渡して拡張子を公開します。
+- 拡張機能のルートにある `LICENSE` ファイルは、拡張機能のライセンスの内容として使用されます。
+- 拡張子のルートにある `CHANGELOG.md` ファイルは、拡張機能の変更履歴の内容として使用されます。
+- バナーの背景色は `galleryBanner.color` を `package.json` の目的の16進値に設定することで設定できます。
+- 拡張に含まれる `128px` PNG ファイルの相対パスに` icon` を `package.json` で設定して、アイコンを設定することができます。
 
-Also see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips).
+[マーケットプレースプレゼンテーションのヒント](/docs/extensionAPI/extension-manifest.md＃marketplace-presentation-tips) も参照してください。
 
 ### `.vscodeignore`
 
-You can create a `.vscodeignore` file to exclude some files from being included in your extension's package. This file is a collection of [glob](https://github.com/isaacs/minimatch) patterns, one per line.
+`.vscodeignore`　ファイルを作成して、拡張機能の　package にいくつかのファイルが含まれないようにすることができます。 このファイルは、1行に1つずつ [glob](https://github.com/isaacs/minimatch) パターンのコレクションです。
 
-For example:
+例:
 
 ```
 **/*.ts
@@ -169,13 +170,13 @@ For example:
 !file.ts
 ```
 
-You should ignore all files not needed at runtime. For example, if your extension is written in TypeScript, you should ignore all `**/*.ts` files, like in the previous example.
+実行時に不要なファイルはすべて無視する必要があります。 例えば、 あなたの拡張が TypeScript で書かれている場合は、前の例のように `**/*.ts` ファイルをすべて無視する必要があります。
 
-**Note:** Development dependencies listed in `devDependencies` will be automatically ignored, you don't need to add them to the `.vscodeignore` file.
+**注意： `devDependencies` にリストされている開発依存関係は自動的に無視されるので、 `.vscodeignore` ファイルに追加する必要はありません。
 
-### Pre-publish step
+### 事前公開ステップ
 
-It's possible to add a pre-publish step to your manifest file. The command will be called every time the extension is packaged.
+マニフェストファイルに事前公開ステップを追加することは可能です。 このコマンドは、拡張機能がパッケージ化されるたびに呼び出されます。
 
 ```json
 {
@@ -191,23 +192,23 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 }
 ```
 
-This will always invoke the [TypeScript](https://www.typescriptlang.org/) compiler whenever the extension is packaged.
+拡張モジュールがパッケージ化されるときは常に、 [TypeScript](https://www.typescriptlang.org/) コンパイラが呼び出されます。
 
-## Next Steps
+## 次のステップ
 
-* [Extension Marketplace](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension Marketplace.
-* [Testing Extensions](/docs/extensions/testing-extensions.md) - Add tests to your extension project to ensure high quality.
+* [Extension Marketplace](/docs/editor/extension-gallery.md) - VS Code の公開拡張マーケットプレイスの詳細をご覧ください。
+* [Testing Extensions](/docs/extensions/testing-extensions.md) - 拡張プロジェクトにテストを追加して高品質を確保します。
 
-## Common Questions
+## よくある質問
 
-**Q: I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?**
+**Q: なぜエクステンションを公開しようとすると、403 Forbidden (または 401 Unauthorized) エラーが表示されるのですか？**
 
-**A:** One easy mistake to make when creating the PAT (Personal Access Token) is to not select `all accessible accounts` in the Accounts field dropdown (instead selecting a specific account). You should also set the Authorized Scopes to `All scopes` for the publish to work.
+**A:** PAT (Personal Access Token) を作成するときに間違いを犯すのは、 Accounts フィールドのプルダウンで `all accessible accounts` を選択しないことです。 また、公開スコープを `All scopes` に設定して、公開が機能するようにする必要があります。
 
-**Q: I can't unpublish my extension through the `vsce` tool?**
+**Q: `vsce` ツールを使って拡張機能を公開解除できますか?**
 
-**A:** You may have changed your extension ID or publisher name. You can also manage your extensions directly on the Marketplace by going to the [manage page](https://marketplace.visualstudio.com/manage).  You can update or unpublish your extension from your publisher manage page.
+**A:** publisher name やサイト運営者名を変更した可能性があります。 また、[管理ページ](https://marketplace.visualstudio.com/manage) に移動してマーケットプレースで直接管理することもできます。 サイト運営者の管理ページから拡張機能を更新したり、公開を解除したりすることができます。
 
-**Q: Why does vsce not preserve file attributes?**
+**Q: vsce　がファイル属性を保持しないのはなぜですか？**
 
-**A:** Please note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and OS X works as expected.
+**A:** Windows　から拡張機能をビルドして公開する場合、拡張パッケージに含まれるすべてのファイルは POSIX ファイル属性、つまり実行可能ビットがありません。 いくつかの `node_modules` 依存関係は、正しく機能するためにそれらの属性に依存しています。 Linux および OS X からの公開は期待通りに機能します。
