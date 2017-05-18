@@ -8,103 +8,108 @@ DateApproved: 5/4/2017
 MetaDescription: Visual Studio Code extensions (plug-ins) Debugging API.
 ---
 
-# The VS Code Debug Protocol
+# VS Code デバッグプロトコル
 
-Since Visual Studio Code implements a language agnostic debug UI, it does not communicate directly with real debuggers
-but instead talks to so-called *debug adapters* through an abstract wire protocol, the *VS Code Debug Protocol*.
+  Visual Studio Code は言語に依存しないデバッグUIを実装しているため、実際のデバッガと直接通信することはありません
+  代わりに、抽象的なワイヤプロトコルである *VS Code Debug Protocol* を介して、いわゆる *デバッグアダプタ* と会話します。
 
-![Debugger Architecture](images/api-debugging/debug-arch.png)
+  ![Debugger Architecture](images/api-debugging/debug-arch.png)
 
-Extensibility of the debug component of VS Code is currently limited to adding new debug adapters.
-So it is not (yet) possible to extend the debugger UI in similar ways as for example the editor component of VS Code.
+  VS Code のデバッグコンポーネントの拡張性は、現在、新しいデバッグアダプタの追加に限られています。
+  したがって、(まだ) VS Codeのエディタコンポーネントのような方法でデバッガのUIを拡張することはできません。
 
-## Debug Adapter
+## 1 デバッグアダプタ
 
-A debug adapter is a standalone executable that talks to a real debugger and translates between the
-VS Code Debug Protocol and the concrete protocol of the debugger. Since a debug adapter can be implemented in the language that is best suited or a given debugger or runtime, the wire protocol is more important than the API of a particular client library that implements
-that protocol.
+  デバッグアダプタは、実際のデバッガと通信し、VS Code デバッグプロトコルとデバッガの具体的なプロトコルとの間で変換するスタンドアロンの実行可能ファイルです。
+  デバッグアダプタは、最適な言語または特定のデバッガまたはランタイムで実装できるため、ワイヤプロトコルは、そのプロトコルを実装する特定のクライアントライブラリのAPIより重要です。
 
-You can find the VS Code Debug Protocol specification expressed as a [JSON schema](https://github.com/Microsoft/vscode-debugadapter-node/blob/master/debugProtocol.json) or as a (generated) [TypeScript definition](https://github.com/Microsoft/vscode-debugadapter-node/blob/master/protocol/src/debugProtocol.ts) file in the
-[`vscode-debugadapter-node`](https://github.com/Microsoft/vscode-debugadapter-node) repository.
-Both files show the detailed structure of the individual protocol requests, responses and events.
-The protocol is also available as the NPM module [`vscode-debugprotocol`](https://www.npmjs.com/package/vscode-debugprotocol).
+  [`vscode-debugadapter-node`](https://github.com/Microsoft/vscode-debugadapter-node) リポジトリには、[JSONスキーマ](https://github.com/Microsoft/vscode-debugadapter-node/blob/master/debugProtocol.json) または（生成された） [TypeScript定義](https://github.com/Microsoft/vscode-debugadapter-node/blob/master/protocol/src/debugProtocol.ts) ファイルとして表現されたVS Code デバッグプロトコル仕様があります。
+  どちらのファイルも、個々のプロトコル要求、応答、およびイベントの詳細な構造を示しています。
+  このプロトコルは、 NPM モジュール [`vscode-debugprotocol`](https://www.npmjs.com/package/vscode-debugprotocol) としても使用できます。
 
-We have implemented client libraries for the VS Code Debug Protocol in TypeScript and C#, but only the JavaScript/TypeScript client library is already available as an NPM module [`vscode-debugadapter-node`](https://github.com/Microsoft/vscode-debugadapter-node). You can find the C# client library in the [Mono Debug](https://github.com/Microsoft/vscode-mono-debug/blob/master/src/DebugSession.cs) repository.
+  TypeScript と C＃ の VS Code デバッグプロトコル用のクライアントライブラリを実装しましたが、JavaScript/TypeScriptクライアントライブラリのみがすでにNPMモジュールとして利用可能です[`vscode-debugadapter-node`](https://github.com/Microsoft/vscode-debugadapter-node) 。 C＃クライアントライブラリは、[Mono Debug](https://github.com/Microsoft/vscode-mono-debug/blob/master/src/DebugSession.cs) リポジトリにあります。
 
-The following debugger extension projects can serve as examples for how to implement debug adapters:
+  デバッグアダプタを実装する方法の例として、次のデバッガ拡張プロジェクトを使用できます:
 
-GitHub Project | Description | Implementation Language
---- | --- | ---
-[Node Debug](https://github.com/Microsoft/vscode-node-debug.git) | The built-in v8-based Node.js debugger |TypeScript/JavaScript
-[Node Debug2](https://github.com/Microsoft/vscode-node-debug2.git) | The built-in CDP-based Node.js debugger |TypeScript/JavaScript
-[Mono Debug](https://github.com/Microsoft/vscode-mono-debug.git) | A simple C# debugger for Mono | C#
-[Mock Debug](https://github.com/Microsoft/vscode-mock-debug.git) | A 'fake' debugger | TypeScript/JavaScript
+  GitHubプロジェクト| 説明| 実装言語
+  --- | --- | ---
+  [Node Debug](https://github.com/Microsoft/vscode-node-debug.git) | 組み込みのv8ベースのNode.jsデバッガ| TypeScript/JavaScript
+  [Node Debug2](https://github.com/Microsoft/vscode-node-debug2.git) | 組み込みのCDPベースのNode.jsデバッガ| TypeScript/JavaScript
+  [Mono Debug](https://github.com/Microsoft/vscode-mono-debug.git) | Mono用のシンプルなC＃デバッガ| C＃
+  [Mock Debug](https://github.com/Microsoft/vscode-mock-debug.git) | 'フェイク' デバッガ | TypeScript/JavaScript
 
+## 2 簡単な VS Code デバッグプロトコル
 
-## The VS Code Debug Protocol in a Nutshell
+  このセクションでは、VS Code とデバッグアダプタ間の相互作用の概要を説明します。
+  これは、VS Code デバッグプロトコルに基づくデバッグアダプタの実装に役立ちます。
 
-In this section we give a high-level overview of the interaction between VS Code and a debug adapter.
-This should help you in your implementation of a debug adapter based on the VS Code Debug Protocol.
+  デバッグセッションが開始されると、VS Code は実行可能なデバッグアダプタを起動し、 *stdin* および *stdout*を使用してデバッグアダプタと通信します。
+  VS Code は、 **initialize** 要求を送信して、 パスフォーマット(ネイティブまたはURI) に関する情報と、行と列の値が0または1のどちらであるかをアダプタに設定します。
+  あなたのアダプタがTypeScriptまたはC＃のデフォルト実装 `DebugSession` から派生している場合は、自分で初期化要求を処理する必要はありません。
 
-When a debug sessions starts, VS Code launches the debug adapter executable and talks to it through *stdin* and *stdout*. VS Code sends an **initialize** request to configure the adapter with information about the path format (native or URI) and whether line and column values are 0 or 1 based.
-If your adapter is derived from the TypeScript or C# default implementation `DebugSession`, you don't have to handle the initialize request yourself.
+  ユーザーが作成した起動構成 (launch configuration) で使用されている 'request' 属性に応じて、 VS Code は *launch* または *attach* 要求を送信します。
+  **launch** の場合、デバッグアダプタはデバッグできるようにランタイムまたはプログラムを起動する必要があります。
+  プログラムが stdin/stdout を介してユーザーと対話できるのであれば、デバッグアダプターが対話型端末またはコンソールでプログラムを起動することが重要です。
+  **attach** の場合、デバッグアダプタは既に実行中のプログラムに接続または接続する必要があります。
 
-Depending on the 'request' attribute used in the launch configuration created by the user, VS Code either sends a *launch* or an *attach* request.
-For **launch** the debug adapter has to launch a runtime or program so that it can be debugged.
-If the program can interact with the user through stdin/stdout, it is important that the debug adapter launches the program in an interactive terminal or console.
-For **attach** the debug adapter has to attach or connect to an already running program.
+  両方の要求の引数は特定のデバッグアダプタの実装に大きく依存するため、VSコードデバッグプロトコルは引数を指定しません。
+  代わりに、 VS Code はユーザーの起動設定 (launch configuration) からのすべての引数を *launch* または *attach* 要求に渡します。
+  IntelliSense のスキーマとこれらの属性の追加情報は、 デバッグアダプター拡張の `package.json` で提供されます。
+  これは、起動構成 (launch configurations) を作成または編集するときにユーザーを誘導します。
 
-Since arguments for both requests are highly dependent on a specific debug adapter implementation, the VS Code Debug Protocol does not prescribe any arguments. Instead VS Code passes all arguments from the user's launch configuration to the *launch* or *attach* requests.
-A schema for IntelliSense and hover information for these attributes can be contributed in the `package.json` of the debug adapter extension. This will guide the user when creating or editing launch configurations.
+  VS Code はデバッグアダプタの代わりにブレークポイントを保持しているため、セッションが開始されるとデバッグアダプタにブレークポイントを登録する必要があります。
+  VS Code は、このためにいつ良いか分からないので、デバッグアダプターは **initialize** イベントを VS Code に送り、ブレークポイント設定要求を受け入れる準備ができたことをアナウンスします。
 
-Since VS Code persists breakpoints on behalf of the debug adapter, it has to register the breakpoints with the debug adapter when a session starts.
-Since VS Code does not know when is a good time for this, the debug adapter is expected to send an **initialize** event to VS Code
-to announce that it is ready to accept breakpoint configuration requests.
+  VS Code は、これらのブレークポイント設定要求を呼び出すことによって、すべてのブレークポイントを送信します:
 
-VS Code will then send all breakpoints by calling these breakpoint configuration requests:
+  * **setBreakpoints** ブレークポイントを持つすべてのソースファイルに対して、
+  * **setFunctionBreakpoints** デバッグアダプタがファンクションブレークポイントをサポートしている場合、
+  * **setExceptionBreakpoints** デバッグアダプタが例外オプションをサポートしている場合、
+  * **configurationDoneRequest** は、設定シーケンスの終了を示します。
 
-* **setBreakpoints** for every source file with breakpoints,
-* **setFunctionBreakpoints** if the debug adapter supports function breakpoints,
-* **setExceptionBreakpoints** if the debug adapter supports any exception options,
-* **configurationDoneRequest** to indicate the end of the configuration sequence.
+  ブレークポイントを受け入れる準備ができたら、 *initialize* イベントを送信することを忘れないでください。
+  さもなければ、永続化されたブレークポイントは復元されません。
 
-So don't forget to send the *initialize* event when you are ready to accept breakpoints. Otherwise persisted breakpoints are not restored.
+  *setBreakpoint* リクエストは、ファイルに存在するすべてのブレークポイントを設定します(インクリメンタルではありません) 。
+  デバッグアダプタでのこのセマンティクスの簡単な実装は、ファイルのすべてのブレークポイントをクリアしてから、そのリクエストで指定されたブレークポイントを設定することです。
+  *setBreakpoints* と *setFunctionBreakpoints* は、 '実際の'ブレークポイントを返すと予想され、ブレークポイントを要求された位置に設定できず、デバッガのバックエンドによって移動された場合、 VS Code はUIを動的に更新します。
 
-The *setBreakpoint* request sets all breakpoints that exist for a file (so it is not incremental).
-A simple implementation of this semantics in the debug adapter is to clear all breakpoints for a file and then set the breakpoints specified in the request.
-*setBreakpoints* and *setFunctionBreakpoints* are expected to return the 'actual' breakpoints and VS Code updates the UI dynamically if a breakpoint could not be set at the requested position and was moved by the debugger backend.
+  プログラムが(ブレークポイントがヒットした、例外が発生した、またはユーザーが実行を一時停止するように要求したなどの理由で)停止するたびに 
+  デバッグアダプタは、適切な理由とスレッドIDを持つ **stopped** イベントを送信する必要があります。
+  受領すると、VS Code は最初に **thread** (下記参照) を要求し、次に **stoppedtrace** (スタックフレームのリスト) を停止イベントで記述されたスレッドに対して要求します。
+  ユーザーがスタックフレームをドリルダウンすると、VS Code は最初に **scopes** にスタックフレームを要求し、次に **variables** をスコープに要求します。
+  変数自体が構造化されている場合、 VS Code は追加の *variables* 要求によってそのプロパティを要求します。
+  これにより、次の階層が生成されます:
 
-Whenever the program stops (on program entry, because a breakpoint was hit, an exception occurred, or the user requested execution to be paused),
-the debug adapter has to send a **stopped** event with the appropriate reason and thread id.
-Upon receipt VS Code will first request the **threads** (see below), and then the **stacktrace** (a list of stack frames) for the thread mentioned in the stopped event.
-If the user then drills into the stack frame, VS Code first requests the **scopes** for a stack frame, and then the **variables** for a scope.
-If a variable is itself structured, VS Code requests its properties through additional *variables* requests.
-This leads to the following hierarchy:
+  ```
+  Threads
+    Stackframes
+        Scopes
+          Variables
+              ...
+                Variables
+  ```
 
-```
-Threads
-   Stackframes
-      Scopes
-         Variables
-            ...
-               Variables
-```
+  VS Code のデバッグUIはマルチスレッドをサポートしています (ただし、 Node.js デバッガだけを使用している場合は、これを認識していない可能性があります)。
+  VS Code が **stopped** イベントまたは **thread** イベントを受信するたびに、 VS Code はその時点に存在するすべての **thread** を要求し、複数のスレッドが存在する場合はそれらを表示します。
+  1つのスレッドのみが検出された場合、VSコードUIはシングルスレッドモードのままです。
+  **Thread** イベントはオプションですが、デバッグアダプタはそれらを送信して、停止していない状態であってもスレッドコードを動的に更新するようにVSコードを強制します。
 
-The VS Code debug UI supports multiple threads (but you are probably not aware of this if you are only using the Node.js debugger). Whenever VS Code receives a **stopped** or a **thread** event, VS Code requests all **threads** that exist at that point in time and displays them if there are more than one. If only one thread is detected, the VS Code UI stays in single thread mode. **Thread** events are optional but a debug adapter can send them to force VS Code to update the threads UI dynamically even when not in a stopped state.
+  **launch** または **attach** が成功した後に、 VS Code は **thread** 要求で現在の既存のスレッドのベースラインを要求し、 **thread** イベントをリッスンして新しいスレッドまたは終了したスレッドを検出します。
+  デバッグアダプタが複数のスレッドをサポートしていない場合でも、 **thread** 要求を実装し、単一の (ダミー) スレッドを返す必要があります。
+  このスレッドのIDは、スレッドIDが必要なすべての **stacktrace**、**pause**、**continue**、**next**、**stepIn**、**stepOut** 要求で使用する必要があります。
 
-After a successful **launch** or **attach** VS Code requests the baseline of currently existing threads with the **threads** request and then starts to listen for **thread** events to detect new or terminated threads. Even if your debug adapter does not support multiple threads, it must implement the **threads** request and return a single (dummy) thread. The id of this thread must be used in all requests where a thread id is required, e.g. **stacktrace**, **pause**, **continue**, **next**, **stepIn**, and **stepOut**.
+  VS Code は **disconnect** 要求でデバッグセッションを終了します。
+  デバッグターゲットが 'launched' (起動された)場合、 *disconnect* はターゲットプログラムを終了することが期待されます(必要に応じて強制的に終了します) 。
+  デバッグターゲットが最初に'attache'(接続されている)場合、 *disconnect* はターゲットから切り離さなければなりません(これにより、デバッグターゲットは引き続き実行されます) 。
+  どちらの場合も、ターゲットが正常に終了した場合やクラッシュした場合、デバッグアダプタは **terminated** イベントを発生させる必要があります。
+  *disconnect* 要求からの応答を受け取った後、 VS Code はデバッグアダプタを終了します。
 
-VS Code terminates a debug session with the **disconnect** request.
-If the debug target was 'launched' *disconnect* is expected to terminate the target program (even forcefully if necessary).
-If the debug target has been 'attached' initially, *disconnect* should detach it from the target (so that it will continue to run).
-In both cases and in the case that the target terminated normally or crashed the debug adapter must fire a **terminated** event.
-After receiving a response from the *disconnect* request, VS Code will terminate the debug adapter.
+## 3 次のステップ
 
-## Next Steps
+  VSコード拡張モデルの詳細については、次のトピックを参照してください:
 
-To learn more about VS Code extensibility model, try these topics:
-
-* [Example Debuggers](/docs/extensions/example-debuggers.md) - See a working 'mock' debugger example
-* [Extension API Overview](/docs/extensionAPI/overview.md) - Learn about the full VS Code extensibility model.
-* [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
-* [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
+  * [デバッガの例](/docs/extensions/example-debuggers.md) - 実際の 'mock' デバッガの例を参照
+  * [拡張APIの概要](/docs/extensionAPI/overview.md) - 完全な VS Code 拡張モデルについて学びます。
+  * [拡張マニフェストファイル](/docs/extensionAPI/extension-manifest.md) - VS Code package.json 拡張マニフェストファイルリファレンス
+  * [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code 投稿ポイントの参照
