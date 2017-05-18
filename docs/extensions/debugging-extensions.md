@@ -8,91 +8,90 @@ DateApproved: 5/4/2017
 MetaDescription: It is easy to debug and test your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension directly in Visual Studio Code.
 ---
 
-# Running and Debugging Your Extension
+# 1 エクステンションの実行とデバッグ
 
-You can use VS Code to develop an extension for VS Code and VS Code provides several tools that simplify extension development:
+  VS Code を使用して VS Code の拡張機能を開発することができ、 VS Code は拡張機能開発を簡素化するいくつかのツールを提供します。
 
-* Yeoman generators to scaffold an extension
-* IntelliSense, hover, and code navigation for the extension API
-* Compiling TypeScript (when implementing an extension in TypeScript)
-* Running and debugging an extension
-* Publishing an extension
+  * 拡張を scaffold する Yeoman ジェネレータ
+  * 拡張APIの IntelliSense、ホバー、コードナビゲーション
+  * TypeScript のコンパイル (TypeScriptで拡張を実装する場合)
+  * 拡張機能の実行とデバッグ
+  * エクステンションの公開
 
-## Creating an Extension
+## 2 エクステンションの作成
 
-We suggest you start your extension by scaffolding out the basic files. You can use the `yo code` Yeoman generator to do this and we cover the details in the [extension generator](/docs/extensions/yocode.md) topic.  The generator will ensure everything is set up so you have a great development experience.
+  基本ファイルを scaffold で作成して拡張機能の開発を始めることをお勧めします。 `yo code` Yeoman ジェネレータを使ってこの捜査ができ、 私たちは [拡張ジェネレータ](/docs/extensions/yocode.md) トピックの詳細をカバーします。 ジェネレータはすべてがセットアップされていることを保証し、開発経験が豊富です。
 
-## Running and Debugging your Extension
+## 3 エクステンションの実行とデバッグ
 
-You can easily run your extension under the debugger by pressing `F5`. This opens a new VS Code window with your extension loaded. Output from your extension shows up in the `Debug Console`. You can set break points, step through your code, and inspect variables either in the `Debug` view or the `Debug Console`.
+`F5` を押すと、デバッガの下でエクステンションを簡単に実行することができます。 拡張機能がロードされた新しい VS Code ウィンドウが開きます。 拡張モジュールの出力は `Debug Console` に表示されます。 ブレークポイントを設定し、コードをステップ実行し、 `Debug` ビューまたは `Debug Console` で変数を検査することができます。
 
 ![Debugging extensions](images/debugging-extensions/debug.png)
 
-Let's peek at what is going on behind the scenes. If you are writing your extension in TypeScript then your code must first be compiled to JavaScript.
+舞台裏で何が起こっているのかを見てみましょう。 TypeScript に拡張機能を書く場合は、コードを JavaScript にコンパイルする必要があります。
 
-## Compiling TypeScript
+## 4 TypeScript をコンパイルする
 
-The TypeScript compilation is setup as follows in the generated extension:
+TypeScript のコンパイルは、生成された拡張で次のように設定されます。
 
-* A `tsconfig.json` defines the compile options for the TypeScript compiler. Read more about it at the [TypeScript wiki](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) or in our [TypeScript Language Section](/docs/languages/typescript.md#tsconfigjson).
-* A TypeScript compiler with the proper version is included inside the node_modules folder.
-* The API definition is included in `node_modules/vscode`.
+* `tsconfig.json` は、 TypeScript コンパイラのコンパイルオプションを定義します。 詳細については、[TypeScript wiki](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) または [TypeScript言語セクション](/docs/languages/typescript.md#tsconfigjson)。
+* 適切なバージョンの TypeScript コンパイラが node_modules フォルダ内に含まれています。
+* API 定義は `node_modules/vscode` に含まれています。
 
-The TypeScript compilation is triggered before running your extension. This is done with the `preLaunchTask` attribute defined in the
-`.vscode/launch.json` file which declares a task to be executed before starting the debugging session. The task is defined inside the `.vscode/tasks.json` file.
+拡張機能を実行する前に TypeScript のコンパイルがトリガーされます。 これは `preLaunchTask` 属性で定義されています。
+デバッグセッションを開始する前に実行するタスクを宣言する `.vscode/launch.json` ファイルです。 タスクは `.vscode/ tasks.json` ファイルの中で定義されます。
 
-> **Note:** The TypeScript compiler is started in watch mode, so that it compiles the files as you make changes.
+> **注:** TypeScript コンパイラは時計モードで起動されるため、変更を加えるとファイルがコンパイルされます。
 
-## Launching your Extension
+## 5 エクステンションを起動する
 
-Your extension is launched in a new window with the title `Extension Development Host`. This window runs VS Code or more
-precisely the `Extension Host` with your extension under development.
+あなたの拡張機能は、 `Extension Development Host` というタイトルの新しいウィンドウで起動されます。 このウィンドウは、 VS Code を実行するか、より正確には拡張機能を使用して開発中の拡張ホストを実行します。
 
-You can accomplish the same from the command line using the `extensionDevelopmentPath` option. This option tells VS Code in what
-other locations it should look for extensions, e.g.,
+`extensionDevelopmentPath` オプションを使用してコマンドラインからも同じことができます。 このオプションは VS Code に
+拡張子を探すべき他の場所、例えば、
 
 >`code --extensionDevelopmentPath=_my_extension_folder`.
 
-Once the Extension Host is launched, VS Code attaches the debugger to it and starts the debug session.
+エクステンションホストが起動すると、 VS Code はデバッガをアタッチしてデバッグセッションを開始します。
 
-This is what happens when pressing `F5`:
+これは `F5` を押すと起こります：
 
- 1. `.vscode/launch.json` instructs to first run a task named `npm`.
- 2. `.vscode/tasks.json` defines the task `npm` as a shell command to `npm run compile`.
- 3. `package.json` defines the script `compile` as `tsc -watch -p ./`
- 4. This eventually invokes the TypeScript compiler included in node_modules, which generates `out/src/extension.js` and `out/src/extension.js.map`.
- 5. Once the TypeScript compilation task is finished, the `code --extensionDevelopmentPath=${workspaceRoot}` process is spawned.
- 6. The second instance of VS Code is launched in a special mode and it searches for an extension at `${workspaceRoot}`.
+  1. `.vscode/launch.json` は `npm` という名前のタスクを最初に実行するよう指示します。
+  2. `.vscode/tasks.json` はタスク `npm` を `npm run compile` のシェルコマンドとして定義します。
+  3. `package.json` はスクリプト `compile` を `tsc -watch -p ./` として定義します。
+  これにより、最終的に node_modules に含まれる TypeScript コンパイラが呼び出され、 `out/src/extension.js` と ` out/src/extension.js.map` が生成されます。
+  5. TypeScriptのコンパイルタスクが終了すると、 `code --extensionDevelopmentPath=${workspaceRoot}` プロセスが生成されます。
+  6. VSコードの2番目のインスタンスは特殊モードで起動され、 `${workspaceRoot}` で拡張子を検索します。
 
-## Changing and Reloading your Extension
+## 6 エクステンションの変更と再読み込み
 
-Since the TypeScript compiler is run in watch mode, the TypeScript files are automatically compiled as you make changes. You can observe
-the compilation progress on the left side of the VS Code status bar. On the status bar you can also see the error and warning counts of a
-compilation. When the compilation is complete with no errors, you must reload the `Extension Development Host` so that it picks up
-your changes. You have two options to do this:
+TypeScript コンパイラは watch モードで実行されるため、変更を加えると TypeScript ファイルが自動的にコンパイルされます。
+コンパイルの進捗状況は、VS Code のステータスバーの左側で確認できます。
+ステータスバーには、コンパイルのエラー数と警告数も表示されます。
+コンパイルがエラーなしで完了したら、 `Extension Development Host` を再ロードして、変更が反映されるようにする必要があります。
+これを行うには2つの選択肢があります：
 
-* Click on the debug restart action to relaunch the Extension Development Host window.
-* Press `kbstyle(Ctrl+R)` (Mac: `kbstyle(Cmd+R)`) in the Extension Development Host window.
+* debug restart アクションをクリックして、拡張開発ホストウィンドウを再起動します。
+* 拡張開発ホストウィンドウで `kbstyle(Ctrl+R)` (Mac: `kbstyle(Cmd+R)`) を押します。
 
-## Next Steps
+## 7 次のステップ
 
-* [Testing your Extension](/docs/extensions/testing-extensions.md) - Learn how to write unit and integration tests for your extension
-* [Publishing Tool](/docs/extensions/publish-extension.md) - Publish your extension with the vsce command line tool.
-* [Extension Manifest file](/docs/extensionAPI/extension-manifest.md) - VS Code extension manifest file reference
-* [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs
+* [拡張機能のテスト](/docs/extensions/testing-extensions.md) - 拡張機能のユニットテストと統合テストの作成方法を学ぶ
+* [公開ツール](/docs/extensions/publish-extension.md) - vsce コマンドラインツールで拡張機能を公開します。
+* [拡張マニフェストファイル](/docs/extensionAPI/extension-manifest.md) - VS Code 拡張マニフェストファイルリファレンス
+* [Extension API](/docs/extensionAPI/overview.md) - VS Code 拡張 API の詳細
 
-## Common Questions
+## 8 よくある質問
 
-**Q: How can I use API from my extension that was introduced in a newer release of VS Code?**
+**Q: VS Code の新しいリリースで導入された拡張機能から API を使用するにはどうしたらいいですか？**
 
-**A:** If your extension is using an API that was introduced in a newer release of VS Code, you have to declare this dependency in the
-`engines` field of the `package.json` file of the extension.
+**A:** エクステンションがVSコードの新しいリリースで導入された API を使用している場合は、この依存関係をエクステンションの `package.json` ファイルの `engines` フィールドに宣言する必要があります。
 
-Here are the steps:
+手順は次のとおりです:
 
-* Set the minimal version of VS Code that your extension requires in the `engine` field of the `package.json`.
-* Make sure your devDependency for the `vscode` module is at least `0.11.0`.
-* Add a `postinstall` script to your `package.json` like this:
+* あなたの拡張モジュールが `package.json` の `engine` フィールドに必要とする VS Code の最小バージョンを設定します。
+* `vscode` モジュールの devDependency が少なくとも `0.11.0` であることを確認してください。
+* `postinstall` スクリプトを `package.json` に以下のように追加してください:
 
 ```json
 "scripts": {
@@ -100,6 +99,7 @@ Here are the steps:
 }
 ```
 
-* Type `npm install` from the root of your extension.
-* The `vscode` module will download the appropriate version of `vscode.d.ts` based on the `engine` field you declared.
-* Go back to VS Code and see how the API for the specific version you chose appears in IntelliSense and validation.
+* あなたの拡張機能のルートから `npm install` と入力してください。
+* `vscode` モジュールはあなたが宣言した `engine` フィールドに基づいて `vscode.d.ts` の適切なバージョンをダウンロードします。
+* VS Code に戻って、選択した特定のバージョンの API が IntelliSense と検証にどのように表示されるかを確認してください。
+

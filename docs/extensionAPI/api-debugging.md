@@ -38,6 +38,7 @@ MetaDescription: Visual Studio Code extensions (plug-ins) Debugging API.
   [Mono Debug](https://github.com/Microsoft/vscode-mono-debug.git) | Mono用のシンプルなC＃デバッガ| C＃
   [Mock Debug](https://github.com/Microsoft/vscode-mock-debug.git) | 'フェイク' デバッガ | TypeScript/JavaScript
 
+
 ## 2 簡単な VS Code デバッグプロトコル
 
   このセクションでは、VS Code とデバッグアダプタ間の相互作用の概要を説明します。

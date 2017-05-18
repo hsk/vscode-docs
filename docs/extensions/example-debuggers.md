@@ -15,12 +15,12 @@ MetaDescription: Learn how to provide debug service extensions (plug-ins) for Vi
   これらのデバッグ拡張は、その実装が拡張ホストではなく、独立したスタンドアロンのプログラムとして、いわゆるデバッグアダプタとして実行されている点で、他の拡張とは異なります。これらのプログラムは、VSコードで使用されるVSコードデバッグプロトコルに具体的なデバッガまたはランタイムのAPIまたはプロトコルを「適応」するため、これらのプログラムアダプタと呼ばれます。
 
   ![Debugger Architecture](images/example-debuggers/debug-arch.png)
-  
+
   デバッグ・アダプターをスタンドアロン・エキスパートとして実装する理由は2つあります。第1に、アダプターを特定のデバッガーまたはランタイムに最も適した言語でインプリメントすることが可能になります。第2に、スタンドアロンのプログラムは、基礎となるデバッガやランタイムで必要とされる場合に、より簡単に昇格モードで実行できます。
 
-  ローカルファイアウォールの問題を回避するために、VSコードは、より洗練されたメカニズム（ソケットなど）ではなく、stdin / stdoutを使用してアダプタと通信します。
+  ローカルファイアウォールの問題を回避するために、VS Code は、より洗練されたメカニズム（ソケットなど）ではなく、 stdin/stdout を使用してアダプタと通信します。
 
-  すべてのデバッグ拡張機能は、VSコード起動設定から参照されるデバッグ `type` を定義します。デバッグセッションが開始されると、VSコードはデバッグタイプに基づいてデバッグエクステンションを検索し、エクステンションのデバッグアダプタ実行可能ファイルを別のプロセスとして起動します。デバッグセッションが終了すると、アダプタは停止します。
+  すべてのデバッグ拡張機能は、 VS Code 起動設定から参照されるデバッグ `type` を定義します。デバッグセッションが開始されると、 VS Code はデバッグタイプに基づいてデバッグエクステンションを検索し、エクステンションのデバッグアダプタ実行可能ファイルを別のプロセスとして起動します。デバッグセッションが終了すると、アダプタは停止します。
 
   Visual StudioコードにはNode.js用の2つのデバッグ拡張機能が付属しています。 `node-debug` はノードバージョン<6.3の（推奨されない）v8デバッガプロトコルを使用し、 `node-debug2` はノードバージョン> = 6.3でサポートされるChromeデバッガプロトコル（CDP）を使用します。 [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) からさらに多くのデバッガエクステンションを利用できます。また、自分でデバッガエクステンションを作成することもできます。
 
@@ -30,19 +30,19 @@ MetaDescription: Learn how to provide debug service extensions (plug-ins) for Vi
 
   最初からデバッグアダプタを作成することはこのチュートリアルでは少し重いので、私たちは教育デバッグアダプタ 'スタータキット'として作成した簡単なデバッグアダプタから始めます。それは実際のデバッガとは話しませんが、モックデバッグと呼ばれるので、Mock Debugと呼ばれています。したがって、Mockデバッグはデバッガをシミュレートし、ステップ、継続、ブレークポイント、例外、および可変アクセスをサポートしますが、実際のデバッガには接続されません。
 
-  モックデバッグの開発設定を掘り下げる前に、まずVSコードマーケットプレイスから [事前構築されたバージョン](https://marketplace.visualstudio.com/items/andreweinand.mock-debug) をインストールして試してみましょう。
+  モックデバッグの開発設定を掘り下げる前に、まず VS Code マーケットプレイスから [事前構築されたバージョン](https://marketplace.visualstudio.com/items/andreweinand.mock-debug) をインストールして試してみましょう。
 
   * 拡張機能のビューレットに切り替え、 'Mock'と入力してMockデバッグ拡張機能を検索し、
   * 拡張機能は「インストール」と「再ロード」します。
 
 
-  モックデバッグを試すには：
+モックデバッグを試すには：
 
-  * 新しい空のフォルダ `mock test` を作成し、VSコードで開きます。
+  * 新しい空のフォルダ `mock test` を作成し、 VS Code で開きます。
   * `readme.md` ファイルを作成し、複数行の任意のテキストを入力します。
   * デバッグビューに切り替えて歯車アイコンを押します。
-  * VSコードを使用すると、デフォルトの起動設定を作成するために「環境」を選択できます。 「モックデバッグ」を選択します。
-  * 緑色の「スタート」ボタンを押し、次に「Enter」を押して、提案されたファイル「readme.md」を確定します。
+  * VS Code を使用すると、デフォルトの起動設定を作成するために「環境」を選択できます。 「モックデバッグ」を選択します。
+  * 緑色の「スタート」ボタンを押し、次に「Enter」を押して、提案されたファイル 'readme.md' を確定します。
 
 
   デバッグセッションが開始され、readmeファイルの「ステップ実行」、ブレークポイントの設定とヒット、例外への実行（ `exception` が行に出現する場合）が実行されます。
@@ -54,12 +54,11 @@ MetaDescription: Learn how to provide debug service extensions (plug-ins) for Vi
   * Extensionsビューレットに切り替え、Mock Debug拡張機能の歯車アイコンをクリックして、
   * 'アンインストール'アクションを実行し、ウィンドウを再読み込みします。
 
-
 ## 2. モックデバッグの開発セットアップ
 
   さあ、Mock Debugのソースを手に入れ、VS Code内で開発を始めましょう。
 
-  ```sh
+  ```
   git clone https://github.com/Microsoft/vscode-mock-debug.git
   cd vscode-mock-debug
   npm install
@@ -93,7 +92,6 @@ MetaDescription: Learn how to provide debug service extensions (plug-ins) for Vi
   拡張機能のアクティブなデバッグセッションが既に存在しているので、VSコードデバッガUIは「マルチセッション」モードに入り、CALL STACKビューに表示される2つのデバッグセッション **拡張子** と **サーバー** の名前を表示することで示されます。
 
   ![Debugging Extension and Server](images/example-debuggers/debug-extension-server.png)
-
 
   これで、拡張アダプタとデバッグアダプタの両方を同時にデバッグできるようになりました。 ここに到達するより速い方法は、両方のセッションを自動的に起動する **Extension + Server** 起動設定を使用することです。
 
@@ -243,7 +241,6 @@ MetaDescription: Learn how to provide debug service extensions (plug-ins) for Vi
       }]
       ```
 
-
   3. 両方のアプローチの組み合わせも可能です。 次の例は Mono Debug アダプタからのもので、OS XおよびLinuxではランタイムが必要でWindowsでは実行されないモノラルアプリケーションとして実装されています：
 
       ```json
@@ -258,6 +255,7 @@ MetaDescription: Learn how to provide debug service extensions (plug-ins) for Vi
           }
       }]
       ```
+
 
   **configurationAttributes** は、このデバッガーで使用可能な `launch.json` 属性のスキーマを表します。
   このスキーマは、 `launch.json` を検証し、起動設定を編集するときに IntelliSense とホバーヘルプをサポートするために使用されます。
@@ -328,4 +326,4 @@ MetaDescription: Learn how to provide debug service extensions (plug-ins) for Vi
   デバッグアダプタを作成したら、Marketplaceに公開することができます：
 
   * デバッグアダプタの名前と目的を反映するために `package.json` の属性を更新します。
-  * [拡張機能の共有](/docs/extensions/publish-extension) セクションに記載されているようにMarketplaceにアップロードしてください。
+  * [拡張機能の共有](/docs/extensions/publish-extension) セクションに記載されているように Marketplace にアップロードしてください。

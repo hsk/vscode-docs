@@ -8,76 +8,77 @@ DateApproved: 5/4/2017
 MetaDescription: The Word Count extension (plug-in) example takes you deeper into the Visual Studio Code extensibility model, showing how to interact with the editor and manage extension and VS Code resources.
 ---
 
-# Example - Word Count
+# 例 - ワード数
 
-This document assumes you have read [Your First Extension](/docs/extensions/example-hello-world.md) which covers the basics of VS Code extensibility.
+このドキュメントでは、 VS Code の拡張性の基礎を説明する [Your First Extension](/docs/extensions/example-hello-world.md) を読んだことを前提としています。
 
-Word Count is an end to end tutorial to show you how to create an extension to aid in Markdown authoring.  Before we get into how all of this works, let's have a quick demo of the core features you will be building so you know what to expect.
+Word Count は、エンド・トゥ・エンドのチュートリアルで、Markdownのオーサリングを補助する拡張子を作成する方法を示しています。 どのように動作するのかを理解する前に、構築するコア機能を簡単にデモして、何を期待するのかを理解しておきましょう。
 
-Whenever a `Markdown` file is edited, a status bar message is added.  The message includes the current word count and updates as you type and move from file to file:
+`Markdown`ファイルが編集されるたびに、ステータスバーメッセージが追加されます。 このメッセージには、現在の単語数と入力時の更新がファイルからファイルに移動します。
 
 ![Word Count on Status Bar](images/example-word-count/wordcountevent2.gif)
 
-> **Tip:** The finished sample is available from [this GitHub repository](https://github.com/microsoft/vscode-wordcount) should you have any issues.
+> **ヒント:** 完成したサンプルは問題があれば、[このGitHubリポジトリ](https://github.com/microsoft/vscode-wordcount) から入手できます。
 
 
-## Overview
+## 概要
 
-This example has three sections which will take you through a set of related concepts:
+この例は、3つのセクションから構成され、一連の関連概念を説明します。
 
-1. [Update the Status Bar](/docs/extensions/example-word-count.md#update-the-status-bar) - display custom text in the VS Code `Status Bar`
-2. [Subscribing to Events](/docs/extensions/example-word-count.md#subscribing-to-events) - updating the `Status Bar` based on editor events
-3. [Disposing Extension Resources](/docs/extensions/example-word-count.md#disposing-extension-resources) - release resources like event subscriptions or UI handles
+1. [ステータスバーの更新](/docs/extensions/example-word-count.md#update-the-status-bar) - VSコードのステータスバーにカスタムテキストを表示する
+2. [イベントの購読](/docs/extensions/example-word-count.md#subscribing-to-events) - エディタイベントに基づいて `ステータスバー`を更新する
+3. [拡張リソースの廃棄](/docs/extensions/example-word-count.md#disposing-extension-resources) - イベント購読やUIハンドルなどのリソースを解放する
 
-First make sure you have the latest VS Code extension generator installed then run it:
+まず、最新のVSコード拡張ジェネレータがインストールされていることを確認してから実行してください。
 
 ```bash
 npm install -g yo generator-code
 yo code
 ```
 
-This will open up the extension generator - we will base this example on the TypeScript `New Extension` option. For now, fill in the fields the same way you see them completed in the image below (using 'WordCount' as the extension name and your own name as the publisher).
+拡張ジェネレータが開きます。この例はTypeScriptの `New Extension`オプションに基づいています。今のところ、下の画像で完成したのと同じ方法でフィールドに記入してください（拡張名として「WordCount」、出版社として自分の名前を使用）。
 
 ![Yo Code Word Count Example Output](images/example-word-count/yo1.png)
 
-You can now open VS Code as described in the generator output:
+発電機の出力に記載されているように、VSコードを開くことができます：
 
 ```bash
 cd WordCount
 code .
 ```
 
-## Run the Extension
+## エクステンションを実行する
 
-Before we go on, we can run the extension to make sure everything works as expected by pressing `kb(workbench.action.debug.start)`. As you saw in the previous "Hello World" walkthrough, VS Code opens another window (the **[Extension Development Host]** window) in which your extension will be loaded. You should find the "Hello World" command in the Command Palette (press `kb(workbench.action.showCommands)`) and when you select it, you will see an information box at the top of the window saying "Hello World".
+作業を始める前に、拡張機能を実行して、 `kb(workbench.action.debug.start)` を押してすべてが期待どおりに動作することを確認します。以前の「Hello World」ウォークスルーで見たように、VSコードは拡張機能がロードされる別のウィンドウ（** [拡張開発ホスト] **ウィンドウ）を開きます。コマンドパレット（ "kb（workbench.action.showCommands）"を押す）で "Hello World"コマンドを見つけて、それを選択すると、ウィンドウの上部に "Hello World"という情報ボックスが表示されます。
 
-Now that you have confirmed that the extension is running properly, you can keep the extension development window open if you like. To test out any changes that you make to your extension, you can either press `kb(workbench.action.debug.continue)` again in the development window or reload the extension development window by pressing `kbstyle(Ctrl+R)` (Mac: `kbstyle(Cmd+R)`).
+拡張機能が適切に動作していることを確認したので、必要に応じて拡張機能の開発ウィンドウを開いたままにしておくことができます。あなたのエクステンションに加えた変更をテストするには、開発ウィンドウで `kb（workbench.action.debug.continue）`をもう一度押すか、 `kbstyle（Ctrl + R）`を押してエクステンション開発ウィンドウをリロードしてくださいMac： `kbstyle（Cmd + R）`）。
 
-## Update the Status Bar
+## ステータスバーを更新する
 
-Replace the contents of the generated `extension.ts` file with the code shown below. It declares and instantiates a `WordCounter` class which can count words and shows them in the VS Code Status Bar.  The "Hello Word" command will call `updateWordCount` when invoked.
+生成された `extension.ts`ファイルの内容を以下のコードに置き換えてください。 これは、単語をカウントしてVSコードステータスバーに表示することができる `WordCounter`クラスを宣言し、インスタンス化します。 呼び出されると、 "Hello Word"コマンドは `updateWordCount`を呼び出します。
 
 ```javascript
-// The module 'vscode' contains the VS Code extensibility API
-// Import the necessary extensibility types to use in your code below
+// モジュール 'vscode'にはVSコード拡張APIが含まれています
+// 下のコードで使用するために必要な拡張性タイプをインポートする
 import {window, commands, Disposable, ExtensionContext, StatusBarAlignment, StatusBarItem, TextDocument} from 'vscode';
 
-// This method is called when your extension is activated. Activation is
-// controlled by the activation events defined in package.json.
+//このメソッドは、拡張機能がアクティブになったときに呼び出されます。有効化は
+// package.jsonで定義されているアクティベーションイベントによって制御されます。
 export function activate(context: ExtensionContext) {
 
-    // Use the console to output diagnostic information (console.log) and errors (console.error).
-    // This line of code will only be executed once when your extension is activated.
+    //コンソールを使用して診断情報（console.log）とエラー（console.error）を出力します。
+    //このコード行は、拡張機能がアクティブになったときに一度だけ実行されます。
     console.log('Congratulations, your extension "WordCount" is now active!');
+    //console.log（ 'おめでとうございます、あなたの内線「WordCount」は現在アクティブです！'）;
 
-    // create a new word counter
+    // 新しい単語カウンターを作成する
     let wordCounter = new WordCounter();
 
     var disposable = commands.registerCommand('extension.sayHello', () => {
         wordCounter.updateWordCount();
     });
 
-    // Add to a list of disposables which are disposed when this extension is deactivated.
+    // この拡張機能が無効になったときに処理されるディスポーザブルのリストに追加します。
     context.subscriptions.push(wordCounter);
     context.subscriptions.push(disposable);
 }
@@ -88,12 +89,12 @@ class WordCounter {
 
     public updateWordCount() {
 
-        // Create as needed
+        // 必要に応じて作成する
         if (!this._statusBarItem) {
             this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
         }
 
-        // Get the current text editor
+        // 現在のテキストエディタを取得する
         let editor = window.activeTextEditor;
         if (!editor) {
             this._statusBarItem.hide();
@@ -102,11 +103,11 @@ class WordCounter {
 
         let doc = editor.document;
 
-        // Only update status if an Markdown file
+        // Markdownファイルがあればステータスを更新する
         if (doc.languageId === "markdown") {
             let wordCount = this._getWordCount(doc);
 
-            // Update the status bar
+            // ステータスバーを更新する
             this._statusBarItem.text = wordCount !== 1 ? `${wordCount} Words` : '1 Word';
             this._statusBarItem.show();
         } else { 
@@ -118,7 +119,7 @@ class WordCounter {
 
         let docContent = doc.getText();
 
-        // Parse out unwanted whitespace so the split is accurate
+        //分割が正確になるように不要な空白を解析する
         docContent = docContent.replace(/(< ([^>]+)<)/g, '').replace(/\s+/g, ' ');
         docContent = docContent.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
         let wordCount = 0;
@@ -135,24 +136,24 @@ class WordCounter {
 }
 ```
 
-Now let's try our updates to the extension.
+次に、拡張機能のアップデートを試してみましょう。
 
-We have the compilation of the TypeScript file set on a watch (in the extension's .vscode\tasks.json file) so there is no need to re-build.  Hit `kbstyle(Ctrl+R)` in the **[Extension Development Host]** window where your code is running and the extension will reload (you can also just `kb(workbench.action.debug.start)` from your primary development window).  We still need to activate the code in the same way as before with the "Hello World" command.  Assuming you are in a Markdown file, your Status Bar will display the word count.
+ウォッチ（拡張子の.vscode \ tasks.jsonファイル）にTypeScriptファイルをコンパイルしておくと、再ビルドする必要はありません。あなたのコードが実行されているエクステンション開発ホスト**ウィンドウで `kbstyle（Ctrl + R）`を押すと、拡張機能がリロードされます（あなたは `kb（workbench.action.debug.start）プライマリ開発ウィンドウ）。 "Hello World"コマンドを使用して、前と同じ方法でコードをアクティブ化する必要があります。あなたがMarkdownファイル内にいると仮定すると、あなたのステータスバーは単語数を表示します。
 
 ![Working Word Count](images/example-word-count/wordcount2.png)
 
-This is a good start but it would be cooler if the count updated as your file changed.
+これは良いスタートですが、ファイルが変更されたときにカウントが更新されると、よりクールになります。
 
-## Subscribing to Events
+## イベントを購読する
 
-Let's hook your helper class up to a set of events.
+あなたのヘルパークラスを一連のイベントに接続しましょう。
 
-* `onDidChangeTextEditorSelection` - Event is raised as the cursor position changes
-* `onDidChangeActiveTextEditor` - Event is raised as the active editor changes.
+`onDidChangeTextEditorSelection` - カーソルの位置が変化するとイベントが発生します
+* `onDidChangeActiveTextEditor` - アクティブなエディタが変更されるとイベントが発生します。
 
-To do this, we'll add a new class into the `extension.ts` file. It will set up subscriptions to those events and ask the `WordCounter` to update the word count. Also note how this class manages the subscription as Disposables and how it stops listing when being disposed itself.
+これを行うために、新しいクラスを `extension.ts`ファイルに追加します。これらのイベントの購読を設定し、ワードカウントを更新するように `WordCounter`に依頼します。また、このクラスがDisposablesとしてサブスクリプションを管理する方法と、それ自体が廃棄されるときにリストを停止する方法にも注意してください。
 
-Add the `WordCounterController` as shown below to the bottom of the `extension.ts` file.
+`extension.ts`ファイルの一番下に下記のような` WordCounterController`を追加してください。
 
 ```javascript
 class WordCounterController {
@@ -164,15 +165,15 @@ class WordCounterController {
         this._wordCounter = wordCounter;
         this._wordCounter.updateWordCount();
 
-        // subscribe to selection change and editor activation events
+        // 選択の変更とエディタの起動イベントに登録する
         let subscriptions: Disposable[] = [];
         window.onDidChangeTextEditorSelection(this._onEvent, this, subscriptions);
         window.onDidChangeActiveTextEditor(this._onEvent, this, subscriptions);
 
-        // update the counter for the current file
+        // 現在のファイルのカウンタを更新する
         this._wordCounter.updateWordCount();
 
-        // create a combined disposable from both event subscriptions
+        // 両方のイベントサブスクリプションから組み合わせたディスポーザブルを作成する
         this._disposable = Disposable.from(...subscriptions);
     }
 
@@ -186,25 +187,26 @@ class WordCounterController {
 }
 ```
 
-We no longer want the Word Count extension to be loaded when a command is invoked but instead be available for each *Markdown* file. 
+コマンドが呼び出されたときにWord Count拡張が読み込まれるのではなく、各* Markdown *ファイルで使用できるようになりました。
 
-First, replace the body of the `activate` function with this:
+まず、 `activate`関数の本体を次のように置き換えます。
 
 ```javascript
-// Use the console to output diagnostic information (console.log) and errors (console.error).
-// This line of code will only be executed once when your extension is activated.
+// コンソールを使用して診断情報（console.log）とエラー（console.error）を出力します。
+// このコード行は、拡張機能がアクティブになったときに一度だけ実行されます。
 console.log('Congratulations, your extension "WordCount" is now active!');
+//console.log（ 'おめでとうございます、あなたの内線「WordCount」は現在アクティブです！'）;
 
-// create a new word counter
+// 新しい単語カウンターを作成する
 let wordCounter = new WordCounter();
 let controller = new WordCounterController(wordCounter);
 
-// Add to a list of disposables which are disposed when this extension is deactivated.
+// この拡張機能が無効になったときに処理されるディスポーザブルのリストに追加します。
 context.subscriptions.push(controller);
 context.subscriptions.push(wordCounter);
 ```
 
-Second, we must make sure the extension is activated upon the opening of a `Markdown` file.  To do this, we'll need to modify the `package.json` file.  Previously the extension was activated via the `extension.sayHello` command which we no longer need and so we can delete the entire `contributes` attribute from `package.json`:
+次に、 `Markdown`ファイルのオープン時に拡張機能が有効になっていることを確認する必要があります。これを行うには、 `package.json`ファイルを変更する必要があります。以前は、拡張機能は `extension.sayHello`コマンドで有効になっていました。このコマンドは` package.json`から `contributes`属性全体を削除することができます：
 
 ```json
     "contributes": {
@@ -217,7 +219,7 @@ Second, we must make sure the extension is activated upon the opening of a `Mark
     },
 ```
 
-Now change your extension so that it is activated upon the opening of a *Markdown* file by updating the `activationEvents` attribute to this:
+`activateEvents`属性をこれに更新することによって、* Markdown *ファイルのオープン時にアクティブになるように、あなたの拡張子を変更してください：
 
 ```json
     "activationEvents": [
@@ -225,66 +227,68 @@ Now change your extension so that it is activated upon the opening of a *Markdow
     ]
 ```
 
-The  [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activationeventsonlanguage) event takes the language id, in this case "markdown", and will be raised whenever a file of that language is opened.
+The  [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activationeventsonlanguage) イベントは言語ID（この場合は "markdown"）をとり、その言語のファイルが開かれるたびに呼び出されます。
 
-Run the extension by either doing a window reload `kbstyle(Ctrl+R)` or with `kb(workbench.action.debug.start)` and then start editing a Markdown file.  You should now should have a live updating Word Count.
+ウィンドウリロード `kbstyle（Ctrl + R）`または `kb（workbench.action.debug.start）`を実行して拡張機能を実行し、Markdownファイルの編集を開始します。あなたは今、生きているWord Countを更新する必要があります。
 
 ![Word Count Updating on Events](images/example-word-count/wordcountevent2.gif)
 
-If you set a breakpoint on the `activate` function, you'll notice that it is only called once when the first Markdown file is opened.  The `WordCountController` constructor runs and subscribes to the editor events so that the `updateWordCount` function is called as Markdown files are opened and their text changes. 
+`activate`関数にブレークポイントを設定すると、最初のMarkdownファイルが開かれたときに一度だけ呼び出されることに気づくでしょう。 `WordCountController`コンストラクタが実行され、エディタイベントに登録されるので、Markdownファイルが開かれ、そのテキストが変更されるときに` updateWordCount`関数が呼び出されます。
 
-## Customizing the Status Bar
+## ステータスバーのカスタマイズ
 
-We've seen how you can display formatted text on the Status Bar.  VS Code allows you to customize your Status Bar additions even further with color, icons, tooltips and more.  Using IntelliSense, you can see the various `StatusBarItem` fields.  Another great resource for learning about the VS Code extensibility APIs is the `vscode.d.ts` type declaration file included in your generated Extension project.  Open `node_modules\vscode\vscode.d.ts` in the editor, you'll see the complete VS Code extensibility API with comments.
+ステータスバーに書式設定されたテキストを表示する方法を見てきました。 VSコードを使用すると、ステータスバーの追加を色、アイコン、ツールチップなどでさらにカスタマイズできます。 IntelliSenseを使用すると、さまざまな `StatusBarItem`フィールドを見ることができます。 VSコード拡張APIについて学ぶためのもう1つの素晴らしいリソースは、生成された拡張プロジェクトに含まれる `vscode.d.ts`型宣言ファイルです。エディタで `node_modules \ vscode \ vscode.d.ts`を開くと、コメントを含む完全なVSコード拡張APIが表示されます。
 
 ![vscode-d-ts file](images/example-word-count/vscode-d-ts.png)
 
-Replace the StatusBarItem update code with:
+StatusBarItem更新コードを次のように置き換えます。
 
 ```javascript
-    // Update the status bar
+    // ステータスバーを更新する
     this._statusBarItem.text = wordCount !== 1 ? `$(pencil) ${wordCount} Words` : '$(pencil) 1 Word';
     this._statusBarItem.show();
 ```
 
-to display a [GitHub Octicon](https://octicons.github.com) `pencil` icon to the left of the calculated word count.
+計算された単語数の左に [GitHub Octicon](https://octicons.github.com) の `鉛筆` アイコンが表示されます。
 
 ![Word Count with pencil icon](images/example-word-count/wordcount-pencil.png)
 
-## Disposing Extension Resources
+## 拡張リソースの廃棄
 
-Now we'll take a deeper look at how extensions should handle VS Code resources through [Disposables](/docs/extensionAPI/patterns-and-principles.md#disposables).
+次に、 [Disposables](/docs/extensionAPI/patterns-and-principles.md#disposables) を使って、拡張機能が VS Code リソースをどのように処理するかを詳しく見ていきます。
 
-When an extension is activated, it is passed an `ExtensionContext` object which has a `subscriptions` collection of Disposables. Extensions can add their Disposable objects to this collection and VS Code will dispose of those objects when the extension is deactivated.
+拡張機能が有効化されると、Disposablesの `subscription` コレクションを持つ `ExtensionContext` オブジェクトが渡されます。エクステンションは Disposable オブジェクトをこのコレクションに追加することができ、 VS Code はエクステンションが無効化されたときにそれらのオブジェクトを破棄します。
 
-Many VS Code APIs which create workspace or UI objects (e.g. `registerCommand`) return a Disposable and extensions can remove these elements from VS Code by calling their dispose method directly.
+ワークスペースやUIオブジェクト（例： `registerCommand`）を作成する多くのVSコードAPIはDisposableを返し、disposeメソッドを直接呼び出してVSコードからこれらの要素を削除することができます。
 
-Events are another example where `onDid*` event subscriber methods return a Disposable.  Extensions unsubscribe to an event by disposing the event's Disposable.  In our example, `WordCountController` handles the event subscription Disposables directly by keeping its own Disposable collection which it cleans up on deactivation.
+イベントは `onDid*` イベントサブスクライバメソッドが Disposable を返す別の例です。エクステンションは、イベントの Disposable を廃棄することにより、イベントを退会します。この例では、 `WordCountController` は、イベントサブスクリプションDisposablesを、非アクティブ化時にクリーンアップする独自の Disposable コレクションを保持することによって直接処理します。
 
 ```javascript
-    // subscribe to selection change and editor activation events
+    // 選択の変更とエディタの起動イベントに登録する
     let subscriptions: Disposable[] = [];
     window.onDidChangeTextEditorSelection(this._onEvent, this, subscriptions);
     window.onDidChangeActiveTextEditor(this._onEvent, this, subscriptions);
 
-    // create a combined disposable from both event subscriptions
+    // 両方のイベントサブスクリプションから組み合わせたディスポーザブルを作成する
     this._disposable = Disposable.from(...subscriptions);
 ```
 
-## Installing your Extension Locally
+## あなたの内線番号をローカルにインストールする
 
-So far, the extension you have written only runs in a special instance of VS Code, the Extension Development Host instance. To make your extension available to all VS Code instances, copy the extension folder contents to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder).
+これまでに書いたエクステンションは、エクステンション開発ホストのインスタンスであるVSコードの特別なインスタンスでのみ実行されます。拡張機能をすべてのVSコードインスタンスで使用できるようにするには、拡張フォルダの内容を [.vscode/extensions`フォルダ](/docs/extensions/yocode.md#your-extensions-folder) の下の新しいフォルダにコピーします。
 
-## Publishing your Extension
+## エクステンションを公開する
 
-Read about how to [Share an Extension](/docs/extensions/publish-extension.md).
+[エクステンションを共有する](/docs/extensions/publish-extension.md)の方法をお読みください。
 
-## Next Steps
+## 次のステップ
 
-Read on to find out about:
+詳しくは、次を参照してください。
 
-* [Extension Generator](/docs/extensions/yocode.md) - Learn about other options in the Yo Code extension generator.
-* [Extension API](/docs/extensionAPI/overview.md) - Get an overview of the Extension API.
-* [Publishing Tool](/docs/extensions/publish-extension.md) - Learn how to publish an extension to the public Marketplace.
-* [Editor API](/docs/extensionAPI/vscode-api.md#window) - Learn more about Text Documents, Text Editors and editing text.
-* [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.
+* [Extension Generator](/docs/extensions/yocode.md) - Yoコード拡張ジェネレータのその他のオプションについて学びます。
+* [Extension API](/docs/extensionAPI/overview.md) - Extension API の概要を取得します。
+* [公開ツール](/docs/extensions/publish-extension.md) - 公開マーケットプレイスにエクステンションを公開する方法を学びます。
+* [エディタAPI](/docs/extensionAPI/vscode-api.md#window) - テキストドキュメント、テキストエディタ、およびテキストの編集について学んでください。
+* [その他の拡張の例](/docs/extensions/samples.md) - サンプルの拡張プロジェクトの一覧を見てください。
+
+
