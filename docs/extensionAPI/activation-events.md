@@ -8,9 +8,9 @@ DateApproved: 5/4/2017
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of activation events in the package.json extension manifest file. 
 ---
 
-# Activation Events - package.json
+# アクティベーションイベント - package.json
 
-Extensions are activated lazily in VS Code.  As a result you need to provide VS Code with context as to when your extension should be activated.  We support the following activation events:
+拡張機能は、 VS Code で遅延してアクティブ化されます。 その結果、 拡張機能をアクティブにする必要があるときに、 VS Code にコンテキストを提供する必要があります。 私たちは以下のアクティベーションイベントをサポートしています:
 
 * [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activationeventsonlanguage)
 * [`onCommand:${command}`](/docs/extensionAPI/activation-events.md#activationeventsoncommand)
@@ -18,11 +18,11 @@ Extensions are activated lazily in VS Code.  As a result you need to provide VS 
 * [`workspaceContains:${toplevelfilename}`](/docs/extensionAPI/activation-events.md#activationeventsworkspacecontains)
 * [`*`](/docs/extensionAPI/activation-events.md#activationevents)
 
-We also provide an overview of the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md) and the minimum required fields.
+また、 [`package.json` 拡張マニフェスト](/docs/extensionAPI/extension-manifest.md) と最小必須フィールドの概要も提供します。
 
 ## activationEvents.onLanguage
 
-This activation event is emitted and interested extensions will be activated whenever a file that resolves to a certain language gets opened.
+このアクティベーションイベントが発行され、特定の言語に解決されるファイルが開かれるたびに関心のある拡張機能がアクティブになります。
 
 ```json
 ...
@@ -34,7 +34,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 ## activationEvents.onCommand
 
-This activation event is emitted and interested extensions will be activated whenever a command is being invoked:
+この起動イベントが発行され、コマンドが呼び出されるたびに関心のある拡張機能が有効になります:
 
 ```json
 ...
@@ -46,7 +46,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 ## activationEvents.onDebug
 
-This activation event is emitted and interested extensions will be activated whenever a debug session of the specified type is started:
+このアクティベーションイベントが発行され、指定されたタイプのデバッグセッションが開始されるたびに関心のある拡張がアクティブになります:
 
 ```json
 ...
@@ -58,7 +58,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 ## activationEvents.workspaceContains
 
-This activation event is emitted and interested extensions will be activated whenever a folder is opened and the folder contains a top-level file.
+このアクティベーションイベントが発生し、フォルダが開かれ、フォルダにトップレベルのファイルが含まれている場合は、該当する拡張機能が有効になります。
 
 ```json
 ...
@@ -70,7 +70,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 ## activationEvents.*
 
-This activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
+このアクティベーションイベントが発生し、 VS Code が起動するたびに関心のある内線番号が有効になります。優れたエンドユーザーエクスペリエンスを確保するには、拡張機能でこのアクティベーションイベントを使用してください。
 
 ```json
 ...
@@ -80,13 +80,18 @@ This activation event is emitted and interested extensions will be activated whe
 ...
 ```
 
-> **Note:** An extension can listen to multiple activation events, and that is preferable to listening to `"*"`.
+> **注意:** 拡張機能は、複数の起動イベントを listen することができ、それは `"*"` を listening するよりも好ましい方法です。
 
-> **Note:** An extension **must** export an `activate()` function from its main module and it will be invoked **only once** by VS Code when any of the specified activation events is emitted. Also, an extension **should** export a `deactivate()` function from its main module to perform cleanup tasks on VS Code shutdown. Extension **must** return a Promise from `deactivate()` if the cleanup process is asynchronous. An extension may return `undefined` from `deactivate()` if the cleanup runs synchronously.
+> **注意:** 拡張モジュールは主モジュールから `activate()`関数をエクスポート**しなければならず**、
+指定された起動イベントのいずれかが発行されると VS Code によって**一度だけ**呼び出されます。
+また、拡張モジュールはメインモジュールから  `deactivate()` 関数をエクスポートして、 VS Code のシャットダウン時にクリーンアップタスクを実行する**必要があります**。
+クリーンアッププロセスが非同期である場合、 拡張は `deactivate()` から Promise を**返さなければなりません**。
+クリーンアップが同期して実行されている場合、拡張機能は `deactivate()` から `undefined` を返します。
 
-## Next Steps
+## 次のステップ
 
-To learn more about VS Code extensibility model, try these topic:
+VS Code の拡張性モデルの詳細については、次のトピックを参照してください:
 
-* [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
-* [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
+* [拡張マニフェストファイル](/docs/extensionAPI/extension-manifest.md) - VS Code package.json 拡張マニフェストファイルリファレンス
+* [貢献ポイント](/docs/extensionAPI/extension-points.md) - VS Code 投稿ポイントリファレンス
+

@@ -12,32 +12,36 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
 
 ## 1. 初めてのエクステンション
 
-  このドキュメントでは、最初のVSコード拡張（"Hello World"）を作成し、基本的なVSコードの拡張性の概念について説明します。
+  このドキュメントでは、最初の VS Code 拡張 ("Hello World") を作成し、基本的な VS Code の拡張性の概念について説明します。
 
-  このチュートリアルでは、簡単な "Hello World" メッセージを表示するVSコードに新しいコマンドを追加します。 ウォークスルーの後半では、VSコードエディタとやり取りして、現在選択されているユーザーのテキストをクエリします。
+  このチュートリアルでは、簡単な "Hello World" メッセージを表示する VS Code に新しいコマンドを追加します。
+  ウォークスルーの後半では、 VS Code エディタとやり取りして、現在選択されているユーザーのテキストをクエリします。
 
 ## 2. 前提条件
 
-  `$PATH` には [Node.js](https://nodejs.org/ja/) がインストールされていなければなりません。
+  `$PATH` には [Node.js](https:// nodejs.org/ja/) がインストールされていなければなりません。
 
 ## 3. 新しい拡張の生成
 
-  VS Code に独自の機能を追加する最も簡単な方法は、 コマンドを追加することです。 コマンドは、 **Command Palette** から呼び出すことができるコールバック関数を登録するか、 またはキーバインドで登録します。
+  VS Code に独自の機能を追加する最も簡単な方法は、 コマンドを追加することです。
+  コマンドは、 **Command Palette** から呼び出すことができるコールバック関数を登録するか、 またはキーバインドで登録します。
 
-  Yeoman ジェネレータを書いて、 開始するのに役立ちます。 Yeoman と [Yeoman VS Code Extension generator](/docs/extensions/yocode.md) をインストールし、新しい拡張子を scaffold してください：
+  Yeoman ジェネレータを叩いて、 開始するのに役立てます。
+  Yeoman と [Yeoman VS Code Extension generator](/docs/extensions/yocode.md) をインストールし、新しい拡張を scaffold してください:
 
   ```sh
   npm install -g yo generator-code
   yo code
   ```
 
-  hello world拡張機能の場合は、 **TypeScript** 拡張機能または **JavaScript** 拡張機能のいずれかを作成できます。 この例では、 **TypeScript** 拡張を選択します。
+  hello world 拡張の場合は、 **TypeScript** 拡張または **JavaScript** 拡張のいずれかを作成できます。
+  この例では、 **TypeScript** 拡張を選択します。
 
   ![The command generator](images/example-hello-world/generator.png)
 
 ## 4. エクステンションを実行する
 
-  * VS Code を起動し、 `File` > `Open Folder`を選択し、生成したフォルダを選択します。
+  * VS Code を起動し、 `File` > `Open Folder` を選択し、生成したフォルダを選択します。
   * `kb(workbench.action.debug.start)` を押すか、 `Debug` アイコンをクリックして `Start` をクリックしてください。
   * VS Code の新しいインスタンスは特殊モード(拡張開発ホスト) で起動し、 **この新しいインスタンスはあなたの拡張機能を認識しています**。
   * `kb(workbench.action.showCommands)` を押し、 `Hello World` というコマンドを実行します。
@@ -82,7 +86,7 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
 
   これらすべてのファイルの目的を理解し、その内容を説明しましょう:
 
- ### 5.1 拡張マニフェスト： `package.json`
+ ### 5.1 拡張マニフェスト：:
 
   * [`package.json` 拡張マニフェストのリファレンス](/docs/extensionAPI/extension-manifest.md) をお読みください
   * [`package.json` コントリビューションポイント](/docs/extensionAPI/extension-points.md) に関する詳細情報
@@ -129,18 +133,8 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
   }
   ```
 
-  > **注意：** JavaScript 拡張は `scripts` フィールドを必要とせず、 コンパイルが必要ありません。
-
-  * この特定の package.json は、 次の拡張機能について説明しています:
-
-  * コマンド・パレット (`kb(workbench.action.showCommands)`) に `"Hello world"` というラベルを付けて、 `"extension.sayHello"` コマンドを呼び出すエントリを *提供(contributes)* します。
-
-  * `"extension.sayHello"` コマンドが呼び出されたときに(*activationEvents*)をロードするためにリクエストします。
-  * `"./out/src/extension.js"` というファイルに *main* JavaScriptコードがあります。
-
-
-  > **注：** VS Code は、起動時に拡張機能のコードを熱心にロード**しません**。
-  拡張機能は、どのような条件の下で[`activateEvents`](/docs/extensionAPI/activation-events.md) プロパティを使用してアクティブ化（ロード）するべきかを記述する必要があります。
+  > **注意:** VS Code は、起動時に拡張機能のコードを熱心にロード**しません**。
+  拡張機能は、どのような条件の下で [`activateEvents`](/docs/extensionAPI/activation-events.md) プロパティを使用してアクティブ化(ロード)するべきかを記述する必要があります。
 
  ### 5.2 生成されたコード
 
@@ -173,19 +167,16 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
   }
   ```
 
-  * それぞれの拡張モジュールは `activate（）` という名前の関数をメインファイルからエクスポートする必要があり、
+  * それぞれの拡張モジュールは `activate()` という名前の関数をメインファイルからエクスポートする必要があり、
     どの VS Code でも、 `package.json` ファイルに記述されている `activationEvents` のどれかが出現したときに **一度だけ** 起動します。
 
-  * If an extension makes use of OS resources (e.g. spawns processes), the extension can export from its main file a function named `deactivate()` where it can do clean-up work and VS Code will invoke that function on shutdown.
-  * This specific extension imports the `vscode` API and then registers a command, associating a function to be called when the command `"extension.sayHello"` gets invoked. The command's implementation displays a "Hello world" message in VS Code.
+  * 拡張機能がOSリソース(例えばプロセスを生成する)を利用する場合、拡張機能はメインファイルから `deactivate()`関数をエクスポートして、クリーンアップ作業を行い、 VS Code がシャットダウン時にその関数を呼び出すことができます。
 
-  * 拡張機能がOSリソース（例えばプロセスを生成する）を利用する場合、拡張機能はメインファイルから `deactivate（）`関数をエクスポートして、クリーンアップ作業を行い、VSコードがシャットダウン時にその関数を呼び出すことができます。
+  * この特定の拡張機能は、 `vscode` APIをインポートしてから、` `extension.sayHello" `コマンドが呼び出されるときに呼び出される関数を関連付けるコマンドを登録します。 コマンドの実装では、V Sコ Code に「Hello world」というメッセージが表示されます。
 
-  * この特定の拡張機能は、 `vscode` APIをインポートしてから、` `extension.sayHello" `コマンドが呼び出されるときに呼び出される関数を関連付けるコマンドを登録します。 コマンドの実装では、VSコードに「Hello world」というメッセージが表示されます。
+  > **注意：** `package.json` の `contributes` セクションは、コマンドパレットにエントリを追加します。 extension.ts/.jsのコードは `"extension.sayHello"` の実装を定義します。
 
-  > **注意：** `package.json`の` contributes`セクションは、コマンドパレットにエントリを追加します。 extension.ts / .jsのコードは `` extension.sayHello "`の実装を定義します。
-
-  > **注：** TypeScript拡張の場合、生成されたファイル `out / src / extension.js`は実行時に読み込まれ、VSコードで実行されます。
+  > **注：** TypeScript拡張の場合、生成されたファイル `out/src/extension.js` は実行時に読み込まれ、 VS Code で実行されます。
 
   > **Note:** The `contributes` section of the `package.json` adds an entry to the Command Palette.  The code in extension.ts/.js defines the implementation of `"extension.sayHello"`.
 
@@ -193,13 +184,13 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
 
  ### 5.3 その他のファイル
 
-  * `.vscode / launch.json`は、エクステンション開発モードでVSコードを起動することを定義します。 また、 `PreLaunchTask`はTypeScriptコンパイラを実行する` .vscode / tasks.json`で定義されたタスクを指しています。
-  * `.vscode / settings.json`はデフォルトで` out`フォルダを除外します。 隠すファイルタイプを変更することができます。
+  * `.vscode/launch.json`は、エクステンション開発モードで VS Code を起動することを定義します。 また、 `PreLaunchTask`はTypeScriptコンパイラを実行する` .vscode/tasks.json`で定義されたタスクを指しています。
+  * `.vscode/settings.json`はデフォルトで` out`フォルダを除外します。 隠すファイルタイプを変更することができます。
   * `.gitignore` - どのパターンを無視するかをGitに指示します。
-  * [`.vscodeignore`]（/ docs / extensions / publish-extension.md＃advanced-usage） - 拡張機能を公開する際に無視するファイルをパッケージツールに指示します。
-  * `README.md` - VSコードユーザー用の拡張機能を説明するREADMEファイル。
+  * [`.vscodeignore`](/docs/extensions/publish-extension.md＃advanced-usage) - 拡張機能を公開する際に無視するファイルをパッケージツールに指示します。
+  * `README.md` -  VS Code ユーザー用の拡張機能を説明するREADMEファイル。
   * `vsc-extension-quickstart.md` - クイックスタートガイドです。
-  * `test / extension.test.ts` - あなたの拡張ユニットテストをここに入れ、VSコードAPIに対してテストを実行することができます（[拡張機能のテスト]（/ docs / extensions / testing-extensions.mdを参照））
+  * `test/extension.test.ts` - あなたの拡張ユニットテストをここに入れ、 VS Code APIに対してテストを実行することができます([拡張機能のテスト](/docs/extensions/testing-extensions.mdを参照)
 
   * `.vscode/launch.json` defines launching VS Code in the Extension Development mode. It also points with `preLaunchTask` to a task defined in `.vscode/tasks.json` that runs the TypeScript compiler.
   * `.vscode/settings.json` by default excludes the `out` folder.  You can modify which file types you want to hide.
@@ -216,15 +207,15 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
   Now that the roles of the files included in the extension are clarified, here is how your extension gets activated:
 
   * 拡張開発インスタンスは、拡張を検出し、その `package.json`ファイルを読み込みます。
-  * 後で `kb（workbench.action.showCommands）`を押すと：
+  * 後で `kb(workbench.action.showCommands）`を押すと：
    * 登録されたコマンドは、コマンドパレットに表示されます。
-   * このリストには、 `` Hello world "`というエントリがあり、これは `package.json`で定義されています。
-  * `` Hello world "`コマンドを選択するとき：
-   * コマンド "extension.sayHello"が呼び出されます：
-     * 起動イベント `` onCommand：extension.sayHello "`が生成されます。
+   * このリストには、 `"Hello world"` というエントリがあり、これは `package.json` で定義されています。
+  * `"Hello world"` コマンドを選択するとき：
+   * コマンド "extension.sayHello" が呼び出されます：
+     * 起動イベント `"onCommand：extension.sayHello"` が生成されます。
      * このactivationイベントを `activateEvents`にリストしたすべての拡張機能が有効になります。
-       * `。/ out / src / extension.js`のファイルがJavaScript VMにロードされます。
-       * VSコードは、エクスポートされた関数 `activate`を探して呼び出します。
+       * `。/out/src/extension.js`のファイルがJavaScript VMにロードされます。
+       *  VS Code は、エクスポートされた関数 `activate`を探して呼び出します。
        * コマンド "extension.sayHello"が登録され、その実装が定義されました。
    * コマンド "extension.sayHello"の実装関数が呼び出されます。
    * コマンドの実装では、「Hello World」というメッセージが表示されます。
@@ -259,19 +250,17 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
 
   たとえば、登録されたコマンドの中にブレークポイントを設定し、Extension Development VS Codeインスタンスで `` Hello world "`コマンドを実行します。
 
-  ！[拡張機能のデバッグ]（images / example-hello-world / hitbp.png）
+  ！[拡張機能のデバッグ](images/example-hello-world/hitbp.png）
 
-  > **注意：** TypeScript拡張の場合、VSコードが `out / src / extension.js`をロードして実行しても、実際に生成されたソースマップ` out / src / extensionによって元のTypeScriptコードをデバッグすることができます .js.map`とソースコードのVS Codeのデバッガサポートが含まれています。
+  > **注意：** TypeScript拡張の場合、 VS Code が `out/src/extension.js`をロードして実行しても、実際に生成されたソースマップ` out/src/extensionによって元のTypeScriptコードをデバッグすることができます .js.map`とソースコードのVS Codeのデバッガサポートが含まれています。
 
   > **ヒント：**デバッグコンソールには、コンソールにログするすべてのメッセージが表示されます。
 
-  拡張機能[開発環境]（/ docs / extensions / debugging-extensions.md）の詳細については、こちらをご覧ください。
+  拡張機能[開発環境](/docs/extensions/debugging-extensions.md）の詳細については、こちらをご覧ください。
 
 ## 8 単純な変更
 
-  In `extension.ts` (or `extension.js`, in a JavaScript extension), try replacing the `extension.sayHello` command implementation to show the number of characters selected in the editor:
-
-  `extension.ts`（またはJavaScript拡張モジュールの` extension.js`）では、エディタで選択された文字数を表示するために `extension.sayHello`コマンド実装を置き換えてみてください：
+  `extension.ts`(またはJavaScript拡張モジュールの`extension.js`）では、エディタで選択された文字数を表示するために `extension.sayHello`コマンド実装を置き換えてみてください：
 
   ```javascript
   var editor = vscode.window.activeTextEditor;
@@ -286,26 +275,17 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
   vscode.window.showInformationMessage('Selected characters: ' + text.length);
   ```
 
-  > **Tip:** Once you make changes to the extension source code, you need to restart the Extension Development instance of VS Code.
-  You can do that by using `kbstyle(Ctrl+R)` (Mac: `kbstyle(Cmd+R)`) in the second instance or by clicking the Restart button at the top of your primary VS Code instance.
-
   > **ヒント：** 拡張ソースコードを変更したら、VSコードの拡張開発インスタンスを再起動する必要があります。
-  2番目のインスタンスで `kbstyle（Ctrl + R）`（Mac： `kbstyle（Cmd + R）`）を使用するか、プライマリVSコードインスタンスの一番上にあるRestartボタンをクリックしてください。
+  2番目のインスタンスで `kbstyle(Ctrl + R）`(Mac： `kbstyle(Cmd + R）`）を使用するか、プライマリ VS Code インスタンスの一番上にあるRestartボタンをクリックしてください。
 
   ![Running the modified extension](images/example-hello-world/selection-length.png)
 
 ## 9 ローカルに作成した拡張をインストールする
 
-  So far, the extension you have written only runs in a special instance of VS Code, the Extension Development instance. To get your extension running in all instances of VS Code, you need to copy it to a new folder under your local extensions folder:
-
-  * Windows: `%USERPROFILE%\.vscode\extensions`
-  * Mac/Linux: `$HOME/.vscode/extensions`
-
-
   これまでに書いた拡張機能は、Extension DevelopmentのインスタンスであるVSコードの特別なインスタンスでのみ実行されます。 エクステンションをVSコードのすべてのインスタンスで実行するには、ローカルエクステンションフォルダの下の新しいフォルダにコピーする必要があります。
 
   * Windows： `％USERPROFILE％\。vscode \ extensions`
-  * Mac / Linux： `$ HOME / .vscode / extensions`
+  * Mac/Linux： `$ HOME/.vscode/extensions`
 
 ## 10 エクステンションを公開する
 
@@ -314,22 +294,12 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
 
 ## 11 次のステップ
 
-  In this walkthrough, we've seen a very simple extension. For a more detailed example, see the [Word Count Example](/docs/extensions/example-word-count.md) which shows how to target a specific language (Markdown) and listen to the editor's document changed events.
-
-  If you'd like to read more generally about the extension APIs, try these topics:
-
-  このチュートリアルでは、非常に単純な拡張を見てきました。より詳細な例については、特定の言語（Markdown）をターゲットにしてエディタのドキュメント変更イベントを聞く方法を示す[ワード数の例]（/ docs / extensions / example- word-count.md）を参照してください。
+  このチュートリアルでは、非常に単純な拡張を見てきました。より詳細な例については、特定の言語(Markdown）をターゲットにしてエディタのドキュメント変更イベントを聞く方法を示す[ワード数の例](/docs/extensions/example-word-count.md）を参照してください。
 
   より一般的な拡張APIについては、次のトピックを参照してください。
 
-  * [Extension API Overview](/docs/extensionAPI/overview.md) - Learn about the full VS Code extensibility model.
-  * [API Principles and Patterns](/docs/extensionAPI/patterns-and-principles.md) - VS Code extensibility is based on several guiding principles and patterns.
-  * [Contribution Points](/docs/extensionAPI/extension-points.md) - Details about the various VS Code contribution points.
-  * [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
-  * [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.
-
-  * [Extension API Overview]（/ docs / extensionAPI / overview.md） - 完全なVSコード拡張性モデルについて学びます。
-  * [APIの原則とパターン]（/ docs / extensionAPI / patterns-and-principles.md） - VSコードの拡張性は、いくつかの基本原則とパターンに基づいています。
-  * [Contribution Points]（/ docs / extensionAPI / extension-points.md） - さまざまなVSコードの寄付ポイントの詳細。
-  * [アクティベーションイベント]（/ docs / extensionAPI / activation-events.md） - VSコードアクティベーションイベントリファレンス
-  * [その他の拡張の例]（/ docs / extensions / samples.md） - サンプルの拡張プロジェクトの一覧を見てください。
+  * [Extension API Overview](/docs/extensionAPI/overview.md) - 完全なVSコード拡張性モデルについて学びます。
+  * [APIの原則とパターン](/docs/extensionAPI/patterns-and-principles.md) - VSコードの拡張性は、いくつかの基本原則とパターンに基づいています。
+  * [Contribution Points](/docs/extensionAPI/extension-points.md) - さまざまなVSコードの寄付ポイントの詳細。
+  * [アクティベーションイベント](/docs/extensionAPI/activation-events.md) - VSコードアクティベーションイベントリファレンス
+  * [その他の拡張の例](/docs/extensions/samples.md) - サンプルの拡張プロジェクトの一覧を見てください。
