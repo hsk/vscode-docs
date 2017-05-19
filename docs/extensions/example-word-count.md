@@ -26,7 +26,7 @@ Word Count は、 エンド・トゥ・エンドのチュートリアルで、 M
 この例は、3つのセクションから構成され、一連の関連概念を説明します。
 
 1. [ステータスバーの更新](/docs/extensions/example-word-count.md#update-the-status-bar) - VS Code の `ステータスバー` にカスタムテキストを表示します
-2. [イベントの購読](/docs/extensions/example-word-count.md#subscribing-to-events) - エディタイベントに基づいて `ステータスバー`　を更新します
+2. [イベントの購読](/docs/extensions/example-word-count.md#subscribing-to-events) - エディタイベントに基づいて `ステータスバー` を更新します
 3. [拡張リソースの廃棄](/docs/extensions/example-word-count.md#disposing-extension-resources) - イベント購読やUIハンドルなどのリソースを解放します
 
 まず、最新の VS Code 拡張ジェネレータがインストールされていることを確認してから実行してください。
@@ -137,7 +137,7 @@ class WordCounter {
 
 次に、拡張機能のアップデートを試してみましょう。
 
-ウォッチ (拡張の .vscode\tasks.jsonファイル) に TypeScript ファイルをコンパイルしておくと、再ビルドする必要はありません。あなたのコードが実行されている **[Extension Development Host]** ウィンドウで `kbstyle(Ctrl+)` を押すと、拡張機能がリロードされます (プライマリ開発ウィンドウから `kb(workbench.action.debug.start)` を実行することもできます)。 "Hello World" コマンドを使用して、前と同じ方法でコードをアクティブ化する必要があります。あなたが Markdown ファイル内にいると仮定すると、あなたのステータスバーは単語数を表示します。
+TypeScript ファイルのコンパイルを watch (拡張の .vscode\tasks.jsonファイル) に設定しているので、再ビルドする必要はありません。 あなたのコードが実行されている **[Extension Development Host]** ウィンドウで `kbstyle(Ctrl+R)` を押すと、拡張機能がリロードされます (プライマリ開発ウィンドウから `kb(workbench.action.debug.start)` を実行することもできます)。 "Hello World" コマンドを使用して、前と同じ方法でコードをアクティブ化する必要があります。あなたが Markdown ファイル内にいると仮定すると、あなたのステータスバーは単語数を表示します。
 
 ![Working Word Count](images/example-word-count/wordcount2.png)
 
