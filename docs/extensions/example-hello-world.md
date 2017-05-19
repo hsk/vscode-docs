@@ -18,7 +18,7 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
 
 ## 2. 前提条件
 
-  `$PATH` には [Node.js](https:// nodejs.org/ja/) がインストールされていなければなりません。
+  `$PATH` には [Node.js](https://nodejs.org/ja/) がインストールされていなければなりません。
 
 ## 3. 新しい拡張の生成
 
@@ -198,17 +198,17 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
 
   * 拡張開発インスタンスは、拡張を検出し、その `package.json`ファイルを読み込みます。
   * 後で `kb(workbench.action.showCommands)` を押すと:
-      * 登録されたコマンドは、コマンドパレットに表示されます。
-      * このリストには、 `"Hello world"` というエントリがあり、これは `package.json` で定義されています。
+    * 登録されたコマンドは、コマンドパレットに表示されます。
+    * このリストには、 `"Hello world"` というエントリがあり、これは `package.json` で定義されています。
   * `"Hello world"` コマンドを選択するとき:
-      * コマンド "extension.sayHello" が呼び出されます：
-          * 起動イベント `"onCommand：extension.sayHello"` が生成されます。
-          * この activation イベントを `activationEvents` にリストしたすべての拡張機能が有効になります。
-              * `./out/src/extension.js` のファイルが JavaScript VM にロードされます。
-              * VS Code は、エクスポートされた関数 `activate` を探して呼び出します。
-              * コマンド "extension.sayHello" が登録され、その実装が定義されます。
-   * コマンド "extension.sayHello"　の実装関数が呼び出されます。
-   * コマンドの実装では、 "Hello World" というメッセージが表示されます。
+    * コマンド "extension.sayHello" が呼び出されます：
+      * 起動イベント `"onCommand：extension.sayHello"` が生成されます。
+      * この activation イベントを `activationEvents` にリストしたすべての拡張機能が有効になります。
+        * `./out/src/extension.js` のファイルが JavaScript VM にロードされます。
+        * VS Code は、エクスポートされた関数 `activate` を探して呼び出します。
+        * コマンド "extension.sayHello" が登録され、その実装が定義されます。
+    * コマンド "extension.sayHello"　の実装関数が呼び出されます。
+    * コマンドの実装では、 "Hello World" というメッセージが表示されます。
 
 ## 7 拡張機能のデバッグ
 
@@ -257,7 +257,7 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
 
 ## 11 次のステップ
 
-  このチュートリアルでは、非常に単純な拡張を見てきました。より詳細な例については、特定の言語 (Markdown) をターゲットにしてエディタのドキュメント変更イベントを聞く方法を示す [Word Count Example](/docs/extensions/example-word-count.md） を参照してください。
+  このチュートリアルでは、非常に単純な拡張を見てきました。より詳細な例については、特定の言語 (Markdown) をターゲットにしてエディタのドキュメント変更イベントを聞く方法を示す [Word Count Example](/docs/extensions/example-word-count.md) を参照してください。
 
   より一般的な拡張 API については、次のトピックを参照してください。
 
