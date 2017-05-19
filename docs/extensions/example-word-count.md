@@ -235,11 +235,23 @@ The  [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activati
 
 ## ステータスバーのカスタマイズ
 
-ステータスバーに書式設定されたテキストを表示する方法を見てきました。  VS Code を使用すると、ステータスバーの追加を色、アイコン、ツールチップなどでさらにカスタマイズできます。 IntelliSenseを使用すると、さまざまな `StatusBarItem`フィールドを見ることができます。  VS Code 拡張APIについて学ぶためのもう1つの素晴らしいリソースは、生成された拡張プロジェクトに含まれる `vscode.d.ts`型宣言ファイルです。エディタで `node_modules \ vscode \ vscode.d.ts`を開くと、コメントを含む完全な VS Code 拡張APIが表示されます。
+ステータスバーに書式設定されたテキストを表示する方法を見てきました。  VS Code を使用すると、ステータスバーの追加を色、アイコン、ツールチップなどでさらにカスタマイズできます。 IntelliSense を使用すると、さまざまな `StatusBarItem` フィールドを見ることができます。  VS Code 拡張APIについて学ぶためのもう1つの素晴らしいリソースは、生成された拡張プロジェクトに含まれる `vscode.d.ts` 型宣言ファイルです。エディタで `node_modules\vscode\vscode.d.ts` を開くと、コメントを含む完全な VS Code 拡張 API が表示されます。
 
 ![vscode-d-ts file](images/example-word-count/vscode-d-ts.png)
+> **訳注** text: string のコメントには以下のようにアイコンの説明があります。
+> ```ts
+> /**
+>  * エントリに表示するテキスト。 次の構文を利用して、アイコンにテキストを埋め込むことができます:
+>  *
+>  * `My text $(icon-name)には$（icon'name)のようなアイコンが含まれています。
+>  *
+>  * アイコン名が[octicon](https://octicons.github.com)アイコンセットから取得された場合、例えば、
+>  * light-bulb、 thumbsup、 zap 等
+>  */
+> text : string;
+> ```
 
-StatusBarItem更新コードを次のように置き換えます。
+StatusBarItem 更新コードを次のように置き換えます。
 
 ```javascript
     // ステータスバーを更新する
