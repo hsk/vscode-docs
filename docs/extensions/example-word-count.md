@@ -227,11 +227,11 @@ context.subscriptions.push(wordCounter);
 
 The  [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activationeventsonlanguage) イベントは言語ID(この場合は "markdown")をとり、その言語のファイルが開かれるたびに呼び出されます。
 
-ウィンドウリロード `kbstyle(Ctrl + R)`または `kb(workbench.action.debug.start)`を実行して拡張機能を実行し、Markdownファイルの編集を開始します。あなたは今、生きているWord Countを更新する必要があります。
+ウィンドウリロード `kbstyle(Ctrl+R)` または `kb(workbench.action.debug.start)` を実行して拡張機能を実行し、 Markdown ファイルの編集を開始します。 これで、 Word Count をライブアップデート出来るようになりました。
 
 ![Word Count Updating on Events](images/example-word-count/wordcountevent2.gif)
 
-`activate`関数にブレークポイントを設定すると、最初のMarkdownファイルが開かれたときに一度だけ呼び出されることに気づくでしょう。 `WordCountController`コンストラクタが実行され、エディタイベントに登録されるので、Markdownファイルが開かれ、そのテキストが変更されるときに` updateWordCount`関数が呼び出されます。
+`activate` 関数にブレークポイントを設定すると、最初の Markdown ファイルが開かれたときに一度だけ呼び出されることに気づくでしょう。 `WordCountController` コンストラクタが実行され、エディタイベントに登録されるので、 Markdown ファイルが開かれ、そのテキストが変更されるときに `updateWordCount` 関数が呼び出されます。
 
 ## ステータスバーのカスタマイズ
 
