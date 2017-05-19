@@ -186,7 +186,7 @@ class WordCounterController {
 }
 ```
 
-コマンドが呼び出されたときに Word Count 拡張が読み込まれるのではなく、各 *Markdown* ファイルで使用できるようになりました。
+コマンドが呼び出されたときに Word Count 拡張が読み込まれるのではなく、各 *Markdown* ファイルで使用できるようにしました。
 
 まず、 `activate` 関数の本体を次のように置き換えます。
 
