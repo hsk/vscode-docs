@@ -8,39 +8,39 @@ DateApproved: 5/4/2017
 MetaDescription: The Word Count extension (plug-in) example takes you deeper into the Visual Studio Code extensibility model, showing how to interact with the editor and manage extension and VS Code resources.
 ---
 
-# 例 - ワード数
+# 例 - Word Count
 
-このドキュメントでは、 VS Code の拡張性の基礎を説明する [Your First Extension](/docs/extensions/example-hello-world.md) を読んだことを前提としています。
+このドキュメントでは、 VS Code の拡張性の基礎を説明する [初めてのエクステンション](/docs/extensions/example-hello-world.md) を読んだことを前提としています。
 
-Word Count は、エンド・トゥ・エンドのチュートリアルで、Markdownのオーサリングを補助する拡張子を作成する方法を示しています。 どのように動作するのかを理解する前に、構築するコア機能を簡単にデモして、何を期待するのかを理解しておきましょう。
+Word Count は、 エンド・トゥ・エンドのチュートリアルで、 Markdown のオーサリングを補助する拡張子を作成する方法を示しています。 どのように動作するのかを理解する前に、 構築するコア機能を簡単にデモして、 何を期待するのかを理解しておきましょう。
 
-`Markdown`ファイルが編集されるたびに、ステータスバーメッセージが追加されます。 このメッセージには、現在の単語数と入力時の更新がファイルからファイルに移動します。
+`Markdown` ファイルが編集されるたびに、ステータスバーメッセージが追加されます。 このメッセージには、現在の単語数と入力時の更新がファイルからファイルに移動します。
 
 ![Word Count on Status Bar](images/example-word-count/wordcountevent2.gif)
 
-> **ヒント:** 完成したサンプルは問題があれば、[このGitHubリポジトリ](https://github.com/microsoft/vscode-wordcount) から入手できます。
+> **ヒント:** 完成したサンプルの必要があれば、 [このGitHubリポジトリ](https://github.com/microsoft/vscode-wordcount) から入手できます。
 
 
 ## 概要
 
 この例は、3つのセクションから構成され、一連の関連概念を説明します。
 
-1. [ステータスバーの更新](/docs/extensions/example-word-count.md#update-the-status-bar) - VSコードのステータスバーにカスタムテキストを表示する
-2. [イベントの購読](/docs/extensions/example-word-count.md#subscribing-to-events) - エディタイベントに基づいて `ステータスバー`を更新する
-3. [拡張リソースの廃棄](/docs/extensions/example-word-count.md#disposing-extension-resources) - イベント購読やUIハンドルなどのリソースを解放する
+1. [ステータスバーの更新](/docs/extensions/example-word-count.md#update-the-status-bar) - VS Code の `ステータスバー` にカスタムテキストを表示します
+2. [イベントの購読](/docs/extensions/example-word-count.md#subscribing-to-events) - エディタイベントに基づいて `ステータスバー`　を更新します
+3. [拡張リソースの廃棄](/docs/extensions/example-word-count.md#disposing-extension-resources) - イベント購読やUIハンドルなどのリソースを解放します
 
-まず、最新のVSコード拡張ジェネレータがインストールされていることを確認してから実行してください。
+まず、最新の VS Code 拡張ジェネレータがインストールされていることを確認してから実行してください。
 
 ```bash
 npm install -g yo generator-code
 yo code
 ```
 
-拡張ジェネレータが開きます。この例はTypeScriptの `New Extension`オプションに基づいています。今のところ、下の画像で完成したのと同じ方法でフィールドに記入してください（拡張名として「WordCount」、出版社として自分の名前を使用）。
+拡張ジェネレータが開きます。この例は TypeScript の `New Extension` オプションに基づいています。今のところ、下の画像で完成したのと同じ方法でフィールドに記入してください(拡張名として 'WordCount'、publisher として自分の名前を使用)。
 
 ![Yo Code Word Count Example Output](images/example-word-count/yo1.png)
 
-発電機の出力に記載されているように、VSコードを開くことができます：
+これでジェネレータの出力に記載されているように、 VS Code を開くことができます:
 
 ```bash
 cd WordCount
@@ -49,27 +49,26 @@ code .
 
 ## エクステンションを実行する
 
-作業を始める前に、拡張機能を実行して、 `kb(workbench.action.debug.start)` を押してすべてが期待どおりに動作することを確認します。以前の「Hello World」ウォークスルーで見たように、VSコードは拡張機能がロードされる別のウィンドウ（** [拡張開発ホスト] **ウィンドウ）を開きます。コマンドパレット（ "kb（workbench.action.showCommands）"を押す）で "Hello World"コマンドを見つけて、それを選択すると、ウィンドウの上部に "Hello World"という情報ボックスが表示されます。
+作業を始める前に、拡張機能を実行して、 `kb(workbench.action.debug.start)` を押してすべてが期待どおりに動作することを確認します。以前の "Hello World" ウォークスルーで見たように、 VS Code は拡張機能がロードされる別のウィンドウ(**[拡張開発ホスト]**ウィンドウ)を開きます。 コマンドパレット ("kb(workbench.action.showCommands)"を押す) で "Hello World" コマンドを見つけて、それを選択すると、ウィンドウの上部に "Hello World" という情報ボックスが表示されます。
 
-拡張機能が適切に動作していることを確認したので、必要に応じて拡張機能の開発ウィンドウを開いたままにしておくことができます。あなたのエクステンションに加えた変更をテストするには、開発ウィンドウで `kb（workbench.action.debug.continue）`をもう一度押すか、 `kbstyle（Ctrl + R）`を押してエクステンション開発ウィンドウをリロードしてくださいMac： `kbstyle（Cmd + R）`）。
+拡張機能が適切に動作していることを確認したので、必要に応じて拡張機能の開発ウィンドウを開いたままにしておくことができます。あなたのエクステンションに加えた変更をテストするには、開発ウィンドウで `kb(workbench.action.debug.continue)` をもう一度押すか、 `kbstyle(Ctrl+R)` (Mac: `kbstyle(Cmd+R)`) を押してエクステンション開発ウィンドウをリロードしてください。
 
 ## ステータスバーを更新する
 
-生成された `extension.ts`ファイルの内容を以下のコードに置き換えてください。 これは、単語をカウントしてVSコードステータスバーに表示することができる `WordCounter`クラスを宣言し、インスタンス化します。 呼び出されると、 "Hello Word"コマンドは `updateWordCount`を呼び出します。
+生成された `extension.ts` ファイルの内容を以下のコードに置き換えてください。 これは、単語をカウントして VS Code ステータスバーに表示することができる `WordCounter` クラスを宣言し、インスタンス化します。 呼び出されると、 "Hello Word" コマンドは `updateWordCount` を呼び出します。
 
 ```javascript
-// モジュール 'vscode'にはVSコード拡張APIが含まれています
+// モジュール 'vscode' には VS Code 拡張 API が含まれています
 // 下のコードで使用するために必要な拡張性タイプをインポートする
 import {window, commands, Disposable, ExtensionContext, StatusBarAlignment, StatusBarItem, TextDocument} from 'vscode';
 
-//このメソッドは、拡張機能がアクティブになったときに呼び出されます。有効化は
-// package.jsonで定義されているアクティベーションイベントによって制御されます。
+// このメソッドは、拡張機能がアクティブになったときに呼び出されます。有効化は
+// package.json で定義されているアクティベーションイベントによって制御されます。
 export function activate(context: ExtensionContext) {
 
-    //コンソールを使用して診断情報（console.log）とエラー（console.error）を出力します。
-    //このコード行は、拡張機能がアクティブになったときに一度だけ実行されます。
+    // コンソールを使用して診断情報(console.log)とエラー(console.error)を出力します。
+    // このコード行は、拡張機能がアクティブになったときに一度だけ実行されます。
     console.log('Congratulations, your extension "WordCount" is now active!');
-    //console.log（ 'おめでとうございます、あなたの内線「WordCount」は現在アクティブです！'）;
 
     // 新しい単語カウンターを作成する
     let wordCounter = new WordCounter();
@@ -119,7 +118,7 @@ class WordCounter {
 
         let docContent = doc.getText();
 
-        //分割が正確になるように不要な空白を解析する
+        // 分割が正確になるように不要な空白を解析する
         docContent = docContent.replace(/(< ([^>]+)<)/g, '').replace(/\s+/g, ' ');
         docContent = docContent.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
         let wordCount = 0;
@@ -138,22 +137,22 @@ class WordCounter {
 
 次に、拡張機能のアップデートを試してみましょう。
 
-ウォッチ（拡張子の.vscode \ tasks.jsonファイル）にTypeScriptファイルをコンパイルしておくと、再ビルドする必要はありません。あなたのコードが実行されているエクステンション開発ホスト**ウィンドウで `kbstyle（Ctrl + R）`を押すと、拡張機能がリロードされます（あなたは `kb（workbench.action.debug.start）プライマリ開発ウィンドウ）。 "Hello World"コマンドを使用して、前と同じ方法でコードをアクティブ化する必要があります。あなたがMarkdownファイル内にいると仮定すると、あなたのステータスバーは単語数を表示します。
+ウォッチ (拡張の .vscode\tasks.jsonファイル) に TypeScript ファイルをコンパイルしておくと、再ビルドする必要はありません。あなたのコードが実行されている **[Extension Development Host]** ウィンドウで `kbstyle(Ctrl+)` を押すと、拡張機能がリロードされます (プライマリ開発ウィンドウから `kb(workbench.action.debug.start)` を実行することもできます)。 "Hello World" コマンドを使用して、前と同じ方法でコードをアクティブ化する必要があります。あなたが Markdown ファイル内にいると仮定すると、あなたのステータスバーは単語数を表示します。
 
 ![Working Word Count](images/example-word-count/wordcount2.png)
 
 これは良いスタートですが、ファイルが変更されたときにカウントが更新されると、よりクールになります。
 
-## イベントを購読する
+## イベントを購読 (Subscribing) する
 
 あなたのヘルパークラスを一連のイベントに接続しましょう。
 
-`onDidChangeTextEditorSelection` - カーソルの位置が変化するとイベントが発生します
+* `onDidChangeTextEditorSelection` - カーソルの位置が変化するとイベントが発生します
 * `onDidChangeActiveTextEditor` - アクティブなエディタが変更されるとイベントが発生します。
 
-これを行うために、新しいクラスを `extension.ts`ファイルに追加します。これらのイベントの購読を設定し、ワードカウントを更新するように `WordCounter`に依頼します。また、このクラスがDisposablesとしてサブスクリプションを管理する方法と、それ自体が廃棄されるときにリストを停止する方法にも注意してください。
+これを行うために、新しいクラスを `extension.ts` ファイルに追加します。これらのイベントの購読を設定し、ワードカウントを更新するように `WordCounter` に依頼します。また、このクラスが Disposables としてサブスクリプションを管理する方法と、それ自体が廃棄されるときにリストを停止する方法にも注意してください。
 
-`extension.ts`ファイルの一番下に下記のような` WordCounterController`を追加してください。
+`extension.ts` ファイルの一番下に下記のような `WordCounterController` を追加してください。
 
 ```javascript
 class WordCounterController {
@@ -187,15 +186,14 @@ class WordCounterController {
 }
 ```
 
-コマンドが呼び出されたときにWord Count拡張が読み込まれるのではなく、各* Markdown *ファイルで使用できるようになりました。
+コマンドが呼び出されたときに Word Count 拡張が読み込まれるのではなく、各 *Markdown* ファイルで使用できるようになりました。
 
-まず、 `activate`関数の本体を次のように置き換えます。
+まず、 `activate` 関数の本体を次のように置き換えます。
 
 ```javascript
-// コンソールを使用して診断情報（console.log）とエラー（console.error）を出力します。
+// コンソールを使用して診断情報 (console.log) とエラー (console.error) を出力します。
 // このコード行は、拡張機能がアクティブになったときに一度だけ実行されます。
 console.log('Congratulations, your extension "WordCount" is now active!');
-//console.log（ 'おめでとうございます、あなたの内線「WordCount」は現在アクティブです！'）;
 
 // 新しい単語カウンターを作成する
 let wordCounter = new WordCounter();
@@ -206,7 +204,7 @@ context.subscriptions.push(controller);
 context.subscriptions.push(wordCounter);
 ```
 
-次に、 `Markdown`ファイルのオープン時に拡張機能が有効になっていることを確認する必要があります。これを行うには、 `package.json`ファイルを変更する必要があります。以前は、拡張機能は `extension.sayHello`コマンドで有効になっていました。このコマンドは` package.json`から `contributes`属性全体を削除することができます：
+次に、 `Markdown` ファイルのオープン時に拡張機能が有効になっていることを確認する必要があります。これを行うには、 `package.json`ファイルを変更する必要があります。以前は、拡張機能は `extension.sayHello`コマンドで有効になっていました。このコマンドは` package.json`から `contributes`属性全体を削除することができます：
 
 ```json
     "contributes": {
@@ -227,9 +225,9 @@ context.subscriptions.push(wordCounter);
     ]
 ```
 
-The  [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activationeventsonlanguage) イベントは言語ID（この場合は "markdown"）をとり、その言語のファイルが開かれるたびに呼び出されます。
+The  [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activationeventsonlanguage) イベントは言語ID(この場合は "markdown")をとり、その言語のファイルが開かれるたびに呼び出されます。
 
-ウィンドウリロード `kbstyle（Ctrl + R）`または `kb（workbench.action.debug.start）`を実行して拡張機能を実行し、Markdownファイルの編集を開始します。あなたは今、生きているWord Countを更新する必要があります。
+ウィンドウリロード `kbstyle(Ctrl + R)`または `kb(workbench.action.debug.start)`を実行して拡張機能を実行し、Markdownファイルの編集を開始します。あなたは今、生きているWord Countを更新する必要があります。
 
 ![Word Count Updating on Events](images/example-word-count/wordcountevent2.gif)
 
@@ -237,7 +235,7 @@ The  [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activati
 
 ## ステータスバーのカスタマイズ
 
-ステータスバーに書式設定されたテキストを表示する方法を見てきました。 VSコードを使用すると、ステータスバーの追加を色、アイコン、ツールチップなどでさらにカスタマイズできます。 IntelliSenseを使用すると、さまざまな `StatusBarItem`フィールドを見ることができます。 VSコード拡張APIについて学ぶためのもう1つの素晴らしいリソースは、生成された拡張プロジェクトに含まれる `vscode.d.ts`型宣言ファイルです。エディタで `node_modules \ vscode \ vscode.d.ts`を開くと、コメントを含む完全なVSコード拡張APIが表示されます。
+ステータスバーに書式設定されたテキストを表示する方法を見てきました。  VS Code を使用すると、ステータスバーの追加を色、アイコン、ツールチップなどでさらにカスタマイズできます。 IntelliSenseを使用すると、さまざまな `StatusBarItem`フィールドを見ることができます。  VS Code 拡張APIについて学ぶためのもう1つの素晴らしいリソースは、生成された拡張プロジェクトに含まれる `vscode.d.ts`型宣言ファイルです。エディタで `node_modules \ vscode \ vscode.d.ts`を開くと、コメントを含む完全な VS Code 拡張APIが表示されます。
 
 ![vscode-d-ts file](images/example-word-count/vscode-d-ts.png)
 
@@ -259,7 +257,7 @@ StatusBarItem更新コードを次のように置き換えます。
 
 拡張機能が有効化されると、Disposablesの `subscription` コレクションを持つ `ExtensionContext` オブジェクトが渡されます。エクステンションは Disposable オブジェクトをこのコレクションに追加することができ、 VS Code はエクステンションが無効化されたときにそれらのオブジェクトを破棄します。
 
-ワークスペースやUIオブジェクト（例： `registerCommand`）を作成する多くのVSコードAPIはDisposableを返し、disposeメソッドを直接呼び出してVSコードからこれらの要素を削除することができます。
+ワークスペースやUIオブジェクト(例： `registerCommand`)を作成する多くの VS Code APIはDisposableを返し、disposeメソッドを直接呼び出して VS Code からこれらの要素を削除することができます。
 
 イベントは `onDid*` イベントサブスクライバメソッドが Disposable を返す別の例です。エクステンションは、イベントの Disposable を廃棄することにより、イベントを退会します。この例では、 `WordCountController` は、イベントサブスクリプションDisposablesを、非アクティブ化時にクリーンアップする独自の Disposable コレクションを保持することによって直接処理します。
 
@@ -273,9 +271,9 @@ StatusBarItem更新コードを次のように置き換えます。
     this._disposable = Disposable.from(...subscriptions);
 ```
 
-## あなたの内線番号をローカルにインストールする
+## あなたの機能拡張をローカルにインストールする
 
-これまでに書いたエクステンションは、エクステンション開発ホストのインスタンスであるVSコードの特別なインスタンスでのみ実行されます。拡張機能をすべてのVSコードインスタンスで使用できるようにするには、拡張フォルダの内容を [.vscode/extensions`フォルダ](/docs/extensions/yocode.md#your-extensions-folder) の下の新しいフォルダにコピーします。
+これまでに書いたエクステンションは、エクステンション開発ホストのインスタンスである VS Code の特別なインスタンスでのみ実行されます。拡張機能をすべての VS Code インスタンスで使用できるようにするには、拡張フォルダの内容を [.vscode/extensions`フォルダ](/docs/extensions/yocode.md#your-extensions-folder) の下の新しいフォルダにコピーします。
 
 ## エクステンションを公開する
 
