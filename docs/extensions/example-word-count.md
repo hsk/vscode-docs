@@ -137,7 +137,7 @@ class WordCounter {
 
 次に、拡張機能のアップデートを試してみましょう。
 
-TypeScript ファイルのコンパイルを watch (拡張の .vscode\tasks.jsonファイル) に設定しているので、再ビルドする必要はありません。 あなたのコードが実行されている **[Extension Development Host]** ウィンドウで `kbstyle(Ctrl+R)` を押すと、拡張機能がリロードされます (プライマリ開発ウィンドウから `kb(workbench.action.debug.start)` を実行することもできます)。 "Hello World" コマンドを使用して、前と同じ方法でコードをアクティブ化する必要があります。あなたが Markdown ファイル内にいると仮定すると、あなたのステータスバーは単語数を表示します。
+TypeScript ファイルのコンパイルを watch (拡張の .vscode\tasks.jsonファイル) に設定しているので、再ビルドする必要はありません。 あなたのコードが実行されている **[拡張機能開発ホスト]** ウィンドウで `kbstyle(Ctrl+R)` を押すと、拡張機能がリロードされます (プライマリ開発ウィンドウから `kb(workbench.action.debug.start)` を実行することもできます)。 "Hello World" コマンドを使用して、前と同じ方法でコードをアクティブ化する必要があります。あなたが Markdown ファイル内にいると仮定すると、あなたのステータスバーは単語数を表示します。
 
 ![Working Word Count](images/example-word-count/wordcount2.png)
 
