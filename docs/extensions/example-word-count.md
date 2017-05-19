@@ -285,11 +285,11 @@ StatusBarItem 更新コードを次のように置き換えます。
 
 ## あなたの機能拡張をローカルにインストールする
 
-これまでに書いたエクステンションは、エクステンション開発ホストのインスタンスである VS Code の特別なインスタンスでのみ実行されます。拡張機能をすべての VS Code インスタンスで使用できるようにするには、拡張フォルダの内容を [.vscode/extensions`フォルダ](/docs/extensions/yocode.md#your-extensions-folder) の下の新しいフォルダにコピーします。
+これまでに書いたエクステンションは、エクステンション開発ホストのインスタンスである VS Code の特別なインスタンスでのみ実行されます。拡張機能をすべての VS Code インスタンスで使用できるようにするには、拡張フォルダの内容を [`.vscode/extensions` フォルダ](/docs/extensions/yocode.md#your-extensions-folder) の下の新しいフォルダにコピーします。
 
 ## エクステンションを公開する
 
-[エクステンションを共有する](/docs/extensions/publish-extension.md)の方法をお読みください。
+[エクステンションを共有する](/docs/extensions/publish-extension.md) 方法をお読みください。
 
 ## 次のステップ
 
