@@ -204,7 +204,7 @@ context.subscriptions.push(controller);
 context.subscriptions.push(wordCounter);
 ```
 
-次に、 `Markdown` ファイルのオープン時に拡張機能が有効になっていることを確認する必要があります。これを行うには、 `package.json`ファイルを変更する必要があります。以前は、拡張機能は `extension.sayHello`コマンドで有効になっていました。このコマンドは` package.json`から `contributes`属性全体を削除することができます：
+次に、 `Markdown` ファイルのオープン時に拡張機能が有効になっていることを確認する必要があります。 これを行うには、 `package.json` ファイルを変更する必要があります。 以前は、拡張機能は `extension.sayHello` コマンドで有効になっていました。このコマンドは `package.json` から `contributes` 属性全体を削除できます：
 
 ```json
     "contributes": {
@@ -217,7 +217,7 @@ context.subscriptions.push(wordCounter);
     },
 ```
 
-`activateEvents`属性をこれに更新することによって、* Markdown *ファイルのオープン時にアクティブになるように、あなたの拡張子を変更してください：
+`activateEvents` 属性をこれに更新することによって、 *Markdown* ファイルのオープン時にアクティブになるように、あなたの拡張子を変更してください：
 
 ```json
     "activationEvents": [
