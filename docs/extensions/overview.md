@@ -48,7 +48,7 @@ MetaDescription: Visual Studio Code has a rich extensibility model for interacti
   言語サーバーを使用すると、拡張機能の専用プロセスを作成できます。
   エクステンションが高コストのCPUまたはIOを集中的に実行して、他の拡張機能を遅くする可能性がある場合、これは拡張機能にとって便利な設計方法です。
   これは、ワークスペース内のすべてのファイルにわたって機能するリンターまたは静的分析スイートのようなタスクで共通です。
-  
+
   さらなる情報は [言語サーバー](/docs/extensions/example-language-server.md) の詳細を確認してください。
 
 ## 3 デバッグアダプタ
