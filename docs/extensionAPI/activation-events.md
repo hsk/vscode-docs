@@ -94,4 +94,3 @@ VS Code の拡張性モデルの詳細については、次のトピックを参
 
 * [拡張マニフェストファイル](/docs/extensionAPI/extension-manifest.md) - VS Code package.json 拡張マニフェストファイルリファレンス
 * [貢献ポイント](/docs/extensionAPI/extension-points.md) - VS Code 投稿ポイントリファレンス
-
