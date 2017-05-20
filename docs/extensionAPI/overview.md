@@ -8,26 +8,29 @@ DateApproved: 5/4/2017
 MetaDescription: Learn the details of Visual Studio Code's rich extensibility (plug-in) model.  This documentation describes the various extension points, activation rules and specific feature APIs (e.g. working with documents and editors).
 ---
 
-# Extensibility Reference
+# 拡張性リファレンス
 
-This section of our documentation goes into detail on the various features of VS Code extensibility.  It's worth reviewing the introduction on the [extensions](/docs/extensions/overview.md) as well as going through the ['Hello World'](/docs/extensions/example-hello-world.md) example before digging in too deeply here.
+このドキュメントのこのセクションでは、 VS Code の拡張性のさまざまな機能について詳しく説明します。
+[extensions](/docs/extensions/overview.md)の紹介を見直すだけでなく、 ['Hello World'](/docs/extensions/example-hello-world.md) の例を掘り下げて調べることも価値がありますあまりにも深くここに。
 
-The easiest way to see VS Code extensions in action is via the [Extension Marketplace](/docs/editor/extension-gallery.md).  Once you have built your first extension, it can be [published](/docs/extensions/publish-extension.md) for others to install.
+VS Code の拡張機能が動作する最も簡単な方法は、 [拡張機能 Marketplace](/docs/editor/extension-gallery.md) を使用する方法です。
+最初の拡張機能をビルドしたら、 他の人がインストールできるように [公開](/docs/extensions/publish-extension.md) することができます。
 
-## The Extensibility Reference Documents
+## 拡張性リファレンスドキュメント
 
-This section of our documentation covers the following topics...
+このドキュメントのこのセクションでは、 次のトピックについて説明します。
 
-Topic|Description
------|-----------
-**[package.json Extension Manifest](/docs/extensionAPI/extension-manifest.md)**|Every Visual Studio Code extension needs a manifest file `package.json` at the root of the extension folder. This document provides an overview of the structure of that file and the mandatory fields.
-**[Contribution Points](/docs/extensionAPI/extension-points.md)**|Building on the base `package.json`, there are a number of additional extension points you can contribute to e.g. commands, themes, debuggers,...
-**[Activation Events](/docs/extensionAPI/activation-events.md)**|VS Code lazily activates extensions. This document outlines the activation options supported in `package.json` e.g. when a specific file type is loaded, when a command is fired, etc
-**[API vscode namespace](/docs/extensionAPI/vscode-api.md)**|Review the full vscode namespace API reference.
-**[API complex commands](/docs/extensionAPI/vscode-api-commands.md)**|See the VS Code complex command API reference.
-**[Debugging API](/docs/extensionAPI/api-debugging.md)**|Learn the details about integrating debuggers into VS Code.
-**[API samples](https://github.com/Microsoft/vscode-extension-samples)**|Sample code illustrating the VS Code extension API.
+トピック | 説明
+----- | -----------
+**[package.json拡張マニフェスト](/docs/extensionAPI/extension-manifest.md)** | すべてのVisual Studio Code 拡張は、 拡張フォルダのルートにマニフェストファイル `package.json` を必要とします。 このドキュメントでは、 そのファイルの構造と必須フィールドの概要について説明します。
+**[Contribution Points](/docs/extensionAPI/extension-points.md)**          | ベースの `package.json` に基づいて、あなたが貢献できる追加の拡張ポイントがいくつかあります。コマンド、テーマ、デバッガ、...
+**[アクティベーションイベント](/docs/extensionAPI/activation-events.md)**     | VS Code は、拡張機能を遅くアクティブにします。 このドキュメントは、 `package.json` でサポートされているアクティベーションオプションについて概説しています。 特定のファイルタイプがロードされたとき、 コマンドが起動されたときなど
+**[API vscode名前空間](/docs/extensionAPI/vscode-api.md)**                 | 完全な vscode 名前空間 API リファレンスを確認します。
+**[API複合コマンド](/docs/extensionAPI/vscode-api-commands.md)**            | VS Code 複合コマンド API リファレンスを参照してください。
+**[デバッグAPI](/docs/extensionAPI/api-debugging.md)**                      | デバッガを VS Code に統合する方法の詳細を学びます。
+**[APIサンプル](https://github.com/Microsoft/vscode-extension-samples)**    | VS Code 拡張APIを示すサンプルコード。
 
-## Language Extension Guidelines
+## 言語拡張ガイドライン
 
-If you are implementing programming language support, we have a [Language Extension Guidelines](/docs/extensionAPI/language-support.md) topic which shows the various language features available in VS Code (for example, code suggestions and actions, formatting, renaming) and provides guidance on how to implement them.
+プログラミング言語サポートを実装している場合は、 VS Code で使用できるさまざまな言語機能(コードの提案や操作、書式設定など)を示す
+[言語拡張ガイドライン](/docs/extensionAPI/language-support.md)名前の変更)、 それらの実装方法に関するガイダンスを提供します。
