@@ -106,8 +106,7 @@ MetaDescription: Learn how to provide debug service extensions (plug-ins) for Vi
   これで、拡張アダプタとデバッグアダプタの両方を同時にデバッグできるようになりました。
   ここに到達するより速い方法は、両方のセッションを自動的に起動する **Extension + Server** 起動設定を使用することです。
 
-  ファイル `src/mockDebug.ts` のメソッド `launchRequest（...）` の先頭にブレークポイントを設定し、 
-最後のステップとして、モックテストの launch config に `debugServer` 属性にポート `4711` を追加して、モックデバッガをデバッグアダプタサーバに接続するように設定します：
+  ファイル `src/mockDebug.ts` のメソッド `launchRequest（...）` の先頭にブレークポイントを設定し、 最後のステップとして、モックテストの launch config に `debugServer` 属性にポート `4711` を追加して、モックデバッガをデバッグアダプタサーバに接続するように設定します：
 
   ```json
   {
