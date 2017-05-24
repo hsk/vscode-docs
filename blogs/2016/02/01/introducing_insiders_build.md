@@ -9,30 +9,30 @@ ShortDescription: VS Code has its roots in the web (built using TypeScript and N
 Author: Chris Dias
 ---
 
-# Introducing the Insiders Build
+＃インサイダービルドの紹介
 
-February 1, 2016 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
+2016年2月1日、Chris Dias、[@chrisdias]（https://twitter.com/chrisdias）
 
-VS Code has its roots in the web (built using TypeScript and Node.js) and one thing we love about cloud based applications is that they are always up to date. Update the service and all of your users are instantly on the latest fixes and features, with no user interaction.
+VSコードはWeb（TypeScriptとNode.jsを使用して構築されています）に根ざしています。クラウドベースのアプリケーションについて私たちが愛しているのは、それらが常に最新であるということです。サービスを更新すると、すべてのユーザーが直ちに最新の修正プログラムと機能を利用でき、ユーザーの操作は不要です。
 
-This is why VS Code has automatic updates on by default. We periodically query the update service to see if a new version is available, download it when ready, and then gently prompt you to restart.
+このため、VSコードにはデフォルトで自動アップデートが設定されています。定期的に更新サービスに問い合わせて、新しいバージョンが利用可能かどうかを確認し、準備ができたらダウンロードしてから、再起動を促します。
 
-Of course, it has always been possible to turn off automatic updates. It has also always been possible to subscribe to what we called the “Insiders Channel” which gave you get early access to monthly drops, letting you check out new features, test an extension, or even help us find that last-minute show stopper issue.
+もちろん、自動更新をオフにすることは常に可能でした。また、「インサイダーチャンネル」と呼ばれるものを購読することも可能で、毎月のドロップに早期にアクセスしたり、新機能をチェックしたり、拡張機能をテストしたり、 。
 
-There were two shortcomings to this model. First, you needed to join the “Insiders Program” to learn about the “updateChannel”: “insiders” setting. Second, you had to choose whether you want to work with the Stable (the official monthly release) or the Insiders version. You could not easily switch back to Stable if you hit a blocking issue with the Insiders drop, without having to change settings.
+このモデルには2つの欠点がありました。まず、 "インサイダープログラム"に参加して "updateChannel"： "インサイダー"の設定について学ぶ必要がありました。次に、Stable（公式の毎月のリリース）またはInsiderバージョンで作業するかどうかを選択する必要がありました。設定を変更することなくInsiderドロップでブロッキングの問題が発生した場合、Stableに簡単に戻ることはできませんでした。
 
-With the open sourcing of VS Code in November, we are retiring the Insiders Program. With the upcoming January 2016 release, we are introducing a new Insiders build that installs side by side with the monthly, stable VS Code release.
+11月にVSコードをオープンソース化して、インサイダープログラムを廃止します。 2016年1月にリリースされる予定で、毎月安定したVSコードのリリースで並行してインストールされる新しいInsiderビルドを導入しています。
 
-![Insiders and Stable, side by side, don't worry, the green icon is temporary](2016_02_01_insiders_build_icon.png)
+！[インサイダーと安定、横並びで、心配しないで、緑色のアイコンは一時的です]（2016_02_01_insiders_build_icon.png）
 
-No longer do you need to manage settings to switch between the two. The Insiders build is a separate installation with isolated settings, extensions, and configurations. This does mean that you will need to configure both and install your favorite extensions into each, but once you’ve done this, trying out new features (and giving us feedback!) is easier than ever.
+もう2つの設定を切り替える設定を管理する必要はありません。インサイダービルドは、独立した設定、拡張、および構成を持つ別個のインストールです。これは、両方を設定してお好みの拡張機能をそれぞれにインストールする必要があることを意味しますが、これを実行したら、新しい機能を試してみて（そしてフィードバックをお願いします）、これまで以上に簡単です。
 
-The Insiders build will automatically update when we release new builds, generally towards the end of each month. Depending on how successful this process is we will consider releasing new updates even more often.
+インサイダービルドは、新しいビルドをリリースするときに自動的に更新されます。一般的には、毎月の終わりに向かっています。このプロセスがどれほど成功したかに応じて、新しい更新をさらに頻繁にリリースすることを検討します。
 
-The features included in the Insiders build is tracked in [our iteration plans](https://github.com/Microsoft/vscode/issues?utf8=%E2%9C%93&q=label%3Aiteration-plan+). Feel free to communicate your thoughts, ideas and bug reports on these builds – we will be paying close attention to the feedback as it helps us stabilize before an official release.
+インサイダービルドに含まれる機能は、[私たちの反復計画]（https://github.com/Microsoft/vscode/issues?utf8=%E2%9C%93&q=label%3Aiteration-plan+）で追跡されます。これらのビルドに関するあなたの考え、アイデア、バグレポートをお気軽にお寄せください。正式リリース前に安定化するためにフィードバックに細心の注意を払っていきます。
 
-[Download the Insiders build](/insiders) today! Again, you only need to install it once and it will update itself when we push new builds each month.
+[インサイダービルドをダウンロード]（/インサイダー）今日！繰り返しますが、一度だけインストールするだけで、毎月新しいビルドをプッシュすると、それ自体が更新されます。
 
-Note: If you have been an “Insider”, you will need to manually download this new drop to keep testing the latest and greatest of VS Code. Your current build will upgrade to the latest stable release when we ship at the end of the month.
+注：インサイダーになっている場合は、この新しいドロップを手動でダウンロードして、VSコードの最新かつ最高のものをテストし続ける必要があります。現在のビルドは、月末に出荷される最新の安定版にアップグレードされます。
 
-Chris Dias
+クリスディアス

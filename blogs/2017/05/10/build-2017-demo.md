@@ -7,66 +7,66 @@ Date: 2017-05-10
 ShortDescription: Build 2017 Demo Visual Studio Code - Conquering the Cloud with an editor and a CLI
 Author: Chris Dias
 ---
-# Build 2017 Demo
+# Build 2017 デモ
 
-May 10, 2017 Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
+2017年5月10日 Chris Dias、 [@chrisdias](https://twitter.com/chrisdias)
 
-## Watch the video!
+## ビデオ​​を見る！
 
-[Visual Studio Code: Conquering the Cloud with an Editor and a CLI](https://channel9.msdn.com/Events/Build/2017/B8094)
+[Visual Studioコード:エディタとCLIを使用してクラウドを征服する](https://channel9.msdn.com/Events/Build/2017/B8094)
 
-Below are links to the samples, tools, and extensions demonstrated in the Build 2017 VS Code talk.
+以下は、 Build 2017 VS Code のトークで示されたサンプル、 ツール、 拡張機能へのリンクです。
 
-## Useful Links
+## 役に立つリンク
 
-* [Debugging configuration recipes](https://github.com/weinand/vscode-recipes)
-* [Docker multi-stage builds](https://codefresh.io/blog/node_docker_multistage/)
+* [設定レシピのデバッグ](https://github.com/weinand/vscode-recipes)
+* [Dockerマルチステージビルド](https://codefresh.io/blog/node_docker_multistage/)
 
-## Extensions
+## 拡張機能
 
-### Tools
+### ツール
 
-* [NPM (Node Package Manager) Support](https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script) provides support for running `npm install` and `npm uninstall` commands from within VS Code.
+* [NPM(ノードパッケージマネージャ)サポート](https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script) は、 VS Code 内からの npm install および npm uninstall コマンドの実行をサポートしています。
 
-* [Auto Close HTML tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag) automatically adds HTML and XML closing tags.
+* [HTMLタグの自動クローズ](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag) は、 HTML と XML の終了タグを自動的に追加します。
 
-* [CSS IntelliSense (Completions)](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion) provides CSS class name completion for the HTML class attribute based on the CSS files in your workspace as well as React's `className` attribute.
+* [CSS IntelliSense(Completions)](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion) は、 HTML クラス属性の CSS クラス名補完を提供します。 ワークスペース、 React の `className` アトリビュートがあります。
 
 ### Angular
 
-* [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) provides a rich editing experience for Angular templates, both inline and external templates including completions lists, AOT diagnostic messages, quick info, and even Go To Definition.
+* [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) は、 コンプリートリスト、 AOT 診断メッセージ、 迅速なインラインテンプレートと外部テンプレートの両方を含む、 Angular テンプレートの豊富な編集エクスペリエンスを提供します情報、 さらには定義に移動することもできます。
 
-### Debugging
+### デバッグ
 
-* [Chrome Debugger](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) lets you debug your JavaScript code running in the Google Chrome browser or other targets that support the Chrome Debugging Protocol.
+* [Chrome Debugger](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) では、 Google Chrome ブラウザや Chrome デバッギングプロトコルをサポートする他のターゲットで実行されている JavaScript コードをデバッグできます。
 
-### Linters
+### Linter
 
-* [TSLint](https://marketplace.visualstudio.com/items?itemName=eg2.tslint) integrates the [tslint](https://github.com/palantir/tslint) linter for the TypeScript language into VS Code.
+* [TSLint](https://marketplace.visualstudio.com/items?itemName=eg2.tslint) は、TypeScript 言語用の [tslint](https://github.com/palantir/tslint) linter を VS Code に統合します。
 
-* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates [ESLint](http://eslint.org/) (a pluggable linting utility for JavaScript and JavaScript React (JSX) into VS Code.
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) には、 [ESLint](http://eslint.org/) (JavaScript および JavaScript React のプラグイン可能なユーティリティー JSX) を VS Code に変換します。
 
 ### NoSQL MongoDB
 
-* [MongoDB Extension](https://code.visualstudio.com/demo/vscode-mongodb-0.0.1.vsix) **PREVIEW** This extension is in very early preview and leverages proposed APIs in VS Code which have not been released yet. As a result, this extension only runs on [Insiders](https://code.visualstudio.com/insiders) builds and you must enable it from the command line.  To install:
+* [MongoDB Extension](https://code.visualstudio.com/demo/vscode-mongodb-0.0.1.vsix) **プレビュー** この拡張機能は非常に早期のプレビューであり、 VS Code で提案されている API を利用していますが、まだリリースされていせん。 その結果、この拡張機能は [Insiders](https://code.visualstudio.com/insiders) ビルドでのみ実行され、 コマンドラインから有効にする必要があります。 インストールするには:
 
-  * Install the extension:
+  * 拡張機能をインストールする:
   
   ``` bash
   code-insiders --install-extension vscode-mongodb-0.0.1.vsix
   ```
-  * Load code-insiders enabling extensions that use a proposed API:
+  * 提案された API を使用する拡張機能を有効にして code-insiders をロードする:
   
   ``` bash
   code-insiders --enable-proposed-api ms-vscode.vscode-mongodb
   ```
 
-### Micro-Services
+### マイクロサービス
 
-* The [Docker Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) make it easy to develop and deploy containerized micro-service based applications using Docker containers.
+* [Docker Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) は、 Docker コンテナを使用したコンテナ化されたマイクロサービスベースのアプリケーションの開発と展開を容易にします。
 
-### Azure Extensions
+### Azure拡張
 
-**Note:** If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com/en-us/free/?b=16.48) for a **free** 30 day account and get **$200** in Azure Credits to try out any combination of Azure services.
+**注:** あなたが Azure のサブスクリプションをお持ちでない場合、 30日間 **無料** で [登録](https://azure.microsoft.com/en-us/free/?b=16.48) して、 Azure サービスの任意の組み合わせを試用するには、 Azure クレジットで **$ 200** を取得してください。
 
-* [Azure CLI](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) wraps the [Azure CLI 2.0](https://aka.ms/GetTheAzureCLI) with a rich editing experience in VS Code.
+* [Azure CLI](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) は、 VS Code 内で [Azure CLI 2.0](https://aka.ms/GetTheAzureCLI)を豊富な編集エクスペリエンスでラップします。
