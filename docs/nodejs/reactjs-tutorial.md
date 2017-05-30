@@ -62,37 +62,37 @@ code .
 ### シンタックスハイライトとブラケットマッチング
 ### Syntax highlighting and bracket matching
 
-Now open the `src` folder and select the `index.js` file. You'll notice that VS Code has syntax highlighting of the various source code elements and if you put the cursor on a parentheses, the matching bracket is also selected.
+`src` フォルダを開き、 `index.js` ファイルを選択します。 VS Code にはさまざまなソースコード要素の構文が強調表示されていますが、カーソルをかっこに置くと、一致する括弧も選択されます。
 
 ![react bracket matching](images/reactjs/bracket-matching.png)
 
 ### IntelliSense
 
-As you start typing in `index.js`, you'll see smart suggestions or completions.
+`index.js` で入力を開始すると、スマートな提案や補完が表示されます。
 
 ![react suggestions](images/reactjs/suggestions.png)
 
-After you select a suggestion and type `.`, you see the types and methods on the object through IntelliSense.
+提案を選択して `.` と入力すると、 IntelliSense を介してオブジェクトの型とメソッドが表示されます。
 
 ![react intellisense](images/reactjs/intellisense.png)
 
-VS Code uses the TypeScript language service for it's JavaScript code intelligence and it has a feature called Automatic Type Acquisition (ATA) which pulls down the npm Type Definition files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+VS Code は、 JavaScript コードインテリジェンスのために TypeScript 言語サービスを使用し、 `package.json` で参照されている npm モジュールの npm タイプ定義ファイル（`*.d.ts`）をプルダウンします。この機能は Automatic Type Acquisition（ATA）と呼ばれる機能です 。
 
-If you select a method, you'll also get parameter help:
+メソッドを選択すると、パラメータヘルプも表示されます:
 
 ![react parameter help](images/reactjs/parameter-help.png)
 
-### Go to Definition, Peek definition
+### 定義へ移動、定義を抽出
 
-Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.gotodeclaration)`) or ** and **Peek Defintion** (`kb(editor.action.peekImplementation)`). Put the cursor over the `App`, right click and select **Peek Definition**. A Peek window with open showing the `App` definition from `App.js`.
+TypeScript 言語サービスを介して、VS Code は、**定義へ移動** (`kb(editor.action.gotodeclaration)`) または ** および **Peek Defintion** (`kb(editor.action.peekImplementation)`)。 `App` の上にカーソルを置き、右クリックして **Peek Definition** を選択します。 `App.js` の `App` 定義を開いたPeekウィンドウ。
 
 ![react peek definition](images/reactjs/peek-definition.png)
 
-Press `kbstyle(Escape)` to close the Peek window.
+`kbstyle(Escape)` を押すと、 Peekウィンドウが閉じます。
 
 ### Hello World!
 
-Let's update the sample application to "Hello World!". Add the link to declare a new H1 header and replace the `<App />` tag in `ReactDOM.render` with `element'.
+サンプルアプリケーションを "Hello World!" に更新しましょう。 リンクを追加して新しいH1ヘッダを宣言し、 `ReactDOM.render`の `<App/>` タグを`element' に置き換えてください。
 
 ```js
 import React from 'react';
@@ -106,36 +106,38 @@ ReactDOM.render(element, document.getElementById('root'));
 registerServiceWorker();
 ```
 
-Once you save the `index.js`, the running instance of the server will update the web page and you'll see "Hello World!".
+`index.js` を保存すると、サーバの実行中のインスタンスがWebページを更新し、 "Hello World!" が表示されます。
 
 ![hello world](images/reactjs/hello-world.png)
 
 ## Hello World をデバッグする
 ## Debug Hello World
 
-To debug the client side React code, we'll need to install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
+クライアント側の React コードをデバッグするには、[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) 拡張機能をインストールする必要があります。
 
->Note: This tutorial assumes you have the Chrome browser installed. The builders of the Debugger for Chrome extension also have versions for the [Safari on iOS(https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web) and [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browsers.
+>注意: このチュートリアルでは、Chromeブラウザがインストールされていることを前提としています。 Debugger for Chrome 拡張機能のビルダーには、[Safari on iOS(https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web) と [Edge(https://marketplace.visualstudio.com/items?itemName=msjsdiag.debuggerforge) ブラウザが含まれています。
 
-Open the Extensions view (`kb(workbench.view.showExtensions)`) and type 'chrome` in the search box. You'll see several extension which reference Chrome. 
+拡張機能ビュー (`kb(workbench.view.showExtensions)`) を開き、検索ボックスに 'chrome` と入力します。 Chrome を参照するいくつかの拡張機能が表示されます。
 
 ![debugger for chrome](images/reactjs/debugger-for-chrome.png)
 
-Press the **Install** button for **Debugger for Chrome**. The button will change to **Installing** then **Reload**. Press **Reload** to restart VS Code and activate the extension.
+**Debug** for Chrome **の** Install **ボタンを押してください。ボタンは、**インストール** **リロード**に変わります。 ** Reload **を押してVSコードを再起動し、内線番号を有効にします。
 
+### ブレークポイントを設定する
 ### Set a breakpoint
 
-To set a breakpoint in `index.js`, click on the gutter to the left of the line numbers. This will set a breakpoint which will be visible as a red circle.
+`index.js` にブレークポイントを設定するには、行番号の左側にあるガターをクリックします。これにより、赤い円として表示されるブレークポイントが設定されます。
 
 ![set a breakpoint](images/reactjs/breakpoint.png)
 
+## Chrome デバッガを設定する
 ## Configure the Chrome debugger
 
-We need to initially configure the debugger. To do so, go to the Debug view (`kb(workbench.view.debug)`)
+最初にデバッガを設定する必要があります。これを行うには、デバッグビュー (`kb(workbench.view.debug)`) に行きます。
 
-Configuration
+構成
 
-shutdown localhost:3000, F5, refresh
+shutdown localhost:3000、F5、リフレッシュ
 
 ## Linting
 
