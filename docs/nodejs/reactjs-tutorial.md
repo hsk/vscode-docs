@@ -8,54 +8,58 @@ DateApproved: 3/10/2017
 MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in Visual Studio Code.
 MetaSocialImage: nodejs_javascript_vscode.png
 ---
+# VS Code で React チュートリアル
 # React Tutorial in VS Code
 
-[React](https://facebook.github.io/react/) is a popular JavaScript library for building web application user interfaces developed by Facebook. VS Code supports React.js IntelliSense and code navigation out of the box.
+[React](https://facebook.github.io/react/).js は、 Facebook によって開発された Web アプリケーションのユーザーインターフェイスを構築するための人気のある JavaScript ライブラリです。
+VS Code は React.js IntelliSense と box 外のコードナビゲーションをサポートしています。
 
 ## Hello World
 
-We'll be using the `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) for this tutorial. To install and use the generator as well as run the React application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. You can install Node.js from [here](https://nodejs.org/en/download/ and npm is included.
+このチュートリアルでは、 `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) を使用します。 React アプリケーションサーバーを実行するだけでなくジェネレータをインストールして使用するには、[Node.js](https://nodejs.org/) JavaScriptランタイムと [npm](https://www.npm.js.com/) (Node.js パッケージマネージャ) がインストールされていることが必要です。 Node.js は [here]（https://nodejs.org/en/download/）からインストールでき、 npm も含まれています。
 
->**Tip**: To test that you have Node.js and npm correctly install on your machine, you can type `node --version` and `npm --version`.
+> **ヒント**: Node.js と npm がマシンに正しくインストールされていることをテストするには、 `node --version` と ` npm --version` と入力します。
 
-To install the `create-react-app` generator, in a terminal or command prompt type:
+`create-react-app` ジェネレータをインストールするには、端末またはコマンドプロンプトで次のように入力します。
 
 ```bash
 npm install -g create-react-app
 ```
 
-This may take a few minutes to install. You can now create a new React application by typing:
+インストールには数分かかることがあります。次のように入力して、新しい React アプリケーションを作成できるようになりました:
 
 ```bash
 create-react-app my-app
 ```
 
-where `my-app` is the name of the folder for your application. This may also take a few minutes to create the React application and install it's dependencies.
+ここで `my-app` はアプリケーションのフォルダ名です。 React アプリケーションを作成して依存関係をインストールするには、これも数分かかることがあります。
 
-Let's quickly run our React application by navigating to the new folder and typing `npm start` to start the web server and open the application in a browser:
+新しいフォルダに移動し、 `npm start` と入力して Web サーバを起動し、ブラウザでアプリケーションを開くことで React アプリケーションをすぐに実行しましょう:
 
 ```bash
 cd my-app
 npm start
 ```
 
-You should see "Welcome to React" on `http:localhost:3000` in your browser. We'll leave the web server running while we look at the application with VS Code.
+ブラウザーの `http://localhost:3000` に "Welcome to React" と表示されるはずです。 私たちは VS Code でアプリケーションを見ている間、Webサーバーを実行したままにしておきます。
 
 ![welcome to react](images/reactjs/welcome-to-react.png)
 
-To open your React application in VS Code, open another terminal (or command prompt) and navigate to the `my-app` folder and type `code .`:
+React アプリケーションを VS Code で開くには、別のターミナル（またはコマンドプロンプト）を開き、 `my-app` フォルダに移動して `code .` をタイプします:
 
 ```bash
 cd my-app
 code .
 ```
 
+### マークダウンプレビュー
 ### Markdown Preview
 
-In the File Explorer, one file you'll see is the application `README.md`. This has lots of great information about the application and React in general. A nice way to review the README is by using the VS Code Markdown Preview. You can open the preview in either the current editor group (**Markdown: Open Preview** `kb(markdown.showPreview)`) or in a new editor group to the side (**Markdown: Open Preview to the Side** `kb(markdown.showPreviewToSide)`). You'll get nice formatting, hyperlink navigation to headers, and syntax highlighting in code blocks.
+ファイルエクスプローラのファイルには、 `README.md` というアプリケーションがあります。これには、アプリケーションと React に関する一般的な情報がたくさんあります。 README を確認するには、 VS Code Markdown Preview を使用する方法があります。 現在のエディタグループ（**Markdown: 開くプレビュー** `kb(markdown.showPreview)`) または新しいエディタグループ（**Markdown: サイドにプレビューを開く** `kb(markdown.showPreviewToSide)`) でプレビューを開くことができます 。ヘッダーへのハイパーリンクのナビゲーションや、コードブロック内の構文のハイライト表示が得られます。
 
 ![README markdown preview](images/reactjs/markdown-preview.png)
 
+### シンタックスハイライトとブラケットマッチング
 ### Syntax highlighting and bracket matching
 
 Now open the `src` folder and select the `index.js` file. You'll notice that VS Code has syntax highlighting of the various source code elements and if you put the cursor on a parentheses, the matching bracket is also selected.
@@ -106,6 +110,7 @@ Once you save the `index.js`, the running instance of the server will update the
 
 ![hello world](images/reactjs/hello-world.png)
 
+## Hello World をデバッグする
 ## Debug Hello World
 
 To debug the client side React code, we'll need to install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
@@ -134,10 +139,11 @@ shutdown localhost:3000, F5, refresh
 
 ## Linting
 
-get js errors by default
+デフォルトで js エラーを取得する
 
 ```bash
 npm install -g eslint
 ```
 
 ## [Popular Starter Kit]
+## [人気スターターキット]
