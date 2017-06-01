@@ -73,7 +73,7 @@ export function activate(context: ExtensionContext) {
     // 新しい単語カウンターを作成する
     let wordCounter = new WordCounter();
 
-    var disposable = commands.registerCommand('extension.sayHello', () => {
+    let disposable = commands.registerCommand('extension.sayHello', () => {
         wordCounter.updateWordCount();
     });
 
@@ -162,7 +162,6 @@ class WordCounterController {
 
     constructor(wordCounter: WordCounter) {
         this._wordCounter = wordCounter;
-        this._wordCounter.updateWordCount();
 
         // 選択の変更とエディタの起動イベントに登録する
         let subscriptions: Disposable[] = [];
@@ -300,5 +299,3 @@ StatusBarItem 更新コードを次のように置き換えます。
 * [公開ツール](/docs/extensions/publish-extension.md) - 公開マーケットプレイスにエクステンションを公開する方法を学びます。
 * [エディタAPI](/docs/extensionAPI/vscode-api.md#window) - テキストドキュメント、テキストエディタ、およびテキストの編集について学んでください。
 * [その他の拡張の例](/docs/extensions/samples.md) - サンプルの拡張プロジェクトの一覧を見てください。
-
-
