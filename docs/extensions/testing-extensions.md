@@ -7,27 +7,27 @@ PageTitle: Testing Visual Studio Code Extensions
 DateApproved: 5/4/2017
 MetaDescription: It is easy to write tests for your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension tests directly in Visual Studio Code.
 ---
-# Testing Your Extension
+# エクステンションをテストする
 
-VS Code supports running and debugging tests for your extension that require the VS Code API. These tests will run inside a special instance of VS Code, the `Extension Development Host`, and have access to the full APIs. We refer to these tests as integration tests, because they go beyond unit tests that can run in isolation from a VS Code window. This documentation focuses on VS Code integration tests. For unit testing, you can use any popular testing framework, like [Mocha](https://mochajs.org/) or [Jasmine](https://jasmine.github.io/).
+VS Code は、 VS Code API を必要とする拡張機能の実行テストとデバッグテストをサポートします。これらのテストは、 VS Code の特別なインスタンスである「拡張開発ホスト」内で実行され、完全な API にアクセスできます。これらのテストは、 VS Code ウィンドウから分離して実行できる単体テストを超えているため、これらのテストは統合テストと呼ばれます。このドキュメントでは、 VS Code の統合テストに焦点を当てています。単体テストでは、 [Mocha](https://mochajs.org/) や [Jasmine](https://jasmine.github.io/) のような一般的なテストフレームワークを使用できます。
 
-## Yo Code Test Scaffolding
+## Yoコードテスト足場
 
-The basic [yo code generator](/docs/extensions/yocode.md) extension project includes a sample test as well as the necessary infrastructure to run it.
+基本的な [yo code generator](/docs/extensions/yocode.md) 拡張プロジェクトには、サンプルテストとそれを実行するのに必要なインフラストラクチャが含まれています。
 
-**Note**: The documentation below assumes that you created a TypeScript extension but the same also applies for a JavaScript extension. However, some file names may be different.
+**注**: 以下のドキュメントでは、 TypeScript 拡張機能を作成したと仮定していますが、 JavaScript 拡張機能にも同じことが適用されます。ただし、一部のファイル名が異なる場合があります。
 
-After you've created a new extension and opened the project in VS Code, you can select the `Launch Tests` configuration from the dropdown at the top of the Debug View.
+新しいエクステンションを作成して VS Code でプロジェクトを開いたら、デバッグビューの上部にあるドロップダウンから `Launch Tests` 設定を選択することができます。
 
 ![launch tests](images/testing-extensions/launch-tests.png)
 
-With this configuration chosen, when you run `Debug: Start` (`kb(workbench.action.debug.start)`), VS Code launches your extension in the `Extension Development Host` instance and runs your tests. Test output goes to the Debug Console where you can see the test results.
+この設定を選択すると、 `Debug：Start`(` kb(workbench.action.debug.start) `)を実行すると、 VS Code は` Extension Development Host`インスタンスであなたの拡張を起動し、テストを実行します。テスト出力はデバッグコンソールに送られ、テスト結果が表示されます。
 
 ![test output](images/testing-extensions/test-output.png)
 
-The generated test uses the [Mocha test framework](https://mochajs.org/) for its test runner and library.
+生成されたテストでは、テストランナーとライブラリ用に [Mocha test framework](https://mochajs.org/) を使用します。
 
-The extension project comes with a `test` folder that includes an `index.ts` file which defines the Mocha test runner configuration and an `extension.test.ts` which has the example `Something 1` test. You can typically leave `index.ts` untouched, but you can modify it to adjust the configuration of Mocha.
+拡張プロジェクトには、 `test` フォルダがあります。このフォルダには、Mochaテストランナーの設定を定義する `index.ts` ファイルと、 `Something 1`テストの例を持つ `extension.test.ts` が含まれています。通常は `index.ts` をそのままにしておくことができますが、モカの設定を変更するために変更することができます。
 
 ```
 ├── test
@@ -35,11 +35,11 @@ The extension project comes with a `test` folder that includes an `index.ts` fil
 │   └── index.ts
 ```
 
-You can create more `test.ts` files under the `test` folder and they will automatically be built (to `out/test`) and run. The test runner will only consider files matching the name pattern `*.test.ts`.
+`test` フォルダーの下に `test.ts` ファイルをさらに作成することができます。自動的に (out/testに) ビルドされ実行されます。テストランナーは `*.test.ts` という名前パターンと一致するファイルのみを考慮します。
 
-## Launch Tests configuration
+## Launch Tests の設定
 
-The `Launch Tests` configuration is defined in the project's `.vscode\launch.json` file.  It is similar the `Launch Extension` configuration with the addition of the `--extensionTestsPath` argument which points to the compiled test files (assuming this is a TypeScript project).
+`Launch Tests` 設定は、プロジェクトの `.vscode\launch.json` ファイルで定義されています。コンパイルされたテストファイルを指す `--extensionTestsPath` 引数(これは TypeScript プロジェクトであると仮定します)を追加した `Launch Extension` の設定と似ています。
 
 ```json
 {
@@ -55,42 +55,42 @@ The `Launch Tests` configuration is defined in the project's `.vscode\launch.jso
 }
 ```
 
-## Passing Arguments to the Extension Development Host
+## Extension Development Host への引数の受け渡し
 
-You can set the file or folder that the test instance should open by inserting the path at the front of the argument list for the launch configuration.
+起動インスタンスの引数リストの先頭にパスを挿入して、テストインスタンスが開くファイルまたはフォルダを設定できます。
 
 ```json
 "args": ["file or folder name", "--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
 ```
 
-This way you can run your tests with predictable content and folder structure.
+この方法で、予測可能なコンテンツとフォルダ構造でテストを実行できます。
 
-## Excluding test files from your extension package
+## 拡張パッケージからのテストファイルの除外
 
-If you decide to share your extension, you may not want to include the tests in your extension package.  The [`.vscodeignore`](/docs/extensions/publish-extension.md#advance-usage) file lets you exclude test files when you package and publish your extension with the [`vsce` publishing tool](/docs/extensions/publish-extension.md).  By default, the `yo code` generated extension project excludes the `test` and `out/test` folders.
+あなたがあなたのエクステンションを共有することを決めた場合、エクステンションパッケージにテストを含めたくないかもしれません。 [`.vscodeignore`](/docs/extensions/publish-extension.md#advance-usage) ファイルを使用すると、[`vsce`公開ツール](/docs/extensions/publish-extension.md) を使って拡張機能をパッケージ化し公開する際にテストファイルを除外できます。デフォルトでは、 `yo code` 生成された拡張プロジェクトは `test` と `out/test` フォルダを除外します。
 
 ```
 out/test/**
 test/**
 ```
 
-## Running tests automatically on Travis CI build machines
+## Travis CI ビルドマシンで自動的にテストを実行する
 
-You can run extension tests automatically on build machines like [Travis CI](https://travis-ci.org).
+[Travis CI](https://travis-ci.org) のようなビルドマシンで自動的に拡張テストを実行できます。
 
-In order to enable automated extension tests, the `vscode` npm module provides a test command that will:
+自動拡張テストを有効にするために、 `vscode` npm モジュールは以下のテストコマンドを提供します：
 
-* download and unzip VS Code
-* launch your extension tests inside VS Code
-* print the results to the console and return with an exit code according to test success or failure
+* VS Code をダウンロードして解凍する
+* VS Code 内で拡張テストを開始する
+* 結果をコンソールに出力し、テストの成功または失敗に応じて終了コードを返します
 
-To enable this test command, open your `package.json` and add the following entry to the `scripts` section:
+このテストコマンドを有効にするには、 `package.json` を開き、 `scripts` セクションに次のエントリを追加します:
 
 ```json
 "test": "node ./node_modules/vscode/bin/test"
 ```
 
-You can then enable Travis CI easily with a top-level `.travis.yml` configuration like this:
+Travis CI を最上位の `.travis.yml` 設定で簡単に有効にすることができます:
 
 ```yml
 sudo: false
@@ -114,25 +114,25 @@ script:
   - npm test --silent
 ```
 
-The script above will run the tests on both Linux and Mac. Note that in order to run the tests on Linux, you need to have
-a `before_install` configuration as above to enable Linux to start VS Code from the build.
+上記のスクリプトは、 Linux と Mac の両方でテストを実行します。 Linux でテストを実行するには、
+前述の `before_install` 設定を使用して、 Linux がビルドから VS Code を開始できるようにします。
 
-There are some optional environment variables to configure the test runner:
+テストランナーを設定するためのいくつかのオプションの環境変数があります:
 
-| Name        | Description       |
+|名前|説明|
 | ------------|-------------------|
-| `CODE_VERSION` | Version of VS Code to run the tests against (e.g. `0.10.10`) |
-| `CODE_DOWNLOAD_URL` | Full URL of a VS Code drop to use for running tests against |
-| `CODE_TESTS_PATH` | Location of the tests to execute |
-| `CODE_TESTS_WORKSPACE` | Location of a workspace to open for the test instance |
+| `CODE_VERSION`         | テストを実行するための VS Code のバージョン (例: `0.10.10`) |
+| `CODE_DOWNLOAD_URL`    | テストを実行するために使用する VS Code ドロップの完全な URL |
+| `CODE_TESTS_PATH`      | 実行するテストの場所 |
+| `CODE_TESTS_WORKSPACE` | テストインスタンスのために開くワークスペースの場所 |
 
-## Running tests on Windows with AppVeyor
+## AppVeyor で Windows 上でテストを実行する
 
-You can also run extension tests on Windows with [AppVeyor](https://www.appveyor.com/). To get started, you can review the VS Code integration tests AppVeyor [configuration file](https://github.com/Microsoft/vscode/blob/master/appveyor.yml).
+[AppVeyor](https://www.appveyor.com/) でWindows上で拡張テストを実行することもできます。開始取得するには、 VS Code 統合テストAppVeyor [設定ファイル](https://github.com/Microsoft/vscode/blob/master/appveyor.yml) を確認することができます。
 
-## Next Steps
+## 次のステップ
 
-* [Debugging your Extension](/docs/extensions/debugging-extensions.md) - Learn more about how to run and debug your extension
-* [vsce](/docs/extensions/publish-extension.md) - Publish your extension with the VSCE command line tool.
-* [Extension Manifest file](/docs/extensionAPI/extension-manifest.md) - VS Code extension manifest file reference
-* [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs
+* [あなたの拡張デバッグ](/docs/extensions/debugging-extensions.md) - あなたの拡張機能を実行してデバッグする方法については、こちらをご覧ください
+* [VSCE](/docs/extensions/publish-extension.md) - VSCEコマンドラインツールを使用して拡張機能を公開します。
+* [拡張マニフェストファイル](/docs/extensionAPI/extension-manifest.md) - VS Code 拡張マニフェストファイル参照
+* [Extension API](/docs/extensionAPI/overview.md) -  VS Code 拡張 API の詳細
