@@ -7,23 +7,23 @@ PageTitle: Visual Studio Code Source Control API
 DateApproved: 5/4/2017
 MetaDescription: Visual Studio Code extensions (plug-ins) Source Control API.
 ---
-# Source Control in VS Code
+# VS Code のソース管理
 
-Visual Studio Code allows extension authors to define Source Control Management (SCM) features through its extension API. There is a slim, yet powerful API surface which allows many different SCM systems to be integrated in VS Code, while having a common user interface with all of them.
+Visual Studio Code を使用すると、拡張機能の作成者は拡張機能APIを通じてソース管理 (SCM) 機能を定義できます。 スリムでありながら強力な API サーフェスがあり、さまざまな SCM システムを VS Code に統合できます。同時に、すべての SCM システムと共通のユーザーインターフェイスを備えています。
 
 ![VS Code SCM](images/api-scm/main.png)
 
-VS Code itself ships with one Source Control provider: Git. This documentation will help you integrate your own SCM system.
+ VS Code 自体は、1つのソース管理プロバイダ Git と一緒に出荷されます。このドキュメントは、独自の SCM システムを統合するのに役立ちます。
 
-Note that you can always refer to the [`vscode` namespace API reference](/docs/extensionAPI/vscode-api.md#scm) in our documentation.
+このドキュメントでは、常に[`vscode` 名前空間 API リファレンス](/docs/extensionAPI/vscode-api.md#scm)を参照できることに注意してください。
 
-## Source Control Model
+## ソース管理モデル
 
-An `SourceControl` is the entity responsible for populating the Source Control model with **resource states**, instances of `SourceControlResourceState`. Resource states are themselves organized in **groups**, instances of `SourceControlResourceGroup`.
+`SourceControl` は、ソース管理モデルに **リソース状態**、` SourceControlResourceState` のインスタンスを設定する責任を負うエンティティです。リソース状態は、それ自体、 **グループ**、 `SourceControlResourceGroup` のインスタンスにまとめられています。
 
-You can create a new SourceControl with `vscode.scm.createSourceControl`.
+`vscode.scm.createSourceControl` で新しい SourceControl を作成することができます。
 
-In order to better understand how these three entities correlate with each other, let's take [Git](https://github.com/Microsoft/vscode/tree/master/extensions/git) as an example. Consider the following output of `git status`:
+これらの3つのエンティティがどのように相互に関連しているかをよりよく理解するために、 [Git](https://github.com/Microsoft/vscode/tree/master/extensions/git) を例にしましょう。 `git status` の次の出力を考えてみましょう：
 
 ```bash
 vsce master* → git status
@@ -43,20 +43,20 @@ Changes not staged for commit:
         modified:   README.md
 ```
 
-There are many things going on in this workspace. First, the `README.md` file has been modified, staged and then modified once again. Second, the `src/api.ts` file has been moved to `src/test/api.ts` and that move was staged. Finally, the `.travis.yml` file has been deleted.
+このワークスペースでは多くのことが起こっています。 最初に、 `README.md` ファイルが変更され、ステージングされ、再度修正されました。次に、 `src/api.ts` ファイルが `src/test/api.ts` に移動され、その移動が実行されました。最後に、 `.travis.yml` ファイルが削除されました。
 
-For this workspace, Git defines two resource groups: the **working tree** and the **index**. Each **file change** within that group is **resource state**:
+このワークスペースでは、 **作業ツリー** と **インデックス** という2つのリソースグループを定義しています。そのグループ内の各 **ファイル変更** は **リソース状態** です:
 
-- **Index** - resource group
-  - `README.md`, modified - resource state
-  - `src/test/api.ts`, renamed from `src/api.ts` - resource state
-- **Working Tree** - resource group
-  - `.travis.yml`, deleted - resource state
-  - `README.md`, modified - resource state
+- **インデックス** - リソースグループ
+   - `README.md`、変更されたリソース状態
+   - `src/test/api.ts`、 `src/api.ts` から名前を変更した - リソース状態
+- **ワーキングツリー** - リソースグループ
+   - `.travis.yml`、 削除 - リソース状態
+   - `README.md`、 変更されたリソース状態
 
-Note how the same file, `README.md`, is part of two distinct resource states.
+同じファイル `README.md` が2つの別個のリソース状態の一部であることに注意してください。
 
-Here's how Git creates this model:
+Git がこのモデルを作成する方法は次のとおりです:
 
 ```ts
 function createResourceUri(relativePath: string): vscode.Uri {
@@ -79,11 +79,11 @@ workingTree.resourceStates = [
 ];
 ```
 
-Changes made to the source control and resource groups will be propagated to the Source Control view.
+ソースコントロールとリソースグループに対する変更は、ソースコントロールビューに反映されます。
 
-## Source Control View
+## ソースコントロールビュー
 
-VS Code is able to populate the Source Control view, as the Source Control model changes. Resource states are customizable using `SourceControlResourceDecorations`:
+ VS Code は、ソース管理モデルが変更されると、ソース管理ビューに移入することができます。リソース状態は `SourceControlResourceDecorations` を使ってカスタマイズできます:
 
 ```ts
 export interface SourceControlResourceState {
@@ -91,7 +91,7 @@ export interface SourceControlResourceState {
 }
 ```
 
-The previous example would be sufficient to populate a simple list in the Source Control view, but there are many user interactions that the user might want to perform with each resource. For instance, what happens when the user clicks a resource state? The resource state can optionally provide a command to handle this action:
+前の例では、ソース管理ビューに単純なリストを作成するのには十分ですが、ユーザーが各リソースで実行したいと思う多くのユーザー操作があります。たとえば、ユーザーがリソース状態をクリックするとどうなりますか？リソース状態には、このアクションを処理するコマンドをオプションで指定できます。
 
 ```ts
 export interface SourceControlResourceState {
@@ -99,21 +99,21 @@ export interface SourceControlResourceState {
 }
 ```
 
-### Menus
+### メニュー
 
-There are three Source Control menu ids where you can place menu items, in order to provide the user with a much richer user interface.
+ユーザーにもっと豊かなユーザーインターフェイスを提供するために、メニュー項目を配置できる3つのソース管理メニューIDがあります。
 
-The `scm/title` menu is located to the right of the SCM view title. The menu items in the `navigation` group will be inline, while all the others will be within the `…` dropdown.
+`scm/title` メニューは、 SCM ビューのタイトルの右側にあります。 `navigation` グループのメニュー項目はインラインになり、他の項目は `...` ドロップダウン内に表示されます。
 
-The `scm/resourceGroup/context` and `scm/resourceState/context` are similar. The former will let you customize resource groups, while the later refers to resource states. Place menu items in the `inline` group to have them inline. All other menu item groups will be represented in a context menu usually accessible using the mouse right-click. Commands called from within these menus will have the respective resource states on passed as arguments. Note that the SCM view supports multiple selection thus a command might receive more than one resource at a time in its arguments.
+`scm/resourceGroup/context` と `scm/resourceState/context` は似ています。前者はリソースグループをカスタマイズできるようにし、後者はリソース状態を参照します。 `inline` グループにメニューアイテムを配置し、インラインにします。他のすべてのメニュー項目グループは、マウスの右クリックで通常アクセスできるコンテキストメニューで表示されます。これらのメニューから呼び出されたコマンドは、それぞれのリソース状態が引数として渡されます。 SCM ビューでは複数選択がサポートされているため、コマンドは一度に複数のリソースを引数で受け取ることがあります。
 
-For example, Git supports staging multiple files by adding the `git.stage` command to the `scm/resourceState/context` menu and using such a method declaration:
+たとえば、 Git は複数のファイルをステージングするために `git.stage` コマンドを `scm/resourceState/context` メニューに追加し、そのようなメソッド宣言を使用します:
 
 ```ts
 stage(...resourceStates: SourceControlResourceState[]): Promise<void>;
 ```
 
-When creating them, `SourceControl` and `SourceControlResourceGroup` instances require you to provide an `id` string. These values will be populated in the `scmProvider` and `scmResourceGroup` context keys, respectively. You can rely on these context keys in the `when` clauses of your menu items. Here's how Git is able to show a menu item for its `git.stage` command:
+それらを作成するとき、 `SourceControl` と `SourceControlResourceGroup` インスタンスは `id` 文字列を提供する必要があります。これらの値は、 `scmProvider` コンテキストキーと `scmResourceGroup` コンテキストキーにそれぞれ設定されます。これらのコンテキストキーは、メニューアイテムの `when` 節に依存することができます。 Git が `git.stage` コマンドのメニュー項目を表示する方法は次のとおりです:
 
 ```json
 {
@@ -123,9 +123,9 @@ When creating them, `SourceControl` and `SourceControlResourceGroup` instances r
 }
 ```
 
-### SCM Input Box
+### SCM 入力ボックス
 
-The Source Control Input Box, located atop of the Source Control view, allows the user to input a message. You can get (and set) this message in order to perform operations. In Git, for example, this is used as the commit box, in which users type in commit messages and `git commit` commands pick them up.
+Source Control ビューの上部にある Source Control Input Box では、ユーザーがメッセージを入力できます。操作を実行するためにこのメッセージを取得(および設定)することができます。たとえば Git では、これはコミットボックスとして使用され、ユーザがコミットメッセージを入力し、 `git commit` コマンドがそれらをピックアップします。
 
 ```ts
 export interface SourceControlInputBox {
@@ -137,7 +137,7 @@ export namespace scm {
 }
 ```
 
-The user can type <kbd>Ctrl+Enter</kbd> (or <kbd>Cmd+Enter</kbd> on macOS) to accept any message. You can handle this event by providing a `acceptInputCommand` to your `SourceControl` instance.
+ユーザは任意のメッセージを受け入れるために、<kbd>Ctrl+Enter</kbd> (または macOS では <kbd>Cmd+Enter</kbd>) と入力することができます。あなたはあなたの `SourceControl` インスタンスに `acceptInputCommand` を提供することでこのイベントを処理できます。
 
 ```ts
 export interface SourceControl {
@@ -145,13 +145,13 @@ export interface SourceControl {
 }
 ```
 
-## Quick Diff
+## クイック差分
 
-VS Code also supports displaying **quick diff** editor gutter decorations.
+VS Code は、 **quick diff** エディターガターデコレーションの表示もサポートしています。
 
 ![VS Code SCM](images/api-scm/quickdiff.png)
 
-These decorations are computed by VS Code itself. All you need to do is provide VS Code with the original contents of any given file.
+これらのデコレーションは、 VS Code 自体によって計算されます。任意のファイルの元の内容を VS Code で提供するだけです。
 
 ```ts
 export interface SourceControl {
@@ -159,16 +159,16 @@ export interface SourceControl {
 }
 ```
 
-Using a `QuickDiffProvider`, your implementation is able to tell VS Code what's the `Uri` of the original resource that matches the resource which `Uri` is provided as an argument.
+`QuickDiffProvider` を使って、あなたの実装は、 `Uri` が引数として提供されるリソースと一致する元のリソースの `Uri` を VS Code に伝えることができます。
 
-You can combine this API with the [`registerTextDocumentContentProvider` method in the `workspace` namespace](/docs/extensionAPI/vscode-api.md#workspace), which lets you provide contents for arbitrary resources, given a `Uri`.
+このAPIを [`workspace` 名前空間の`registerTextDocumentContentProvider`メソッド](/docs/extensionAPI/vscode-api.md#workspace) と組み合わせることができます。これは、 `Uri` を使って任意のリソースの内容を提供することができます。
 
-## Next Steps
+## 次のステップ
 
-To learn more about VS Code extensibility model, try these topics:
+ VS Code 拡張モデルの詳細については、次のトピックを参照してください。
 
-* [SCM API Reference](/docs/extensionAPI/vscode-api.md#scm) - Read the full SCM API documentation
-* [Git Extension](https://github.com/Microsoft/vscode/tree/master/extensions/git) - Learn by reading the Git extension implementation
-* [Extension API Overview](/docs/extensionAPI/overview.md) - Learn about the full VS Code extensibility model.
-* [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
-* [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
+* [SCM APIリファレンス](/docs/extensionAPI/vscode-api.md#scm) - 完全な SCM API ドキュメントを読む
+* [Git Extension](https://github.com/Microsoft/vscode/tree/master/extensions/git) - Git 拡張の実装を読むことで学びます。
+* [Extension API Overview](/docs/extensionAPI/overview.md) - 完全な VS Code 拡張性モデルについて学びます。
+* [拡張マニフェストファイル](/docs/extensionAPI/extension-manifest.md) - VS Code package.json 拡張マニフェストファイルリファレンス
+* [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code 投稿ポイントの参照
