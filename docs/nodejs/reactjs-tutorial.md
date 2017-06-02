@@ -117,12 +117,9 @@ registerServiceWorker();
 
 クライアント側の React コードをデバッグするには、[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) 拡張機能をインストールする必要があります。
 
->Note: This tutorial assumes you have the Chrome browser installed. The builders of the Debugger for Chrome extension also have versions for the [Safari on iOS](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web) and [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browsers.
-
 >注意: このチュートリアルでは、Chromeブラウザがインストールされていることを前提としています。 Debugger for Chrome拡張機能のビルダーには、[Safari on iOS](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web) および [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)ブラウザ用のバージョンも用意されています。
 
-拡張機能ビュー (`kb(workbench.view.showExtensions)`) を開き、検索ボックスに 'chrome` と入力します。 Chrome を参照するいくつかの拡張機能が表示されます。
-
+Open the Extensions view (`kb(workbench.view.showExtensions)`) and type 'chrome` in the search box. You'll see several extension which reference Chrome.
 
 ![debugger for chrome](images/reactjs/debugger-for-chrome.png)
 
@@ -138,9 +135,9 @@ registerServiceWorker();
 ### Chrome デバッガを設定する
 ### Configure the Chrome debugger
 
-We need to initially configure the debugger. To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** dropdown. This will create a `launch.json` file in a new `.vscode` folder in your project which includes configuration to both launch the website or attach to a running instance.
+最初にデバッガを設定する必要があります。 これを行うには、デバッグビュー (`kb(workbench.view.debug)`) に行き、歯車ボタンをクリックして `launch.json` デバッガ設定ファイルを作成します。 **環境の選択** ドロップダウンから **Chrome** を選択します。 プロジェクトの新しい `.vscode` フォルダに `launch.json` ファイルが作成されます。これには、ウェブサイトを起動するか、実行中のインスタンスにアタッチするための設定が含まれています。
 
-We need to make one change for our example which is runninng on localhost port `3000`, not `8080` as in the generated file. Your `launch.json` should look like this:
+生成されたファイルのように `8080` ではなく、localhost port `3000` で実行しているこの例のために1つの変更を加える必要があります。 `launch.json` は次のようになります:
 
 ```json
 {
@@ -164,43 +161,41 @@ We need to make one change for our example which is runninng on localhost port `
 }
 ```
 
-Press `kb(workbench.action.debug.start)` or the green arrow to launch the debugger and open a new browser instance. The source code where the breakpoint is set runs on startup before the debugger was attached so we won't hit the breakpoint until we refresh the web page. Refresh the page and you should hit your breakpoint.
+`kb(workbench.action.debug.start)` または緑の矢印を押してデバッガを起動し、新しいブラウザインスタンスを開きます。 ブレークポイントが設定されているソースコードは、デバッガがアタッチされる前に起動時に実行されるため、Webページを更新するまでブレークポイントにヒットしません。 ページを更新すると、ブレークポイントに当たるはずです。
 
 ![hit breakpoint](images/reactjs/hit-breakpoint.png)
 
-You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `element`, and see the call stack of the client side React application.
+ソースコード (`kb(workbench.action.debug.stepOver)`) を実行し、 `element`などの変数を検査し、クライアント側のReactアプリケーションの呼び出しスタックを見ることができます。
 
 ![debug variable](images/reactjs/debug-variable.png)
 
-The **Debugger for Chrome** extension README has lots of information on other configurations, working with sourcemaps, and troubleshooting and you can review it directly within VS Code from the **Extensions** view by clicking on the extension item and opening the **Details** view.
-
-![debugger for chrome readme](images/reactjs/chrome-debugger-readme.png)
+**Debugger for Chrome** 拡張 README には、他の設定、ソースマップの操作、トラブルシューティングに関する多くの情報があります。また、**Extensions** ビューからVSコード内で直接確認することもできます。 **詳細** 表示。
 
 ## Linting
 
-Linters analyze your source code and can warn you about potential problems before you run your application. VS Code include JavaScript language service has syntax error checking support support by default which you can see in action in the **Problems** panel (**View** > **Problems** `kb(workbench.action.view.problems)`).
+Lintersはあなたのソースコードを分析し、アプリケーションを実行する前に潜在的な問題について警告することができます。 VSコード組み込みJavaScript言語サービスには、デフォルトで[**問題**]パネル（**表示** > **問題** `kb(workbench.actions.view.problems)`)。
 
-Try making a small error in your React source code and you'll see a red squiggly and a warning in the **Problems** panel.
+あなたの React のソースコードに小さな誤りを入れてみると、**Problems** パネルに緑色のちらつきと警告が表示されます。
 
 ![javascript error](images/reactjs/js-error.png)
 
-Linters can provide more sophisticated analysis, enforcing coding conventions and detecting anti-patterns. A popular JavaScript linter is [ESLint](http://eslint.org/). ESLint when combined with the ESLint VS Code [extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) provides a great in-product linting experience.
+リンターは、より洗練された分析、コーディング規則の実施、アンチパターンの検出を提供することができます。よく使われるJavaScriptリンターは[ESLint](http://eslint.org/) です。 ESLint VS Code [extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) と組み合わされた ESLint は、優れた製品内の糸くず処理経験を提供します。
 
-First install the ESLint command line tool:
+最初に ESLint コマンドラインツールをインストールします。
 
 ```bash
 npm install -g eslint
 ```
 
-Then install the ESLint extension by going to the **Extensions** view and typing 'eslint'.
+次に、**Extensions** ビューに行き、 'eslint' と入力して ESLint 拡張機能をインストールします。
 
 ![ESLint extension](images/reactjs/eslint-extension.png)
 
-Once the ESLint extension is installed and VS Code reloaded, you'll want to create an ESLint configuration file `eslintrc.json`. You can create one using the extension's **ESLint: Create 'eslintrc.json' File** command from the **Command Palette** (`kb(workbench.actions.showCommands)`).
+ESLint拡張機能がインストールされ、VSコードがリロードされたら、ESLint設定ファイル `eslintrc.json` を作成します。**コマンドパレット** (`kb(workbench.action.showCommands)`) から拡張機能の **ESLint: Create 'eslintrc.json' File** コマンドを使って作成することができます。
 
 ![create eslintrc](images/reactjs/create-eslintrc.png)
 
-The command will create a `.eslintrc.json` file in your project root:
+このコマンドはプロジェクトルートに `.eslintrc.json` ファイルを作成します:
 
 ```json
 {
@@ -228,15 +223,15 @@ The command will create a `.eslintrc.json` file in your project root:
 }
 ```
 
-ESLint will now analyze open files and shows a warning in `index.js` about 'App' being defined but never used.
+ESLintは開いているファイルを解析し、 'App'が定義されているが使用されていないことを警告する `index.js` を表示します。
 
  ![App is unused](images/reactjs/app-is-unused.png)
 
- You can modify the ESLint [rules](http://eslint.org/docs/rules/) and the ESLint extension provides IntelliSense.
+ESLint [rules](http://eslint.org/docs/rules/) を変更することができ、 ESLint 拡張機能は `eslintrc.json` に IntelliSense を提供します。
 
 ![eslintrc IntelliSense](images/reactjs/eslintrc-intellisense.png)
 
-Let's add an error rule for extra semi-colons:
+余分なセミコロンのエラールールを追加しましょう：
 
 ```json
  "rules": {
@@ -251,20 +246,22 @@ Let's add an error rule for extra semi-colons:
     }
 ```
 
+行に複数のセミコロンが間違っていると、エディタにエラー（赤いちらつき）が表示され、**問題**パネルにエラーが表示されます。
+
 ![extra semicolon error](images/reactjs/extra-semi-error.png)
 
-## Popular Starter Kits
+## 人気スターターキット
 
-In this tutorial, we used the `create-react-app` generator to create a simple React application. There are lots of great samples and starter kits available to help build your first React application.
+このチュートリアルでは、単純な React アプリケーションを作成するために `create-react-app` ジェネレータを使用しました。あなたの最初の React アプリケーションを構築するのに役立つ素晴らしいサンプルとスターターキットがたくさんあります。
 
 ### VS Code React Sample
 
-This is a [sample](https://github.com/Microsoft/vscode-react-sample) React application used for a [demo](https://channel9.msdn.com/events/Build/2017/T6078) at this year's //Build conference. The sample creates a simple TODO application and includes the source code for a Node.js [Express](https://expressjs.com/) server and uses the [Babel](https://babeljs.io) ES6 transpiler and [webpack](https://webpack.js.org/) to bundle the site assets.
+これは、[demo](https://channel9.msdn.com/events/Build/2017/T6078) に使用されている [sample](https://github.com/Microsoft/vscode-react-sample) Reactアプリケーションです。今年のビルドカンファレンスで。このサンプルでは簡単なTODOアプリケーションが作成され、Node.js [Express](https://expressjs.com/) サーバーのソースコードが含まれています。また、[Babel](https://babeljs.io) ES6 トランスペレーターを使用し、 [webpack](https://webpack.js.org/) を使用してサイト資産をバンドルする方法も示しています。
 
-### MERN Starter
+### MERN スターター
 
-If you'd like to see a full MERN (MongoDB, Express, React, Node.js) stack example, look at the [MERN Starter](http://mern.io/). You'll need to install and start [MongoDB](https://docs.mongodb.com/v3.0/installation/) but you'll quickly have a MERN application running. There is helpful VS Code-specific documentation at [vscode-recipes](https://github.com/weinand/vscode-recipes/tree/master/MERN-Starter) which details setting up Node.js server debugging.
+完全なMERN(MongoDB、Express、React、Node.js) スタックの例を見たい場合は、[MERN Starter](http://mern.io/) を見てください。 [MongoDB](https://docs.mongodb.com/v3.0/installation/) をインストールして起動する必要がありますが、すぐに MERN アプリケーションが実行されます。 [vscode-recipes](https://github.com/weinand/vscode-recipes/tree/master/MERN-Starter) には、 Node.js サーバーのデバッグの設定に関する詳細なVSコード固有のドキュメントがあります。
 
 ### TypeScript React
 
-If you're curious about TypeScript and React, you can also create a TypeScript version of the `create-react-app` application. See the details at [TypeScript-React-Starter](https://github.com/Microsoft/TypeScript-React-Starter) on the [TypeScript Quick Start](http://www.typescriptlang.org/samples/index.html) site.
+TypeScript と React について興味がある人は、 `create-react-app` アプリケーションの TypeScript 版を作成することもできます。 [TypeScript Quick Start](http://www.typescriptlang.org/samples/index.html) サイトの[TypeScript-React-Starter](https://github.com/Microsoft/TypeScript-React-Starter) の詳細を参照してください。
