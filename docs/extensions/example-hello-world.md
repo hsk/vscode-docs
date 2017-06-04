@@ -88,7 +88,7 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
  ### 5.1 拡張マニフェスト： `package.json`
 
   * [`package.json` 拡張マニフェストのリファレンス](/docs/extensionAPI/extension-manifest.md) をお読みください
-  * [`package.json` コントリビューションポイント](/docs/extensionAPI/extension-points.md) に関する詳細情報
+  * [`package.json` 提供ポイント](/docs/extensionAPI/extension-points.md) に関する詳細情報
   * 各 VS Code 拡張には、その機能を記述する `package.json` ファイルが必要です。
   * VS Code は起動時にこのファイルを読み込み、すぐに各 `contributes` セクションに反応します。
 
@@ -263,6 +263,6 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
 
   * [Extension API Overview](/docs/extensionAPI/overview.md) - 完全な VS Code 拡張性モデルについて学びます。
   * [APIの原則とパターン](/docs/extensionAPI/patterns-and-principles.md) - VS Code の拡張性は、いくつかの基本原則とパターンに基づいています。
-  * [Contribution Points](/docs/extensionAPI/extension-points.md) - さまざまな VS Code の寄付ポイントの詳細。
+  * [提供ポイント](/docs/extensionAPI/extension-points.md) - さまざまな VS Code の寄付ポイントの詳細。
   * [アクティベーションイベント](/docs/extensionAPI/activation-events.md) - VS Code アクティベーションイベントリファレンス
   * [その他の拡張の例](/docs/extensions/samples.md) - サンプルの拡張プロジェクトの一覧を見てください。

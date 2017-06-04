@@ -23,7 +23,7 @@ VS Code の拡張機能が動作する最も簡単な方法は、 [拡張機能 
 トピック | 説明
 ----- | -----------
 **[package.json拡張マニフェスト](/docs/extensionAPI/extension-manifest.md)** | すべてのVisual Studio Code 拡張は、 拡張フォルダのルートにマニフェストファイル `package.json` を必要とします。 このドキュメントでは、 そのファイルの構造と必須フィールドの概要について説明します。
-**[Contribution Points](/docs/extensionAPI/extension-points.md)**          | ベースの `package.json` に基づいて、あなたが貢献できる追加の拡張ポイントがいくつかあります。コマンド、テーマ、デバッガ、...
+**[提供ポイント](/docs/extensionAPI/extension-points.md)**          | ベースの `package.json` に基づいて、あなたが提供できる追加の拡張ポイントがいくつかあります。コマンド、テーマ、デバッガ、...
 **[アクティベーションイベント](/docs/extensionAPI/activation-events.md)**     | VS Code は、拡張機能を遅くアクティブにします。 このドキュメントは、 `package.json` でサポートされているアクティベーションオプションについて概説しています。 特定のファイルタイプがロードされたとき、 コマンドが起動されたときなど
 **[API vscode名前空間](/docs/extensionAPI/vscode-api.md)**                 | 完全な vscode 名前空間 API リファレンスを確認します。
 **[API複合コマンド](/docs/extensionAPI/vscode-api-commands.md)**            | VS Code 複合コマンド API リファレンスを参照してください。

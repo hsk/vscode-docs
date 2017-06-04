@@ -260,6 +260,6 @@ There are several Node.js modules available on npmjs to help with writing VSCode
 
 To learn more about VS Code extensibility model, try these topic:
 
-* [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
+* [提供ポイント](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
 * [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
 * [Extension Marketplace](/docs/editor/extension-gallery.md) - Read more about the VS Code Extension Marketplace

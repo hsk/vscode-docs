@@ -153,8 +153,8 @@ TextMate言語の文法標準スコープに加えて、 VS Code には独自の
 - `folderExpanded`は展開されたフォルダのためのフォルダアイコンです。展開されたフォルダアイコンはオプションです。設定されていない場合、 `folder`のために定義されたアイコンが表示されます。
 - `folderNames`はフォルダ名をアイコンに関連付けます。セットのキーはフォルダ名であり、パスセグメントは含まれません。パターンやワイルドカードはサポートされていません。フォルダ名の一致は大文字と小文字を区別しません。
 - `folderNamesExpanded`は、展開されたフォルダのアイコンにフォルダ名を関連付けます。セットのキーはフォルダ名であり、パスセグメントは含まれません。パターンやワイルドカードはサポートされていません。フォルダ名の一致は大文字と小文字を区別しません。
-- `languageIds`は、言語をアイコンに関連付けます。セット内のキーは、 [言語投稿ポイント](/docs/extensionAPI/extension-points#_contributeslanguages) で定義されている言語IDです。ファイルの言語は、言語の貢献度で定義されたファイル拡張子とファイル名に基づいて評価されます。言語寄与の「最初の行の一致」は考慮されないことに注意してください。
-- `fileExtensions`は、ファイル拡張子をアイコンに関連付けます。セット内のキーは、ファイル拡張子の名前です。拡張名は、ドットの後のファイル名セグメントですドットは含みません)。 `lib.d.ts`のような複数のドットを持つファイル名は、複数の拡張子にマッチすることができます。 「d.ts」と「ts」。拡張子は大文字小文字を区別して比較されます。
+- `languageIds`は、言語をアイコンに関連付けます。セット内のキーは、 [言語投稿ポイント](/docs/extensionAPI/extension-points#_contributeslanguages) で定義されている言語IDです。ファイルの言語は、言語の貢献度で定義されたファイル拡張子とファイル名に基づいて評価されます。言語提供の "最初の行の一致" は考慮されないことに注意してください。
+- `fileExtensions`は、ファイル拡張子をアイコンに関連付けます。セット内のキーは、ファイル拡張子の名前です。拡張名は、ドットの後のファイル名セグメントですドットは含みません)。 `lib.d.ts` のような複数のドットを持つファイル名は、複数の拡張子にマッチすることができます。 "d.ts" と "ts"。 拡張子は大文字小文字を区別して比較されます。
 - `fileNames`は、ファイル名をアイコンに関連付けます。セット内のキーは完全なファイル名であり、パスセグメントは含まれません。パターンやワイルドカードはサポートされていません。ファイル名の一致は大文字と小文字を区別しません。 'fileName'の一致が最も強い一致であり、ファイル名に関連付けられたアイコンが、一致するfileExtensionのアイコンおよび一致する言語IDのアイコンより優先されます。
 
 ファイルの拡張子の一致は、言語の一致よりも優先されますが、ファイル名の一致よりも弱いです。
@@ -231,7 +231,7 @@ TextMate言語の文法標準スコープに加えて、 VS Code には独自の
 
 ここで `language).json`はスニペットのターゲット言語Markdownスニペットの場合は` markdown.json`など)に依存します。あなたのエクステンション用の新しいフォルダを作成し、スニペットファイルを `snippets`サブディレクトリにコピーします。
 
-拡張マニフェストpackage.jsonファイルを拡張フォルダに追加します。スニペット拡張マニフェストは、 [拡張マニフェスト](/docs/extensionAPI/extension-manifest.md) リファレンスで定義された構造に従い、 [`snippets`投稿](/docs/extensionAPI/extension-points.md#contributessnippets) 。
+拡張マニフェストpackage.jsonファイルを拡張フォルダに追加します。スニペット拡張マニフェストは、 [拡張マニフェスト](/docs/extensionAPI/extension-manifest.md) リファレンスで定義された構造に従い、 [`snippets` 提供](/docs/extensionAPI/extension-points.md#contributessnippets) 。
 
 Markdownスニペットのマニフェストの例を以下に示します。
 
@@ -302,7 +302,7 @@ Markdownスニペットのマニフェストの例を以下に示します。
 }
 ```
 
-詳細については、 [languages contribution point documentation](/docs/extensionAPI/extension-points.md#contributeslanguages) を参照してください。
+詳細については、 [言語提供ポイントドキュメント](/docs/extensionAPI/extension-points.md#contributeslanguages) を参照してください。
 
 生成された `vsc-extension-quickstart.md` ファイルには、拡張機能の実行方法とデバッグ方法に関する詳細情報も含まれています。
 

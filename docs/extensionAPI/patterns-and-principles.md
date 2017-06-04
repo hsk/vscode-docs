@@ -33,11 +33,11 @@ Visual Studio Code には非常に豊富な拡張性モデルがあり、ツー�
 
 ### 拡張マニフェスト
 
-遅延を有効にするには、 VS Code に拡張の説明が必要です。拡張マニフェストは、いくつかの [VS Code 固有のフィールド](/docs/extensionAPI/extension-manifest.md) で充実した `package.json`ファイルです。 )。これには、拡張のロードをトリガする [activation events](/docs/extensionAPI/activation-events.md) が含まれます。  VS Code は、 [拡張機能が追加できる](/docs/extensionAPI/extension-points.md) のセットを提供します。たとえば、 VS Code にコマンドを追加するときは、 `commands` 寄与ポイントを通じてコマンド定義を提供します。あなたはあなたの拡張の貢献をpackage.jsonに定義します。  VS Code は起動時にマニフェストを読み込んで解釈し、それに従ってUIを準備します。
+遅延を有効にするには、 VS Code に拡張の説明が必要です。拡張マニフェストは、いくつかの [VS Code 固有のフィールド](/docs/extensionAPI/extension-manifest.md) で充実した `package.json`ファイルです。 )。これには、拡張のロードをトリガする [activation events](/docs/extensionAPI/activation-events.md) が含まれます。  VS Code は、 [拡張機能が追加できる](/docs/extensionAPI/extension-points.md) のセットを提供します。たとえば、 VS Code にコマンドを追加するときは、 `commands` 提供ポイントを通じてコマンド定義を提供します。あなたはあなたの拡張の貢献をpackage.jsonに定義します。  VS Code は起動時にマニフェストを読み込んで解釈し、それに従ってUIを準備します。
 
 `extension host` は Node.js プロセスなので、拡張モジュールで Node API を使うことができ、拡張モジュールを実装する際に既存のNode.jsモジュールを再利用することができます。モジュールの依存関係を `package.json` の中で定義し、 npm を使って Node.js モジュールをインストールします。
 
-詳細については、[package.json貢献点のリファレンス](/docs/extensionAPI/extension-points.md) を参照してください。
+詳細については、[package.json 提供ポイントのリファレンス](/docs/extensionAPI/extension-points.md) を参照してください。
 
 ### 拡張性API
 
@@ -117,7 +117,7 @@ Visual Studio Code は、ユーザーがインストールしたときに拡張�
 ## 次のステップ
 
 * [拡張マニフェストファイル](/docs/extensionAPI/extension-manifest.md) - Visual Studio Code package.json 拡張マニフェストファイルリファレンス
-* [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution point リファレンス
+* [提供ポイント](/docs/extensionAPI/extension-points.md) - VS Code 提供ポイントリファレンス
 * [アクティベーションイベント](/docs/extensionAPI/activation-events.md) - VS Code アクティベーションイベントリファレンス
 
 ## よくある質問

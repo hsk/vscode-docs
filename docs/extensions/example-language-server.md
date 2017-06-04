@@ -62,7 +62,7 @@ MetaDescription: Learn how to create Language Servers for Visual Studio Code.  T
 }
 ```
 
-このセクションは VS Code への `configuration` 設定に寄与します。 この例では、これらの設定が起動時および設定の変更時に言語サーバーに送信される方法について説明します。
+このセクションは VS Code への `configuration` 設定に提供します。 この例では、これらの設定が起動時および設定の変更時に言語サーバーに送信される方法について説明します。
 
 最後の部分は `vscode-languageclient` ライブラリに依存関係を追加します:
 

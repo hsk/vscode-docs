@@ -27,7 +27,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 
 ユーザーに公開される設定キーを提供します。 ユーザーは、ユーザー設定またはワークスペース設定からこれらの構成オプションを設定できます。
 
-設定キーを提供すると、これらのキーを記述する JSON スキーマが実際に寄与します。 これにより、 VS Code 設定ファイルを作成する際に、ユーザーが優れたツールをサポートできるようになります。
+設定キーを提供すると、これらのキーを記述する JSON スキーマが実際に提供します。 これにより、 VS Code 設定ファイルを作成する際に、ユーザーが優れたツールをサポートできるようになります。
 
 これらの値は、 `vscode.workspace.getConfiguration('myExtension')` を使って拡張機能から読み込むことができます。
 

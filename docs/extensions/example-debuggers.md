@@ -77,7 +77,7 @@ VS Code でプロジェクトフォルダ `vscode-mock-debug` を開きます。
 パッケージには何が入っていますか？
 
 * `package.json` は mock-debug 拡張のマニフェストです:
-    - mock-debug 拡張の寄与を列挙し、
+    - mock-debug 拡張の提供を列挙し、
     - `compile` スクリプトと `watch` スクリプトを使用して、 TypeScript ソースを `out` フォルダーに移動し、その後のソース変更を監視し、
     - `vscode-debugprotocol`、 `vscode-debugadapter`、 および`vscode-debugadapter-testsupport` の依存関係は、ノードベースのデバッグアダプターの開発を簡素化する NPM モジュールです。
 * 拡張モジュールのデバッグアダプタの実装は `src/mockDebug.ts` にあります。 ここでは、 VS Code デバッグプロトコルのさまざまな要求に対するハンドラを見つけることができます。
@@ -132,9 +132,9 @@ VS Code でプロジェクトフォルダ `vscode-mock-debug` を開きます。
 
 ## 3. Debug Extension の package.json の構造
 
-デバッガアダプタのデバッガ固有の実装を提供することに加えて、 デバッガ拡張には、さまざまなデバッグ関連の寄与ポイントに寄与する `package.json` が必要です。
+デバッガアダプタのデバッガ固有の実装を提供することに加えて、 デバッガ拡張には、さまざまなデバッグ関連の提供ポイントに提供する `package.json` が必要です。
 
-では、Mock Debugの `package.json` を詳しく見てみましょう。
+では、 Mock Debugの `package.json` を詳しく見てみましょう。
 
 すべてのVS Code 拡張と同様に、 `package.json` は基本プロパティの **name**、 **publisher**、 および拡張の **version** を宣言します。 **categories** フィールドを使用すると、 VS Code 拡張機能 Marketplace で拡張機能を簡単に見つけることができます。
 

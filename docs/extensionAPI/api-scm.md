@@ -171,4 +171,4 @@ export interface SourceControl {
 * [Git Extension](https://github.com/Microsoft/vscode/tree/master/extensions/git) - Git 拡張の実装を読むことで学びます。
 * [Extension API Overview](/docs/extensionAPI/overview.md) - 完全な VS Code 拡張性モデルについて学びます。
 * [拡張マニフェストファイル](/docs/extensionAPI/extension-manifest.md) - VS Code package.json 拡張マニフェストファイルリファレンス
-* [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code 投稿ポイントの参照
+* [提供ポイント](/docs/extensionAPI/extension-points.md) - VS Code 提供ポイントの参照
