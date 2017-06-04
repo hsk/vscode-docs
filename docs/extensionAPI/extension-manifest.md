@@ -256,10 +256,10 @@ There are several Node.js modules available on npmjs to help with writing VSCode
 * [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) - Consistent telemetry reporting for VS Code extensions.
 * [vscode-languageclient](https://www.npmjs.com/package/vscode-languageclient) - Easily integrate language servers adhering to the [language server protocol](https://github.com/Microsoft/language-server-protocol).
 
-## Next Steps
+## 次のステップ
 
-To learn more about VS Code extensibility model, try these topic:
+VS Code の拡張性モデルの詳細については、 次のトピックを参照してください。
 
-* [提供ポイント](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
-* [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
-* [Extension Marketplace](/docs/editor/extension-gallery.md) - Read more about the VS Code Extension Marketplace
+* [提供ポイント](/docs/extensionAPI/extension-points.md) - VS Code 提供ポイントリファレンス
+* [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code アクティベーションイベントリファレンス
+* [Extension Marketplace](/docs/editor/extension-gallery.md) - VS Code 拡張マーケットプレイスの詳細
