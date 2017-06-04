@@ -70,7 +70,7 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 
 ## activationEvents.*
 
-このアクティベーションイベントが発生し、 VS Code が起動するたびに関心のある内線番号が有効になります。優れたエンドユーザーエクスペリエンスを確保するには、拡張機能でこのアクティベーションイベントを使用してください。
+このアクティベーションイベントが発生し、 VS Code が起動するたびに関心のある拡張機能が有効になります。優れたエンドユーザーエクスペリエンスを確保するには、拡張機能でこのアクティベーションイベントを使用してください。
 
 ```json
 ...
@@ -93,4 +93,4 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 VS Code の拡張性モデルの詳細については、次のトピックを参照してください:
 
 * [拡張マニフェストファイル](/docs/extensionAPI/extension-manifest.md) - VS Code package.json 拡張マニフェストファイルリファレンス
-* [貢献ポイント](/docs/extensionAPI/extension-points.md) - VS Code 投稿ポイントリファレンス
+* [提供ポイント](/docs/extensionAPI/extension-points.md) - VS Code 提供ポイントリファレンス

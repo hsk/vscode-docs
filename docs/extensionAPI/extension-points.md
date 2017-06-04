@@ -7,9 +7,9 @@ PageTitle: Visual Studio Code Extension Contribution Points - package.json
 DateApproved: 5/4/2017
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
-# Contribution ポイント - package.json
+# 提供ポイント - package.json
 
-このドキュメントでは、 [`package.json`拡張マニフェスト](/docs/extensionAPI/extension-manifest.md) で定義されているさまざまな Contribution ポイント について説明します。
+このドキュメントでは、 [`package.json`拡張マニフェスト](/docs/extensionAPI/extension-manifest.md) で定義されているさまざまな提供ポイントについて説明します。
 
 * [`configuration`](/docs/extensionAPI/extension-points.md#contributesconfiguration)
 * [`commands`](/docs/extensionAPI/extension-points.md#contributescommands)
