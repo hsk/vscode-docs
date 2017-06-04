@@ -7,34 +7,34 @@ PageTitle: Visual Studio Code Extension Manifest File - package.json
 DateApproved: 5/4/2017
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules and runtime resources.
 ---
-# 拡張マニフェストファイル - package.json
+# 拡張機能マニフェストファイル - package.json
 
-すべての Visual Studio コード拡張には、拡張ディレクトリ構造のルートにマニフェストファイル `package.json` が必要です。
+すべての Visual Studio Code 拡張機能には、拡張機能ディレクトリ構造のルートにマニフェストファイル `package.json` が必要です。
 
 ## フィールド
 
 名前|必須|タイプ|詳細
 ---- |:--------:| ---- | -------
-`name`| Y | `string` | 拡張子の名前 - すべてスペースでスペースを入れずに小文字にする必要があります。
+`name`| Y | `string` | 拡張機能の名前 - すべてスペースを入れずに小文字にする必要があります。
 `version`| Y | `string` | [SemVer](http://semver.org/) 互換バージョン。
 `publisher` | Y | `string` | [発行者名](/docs/extensions/publish-extension.md#publishers-and-personal-access-tokens)
-`engines` | Y | `object` | オブジェクト拡張子が互換性のあるVSコードのバージョンと一致する少なくとも vscode キーを含むオブジェクト。 `*` にすることはできません。 例: `^0.10.5` は最小VSコードバージョンの `0.10.5` との互換性を示します。
-`license` | | `string` | [npmのドキュメント](https://docs.npmjs.com/files/package.json#license) を参照してください。あなたの拡張のルートに `LICENSE` ファイルがある場合、`license` の値は `"SEE LICENSE IN <filename>"` でなければなりません。
+`engines` | Y | `object` | オブジェクト拡張機能が互換性のある VS Code のバージョンと一致する少なくとも vscode キーを含むオブジェクト。 `*` にすることはできません。 例: `^0.10.5` は最小 VS Code バージョンの `0.10.5` との互換性を示します。
+`license` | | `string` | [npmのドキュメント](https://docs.npmjs.com/files/package.json#license) を参照してください。あなたの拡張機能のルートに `LICENSE` ファイルがある場合、`license` の値は `"SEE LICENSE IN <filename>"` でなければなりません。
 `displayName` | | `string`| マーケットプレイスで使用される拡張機能の表示名。
 `description` | | `string` | あなたの拡張機能が何であるかについての短い説明。
-`categories` | | `string[]` | `[Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, Other, Extension Packs]`
-`keywords` | | `array` | 拡張機能を簡単に見つけるための**キーワード**または**タグ**の配列。
-`galleryBanner` | | `object` |オブジェクトMarketplaceヘッダーのフォーマットをあなたのアイコンに合わせるのに役立ちます。以下の詳細を参照してください。
-`preview` | | `boolean` | マーケットプレースのプレビューとしてフラグを立てるように設定します。
-`main` | | `string` | あなたの内線番号のエントリポイント。
-[`contributes`](/​​docs/extensionAPI/extension-points.md) | | `object` |オブジェクト拡張機能の [contributions](/docs/extensionAPI/extension-points.md) を記述するオブジェクト。
+`categories` | | `string[]` | 拡張機能に使用するカテゴリには次の値が許可されています: `[Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, Other, Extension Packs]`
+`keywords` | | `array` | 拡張機能を簡単に見つけるための **キーワード** または **タグ** の配列。
+`galleryBanner` | | `object` | マーケットプレイスヘッダーのフォーマットをあなたのアイコンに合わせるのに役立ちます。以下の詳細を参照してください。
+`preview` | | `boolean` | マーケットプレイすのプレビューとしてフラグを立てるように設定します。
+`main` | | `string` | あなたの拡張機能のエントリポイント。
+[`contributes`](/​​docs/extensionAPI/extension-points.md) | | `object` | 拡張機能の [提供ポイント](/docs/extensionAPI/extension-points.md) を記述するオブジェクト。
 [`activationEvents`](/docs/extensionAPI/activation-events.md) | | `array` | この拡張モジュールの [activation events](/docs/extensionAPI/activation-events.md) の配列。
-`badges` | | | Marketplaceの拡張ページのサイドバーに表示するバッジの配列。各バッジは、バッジの画像URLを表す「url」、バッジをクリックしたときに表示されるリンクの「href」、「description」の3つのプロパティを含むオブジェクトです。
-`markdown` | | `string` | Marketplaceで使用されるMarkdownレンダリングエンジンを制御します。 `github`（デフォルト）または` standard`です。
-`dependencies` | | |オブジェクト拡張機能に必要な実行時Node.js依存関係。 [npmの `dependencies`]（https://docs.npmjs.com/files/package.json#dependencies）とまったく同じです。
-`devDependencies` | | |オブジェクト拡張が必要とする開発Node.js依存関係。正確に[npmの `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies)と同じです。
-`extensionDependencies` | | |この拡張が依存する拡張のIDを持つ配列。これらのその他の拡張機能は、プライマリ拡張機能のインストール時にインストールされます。拡張子のIDは常に `$ {publisher}。$ {name}`です。たとえば、 `vscode.csharp`です。
-`scripts` | | |オブジェクト正確に[npmの `scripts`]（https://docs.npmjs.com/misc/scripts）と同じですが、[追加のVSコード固有のフィールド]（/ docs / extensions / publish-extension.md＃pre-publish-ステップ）。
+`badges` | | | マーケットプレイスの拡張ページのサイドバーに表示するバッジの配列。各バッジは、バッジの画像URLを表す `url`、バッジをクリックしたときに表示されるリンクの `href`、`description` の3つのプロパティを含むオブジェクトです。
+`markdown` | | `string` | マーケットプレイスで使用される Markdown レンダリングエンジンを制御します。 `github` (デフォルト) または `standard` です。
+`dependencies` | | `object` | 拡張機能に必要な実行時 Node.js 依存関係。 [npmの `dependencies`](https://docs.npmjs.com/files/package.json#dependencies) とまったく同じです。
+`devDependencies` | | `object` | 拡張機能が必要とする開発 Node.js 依存関係。完全に [npmの `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies) と同じです。
+`extensionDependencies` | | `array` | この拡張機能が依存する拡張のIDを持つ配列。これらのその他の拡張機能は、プライマリ拡張機能のインストール時にインストールされます。拡張子のIDは常に `$ {publisher}。$ {name}`です。たとえば、 `vscode.csharp`です。
+`scripts` | | `object` | 完全に[npmの `scripts`](https://docs.npmjs.com/misc/scripts) と同じですが、[追加のVSコード固有のフィールド](/docs/extensions/publish-extension.md#pre-publish-step)。
 `icon` | `string` | 128x128ピクセルのアイコンへのパス。
 
 また、 [npm の `package.json`リファレンス](https://docs.npmjs.com/files/package.json) もチェックしてください。
@@ -109,9 +109,9 @@ MetaDescription: At the core of Visual Studio Code's extensibility model is an e
 }
 ```
 
-## 市場プレゼンテーションのヒント
+## マーケットプレイスプレゼンテーションのヒント
 
-[VSコードマーケットプレイス](https://marketplace.visualstudio.com/VSCode) に表示されると、拡張機能を見栄えよくするためのヒントと推奨事項があります。
+[VS Code マーケットプレイス](https://marketplace.visualstudio.com/VSCode) に表示されると、拡張機能を見栄えよくするためのヒントと推奨事項があります。
 
 常に最新の `vsce` を使用して、`npm install -g vsce` を使用してください。
 
@@ -123,14 +123,14 @@ MetaDescription: At the core of Visual Studio Code's extensibility model is an e
 2. [MD Tools](https://marketplace.visualstudio.com/items/seanmcbreen.MDTools)
 
 
-適切な表示名と説明を入力します。これはマーケットプレイスや製品のディスプレイで重要です。これらの文字列は、VSコードのテキスト検索にも使用され、関連するキーワードを使用すると多くの役に立ちます。
+適切な表示名と説明を入力します。これはマーケットプレイスや製品のディスプレイで重要です。これらの文字列は、 VS Code のテキスト検索にも使用され、関連するキーワードを使用すると多くの役に立ちます。
 
 ```json
     "displayName": "Spelling and Grammar Checker",
     "description": "Detect mistakes as you type and suggest fixes - great for Markdown.",
 ```
 
-Marketplace ページのヘッダーには、アイコンと対照的なバナー色がよく見えます。 `theme` 属性は、バナーで使用されるフォント、`dark` または `light` を指します。
+マーケットプレイスページのヘッダーには、アイコンと対照的なバナー色がよく見えます。 `theme` 属性は、バナーで使用されるフォント、`dark` または `light` を指します。
 
 ```json
     "icon": "images/spellIcon.svg",
@@ -140,7 +140,7 @@ Marketplace ページのヘッダーには、アイコンと対照的なバナ�
     },
 ```
 
-オプションのリンク (`bugs`、` homepage`、 `repository`) があり、これは Marketplace の **Resources** セクションの下に表示されます。
+オプションのリンク (`bugs`、`homepage`、 `repository`) があり、これはマーケットプレイスの **Resources** セクションの下に表示されます。
 
 ```json
     "license": "SEE LICENSE IN LICENSE.md",
@@ -155,7 +155,7 @@ Marketplace ページのヘッダーには、アイコンと対照的なバナ�
 ```
 
 マーケットプレースのリソースリンク | package.json 属性
------------------ | -----------------------
+-----------------|-----------------------
 問題 | `bug:url`
 リポジトリ  | `repository:url`
 ホームページ | `homepage`
@@ -171,7 +171,7 @@ Marketplace ページのヘッダーには、アイコンと対照的なバナ�
     ],
 ```
 
-> **ヒント：** [拡張マニフェストエディタ](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.extension-manifest-editor) 拡張機能を使用すると、拡張子 `README.md` のプレビューが可能です。 `package.json` メタデータは Marketplace に公開されたときに表示されます。
+> **ヒント:** [拡張マニフェストエディタ](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.extension-manifest-editor) 拡張機能を使用すると、拡張子 `README.md` のプレビューが可能です。 `package.json` メタデータはマーケットプレイスに公開されたときに表示されます。
 
 ## 拡張機能提供の結合
 
@@ -217,13 +217,13 @@ Marketplace ページのヘッダーには、アイコンと対照的なバナ�
 
 > **ヒント:** あなたのマージされた貢献が同じ識別子を使用していることを確認してください。 上記の例では、3つすべての寄稿は言語識別子として "latex" を使用しています。 これにより、VS Code は、Colorizer (`grammar`) とスニペットが LaTeX 言語用であり、 LaTeX ファイルを編集するときにアクティブになることを知ることができます。
 
-##エクステンションパック
+## Extension Packs 拡張機能パック
 
-別々のエクステンションを「エクステンションパック」にまとめてバンドルすることもできます。拡張パックは、一緒にインストールできる拡張機能のセットです。これにより、お気に入りのエクステンションを他のユーザと簡単に共有したり、PHP開発のような特定のシナリオ用の拡張セットを作成して、PHP開発者がVSコードをすばやく使い始める手助けをすることができます。
+別々の拡張機能を 'Extension Packs' にまとめてバンドルすることもできます。拡張パックは、一緒にインストールできる拡張機能のセットです。これにより、お気に入りの拡張機能を他のユーザと簡単に共有したり、 PHP 開発のような特定のシナリオ用の拡張セットを作成して、 PHP 開発者が VS Code をすばやく使い始める手助けをすることができます。
 
-エクステンションパックには他の投稿を含めることができます。 この依存関係は `package.json` ファイル内の `extensionDependencies` 属性を使って表現されます。
+Extension Packs には他のコントリビューションを含めることができます。 この依存関係は `package.json` ファイル内の `extensionDependencies` 属性を使って表現されます。
 
-たとえば、PHP用のExtension Packには、デバッガ、言語サービス、およびフォーマッタが含まれています。
+たとえば、PHP用の Extension Pack には、デバッガ、言語サービス、およびフォーマッタが含まれています。
 
 ```json
   "extensionDependencies": [
@@ -235,7 +235,7 @@ Marketplace ページのヘッダーには、アイコンと対照的なバナ�
 
 Extension Pack をインストールすると、 VS Code はその拡張機能の依存関係もインストールされるようになりました。
 
-エクステンションパックは、 `Extension Packs` マーケットカテゴリに分類する必要があります。
+Extension pack は、 `Extension Packs` マーケットカテゴリに分類する必要があります。
 
 ```json
   "categories": [
@@ -243,9 +243,9 @@ Extension Pack をインストールすると、 VS Code はその拡張機能�
   ],
 ```
 
-拡張パックを作成するには、 `yo code` Yeoman ジェネレータを使用します。オプションで、 VS Code インスタンスに現在インストールされている拡張機能のセットをパックにシードすることもできます。このようにして、お気に入りの拡張機能で Extension Pack を簡単に作成し、 Marketplace に公開し、他のユーザーと共有することができます。
+Extension pack を作成するには、 `yo code` Yeoman ジェネレータを使用します。オプションで、 VS Code インスタンスに現在インストールされている拡張機能のセットをパックにシードすることもできます。このようにして、お気に入りの拡張機能で Extension Pack を簡単に作成し、 マーケットプレイスに公開し、他のユーザーと共有することができます。
 
-##有用なノードモジュール
+## 有用なノードモジュール
 
 npmj にはいくつかの Node.js モジュールがあり、 VSCode 拡張機能の作成に役立ちます。拡張機能の `dependencies` セクションにこれらを含めることができます。
 
