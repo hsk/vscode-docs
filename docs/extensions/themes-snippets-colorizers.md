@@ -7,67 +7,67 @@ PageTitle: Add Themes, Snippets and Colorizers to Visual Studio Code
 DateApproved: 5/4/2017
 MetaDescription: How to add themes, snippets and colorization and bracket matching to Visual Studio Code. TextMate .tmLanguage files are supported.
 ---
-# Themes, Snippets and Colorizers
+# テーマ、スニペット、カラー化ツール
 
-Custom themes, snippets and language syntax colorizers bring an editor to life. There are lots of existing TextMate customization files available and VS Code lets you easily package and reuse these. You can directly use `.tmTheme`, `.tmSnippets`, and `.tmLanguage` files in your extensions and share them in the extension [Marketplace](https://marketplace.visualstudio.com/VSCode). This topic describes how to reuse TextMate files as well as create and share your own themes, snippets and colorizers.
+カスタムテーマ、スニペット、および言語構文カラー化ツールは、エディタを人生にもたらすものです。既存のTextMateカスタマイズファイルが多数あり、 VS Code で簡単にパッケージ化して再利用できます。拡張子に `.tmTheme`、` .tmSnippets`、 `.tmLanguage`ファイルを直接使用し、拡張子 [Marketplace](https://marketplace.visualstudio.com/VSCode) で共有することができます。このトピックでは、TextMateファイルを再利用する方法と、独自のテーマ、スニペット、およびカラー化ツールを作成および共有する方法について説明します。
 
-## Adding a new Theme
+## 新しいテーマを追加する
 
-You can also add new TextMate theme files (.tmTheme) to your VS Code installation using VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md). The extension generator takes an existing TextMate theme file and packages it for use in VS Code.
+ VS Code の [Yeoman](http://yeoman.io) 拡張ジェネレータ、 [yo code]((/docs/extensions/yocode.md) を使用して、新しいTextMateテーマファイル.tmTheme)を VS Code のインストールに追加することもできます。拡張ジェネレータは、既存のTextMateテーマファイルを使用し、 VS Code で使用するためにそれをパッケージ化します。
 
-[ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator.  It will be in a format like `"http://colorsublime.com/theme/download/(number)"`.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name, and other information related to the theme.
+[ColorSublime]((http://colorsublime.com) には、何百もの既存のTextMateテーマがあります。あなたが好きなテーマを選び、ダウンロードリンクをコピーしてYeomanジェネレータで使用します。 「http://colorsublime.com/theme/download/(number)」のような形式になります。 'code'ジェネレータは、.tmThemeファイルのURLまたはファイルの場所、テーマ名、およびテーマに関連するその他の情報を入力するよう求めます。
 
 ![yo code theme](images/themes/yocodetheme.png)
 
-Copy the generated theme folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.
+生成されたテーマフォルダを [あなたの `.vscode/extensions`フォルダ]((/docs/extensions/yocode.md#your-extensions-folder) の下の新しいフォルダにコピーし、 VS Code を再起動します。
 
-Open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the dropdown.  Arrow up and down to see a live preview of your theme.
+** File **> ** Preferences **> ** Color Theme **でカラーテーマピッカーテーマを開き、ドロップダウンでテーマを確認できます。矢印を上下に移動すると、テーマのライブプレビューが表示されます。
 
 ![select my theme](images/themes/mytheme.png)
 
-## Publishing a Theme to the Extension Marketplace
+## エクステンションマーケットプレイスにテーマを公開する
 
-If you'd like to share your new theme with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-gallery.md). Use the [vsce publishing tool](/docs/extensions/publish-extension.md) to package your theme and publish it to the VS Code Marketplace.
+新しいテーマをコミュニティと共有したい場合は、 [Extension Marketplace](/docs/editor/extension-gallery.md) に公開できます。 [vsce公開ツール](/docs/extensions/publish-extension.md) を使用してテーマをパッケージ化し、VS Code Marketplaceに公開します。
 
-> **Tip:** To make it easy for users to find your theme, include the word "theme" in the extension description and set the `Category` to `Theme` in your `package.json`.
+> **ヒント:**ユーザがあなたのテーマを見つけやすくするために、拡張の説明に "theme"という単語を入れ、 `package.json`に` Category`を `Theme`に設定します。
 
-We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips).
+また、 [Marketplaceプレゼンテーションのヒント](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips) を参照して、 VS Code マーケットプレイスでエクステンションを見栄えよくする方法についての推奨事項もあります。
 
-## Creating a Custom Theme
+## カスタムテーマの作成
 
-You can also author your own TextMate themes from scratch. Consult the TextMate [theme](https://manual.macromates.com/en/themes) and language grammar [naming conventions](https://manual.macromates.com/en/language_grammars#naming_conventions) documentation for details.
+独自のTextMateテーマを最初から作成することもできます。詳細については、TextMate [theme](https://manual.macromates.com/en/themes) および言語文法 [命名規則](https://manual.macromates.com/en/language_grammars#naming_conventions) を参照してください。
 
-Besides the TextMate language grammar standard scopes, VS Code also has custom theme settings which you can use to tune your own theme:
+TextMate言語の文法標準スコープに加えて、 VS Code には独自のテーマを調整するために使用できるカスタムテーマ設定があります。
 
-- `rangeHighlight`: Background color of range highlighted, like by Quick open and Find features.
-- `selectionHighlight`: Background color of regions highlighted while selecting.
-- `inactiveSelection`: Background color of selections when not in focus.
-- `wordHighlight`: Background color of a symbol during read-access, like reading a variable.
-- `wordHighlightStrong`: Background color of a symbol during write-access, like writing to a variable.
-- `findMatchHighlight`: Background color of regions matching the search.
-- `currentFindMatchHighlight`: Background color of the current region matching the search.
-- `findRangeHighlight`: Background color of regions selected for search.
-- `linkForeground`: Color of links.
-- `activeLinkForeground`: Color of active links.
-- `hoverHighlight`: Background color when hovered.
-- `referenceHighlight`: Background color of a reference when finding all references.
-- `guide`: Color of the guides displayed to indicate nesting levels.
+- 'rangeHighlight`:クイックオープンとFind機能のように、ハイライト表示される範囲の背景色です。
+- `selectionHighlight`:選択中にハイライト表示される領域の背景色。
+- `inactiveSelection`:フォーカスがないときの選択の背景色。
+- `wordHighlight`:変数の読み込みのような、読み込みアクセス時のシンボルの背景色です。
+- `wordHighlightStrong`:変数への書き込みのような、書き込みアクセス中のシンボルの背景色です。
+- findMatchHighlight`:検索に一致する領域の背景色。
+- `currentFindMatchHighlight`:検索に一致する現在の領域の背景色です。
+- `findRangeHighlight`:検索のために選択された領域の背景色です。
+- `linkForeground`:リンクの色です。
+- `activeLinkForeground`:アクティブなリンクの色です。
+- `hoverHighlight`:ホバリングされたときの背景色。
+- `referenceHighlight`:すべての参照を見つけるときのリファレンスの背景色です。
+- `guide`:ネストレベルを示すために表示されるガイドの色です。
 
-You can find an example VS Code theme [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/theme-sample) which includes the custom settings.
+カスタム設定を含むサンプル VS Code テーマ [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/theme-sample) があります。
 
-Authoring a theme is fairly tricky as the grammars all behave a bit differently. Try to follow the TextMate conventions and avoid language specific rules in your theme as grammars can also be replaced by extensions.
+文法の作法は少し違うので、テーマの作成はかなり難しいです。文法は拡張機能に置き換えることができるため、TextMateの規則に従い、テーマの言語固有の規則を避けてください。
 
-## New Tools for inspecting TextMate Scopes
+## TextMate スコープを検査するための新しいツール
 
-To help with theme authoring, there is a widget to inspect the scopes of a token and the matching theme rule. You can launch the widget with **Developer Tools: Inspect TM Scopes** from the **Command Palette** (`kb(workbench.action.showCommands)`).
+テーマオーサリングを支援するために、トークンのスコープと一致するテーマルールを調べるウィジェットがあります。 **Command Palette** `kbworkbench.action.showCommands)`)から **Developer Tools:Inspect TM Scopes** を使ってウィジェットを起動することができます。
 
 ![Inspect TM Scopes](images/themes/inspect-tm-scopes.png)
 
-## Adding a new Icon Theme
+## 新しいアイコンテーマを追加する
 
-You can create your own icon theme from icons (preferably SVG) and from icon fonts. As example, check out the two built-in themes: [Minimal](https://github.com/Microsoft/vscode/tree/master/extensions/theme-defaults) and [Seti](https://github.com/Microsoft/vscode/tree/master/extensions/theme-seti).
+あなたはアイコン好ましくはSVG)とアイコンフォントから独自のアイコンテーマを作成できます。例として、 [Minimal](https://github.com/Microsoft/vscode/tree/master/extensions/theme-defaults) と [Seti](https://github.com) の2つのビルトインテーマを確認してください。/Microsoft/vscode/tree/master/extensions/theme-seti)。
 
-To begin, create a VS Code extension and add the `iconTheme` contribution point.
+まず、 VS Code 拡張を作成し、 `iconTheme` 投稿を追加してください。
 
 ```json
 "contributes": {
@@ -81,17 +81,17 @@ To begin, create a VS Code extension and add the `iconTheme` contribution point.
 }
 ```
 
-The `id` is the identifier for the icon theme. It is currently only used internally. In the future, it might be used in the settings, so make it unique but also readable. `label` is shown in the icon theme picker drop-down. The `path` points to a file in the extension that defines the icon set. If your icon set name follows the `*icon-theme.json` name scheme, you will get completion support and hovers in VS Code.
+`id` はアイコンテーマの識別子です。現在のところ、内部でのみ使用されています。将来的には、設定で使用される可能性があるため、ユニークで読みやすいものにしてください。アイコンのテーマ選択ツールのドロップダウンに `label`が表示されます。 `path`は、アイコンセットを定義する拡張子内のファイルを指します。あなたのアイコンセット名が `* icon-theme.json`ネームスキームの後にあれば、 VS Code で補完と浮上を得ることができます。
 
-### Icon Set File
+### アイコンセットファイル
 
-The icon set file is a JSON file consisting file icon associations and icon definitions.
+アイコンセットファイルは、ファイルアイコンの関連付けとアイコン定義からなるJSONファイルです。
 
-An icon association maps a file type ('file', 'folder', 'json-file'...) to an icon definition. Icon definitions define where the icon is located: That can be an image file or also glyph in a font.
+アイコン関連付けは、ファイルタイプ 'file'、 'folder'、 'json-file' ...)をアイコン定義にマップします。アイコンの定義は、アイコンがどこにあるかを定義します。これはイメージファイルでも、フォント内のグリフでもかまいません。
 
-### Icon definitions
+### アイコンの定義
 
-The `iconDefinitions` section contains all definitions. Each definition has an id, which will be used to reference the definition. A definition can be referenced also by more than one file association.
+`iconDefinitions`セクションにはすべての定義が含まれています。各定義にはidがあり、定義を参照するために使用されます。定義は、複数のファイル関連によっても参照できます。
 
 ```json
     "iconDefinitions": {
@@ -101,23 +101,23 @@ The `iconDefinitions` section contains all definitions. Each definition has an i
     }
 ```
 
-This icon definition above contains a definition with the identifier `_folder_dark`.
+上記のアイコンの定義には、識別子が「_folder_dark」の定義が含まれています。
 
-The following properties are supported:
+次のプロパティがサポートされています。
 
-- `iconPath`: When using a svg/png: the path to the image.
-- `fontCharacter`: When using a glyph font: The character in the font to use.
-- `fontColor`: When using a glyph font: The color to use for the glyph.
-- `fontSize`: When using a font: The font size. By default, the size specified in the font specification is used. Should be a relative size (e.g. 150%) to the parent font size.
-- `fontId`: When using a font: The id of the font. If not specified, the first font specified in font specification section will be picked.
+`iconPath`:svg/pngを使用する場合:画像へのパス。
+- `fontCharacter`:グリフフォントを使用する場合:使用するフォントの文字。
+- `fontColor`:グリフフォントを使用する場合:グリフに使用する色です。
+- fontSize`:フォントを使用する場合:フォントのサイズ。デフォルトでは、フォント指定で指定されたサイズが使用されます。親フォントサイズの相対サイズたとえば、150％)にする必要があります。
+- `fontId`:フォントを使用する場合:フォントのID。指定しない場合、フォント指定セクションで指定された最初のフォントが選択されます。
 
-### File association
+###ファイルの関連付け
 
-Icons can be associated to folders, folder names, files, file extensions, file names and [language ids](/docs/extensionAPI/extension-points#_contributeslanguages).
+アイコンは、フォルダ、フォルダ名、ファイル、ファイル拡張子、ファイル名、 [言語ID](/docs/extensionAPI /拡張ポイント#_contributeslanguages) に関連付けることができます。
 
-Additionally each of these associations can be refined for 'light' and 'highContrast' color themes.
+さらに、これらの関連付けのそれぞれは、「明るい」および「高コントラスト」の色テーマについて洗練されることができる。
 
-Each file association points to an icon definition.
+各ファイル関連付けは、アイコン定義を指し示します。
 
 ```json
 "file": "_file_dark",
@@ -147,32 +147,32 @@ Each file association points to an icon definition.
 }
 ```
 
-- `file` is the default file icon, shown for all files that don't match any extension, filename or language id. Currently all properties defined by the definition of the file icon will be inherited (only relevant for font glyphs, useful for the fontSize).
-- `folder` is the folder icon for collapsed folders, and if `folderExpanded` is not set, also for expanded folders. Icons for specific folder names can be associated using the `folderNames` property.
-The folder icon is optional. If not set, no icon will be shown for folder.
-- `folderExpanded` is the folder icon for expanded folders. The expanded folder icon is optional. If not set, the icon defined for `folder` will be shown.
-- `folderNames` associates folder names to icons. The key of the set is the folder name, not including any path segments. Patterns or wildcards are not supported. Folder name matching is case insensitive.
-- `folderNamesExpanded` associates folder names to icons for expanded folder. The key of the set is the folder name, not including any path segments. Patterns or wildcards are not supported. Folder name matching is case insensitive.
-- `languageIds` associates languages to icons. The key in the set is the language id as defined in the [language contribution point](/docs/extensionAPI/extension-points#_contributeslanguages). The language of a file is evaluated based on the file extensions and file names as defined in the language contribution. Note that the 'first line match' of the language contribution is not considered.
-- `fileExtensions` associates file extensions to icons. The key in the set is the file extension name. The extension name is a file name segment after a dot (not including the dot). File names with multiple dots such as `lib.d.ts` can match multiple extensions; 'd.ts' and 'ts'. Extensions are compared case insensitive.
-- `fileNames` associates file names to icons. The key in the set is the full file name, not including any path segments. Patterns or wildcards are not supported. File name matching is case insensitive. A 'fileName' match is the strongest match, and the icon associated to the file name will be preferred over an icon of a matching fileExtension and also of a matching language Id.
+- `file`はデフォルトのファイルアイコンで、拡張子、ファイル名、または言語IDと一致しないすべてのファイルに表示されます。現在、ファイルアイコンの定義で定義されたすべてのプロパティは継承されますフォントグリフにのみ関連し、fontSizeには便利です)。
+- `folder`は、折りたたまれたフォルダのためのフォルダアイコンであり、` folderExpanded`が設定されていない場合、展開されたフォルダのアイコンです。特定のフォルダ名のアイコンは、 `folderNames`プロパティを使用して関連付けることができます。
+フォルダアイコンはオプションです。設定されていない場合、フォルダのアイコンは表示されません。
+- `folderExpanded`は展開されたフォルダのためのフォルダアイコンです。展開されたフォルダアイコンはオプションです。設定されていない場合、 `folder`のために定義されたアイコンが表示されます。
+- `folderNames`はフォルダ名をアイコンに関連付けます。セットのキーはフォルダ名であり、パスセグメントは含まれません。パターンやワイルドカードはサポートされていません。フォルダ名の一致は大文字と小文字を区別しません。
+- `folderNamesExpanded`は、展開されたフォルダのアイコンにフォルダ名を関連付けます。セットのキーはフォルダ名であり、パスセグメントは含まれません。パターンやワイルドカードはサポートされていません。フォルダ名の一致は大文字と小文字を区別しません。
+- `languageIds`は、言語をアイコンに関連付けます。セット内のキーは、 [言語投稿ポイント](/docs/extensionAPI/extension-points#_contributeslanguages) で定義されている言語IDです。ファイルの言語は、言語の貢献度で定義されたファイル拡張子とファイル名に基づいて評価されます。言語寄与の「最初の行の一致」は考慮されないことに注意してください。
+- `fileExtensions`は、ファイル拡張子をアイコンに関連付けます。セット内のキーは、ファイル拡張子の名前です。拡張名は、ドットの後のファイル名セグメントですドットは含みません)。 `lib.d.ts`のような複数のドットを持つファイル名は、複数の拡張子にマッチすることができます。 「d.ts」と「ts」。拡張子は大文字小文字を区別して比較されます。
+- `fileNames`は、ファイル名をアイコンに関連付けます。セット内のキーは完全なファイル名であり、パスセグメントは含まれません。パターンやワイルドカードはサポートされていません。ファイル名の一致は大文字と小文字を区別しません。 'fileName'の一致が最も強い一致であり、ファイル名に関連付けられたアイコンが、一致するfileExtensionのアイコンおよび一致する言語IDのアイコンより優先されます。
 
-A file extension match is preferred over a language match, but is weaker than a file name match.
+ファイルの拡張子の一致は、言語の一致よりも優先されますが、ファイル名の一致よりも弱いです。
 
-The `light` and the `highContrast` section have the same file association properties as just listed. They allow to override icons for the corresponding themes.
+`light`と` highContrast`セクションは、上にリストしたものと同じファイル関連プロパティを持っています。対応するテーマのアイコンを無効にすることができます。
 
-### Font definitions
+### フォントの定義
 
-The 'fonts' section lets you declare any number of glyph fonts that you want to use.
-You can later reference these font in the icon definitions. The font declared first will be used as by default if an icon definition does not specify a font id.
+'fonts'セクションでは、使用する任意の数のグリフフォントを宣言できます。
+後でこれらのフォントをアイコン定義で参照できます。アイコン定義がフォントIDを指定していない場合、最初に宣言されたフォントがデフォルトで使用されます。
 
-Copy the font file into your extension and set the path accordingly.
-It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Guide/WOFF) fonts.
+拡張子にフォントファイルをコピーし、それに応じてパスを設定します。
+[WOFF](https://developer.mozilla.org/en-US/docs/Web/Guide/WOFF) フォントを使用することをお勧めします。
 
-- Set 'woff' as the format.
-- the weight property values are defined [here](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Values).
-- the style property values are defined [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style#Values).
-- the size should be relative to the font size where the icon is used. Therefore always use percentage.
+- 'woff'をフォーマットに設定します。
+- ウェイトプロパティ値は [ここ](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Values) で定義されています。
+- スタイルプロパティの値は [ここ](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style#Values) で定義されています。
+- サイズは、アイコンが使用されているフォントサイズに相対的でなければなりません。したがって常にパーセンテージを使用してください。
 
 ```json
     "fonts": [
@@ -200,11 +200,11 @@ It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Gui
 
 ---
 
-## Using TextMate Snippets
+## TextMateスニペットの使用
 
-You can also add TextMate snippets (.tmSnippets) to your VS Code installation using the [yo code](/docs/extensions/yocode.md) extension generator. The generator has an option `New Code Snippets` which lets you point to a folder containing multiple .tmSnippets files and they will be packaged into a VS Code snippet extension.  The generator also supports Sublime snippets (.sublime-snippets).
+また、 [yo code](/docs/extensions/yocode.md) 拡張ジェネレータを使用して、 VS Code のインストールにTextMateスニペット.tmSnippets)を追加することもできます。ジェネレータには、複数の.tmSnippetsファイルを含むフォルダを指し示すオプション「New Code Snippets」があり、VS Codeスニペット拡張子にパッケージ化されます。ジェネレータは、サブライムスニペット.sublime-snippets)もサポートしています。
 
-The final generator output has two files: an extension manifest `package.json` which has metadata to integrate the snippets into VS Code and a `snippets.json` file which includes the snippets converted to the VS Code snippet format.
+最終的なジェネレータ出力には、スニペットを VS Code に統合するためのメタデータを持つ拡張マニフェスト `package.json`と、 VS Code スニペット形式に変換されたスニペットを含む` snippets.json`ファイルという2つのファイルがあります。
 
 ```bash
 .
@@ -213,27 +213,27 @@ The final generator output has two files: an extension manifest `package.json` w
 └── package.json                // extension's manifest
 ```
 
-Copy the generated snippets folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.
+生成されたsnippetsフォルダを [あなたの `.vscode/extensions`フォルダ](/docs/extensions/yocode.md#your-extensions-folder) の下の新しいフォルダにコピーし、 VS Code を再起動します。
 
-## Sharing Your Snippets in the Marketplace
+## マーケットプレイスでスニペットを共有する
 
-Once you have created your snippets and tested them out, you can share them with the community.
+スニペットを作成してテストしたら、コミュニティと共有することができます。
 
-To do this, you need to create a snippet extension.  If you've used the `yo code` extension generator, your snippet extension is ready to be published.
+これを行うには、スニペット拡張を作成する必要があります。 `yo code`拡張ジェネレータを使用した場合、スニペット拡張機能は公開準備ができています。
 
-If you want to share user snippets, you'll need to package your snippet json file along with an extension manifest which has the necessary metadata to integrate the snippets into VS Code.
+ユーザースニペットを共有する場合は、スニペットを VS Code に統合するのに必要なメタデータを持つ拡張マニフェストとともにスニペットjsonファイルをパッケージ化する必要があります。
 
-Depending on your platform, your user snippets file is located here:
+プラットフォームに応じて、ユーザースニペットファイルは次の場所にあります。
 
-- **Windows** `%APPDATA%\Code\User\snippets\(language).json`
-- **Mac** `$HOME/Library/Application Support/Code/User/snippets/(language).json`
-- **Linux** `$HOME/.config/Code/User/snippets/(language).json`
+- ** Windows ** `％APPDATA％\ Code \ User \ snippets \言語).json`
+- ** Mac ** `$ HOME /ライブラリ/アプリケーションサポート/コード/ユーザ/スニペット/言語).json`
+- ** Linux ** `$ HOME/.config/Code/User/snippets /言語).json`
 
-where `(language).json` depends on the targeted language of the snippets (e.g. `markdown.json` for Markdown snippets).  Create a new folder for your extension and copy your snippet file to a `snippets` subdirectory.
+ここで `language).json`はスニペットのターゲット言語Markdownスニペットの場合は` markdown.json`など)に依存します。あなたのエクステンション用の新しいフォルダを作成し、スニペットファイルを `snippets`サブディレクトリにコピーします。
 
-Now add an extension manifest package.json file to the extension folder.  The snippet extension manifest follows the structure defined in the [Extension Manifest](/docs/extensionAPI/extension-manifest.md) reference and provides a [`snippets` contribution](/docs/extensionAPI/extension-points.md#contributessnippets).
+拡張マニフェストpackage.jsonファイルを拡張フォルダに追加します。スニペット拡張マニフェストは、 [拡張マニフェスト](/docs/extensionAPI/extension-manifest.md) リファレンスで定義された構造に従い、 [`snippets`投稿](/docs/extensionAPI/extension-points.md#contributessnippets) 。
 
-Below is an example manifest for Markdown snippets:
+Markdownスニペットのマニフェストの例を以下に示します。
 
 ```json
 {
@@ -242,7 +242,7 @@ Below is an example manifest for Markdown snippets:
     "description": "Dunder Mifflin Markdown snippets",
     "version": "0.1.0",
     "engines": { "vscode": "0.10.x" },
-    "categories": ["Snippets"],
+    "categories": ["Snippets"](,
     "contributes": {
         "snippets": [
             {
@@ -254,31 +254,31 @@ Below is an example manifest for Markdown snippets:
 }
 ```
 
-Note that snippets need to be associated with a `language` identifier.  This can be a [language supported](/docs/languages/overview.md) directly by VS Code or a language provided by an extension.  Make sure the `language` identifier is correct.
+スニペットは `language`識別子に関連付ける必要があることに注意してください。これは VS Code または拡張機能によって提供される言語によって直接 [言語サポート](/docs/languages/overview.md) にすることができます。 `language`識別子が正しいことを確認してください。
 
-You then use the [vsce publishing tool](/docs/extensions/publish-extension.md) to publish the snippet extension to the [VS Code Extension Marketplace](/docs/editor/extension-gallery.md).
+その後、 [vsce公開ツール](/docs/extensions/publish-extension.md) を使用してスニペット拡張機能を [ VS Code 拡張マーケットプレイス](/docs/editor/extension-gallery.md) に公開します。
 
-> **Tip:** To make it easy for users to find your snippet, include the word "snippet" in the extension description and set the `Category` to `Snippets` in your `package.json`.
+> **ヒント:**ユーザがスニペットを簡単に見つけられるようにするには、拡張の説明に「スニペット」を入れ、 `package.json`に` Category`を `Snippets`に設定します。
 
-We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips).
+また、 [Marketplaceプレゼンテーションのヒント](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips) を参照して、 VS Code マーケットプレイスでエクステンションを見栄えよくする方法についての推奨事項もあります。
 
 ---
 
-## Adding a New Language (Colorizer)
+##新しい言語を追加するColorizer)
 
-Using the ['code' Yeoman generator](/docs/extensions/yocode.md), you can create an extension that adds syntax highlighting and bracket matching for a language to your VS Code installation.
+['code' Yeoman generator](/docs/extensions/yocode.md) を使用すると、 VS Code のインストールに言語の構文強調表示とブラケットマッチングを追加する拡張機能を作成できます。
 
-Central to language support is a TextMate [language specification](https://manual.macromates.com/en/language_grammars) file (.tmLanguage) that describes the colorizer rules. The yeoman generator either takes an existing TextMate language specification file or lets you start with a fresh one.
+言語サポートの中心は、ColorMakerのルールを記述するTextMate [言語仕様](https://manual.macromates.com/en/language_grammars) ファイル.tmLanguage)です。 Yeomanジェネレータは、既存のTextMate言語仕様ファイルを使用するか、新しいものから開始することができます。
 
-A good place to look for existing TextMate .tmLanguage files is on GitHub. Search for a TextMate bundle for the language you are interested in and then navigate to the `Syntaxes` folder.  The 'code' Yeoman generator can import either .tmLanguage or .pList files.  When prompted for the URL or file location, pass the raw path to the .tmLanguage file e.g. https://raw.githubusercontent.com/textmate/ant.tmbundle/master/Syntaxes/Ant.tmLanguage. Make sure that the path points to the content of the file, not the HTML file showing the content.
+既存のTextMateの.tmLanguageファイルを探す良い場所はGitHubです。興味のある言語のTextMateバンドルを検索し、 `Syntaxes`フォルダに移動します。 'code' Yeomanジェネレータは、.tmLanguageファイルまたは.pListファイルをインポートできます。 URLまたはファイルの場所を入力するように求められたら、生のパスを.tmLanguageファイルに渡します。 https://raw.githubusercontent.com/textmate/ant.tmbundle/master/Syntaxes/Ant.tmLanguage。パスが、コンテンツを示すHTMLファイルではなく、ファイルのコンテンツを指していることを確認してください。
 
 ![yo code language support](images/themes-snippets-colorizers/yocodelanguage.png)
 
-The generator will prompt you for other information such a unique name (this should be unique to avoid clashing with other extensions) and the language name, aliases and file extensions. You also have to provide the top level scope name of the grammar. That scope name must match the scope name in the tmLanguage file.
+ジェネレータは、一意の名前これは他の拡張との衝突を避けるために一意でなければなりません)と言語名、エイリアスおよびファイル拡張子などの他の情報を要求します。また、文法の最上位スコープ名を指定する必要があります。そのスコープ名は、tmLanguageファイル内のスコープ名と一致する必要があります。
 
-When the generator is finished, open the created folder in Visual Studio Code. Have a look at the generated `<languageid>.configuration.json` file: It contains more language settings such as the tokens used for comments and brackets.  Make sure the configurations are accurate.
+ジェネレータが終了したら、Visual Studio Codeで作成したフォルダを開きます。生成された `<languageid> .configuration.json`ファイルを見てください:これは、コメントや括弧に使われるトークンなど、より多くの言語設定を含んでいます。構成が正確であることを確認してください。
 
-Here is an example for a language with XML-like brackets:
+以下は、XMLのような角括弧付きの言語の例です。
 
 ```json
 {
@@ -302,25 +302,25 @@ Here is an example for a language with XML-like brackets:
 }
 ```
 
-For more details check out the [languages contribution point documentation](/docs/extensionAPI/extension-points.md#contributeslanguages).
+詳細については、 [languages contribution point documentation](/docs/extensionAPI/extension-points.md#contributeslanguages) を参照してください。
 
-The generated `vsc-extension-quickstart.md` file also contains more information on how to run and debug your extension.
+生成された `vsc-extension-quickstart.md` ファイルには、拡張機能の実行方法とデバッグ方法に関する詳細情報も含まれています。
 
-To use your extension in your stable VS Code installation, copy the complete output folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.  When you restart VS Code, your new language will be visible in the language specifier drop-down and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
+あなたの安定した VS Code のインストールでエクステンションを使用するには、完全な出力フォルダを [あなたの `.vscode/extensions`フォルダ](/docs/extensions/yocode.md#your-extensions-folder) 下の新しいフォルダにコピーし、 VS Code 。  VS Code を再起動すると、新しい言語が言語指定ドロップダウンに表示され、言語のファイル拡張子に一致するファイルのフルカラー化とブラケット/タグのマッチングが行われます。
 
 ![select ant language](images/themes-snippets-colorizers/antlanguage.png)
 
-## Publishing Language Support to the Extension Marketplace
+## エクステンションマーケットプレイスへの言語サポートの公開
 
-If you'd like to share your new language with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-gallery.md). Use the [vsce publishing tool](/docs/extensions/publish-extension.md) to package your extension and publish it to the VS Code Marketplace.
+新しい言語をコミュニティと共有したい場合は、 [Extension Marketplace](/docs/editor/extension-gallery.md) に公開することができます。 [vsce公開ツール](/docs/extensions/publish-extension.md) を使用して拡張機能をパッケージ化し、 VS Code マーケットプレイスに公開します。
 
-> **Tip:** To make it easy for users to find your language support, include the language name and words "language" or "language support" in the extension description and set the `Category` to `Languages` in your `package.json`.
+> **ヒント:**あなたの言語サポートを簡単に見つけられるようにするには、拡張機能の説明に言語名と "language"または "language support"を含め、 `category`を` package.json`。
 
-We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips).
+また、 [Marketplaceプレゼンテーションのヒント](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips) を参照して、 VS Code マーケットプレイスでエクステンションを見栄えよくする方法についての推奨事項もあります。
 
-## Add to your Language Support Extension
+## あなたの言語に追加サポート拡張
 
-When you're adding a new language to VS Code, it is also great to add language [snippets](/docs/editor/userdefinedsnippets.md) to support common editing actions. It is easy to [combine multiple extensions](/docs/extensionAPI/extension-manifest.md#combining-extension-contributions) like snippets and colorizers into the same extension. You can modify the colorizer extension manifest `package.json` to include a `snippets` contribution and the snippets.json.
+ VS Code に新しい言語を追加するときに、共通の編集操作をサポートする言語 [スニペット](/docs/editor/userdefinedsnippets.md) を追加することもできます。 スニペットやカラーライザーのような複数の拡張機能/docs/extensionAPI/extension-manifest.md#combined-extension-contribution)を同じ拡張機能に簡単に組み込むことができます。 Colorizer拡張マニフェスト `package.json`を修正して、` snippets`投稿とsnippets.jsonを組み込むことができます。
 
 ```json
 {
@@ -356,9 +356,9 @@ When you're adding a new language to VS Code, it is also great to add language [
 }
 ```
 
-## Language Identifiers
+## 言語識別子
 
-In VS Code, each language mode has a unique specific language identifier. That identifier is rarely seen by the user except in the settings, e.g. when associating file extensions to a language:
+ VS Code では、各言語モードに固有の固有の言語識別子があります。 その識別子は、設定以外ではユーザにはほとんど見られません。 ファイル拡張子を言語に関連付ける場合:
 
 ```json
     "files.associations": {
@@ -366,11 +366,11 @@ In VS Code, each language mode has a unique specific language identifier. That i
     }
 ```
 
-Note that casing matters for exact identifier matching ('Markdown' != 'markdown')
+正確な識別子マッチングのためのケーシング事項 'Markdown'！= 'markdown')
 
-The language identifier becomes essential for VS Code extension developers when adding new language capabilities or when replacing a language support.
+言語識別子は、新しい言語機能を追加するときや、言語サポートを置き換えるときに VS Code 拡張開発者にとって不可欠になります。
 
-Every language defines its *id* through the `languages` configuration point:
+すべての言語は `languages`設定ポイントを通して* id *を定義します:
 
 ```json
     "languages": [{
@@ -380,7 +380,7 @@ Every language defines its *id* through the `languages` configuration point:
     }]
 ```
 
-Language supports are added using the language identifier:
+言語サポートは、言語識別子を使用して追加されます。
 
 ```json
     "grammars": [{
@@ -394,41 +394,41 @@ Language supports are added using the language identifier:
     }]
 ```
 
-### New identifier guidelines
+### 新しい識別子のガイドライン
 
-When defining a new language identifier, use the following guidelines:
+新しい言語識別子を定義するときは、次のガイドラインを使用してください。
 
-- Use the lowercased programming language name.
-- Search for other extensions in the Marketplace to find out if a language identifier has already been used.
+- 小文字のプログラミング言語名を使用します。
+- Marketplaceで他の拡張機能を検索して、言語識別子がすでに使用されているかどうかを調べます。
 
-You can find a list of known language identifiers [language identifier reference](/docs/languages/identifiers.md).
+既知の言語識別子 [言語識別子の参照](/docs/languages/identifiers.md) のリストがあります。
 
-## Next Steps
+## 次のステップ
 
-If you'd like to learn more about VS Code extensibility, try these topics:
+ VS Code の拡張性の詳細については、次のトピックを参照してください。
 
-* [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code
-* [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.
+* [Visual Studioコードを拡張する](/docs/extensions/overview.md) - VS Code を拡張する他の方法について学ぶ
+* [その他の拡張の例](/docs/extensions/samples.md) - サンプルの拡張プロジェクトの一覧を見てください。
 
-## Common Questions
+##よくある質問
 
-**Q: What parts of VS code can I theme with a custom color theme?**
+**Q:カスタムカラーテーマで VS Code のどの部分をテーマにできますか？**
 
-The VS Code color themes affect the editor input area (text foreground, background, selection, lineHighlight, caret, and the syntax tokens) as well as some of the custom UI (see the list in [Creating a Theme](/docs/extensions/themes-snippets-colorizers.md#creating-a-custom-theme)). When contributing a theme, you also specify a base theme: light (`vs`), dark (`vs-dark`) and high contrast (`hc-black`). The base theme is used for all other areas in the workbench such as the File Explorer. Base themes are not customizable or contributable by extensions.
+ VS Code のカラーテーマは、エディタの入力領域テキストの前景、背景、選択、ラインハイライト、キャレット、構文トークン)やカスタムUIの一部に影響します [テーマの作成](/docs/extensions/themes-snippets-colorizers.md#creating-a-custom-theme)) 。テーマを投稿するときは、ライト (`vs`）、ダーク` (vs-dark`）、ハイコントラスト (`hc-black`）という基本テーマも指定します。基本テーマは、ファイルエクスプローラなどのワークベンチ内の他のすべての領域で使用されます。基本テーマは拡張機能によってカスタマイズできないし、貢献できない。
 
-**Q: Is there a list of scopes that I can use in my custom color theme?**
+**Q:カスタムカラーテーマで使用できるスコープのリストはありますか？**
 
-VS Code themes are standard TextMate themes and the tokenizers used in VS code are well established TextMate tokenizers, mostly maintained by the community and in use in other products.
+ VS Code のテーマは標準のTextMateテーマであり、 VS Code で使用されるトークナイザはよく確立されたTextMateトークナであり、主にコミュニティによって管理され、他の製品で使用されます。
 
-To learn about what scopes are used where, check out the [TextMate documentation](https://manual.macromates.com/en/themes) and this useful [blog post](https://www.apeth.com/nonblog/stories/textmatebundle.html).  A great place to examine themes is [here](https://tmtheme-editor.herokuapp.com/).
+どのスコープがどこで使用されるのかを知るには、[TextMateのドキュメント](https://manual.macromates.com/en/themes）とこの便利な[ブログ投稿]https://www.apeth.com/nonblog）を参照してください。 /stories/textmatebundle.html）。テーマを調べるのに最適な場所は、[ここ]https://tmtheme-editor.herokuapp.com/）です。
 
-**Q: I created a snippets extension but they aren't showing up in the VS Code editor?**
+** Q:スニペット拡張機能を作成しましたが、 VS Code エディタに表示されませんか？**
 
-**A:** Be sure you have correctly specified the `language` identifier for your snippet (e.g. `markdown` for Markdown .md files, `plaintext` for Plain Text .txt files).  Also verify that the relative path to the snippets json file is correct.
+** A:**スニペットの `language`識別子を正しく指定してくださいMarkdown .mdファイルの場合は` markdown`、プレーンテキストの.txtファイルの場合は `plaintext '）。また、スニペットjsonファイルへの相対パスが正しいことも確認してください。
 
-**Q: Can I add more file extensions to my colorizer?**
+** Q:Colorizerにファイル拡張子を追加できますか？**
 
-**A:** Yes, the `yo code` generator provides the default file extensions from the .tmLanguage file but you can easily add more file extensions to a `languages` contribution `extensions` array.  In the example below, the `.asp` file extension has been added to the default `.asa` file extension.
+** A:**はい、 `yo code`ジェネレータは、.tmLanguageファイルからデフォルトのファイル拡張子を提供しますが、` languages` contrib `extensions`配列にファイル拡張子を簡単に追加できます。以下の例では、デフォルトの `.asa`ファイル拡張子に` .asp`ファイル拡張子が追加されています。
 
 ```json
 {
@@ -453,11 +453,11 @@ To learn about what scopes are used where, check out the [TextMate documentation
 }
 ```
 
-**Q: Can I add more file extensions to an existing colorizer?**
+**Q:既存のカラー化ツールにファイル拡張子を追加できますか？**
 
-**A:** Yes. To extend an existing colorizer, you can associate a file extension to an existing language identifier with the `files.associations` [setting](/docs/getstarted/settings.md).  IntelliSense will show you the list of currently available language ids.
+**A:** はい。 既存のカラー化ツールを拡張するには、ファイル拡張子を `files.associations` [setting](（/docs/getstarted/settings.md）で既存の言語識別子に関連付けることができます。 IntelliSenseは、現在利用可能な言語IDの一覧を表示します。
 
-For example, the setting below adds the `.mmd` file extension to the `markdown` colorizer:
+例えば、以下の設定では `.mmd`ファイル拡張子を` markdown`カラー化ツールに追加します:
 
 ```json
     "files.associations": {
@@ -465,9 +465,9 @@ For example, the setting below adds the `.mmd` file extension to the `markdown` 
     }
 ```
 
-**Q: What if I want to completely override an existing colorizer?**
+**Q:既存のカラー化ツールを完全にオーバーライドしたい場合はどうしたらいいですか？**
 
-**A:** Yes. You override the colorizer by providing a new `grammars` element for an existing language id. Also, add a `extensionDependencies` attribute that contains the name of the extension that defines the grammar that you want to replace.
+**A:** はい。 既存の言語IDに対して新しい `grammars`要素を提供することで、色付けをオーバーライドします。 また、置き換える文法を定義する拡張の名前を含む `extensionDependencies`属性を追加します。
 
 ```json
 {
