@@ -7,9 +7,9 @@ PageTitle: Visual Studio Code Extension Contribution Points - package.json
 DateApproved: 5/4/2017
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
-#  貢献ポイント - package.json
+# Contribution ポイント - package.json
 
-このドキュメントでは、 [`package.json`拡張マニフェスト](/docs/extensionAPI/extension-manifest.md) で定義されているさまざまな貢献点について説明します。
+このドキュメントでは、 [`package.json`拡張マニフェスト](/docs/extensionAPI/extension-manifest.md) で定義されているさまざまな Contribution ポイント について説明します。
 
 * [`configuration`](/docs/extensionAPI/extension-points.md#contributesconfiguration)
 * [`commands`](/docs/extensionAPI/extension-points.md#contributescommands)
@@ -25,11 +25,11 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 
 ## contributes.configuration
 
-ユーザーに公開される構成キーを提供します。ユーザーは、ユーザー設定またはワークスペース設定からこれらの構成オプションを設定できます。
+ユーザーに公開される設定キーを提供します。 ユーザーは、ユーザー設定またはワークスペース設定からこれらの構成オプションを設定できます。
 
-設定キーを提供すると、これらのキーを記述する JSON スキーマが実際に寄与します。これにより、 VS Code 設定ファイルを作成する際に、ユーザーが優れたツールをサポートできるようになります。
+設定キーを提供すると、これらのキーを記述する JSON スキーマが実際に寄与します。 これにより、 VS Code 設定ファイルを作成する際に、ユーザーが優れたツールをサポートできるようになります。
 
-これらの値は、 `vscode.workspace.getConfiguration( 'myExtension')` を使って拡張機能から読み込むことができます。
+これらの値は、 `vscode.workspace.getConfiguration('myExtension')` を使って拡張機能から読み込むことができます。
 
 ### 例
 
@@ -58,9 +58,9 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 
 ## contributes.configurationDefaults
 
-既定の言語固有のエディター構成に参加します。これにより、提供された言語のデフォルトのエディタ構成が上書きされます。
+既定の言語固有のエディター設定を提供します。 これにより、提供された言語のデフォルトのエディタ設定が上書きされます。
 
-次の例は、 `markdown` 言語のデフォルトのエディタ設定に貢献しています:
+次の例は、 `markdown` 言語のデフォルトのエディタ設定に提供しています:
 
 ### 例
 
@@ -97,7 +97,7 @@ contributes": {
 ## contributes.menus
 
 コマンドのメニュー項目をエディタまたはエクスプローラに提供します。メニュー項目の定義には、選択されたときに呼び出されるコマンドと、その項目が表示される条件が含まれています。
-後者は、キーバインディング[when clause contexts](/docs/getstarted/keybindings.md#when-clause-contexts) を使う `when`節で定義されています。必須の `command` プロパティに加えて、代替コマンドは `alt` プロパティを使って定義することができます。
+後者は、キーバインディング[when clause contexts](/docs/getstarted/keybindings.md#when-clause-contexts) を使う `when`節で定義されています。 必須の `command` プロパティに加えて、代替コマンドは `alt` プロパティを使って定義することができます。
 メニュー項目の上にあるときに `kbstyle(Alt)` を押すと表示され、呼び出されます。
 最後に、 `group` プロパティはメニュー項目のソートとグループ化を定義します。
 `navigation` グループは、常にメニューの先頭/先頭にソートされるので特別です。
@@ -196,9 +196,9 @@ WindowsとLinuxでは `kbstyle(Ctrl+F1)`、 Macでは `kbstyle(Cmd+F1)` を定�
 
 ## contributes.languages
 
-言語の定義に寄与します。 これは新しい言語を導入したり、 VS Code が持つ言語に関する知識を充実させます。
+言語の定義に提供します。 これは新しい言語を導入したり、 VS Code が持つ言語に関する知識を充実させます。
 
-この文脈では、言語は基本的にファイルに関連付けられた文字列識別子です (`TextDocument.getLanguageId()` 参照) 。
+この文脈では、言語は基本的にファイルに関連付けられた文字列識別子です (`TextDocument.getLanguageId()` 参照)。
 
 VS Code は、ファイルが関連付けられる言語を決定するために3つのヒントを使用します。 それぞれの「ヒント」を個別に充実させることができます。
 
@@ -210,7 +210,7 @@ VS Code は、ファイルが関連付けられる言語を決定するために
 
 `aliases`プロパティーには、言語が分かっている人間が読める名前が含まれています。このリストの最初の項目は、言語ラベルとして選択されます(右側のステータスバーに表示されます)。
 
-`configuration` プロパティは、言語設定ファイルへのパスを指定します。パスは拡張フォルダとの相対パスで、通常は `./language-configuration.json` です。このファイルは JSON 形式を使用し、次のプロパティを含むことができます。
+`configuration` プロパティは、言語設定ファイルへのパスを指定します。 パスは拡張フォルダとの相対パスで、通常は `./language-configuration.json` です。 このファイルは JSON 形式を使用し、次のプロパティを含むことができます。
 
 * `comments` - コメントシンボルを定義します。
   * `blockComment` - ブロックコメントをマークするために使用される begin トークンと end トークン。 'Toggle Block Comment' コマンドで使用されます。
@@ -219,7 +219,7 @@ VS Code は、ファイルが関連付けられる言語を決定するために
 * `autoClosingPairs` - 自動クローズ機能のオープンシンボルとクローズシンボルを定義します。 開いているシンボルが入力されると、エディタは自動的に閉じるシンボルを挿入します。 自動的に閉じたペアは、オプションで `notIn` パラメータをとり、文字列やコメント内のペアを非アクティブにします。
 * `surroundingPairs` - 選択された文字列を囲むために使用されるオープンペアとクローズペアを定義します。
 
-あなたの言語設定ファイル名が `language-configuration.json`で終わっていれば、 VS Code で検証と編集のサポートを受け取ります。
+あなたの言語設定ファイル名が `language-configuration.json` で終わっていれば、 VS Code で検証と編集のサポートを受け取ります。
 
 ### 例
 
@@ -271,14 +271,14 @@ language-configuration.json
 
 デバッガを VS Code に提供します。 デバッガの提供には、以下の特性があります。
 
-* `type` は起動コンフィギュレーションでこのデバッガを識別するために使用される一意のIDです。
+* `type` は起動設定でこのデバッガを識別するために使用される一意のIDです。
 * `label` はUIのこのデバッガのユーザーが見ることのできる名前です。
 * `program` 実際のデバッガまたはランタイムに対して VS Code デバッグプロトコルを実装するデバッグアダプタへのパス。
 * `runtime` デバッグアダプタへのパスが実行可能ではないが実行時が必要な場合は、
 * `configurationAttributes` は、このデバッガに固有の起動設定引数のスキーマです。
 * `initialConfigurations` は、最初の launch.json を生成するために使用される起動設定をリストします。
 * `configurationSnippets` は、 launch.json を編集するときに IntelliSense で利用可能な起動設定をリストし、
-* `variables` は置換変数を導入し、デバッガ拡張で実装されたコマンドにバインドします。
+* `variables` は置換変数を導入し、 デバッガ拡張で実装されたコマンドにバインドします。
 
 ### 例
 
@@ -351,7 +351,7 @@ language-configuration.json
 
 ## contributes.grammars
 
-TextMate 文法を言語に寄稿する。この文法が適用される `language` 文法と、文法とファイルパスのための TextMate ` scopeName` を提供しなければなりません。
+TextMate 文法を言語に提供します。 この文法が適用される `language` 文法と、文法とファイルパスのための TextMate `scopeName` を提供しなければなりません。
 
 > **注:** 文法を含むファイルは、 JSON (ファイル名は.jsonで終わる) または XML plist 形式 (他のすべてのファイル) にすることができます。
 
@@ -367,13 +367,13 @@ TextMate 文法を言語に寄稿する。この文法が適用される `langua
 }
 ```
 
-TextMate の.tmLanguageファイルをVS Code 拡張として素早くパッケージ化するための [yo code extension generator](/docs/extensions/yocode.md) の使用方法については、 [言語の色付けの追加](/docs/extensions/themes-snippets-colorizers.md) を参照してください。
+TextMate の .tmLanguage ファイルを VS Code 拡張として素早くパッケージ化するための [yo code extension generator](/docs/extensions/yocode.md) の使用方法については、 [言語の色付けの追加](/docs/extensions/themes-snippets-colorizers.md) を参照してください。
 
 ![grammars extension point example](images/extension-points/grammars.png)
 
 ## contributes.themes
 
-TextMateテーマをVS Code に投稿します。テーマが暗いテーマであるか明るいテーマであるか(テーマに合わせて残りのVS Code が変更されるような) 、ファイルへのパス(XML plist形式) のいずれかを指定する必要があります。
+TextMateテーマをVS Code に提供します。 テーマが暗いテーマであるか明るいテーマであるか(テーマに合わせて残りのVS Code が変更されるような) 、ファイルへのパス(XML plist形式) のいずれかを指定する必要があります。
 
 ### 例
 
