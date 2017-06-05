@@ -29,13 +29,13 @@ MetaDescription: At the core of Visual Studio Code's extensibility model is an e
 `main` | | `string` | あなたの拡張機能のエントリポイント。
 [`contributes`](/​​docs/extensionAPI/extension-points.md) | | `object` | 拡張機能の [提供ポイント](/docs/extensionAPI/extension-points.md) を記述するオブジェクト。
 [`activationEvents`](/docs/extensionAPI/activation-events.md) | | `array` | この拡張モジュールの [activation events](/docs/extensionAPI/activation-events.md) の配列。
-`badges` | | | マーケットプレイスの拡張ページのサイドバーに表示するバッジの配列。各バッジは、バッジの画像URLを表す `url`、バッジをクリックしたときに表示されるリンクの `href`、`description` の3つのプロパティを含むオブジェクトです。
+`badges` | | `array` | マーケットプレイスの拡張ページのサイドバーに表示するバッジの配列。各バッジは、バッジの画像URLを表す `url`、バッジをクリックしたときに表示されるリンクの `href`、`description` の3つのプロパティを含むオブジェクトです。
 `markdown` | | `string` | マーケットプレイスで使用される Markdown レンダリングエンジンを制御します。 `github` (デフォルト) または `standard` です。
 `dependencies` | | `object` | 拡張機能に必要な実行時 Node.js 依存関係。 [npmの `dependencies`](https://docs.npmjs.com/files/package.json#dependencies) とまったく同じです。
 `devDependencies` | | `object` | 拡張機能が必要とする開発 Node.js 依存関係。完全に [npmの `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies) と同じです。
 `extensionDependencies` | | `array` | この拡張機能が依存する拡張のIDを持つ配列。これらのその他の拡張機能は、プライマリ拡張機能のインストール時にインストールされます。拡張子のIDは常に `$ {publisher}。$ {name}`です。たとえば、 `vscode.csharp`です。
 `scripts` | | `object` | 完全に[npmの `scripts`](https://docs.npmjs.com/misc/scripts) と同じですが、[追加のVSコード固有のフィールド](/docs/extensions/publish-extension.md#pre-publish-step)。
-`icon` | `string` | 128x128ピクセルのアイコンへのパス。
+`icon` | | `string` | 128x128ピクセルのアイコンへのパス。
 
 また、 [npm の `package.json`リファレンス](https://docs.npmjs.com/files/package.json) もチェックしてください。
 
