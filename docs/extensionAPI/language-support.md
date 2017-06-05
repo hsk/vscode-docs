@@ -7,34 +7,34 @@ PageTitle: Visual Studio Code Language Extension Guidelines
 DateApproved: 5/4/2017
 MetaDescription: Visual Studio Code language extensions contribute new programming language features to VS Code. These guidelines present the language extensibility points and how to implement them.
 ---
-# Language Extension Guidelines
+# 言語拡張ガイドライン
 
-When you hear about a language being supported in VS Code, you usually think first of syntax highlighting, code completion, and if applicable,
-debugging support. This is a good start, but language extensions can do a lot more.
+VS Code でサポートされている言語について聞くと、通常、構文のハイライト、コード補完、および該当する場合は、
+デバッグサポート。これは良いスタートですが、言語拡張はもっと多くのことを行うことができます。
 
-With just configuration files, an extension can support syntax highlighting, snippets, and smart bracket matching. For more advanced language features, you need to extend VS Code through its extensibility [API](/docs/extensionAPI/vscode-api.md) or by providing a [language server](/docs/extensions/example-language-server).
+構成ファイルだけで、拡張機能は構文の強調表示、スニペット、およびスマートブラケットのマッチングをサポートすることができます。高度な言語機能を使用するには、拡張性 [API](/docs/extensionAPI/vscode-api.md) または [言語サーバー](/docs/extensions/example-language-server) を使用して VS Code を拡張する必要があります。
 
-A language server is a stand-alone server that speaks the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md). You can implement the server in the programming language that is best suited for the task. For example, if there are good libraries written in Python for the language you want to support, you might want to consider implementing your language server in Python. If you choose to implement your language server in JavaScript or TypeScript, you can build on top of the VS Code [npm modules](https://github.com/Microsoft/vscode-languageserver-node).
+言語サーバーは、 [言語サーバープロトコル](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) を使用するスタンドアロンサーバーです。タスクに最も適したプログラミング言語でサーバーを実装できます。たとえば、サポートしたい言語用の Python で書かれた良いライブラリがある場合は、 Python で言語サーバを実装することを検討することをお勧めします。言語サーバーを JavaScript または TypeScript で実装する場合は、 VS Code [npmモジュール](https://github.com/Microsoft/vscode-languageserver-node) の上に構築できます。
 
-Besides the implementation language, you have flexibility in deciding which parts of the language server protocol your language server implements. Your language server announces its capabilities in response to the protocol's `initialize` method.
+実装言語に加えて、言語サーバーが実装する言語サーバープロトコルのどの部分を柔軟に決定することができます。言語サーバーは、プロトコルの `initialize` メソッドに対応して、その機能をアナウンスします。
 
-However, the language server architecture is not the only way to provide language features in an extension. You can also implement features directly in your main extension code. In the guidelines below, we show both the **Language Server Protocol** approach (configuration and required events) and also a **Direct Implementation** section showing how to programmatically register specific language feature providers (ex. `registerHoverProvider`).
+ただし、言語サーバーアーキテクチャは、拡張機能で言語機能を提供する唯一の方法ではありません。メインの拡張コードに直接フィーチャーを実装することもできます。以下のガイドラインでは、 **Language Server Protocol** のアプローチ(設定と必要なイベント) と、特定の言語機能プロバイダ (例: `registerHoverProvider`) をプログラムで登録する方法を示す **Direct Implementation** セクションを示します。
 
-To make it easier for you to decide what to implement first and what to improve upon later, we show the language features as they appear in VS Code and follow with the classes and methods or language server protocol messages they map to.  Also included is guidance on the **Basic** support required as well as descriptions of **Advanced** implementations.
+最初に実装するものと後で改良するものを簡単に決定できるように、 VS Code に表示されている言語機能を表示し、それらにマップされるクラスとメソッド、または言語サーバープロトコルメッセージに従います。また、 **基本的な** サポートの要望、 **高度な** 実装の説明も含まれています。
 
-## Configuration Based Language Support
+## 構成ベースの言語サポート
 
-[Syntax highlighting](/docs/extensionAPI/language-support.md#syntax-highlighting), [snippets](/docs/extensionAPI/language-support.md#source-code-snippets), and [smart bracket matching](/docs/extensionAPI/language-support.md#smart-bracket-matching) can be implemented declaratively with configuration files and don't require writing any extension code.
+[構文の強調表示](/docs/extensionAPI/language-support.md#syntax-highlighting)、[スニペット](/docs/extensionAPI/language- support.md#source-code-snippets)、[スマートブラケットマッチング](/docs/extensionAPI/language-support.md#smart-bracket-matching) は、設定ファイルで宣言的に実装でき、拡張コードを書く必要はありません。
 
-### Language identifiers
+### 言語識別子
 
-VS Code maps different language configurations and providers to specific programming languages through a language identifier. This is a lowercase string representing the programming language or file type. For example, JavaScript has a language id of `javascript` and Markdown files `markdown`.
+ VS Code は、異なる言語構成とプロバイダを言語識別子によって特定のプログラミング言語にマッピングします。これは、プログラミング言語またはファイルタイプを表す小文字の文字列です。たとえば、 JavaScript の言語IDは `javascript` 、 Markdown ファイルは `markdown` です。
 
-## Syntax Highlighting
+## 構文ハイライト
 
 ![syntax highlighting](images/language-support/syntax-highlighting.png)
 
-In order to support syntax highlighting, your extension needs to registers a TextMate grammar `.tmLanguage` for its language in its `package.json` file.
+構文の強調表示をサポートするには、拡張機能で TextMate の文法 `.tmLanguage` を言語の `package.json` ファイルに登録する必要があります。
 
 ```json
 "contributes": {
@@ -54,19 +54,19 @@ In order to support syntax highlighting, your extension needs to registers a Tex
 }
 ```
 
->**Basic**
+> **基本**
 >
->Start with a simple grammar that supports colorization of strings, comments, and keywords.
+>文字列、コメント、キーワードの色付けをサポートする簡単な文法から始めましょう。
 
->**Advanced**
+> **上級**
 >
->Provide a grammar that understands terms and expressions and thus supports colorization of variables and function references etc.
+>用語や表現を理解し、変数や関数の参照などの色付けをサポートする文法を提供する
 
-## Source Code Snippets
+## ソースコードスニペット
 
 ![Snippets at work](images/language-support/snippets.gif)
 
-With code snippets, you can provide useful source code templates with placeholders. You need to register a file that contains the snippets for your language in your extension's `package.json` file. You can learn about VS Code's snippet schema in [Creating Your Own Snippets](/docs/editor/userdefinedsnippets.md#creating-your-own-snippets).
+コードスニペットを使用すると、便利なソースコードテンプレートをプレースホルダで提供できます。拡張機能の `package.json` ファイルに、あなたの言語のスニペットを含むファイルを登録する必要があります。  VS Code のスニペットスキーマについては、[独自スニペットの作成](/docs/editor/userdefinedsnippets.md#creating-your-own-snippets) で学ぶことができます。
 
 ```json
 "contributes": {
@@ -79,9 +79,9 @@ With code snippets, you can provide useful source code templates with placeholde
 }
 ```
 
->**Basic**
+> **基本**
 >
->Provide snippets with placeholders such as this example for `markdown`:
+>この例のようなプレースホルダをスニペットに `markdown` のために提供してください:
 >
 >```json
 >"Insert ordered list": {
@@ -96,9 +96,9 @@ With code snippets, you can provide useful source code templates with placeholde
 >}
 >```
 
->**Advanced**
+> **上級**
 >
->Provide snippets that use explicit tab stops to guide the user and use nested placeholders such as this example for `groovy`:
+>明示的なタブストップを使用してユーザを誘導するスニペットを提供し、この例のようなネストされたプレースホルダを `groovy` のために使用してください:
 >
 >```json
 >"key: \"value\" (Hash Pair)": {
@@ -107,11 +107,11 @@ With code snippets, you can provide useful source code templates with placeholde
 >    }
 >```
 
-## Smart Bracket Matching
+## スマートブラケットマッチング
 
 ![Smart Editing At Work](images/language-support/smart-editing.gif)
 
-You can provide a language configuration in your extension's `package.json` file.
+拡張機能の `package.json` ファイルに言語設定を提供することができます。
 
 ```json
 "contributes": {
@@ -126,13 +126,13 @@ You can provide a language configuration in your extension's `package.json` file
 }
 ```
 
->**Basic**
+> **基本**
 >
->None
+>なし
 
->**Advanced**
+> **上級**
 >
->Here is an example from `TypeScript`:
+>以下は `TypeScript` の例です:
 >
 >```json
 >{
@@ -167,15 +167,15 @@ You can provide a language configuration in your extension's `package.json` file
 >}
 >```
 
-## Programmatic Language Support
+## プログラム言語サポート
 
-The rest of the language features require writing extension code to handle requests from VS Code. You can implement your language extension as a standalone server implementing the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) or directly register providers in your extension's `activate` method. Both approaches are shown in two sections called **LANGUAGE SERVER PROTOCOL** and **DIRECT IMPLEMENTATION**.
+残りの言語機能では、 VS Code からの要求を処理するための拡張コードの作成が必要です。言語拡張は、[言語サーバープロトコル](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) を実装するスタンドアロンサーバーとして実装することも、拡張機能の `activate` メソッドを呼び出す。どちらのアプローチも **LANGUAGE SERVER PROTOCOL** と **DIRECT IMPLEMENTATION** の2つのセクションに示されています。
 
-The language server protocol approach follows the pattern of describing your server's capabilities in the response to the `initialize` request and then handling specific requests based on the user's actions.
+言語サーバープロトコルのアプローチは、 `initialize` リクエストへの応答でサーバーの機能を記述し、ユーザーの動作に基づいて特定の要求を処理するパターンに従います。
 
-The direct implementation approach requires you register your feature provider when your extension is activated, often providing a `DocumentSelector` to identify the programming languages the provider supports.
+直接実装のアプローチでは、拡張機能がアクティブ化されたときにフィーチャープロバイダを登録する必要があり、プロバイダがサポートするプログラミング言語を識別するための `DocumentSelector` を提供することがよくあります。
 
-In the examples below, the providers are being registered for Go language files.
+以下の例では、プロバイダがGo言語ファイルに登録されています。
 
 ```typescript
 const GO_MODE: vscode.DocumentFilter = { language: 'go', scheme: 'file' };
@@ -183,13 +183,13 @@ const GO_MODE: vscode.DocumentFilter = { language: 'go', scheme: 'file' };
 
 ## Show Hovers
 
-Hovers show information about the symbol/object that's below the mouse cursor. This is usually the type of the symbol and a description.
+ホバーは、マウスカーソルの下にあるシンボル/オブジェクトに関する情報を表示します。これは、通常、シンボルのタイプと説明です。
 
 ![Hovers at Work](images/language-support/hovers.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-In the response to the `initialize` method, your language server needs to announce that it provides hovers.
+`initialize` メソッドへの応答では、言語サーバは、それがホバースを提供することをアナウンスする必要があります。
 
 ```json
 {
@@ -201,9 +201,9 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/hover` request.
+さらに、言語サーバーは `textDocument/hover` リクエストに応答する必要があります。
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 class GoHoverProvider implements HoverProvider {
@@ -223,23 +223,23 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **基本**
 >
->Show type information and include documentation if available.
+>タイプ情報を表示し、使用可能な場合はドキュメントを含める。
 
->**Advanced**
+> **上級**
 >
->Colorize method signatures in the same style you colorize the code.
+>コードを色付けするのと同じスタイルでメソッドのシグネチャを色付けします。
 
-## Show Code Completion Proposals
+## コード補完提案を表示する
 
-Code completions provide context sensitive suggestions to the user.
+コードの補完は、状況に応じた提案をユーザーに提供します。
 
 ![Code Completion at Work](images/language-support/code-completion.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-In the response to the `initialize` method, your language server needs to announce that it provides completions and whether or not it supports the `completionItem\resolve` method to provide additional information for the computed completion items.
+`initialize` メソッドへの応答では、あなたの言語サーバは補完を提供し、 `completionItem\resolve` メソッドをサポートしているかどうかを宣言して、計算された補完アイテムの追加情報を提供する必要があります。
 
 ```json
 {
@@ -254,7 +254,7 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 class GoCompletionItemProvider implements vscode.CompletionItemProvider {
@@ -275,27 +275,27 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **基本**
 >
->You don't support resolve providers.
+>あなたは解決プロバイダをサポートしていません。
 
->**Advanced**
+> **上級**
 >
->You support resolve providers that compute additional information for completion proposal the user selects. This information is displayed along-side the selected item.
+>ユーザーが選択した補完提案の追加情報を計算する解決プロバイダをサポートします。この情報は、選択したアイテムの横に表示されます。
 
-## Provide Diagnostics
+## 診断を提供する
 
-Diagnostics are a way to indicate issues with the code.
+診断は、コードの問題を示す方法です。
 
 ![Diagnostics at Work](images/language-support/diagnostics.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-Your language server send the `textDocument/publishDiagnostics` message to the language client. The message carries an array of diagnostic items for a resource URI.
+言語サーバーは `textDocument/publishDiagnostics` メッセージを言語クライアントに送信します。このメッセージには、リソース URI の診断項目の配列が格納されます。
 
-**Note**: The client does not ask the server for diagnostics. The server pushes the diagnostic information to the client.
+**注**: クライアントはサーバーに診断を依頼しません。サーバーは診断情報をクライアントにプッシュします。
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 let diagnosticCollection: vscode.DiagnosticCollection;
@@ -328,23 +328,23 @@ function onChange() {
 }
 ```
 
->**Basic**
+> **基本**
 >
->Report diagnostics for open editors. Minimally, this needs to happen on every save. Better, diagnostics should be computed based on the un-saved contents of the editor.
+>開いているエディタの診断を報告します。最小限には、これはすべての保存時に発生する必要があります。より良い診断は、エディタの保存されていない内容に基づいて計算する必要があります。
 
->**Advanced**
+> **上級**
 >
->Report diagnostics not only for the open editors but for all resources in the open folder, no matter whether they have ever been opened in an editor or not.
+>開いているエディターだけでなく、開いたフォルダー内のすべてのリソースについて、エディターで開くかどうかにかかわらず、診断レポートを報告します。
 
-## Help With Function and Method Signatures
+## 関数とメソッドシグネチャのヘルプ
 
-When the user enters a function or method, display information about the function/method that is being called.
+ユーザーが関数またはメソッドを入力すると、呼び出されている関数/メソッドに関する情報が表示されます。
 
 ![Type Hover](images/language-support/signature-help.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-In the response to the `initialize` method, your language server needs to announce that it provides signature help.
+`initialize` メソッドへの応答では、言語サーバーが署名のヘルプを提供することをアナウンスする必要があります。
 
 ```json
 {
@@ -358,9 +358,9 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/signatureHelp` request.
+また、言語サーバーは `textDocument/signatureHelp` リクエストに応答する必要があります。
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 class GoSignatureHelpProvider implements SignatureHelpProvider {
@@ -380,23 +380,23 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **基本**
 >
->Ensure that the signature help contains the documentation of the parameters of the function or method.
+>署名ヘルプに関数またはメソッドのパラメータのドキュメントが含まれていることを確認します。
 
->**Advanced**
+> **上級**
 >
->Nothing additional.
+>何も追加しません。
 
-## Show Definitions of a Symbol
+## シンボルの定義を表示する
 
-Allow the user to see the definition of variables/functions/methods right where the variables/functions/methods are being used.
+変数/関数/メソッドが使用されているところで、変数/関数/メソッドの定義をユーザが見られるようにします。
 
 ![Type Hover](images/language-support/goto-definition.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-In the response to the `initialize` method, your language server needs to announce that it provides goto-definition locations.
+`initialize` メソッドへの応答では、言語サーバは、 goto 定義の場所を提供することをアナウンスする必要があります。
 
 ```json
 {
@@ -408,9 +408,9 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/definition` request.
+さらに、言語サーバは `textDocument/definition` リクエストに応答する必要があります。
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 class GoDefinitionProvider implements vscode.DefinitionProvider {
@@ -430,23 +430,23 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **基本**
 >
->If a symbol is ambivalent, you can show multiple definitions.
+>シンボルに矛盾がある場合は、複数の定義を表示できます。
 
->**Advanced**
+> **上級**
 >
->Nothing additional.
+>何も追加しません。
 
-## Find All References to a Symbol
+## シンボルへのすべての参照を見つける
 
-Allow the user to see all the source code locations where a certain variable/function/method/symbol is being used.
+特定の変数/関数/メソッド/シンボルが使用されているすべてのソースコードの場所をユーザーに表示させる。
 
 ![Type Hover](images/language-support/find-references.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-In the response to the `initialize` method, your language server needs to announce that it provides symbol reference locations.
+`initialize` メソッドへの応答では、言語サーバーがシンボル参照場所を提供することをアナウンスする必要があります。
 
 ```json
 {
@@ -458,9 +458,9 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/references` request.
+さらに、言語サーバは `textDocument/references` リクエストに応答する必要があります。
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 class GoReferenceProvider implements vscode.ReferenceProvider {
@@ -481,23 +481,23 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **基本**
 >
->Return the location (resource URI and range) for all references.
+>すべての参照の場所 (リソース URI と範囲) を返します。
 
->**Advanced**
+> **上級**
 >
->Nothing additional.
+>何も追加しません。
 
-## Highlight All Occurrences of a Symbol in a Document
+## ドキュメント内のシンボルのすべての出現を強調表示する
 
-Allow the user to see all occurrences of a symbol in the open editor.
+開いているエディタでシンボルのすべての出現をユーザが見ることを可能にする。
 
 ![Type Hover](images/language-support/document-highlights.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-In the response to the `initialize` method, your language server needs to announce that it provides symbol document locations.
+`initialize` メソッドへの応答では、言語サーバはシンボル文書の場所を提供することをアナウンスする必要があります。
 
 ```json
 {
@@ -509,9 +509,9 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/documentHighlight` request.
+さらに、言語サーバーは `textDocument/documentHighlight` リクエストに応答する必要があります。
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 class GoDocumentHighlightProvider implements vscode.DocumentHighlightProvider {
@@ -531,23 +531,23 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **基本**
 >
->You return the ranges in the editor's document where the references are being found.
+>参照が見つかったエディタのドキュメントの範囲を返します。
 
->**Advanced**
+> **上級**
 >
->Nothing additional.
+>何も追加しません。
 
-## Show all Symbol Definitions Within a Document
+## ドキュメント内のすべてのシンボル定義を表示する
 
-Allow the user to quickly navigate to any symbol definition in the open editor.
+ユーザが開いているエディタ内の任意のシンボル定義にすばやく移動できるようにします。
 
 ![Type Hover](images/language-support/document-symbols.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-In the response to the `initialize` method, your language server needs to announce that it provides symbol document locations.
+`initialize` メソッドへの応答では、言語サーバはシンボル文書の場所を提供することをアナウンスする必要があります。
 
 ```json
 {
@@ -559,9 +559,9 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/documentSymbol` request.
+さらに、言語サーバーは `textDocument/documentSymbol` リクエストに応答する必要があります。
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 class GoDocumentSymbolProvider implements vscode.DocumentSymbolProvider {
@@ -581,23 +581,23 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **基本**
 >
->Return all symbols in the document. Define the kinds of symbols such as variables, functions, classes, methods, etc.
+>ドキュメント内のすべてのシンボルを返します。変数、関数、クラス、メソッドなどのシンボルの種類を定義する
 
->**Advanced**
+> **上級**
 >
->Nothing additional.
+>何も追加しません。
 
-## Show all All Symbol Definitions in Folder
+## フォルダ内のすべてのシンボル定義を表示する
 
-Allow the user to quickly navigate to symbol definitions anywhere in the folder (workspace) opened in VS Code.
+ VS Code で開いたフォルダ(ワークスペース) 内の任意の場所にあるシンボル定義にすばやく移動できます。
 
 ![Type Hover](images/language-support/workspace-symbols.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-In the response to the `initialize` method, your language server needs to announce that it provides global symbol locations.
+`initialize` メソッドへの応答では、あなたの言語サーバがグローバルシンボルの場所を提供することをアナウンスする必要があります。
 
 ```json
 {
@@ -609,9 +609,9 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `workspace/symbol` request.
+さらに、言語サーバは `workspace/symbol` リクエストに応答する必要があります。
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 class GoWorkspaceSymbolProvider implements vscode.WorkspaceSymbolProvider {
@@ -631,23 +631,23 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **基本**
 >
->Return all symbols define by the source code within the open folder. Define the kinds of symbols such as variables, functions, classes, methods, etc.
+>開いているフォルダ内のソースコードで定義されているすべてのシンボルを返します。 変数、関数、クラス、メソッドなどのシンボルの種類を定義する
 
->**Advanced**
+> **上級**
 >
->Nothing additional.
+>何も追加しません。
 
-## Possible Actions on Errors or Warnings
+## エラーまたは警告に関する考えられる処置
 
-Provide the user with possible corrective actions right next to an error or warning. If actions are available, a light bulb appears next to the error or warning. When the user clicks the light bulb, a list of available code actions is presented.
+エラーまたは警告の直後にユーザーに可能な修正措置を提供します。対応可能な場合は、エラーまたは警告の横に電球が表示されます。 ユーザが電球をクリックすると、利用可能なコードアクションのリストが提示される。
 
 ![Type Hover](images/language-support/quick-fixes.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-In the response to the `initialize` method, your language server needs to announce that it provides code actions.
+`initialize` メソッドへの応答では、言語サーバーがコードアクションを提供することをアナウンスする必要があります。
 
 ```json
 {
@@ -659,9 +659,9 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/codeAction` request.
+さらに、言語サーバは `textDocument/codeAction` リクエストに応答する必要があります。
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 class GoCodeActionProvider implements vscode.CodeActionProvider {
@@ -682,23 +682,23 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **基本**
 >
->Provide code actions for error/warning correcting actions.
+>エラー/警告修正アクションのコードアクションを提供します。
 
->**Advanced**
+> **上級**
 >
->In addition, provide source code manipulation actions such as refactoring. For example, `Extract Method`.
+>さらに、リファクタリングなどのソースコード操作アクションを提供します。たとえば、`Extract メソッド` です。
 
-## CodeLens - Show Actionable Context Information Within Source Code
+## CodeLens - ソースコード内で実行可能なコンテキスト情報を表示する
 
-Provide the user with actionable, contextual information that is displayed interspersed with the source code.
+ソースコードに散在して表示される実行可能なコンテキスト情報をユーザーに提供します。
 
 ![Type Hover](images/language-support/code-lens.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-In the response to the `initialize` method, your language server needs to announce that it provides CodeLens results and whether it supports the `codeLens\resolve` method to bind the CodeLens to its command.
+`initialize` メソッドへの応答では、言語サーバーは CodeLens の結果を提供し、 CodeLens をそのコマンドにバインドする` codeLens\resolve` メソッドをサポートするかどうかをアナウンスする必要があります。
 
 ```json
 {
@@ -712,9 +712,9 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/codeLens` request.
+さらに、言語サーバーは `textDocument/codeLens` リクエストに応答する必要があります。
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 class GoRCodeLensProvider implements vscode.CodeLensProvider {
@@ -738,23 +738,23 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **基本**
 >
->Define the CodeLens results that are available for a document.
+>ドキュメントで使用できる CodeLens の結果を定義します。
 
->**Advanced**
+> **上級**
 >
->Bind the CodeLens results to a command by responding to `codeLens/resolve`.
+> `codeLens/resolve` に応答して、 CodeLens の結果をコマンドにバインドします。
 
-## Rename Symbols
+## シンボルの名前を変更する
 
-Allow the user to rename a symbol and update all references to the symbol.
+ユーザーがシンボルの名前を変更し、シンボルへのすべての参照を更新できるようにします。
 
 ![Type Hover](images/language-support/rename.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-In the response to the `initialize` method, your language server needs to announce that it provides for renaming.
+`initialize` メソッドへの応答では、あなたの言語サーバは名前の変更を提供することを宣言する必要があります。
 
 ```json
 {
@@ -766,9 +766,9 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/rename` request.
+さらに、あなたの言語サーバは `textDocument/rename` リクエストに応答する必要があります。
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 class GoRenameProvider implements vscode.RenameProvider {
@@ -789,23 +789,23 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **基本**
 >
->Don't provide rename support.
+>名前の変更をサポートしません。
 
->**Advanced**
+> **上級**
 >
->Return the list of all workspace edits that need to be performed, for example all edits across all files that contain references to the symbol.
+>実行する必要のあるすべてのワークスペース編集のリストを返します。たとえば、シンボルへの参照を含むすべてのファイルのすべての編集を返します。
 
-## Format Source Code in an Editor
+## エディタでのソースコードの書式設定
 
-Provide the user with support for formatting whole documents.
+ユーザーに文書全体の書式設定のサポートを提供します。
 
 ![Document Formatting at Work](images/language-support/format-document.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-In the response to the `initialize` method, your language server needs to announce that it provides document formatting.
+`initialize` メソッドへの応答では、あなたの言語サーバは文書フォーマットを提供することをアナウンスする必要があります。
 
 ```json
 {
@@ -817,9 +817,9 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/formatting` request.
+さらに、言語サーバーは `textDocument/formatting` リクエストに応答する必要があります。
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 class GoDocumentFormatter implements vscode.DocumentFormattingEditProvider {
@@ -838,23 +838,23 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **基本**
 >
->Don't provide formatting support.
+>書式設定をサポートしません。
 
->**Advanced**
+> **上級**
 >
->You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted correctly and are not lost.
+>ソースコードを書式設定するための最小限のテキスト編集を常に返す必要があります。 これは、診断結果などのマーカーが正しく調整され、失われないようにするために重要です。
 
-## Format the Selected Lines in an Editor
+## エディタで選択した行をフォーマットする
 
-Provide the user with support for formatting a selected range of lines in a document.
+ドキュメント内の選択された範囲の行を書式設定するためのサポートをユーザーに提供します。
 
 ![Document Formatting at Work](images/language-support/format-document-range.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-In the response to the `initialize` method, your language server needs to announce that it provides formatting support for ranges of lines.
+`initialize` メソッドへの応答では、言語サーバーは、行範囲の書式設定をサポートすることをアナウンスする必要があります。
 
 ```json
 {
@@ -866,9 +866,9 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/rangeFormatting` request.
+さらに、言語サーバは `textDocument/rangeFormatting` リクエストに応答する必要があります。
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 class GoDocumentRangeFormatter implements vscode.DocumentRangeFormattingEditProvider{
@@ -889,25 +889,25 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **基本**
 >
->Don't provide formatting support.
+>書式設定をサポートしません。
 
->**Advanced**
+> **上級**
 >
->You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted corrected and are not lost.
+>ソースコードを書式設定するための最小限のテキスト編集を常に返す必要があります。これは、診断結果などのマーカーが補正され、失われないようにするために重要です。
 
-## Incrementally Format Code as the User Types
+## ユーザタイプとしてコードをインクリメンタルにフォーマットする
 
-Provide the user with support for formatting text as they type.
+入力時にテキストを書式設定するためのサポートをユーザーに提供します。
 
-**Note**: The user [setting](/docs/getstarted/settings.md) `editor.formatOnType` controls whether source code gets formatted or not as the user types.
+**注意**: ユーザ [設定](/docs/getstarted/settings.md) `editor.formatOnType` は、ユーザの入力時にソースコードがフォーマットされるかどうかを制御します。
 
 ![Document Formatting at Work](images/language-support/format-on-type.gif)
 
-#### Language Server Protocol
+#### 言語サーバープロトコル
 
-In the response to the `initialize` method, your language server needs to announce that it provides formatting as the user types. It also needs to tell the client on which characters formatting should be triggered. `moreTriggerCharacters` is optional.
+`initialize` メソッドへの応答では、言語サーバーは、ユーザーが入力する際に​​フォーマットを提供することをアナウンスする必要があります。また、どの文字の書式設定をトリガーするかをクライアントに伝える必要があります。 `moreTriggerCharacters` はオプションです。
 
 ```json
 {
@@ -922,9 +922,9 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/onTypeFormatting` request.
+さらに、言語サーバーは `textDocument/onTypeFormatting` リクエストに応答する必要があります。
 
-#### Direct Implementation
+#### 直接実装
 
 ```typescript
 class GoOnTypingFormatter implements vscode.OnTypeFormattingEditProvider{
@@ -945,13 +945,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **基本**
 >
->Don't provide formatting support.
+>書式設定をサポートしません。
 
->**Advanced**
+> **上級**
 >
->You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted corrected and are not lost.
+>ソースコードを書式設定するための最小限のテキスト編集を常に返す必要があります。これは、診断結果などのマーカーが補正され、失われないようにするために重要です。
 
 
 
