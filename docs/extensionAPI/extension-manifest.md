@@ -115,7 +115,7 @@ MetaDescription: At the core of Visual Studio Code's extensibility model is an e
 
 常に最新の `vsce` を使用して、`npm install -g vsce` を使用してください。
 
-あなたの拡張機能のルートフォルダに `README.md` マークダウンファイルを置き、その内容を (Marketplace上の) 拡張機能の本文に含めます。 `REAMDE.md` に相対パス画像リンクを提供することができます。
+あなたの拡張機能のルートフォルダに `README.md` マークダウンファイルを置き、その内容を (マーケットプレイス上の) 拡張機能の本文に含めます。 `REAMDE.md` に相対パス画像リンクを提供することができます。
 
 いくつかの例があります:
 
@@ -130,7 +130,7 @@ MetaDescription: At the core of Visual Studio Code's extensibility model is an e
     "description": "Detect mistakes as you type and suggest fixes - great for Markdown.",
 ```
 
-マーケットプレイスページのヘッダーには、アイコンと対照的なバナー色がよく見えます。 `theme` 属性は、バナーで使用されるフォント、`dark` または `light` を指します。
+マーケットプレイスページのヘッダーには、アイコンと対照的なバナー色が見栄えします。 `theme` 属性は、バナーで使用されるフォント、`dark` または `light` を指します。
 
 ```json
     "icon": "images/spellIcon.svg",
@@ -161,7 +161,7 @@ MetaDescription: At the core of Visual Studio Code's extensibility model is an e
 ホームページ | `homepage`
 ライセンス | `license`
 
-あなたの拡張のための `category` を設定してください。同じ `category` 内の拡張子は、フィルタリングと発見を改善するマーケットプレイスにまとめられています。
+あなたの拡張機能の `category` を設定してください。同じ `category` 内の拡張機能は、フィルタリングと発見を改善するマーケットプレイスにまとめられています。
 
 > **注:** あなたの拡張機能に合った値だけを使用してください - 許される値は `[Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, Other, Extension Packs]` です。
 
@@ -171,15 +171,15 @@ MetaDescription: At the core of Visual Studio Code's extensibility model is an e
     ],
 ```
 
-> **ヒント:** [拡張マニフェストエディタ](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.extension-manifest-editor) 拡張機能を使用すると、拡張子 `README.md` のプレビューが可能です。 `package.json` メタデータはマーケットプレイスに公開されたときに表示されます。
+> **ヒント:** [拡張マニフェストエディタ](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.extension-manifest-editor) 拡張機能を使用すると、拡張機能の `README.md` のプレビューが可能です。 `package.json` メタデータはマーケットプレイスに公開されたときに表示されます。
 
 ## 拡張機能提供の結合
 
-`yo code` ジェネレータを使うと、 TextMate のテーマ、色分け、スニペットを簡単にパッケージ化し、新しい拡張機能を作成することができます。ジェネレータが実行されると、オプションごとに完全なスタンドアロンの拡張パッケージが作成されます。しかし、複数の貢献を組み合わせた単一の拡張を持つ方がしばしば便利です。たとえば、新しい言語のサポートを追加する場合は、ユーザーに色付けとスニペット、さらにはデバッグサポートの両方の言語定義を提供したいと考えています。
+`yo code` ジェネレータを使うと、 TextMate のテーマ、色付け、スニペットを簡単にパッケージ化し、新しい拡張機能を作成することができます。ジェネレータが実行されると、オプションごとに完全なスタンドアロンの拡張パッケージが作成されます。しかし、複数のコントリビューションを組み合わせた単一の拡張を持つ方がしばしば便利です。たとえば、新しい言語のサポートを追加する場合は、ユーザーに色付けとスニペット、さらにはデバッグサポートの両方の言語定義を提供したいと考えています。
 
-拡張貢献を組み合わせるには、既存の拡張マニフェスト `package.json` を編集し、新しい貢献と関連ファイルを追加します。
+拡張機能コントリビューションを組み合わせるには、既存の拡張マニフェスト `package.json` を編集し、新しいコントリビューションと関連ファイルを追加します。
 
-以下は、 LaTex 言語定義 (言語識別子とファイル拡張子)、カラー化（`grammar`）、スニペットを含む拡張マニフェストです。
+以下は、 LaTex 言語定義 (言語識別子とファイル拡張子)、カラー化（`grammar`）、スニペットを含む拡張機能マニフェストです。
 
 ```json
 {
@@ -213,9 +213,9 @@ MetaDescription: At the core of Visual Studio Code's extensibility model is an e
 }
 ```
 
-拡張マニフェストの `categories` 属性は Marketplace 上の簡単な発見とフィルタリングのために `Languages` と `Snippets` の両方を含んでいることに注目してください。
+拡張機能マニフェストの `categories` 属性はマーケットプレイス上の簡単な発見とフィルタリングのために `Languages` と `Snippets` の両方を含んでいることに注目してください。
 
-> **ヒント:** あなたのマージされた貢献が同じ識別子を使用していることを確認してください。 上記の例では、3つすべての寄稿は言語識別子として "latex" を使用しています。 これにより、VS Code は、Colorizer (`grammar`) とスニペットが LaTeX 言語用であり、 LaTeX ファイルを編集するときにアクティブになることを知ることができます。
+> **ヒント:** あなたのマージされたコントリビューションが同じ識別子を使用していることを確認してください。 上記の例では、3つすべてのコントリビューションは言語識別子として "latex" を使用しています。 これにより、VS Code は、Colorizer (`grammar`) とスニペットが LaTeX 言語用であり、 LaTeX ファイルを編集するときにアクティブになることを知ることができます。
 
 ## Extension Packs 拡張機能パック
 
@@ -223,7 +223,7 @@ MetaDescription: At the core of Visual Studio Code's extensibility model is an e
 
 Extension Packs には他のコントリビューションを含めることができます。 この依存関係は `package.json` ファイル内の `extensionDependencies` 属性を使って表現されます。
 
-たとえば、PHP用の Extension Pack には、デバッガ、言語サービス、およびフォーマッタが含まれています。
+たとえば、 PHP 用の Extension Pack には、デバッガ、言語サービス、およびフォーマッタが含まれています。
 
 ```json
   "extensionDependencies": [
@@ -250,10 +250,10 @@ Extension pack を作成するには、 `yo code` Yeoman ジェネレータを�
 npmj にはいくつかの Node.js モジュールがあり、 VSCode 拡張機能の作成に役立ちます。拡張機能の `dependencies` セクションにこれらを含めることができます。
 
 * [vscode-nls](https://www.npmjs.com/package/vscode-nls) - 外部化とローカリゼーションのサポート。
-* [vscode-uri](https://www.npmjs.com/package/vscode-uri) - VSコードとその拡張機能で使用される URI の実装。
+* [vscode-uri](https://www.npmjs.com/package/vscode-uri) - VS Code とその拡張機能で使用される URI の実装。
 * [jsonc-parser](https://www.npmjs.com/package/jsonc-parser) - コメントの有無に関わらず JSON を処理するためのスキャナとフォールトトレラントなパーサー。
 * [request-light](https://www.npmjs.com/package/request-light) - 軽量 Node.js リクエストライブラリ（プロキシサポートあり）
-* [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) - VSコード拡張の一貫したテレメトリレポート。
+* [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) - VS Code 拡張機能の一貫したテレメトリレポート。
 * [vscode-languageclient](https://www.npmjs.com/package/vscode-languageclient) - [言語サーバープロトコル](https://github.com/Microsoft/language-server) に準拠した言語サーバーを簡単に統合する-プロトコル)。
 
 ## 次のステップ
