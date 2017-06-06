@@ -173,7 +173,7 @@ MetaDescription: At the core of Visual Studio Code's extensibility model is an e
 
 > **ヒント:** [拡張マニフェストエディタ](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.extension-manifest-editor) 拡張機能を使用すると、拡張機能の `README.md` のプレビューが可能です。 `package.json` メタデータはマーケットプレイスに公開されたときに表示されます。
 
-## 拡張機能提供の結合
+## 拡張機能提供をまとめる
 
 `yo code` ジェネレータを使うと、 TextMate のテーマ、色付け、スニペットを簡単にパッケージ化し、新しい拡張機能を作成することができます。ジェネレータが実行されると、オプションごとに完全なスタンドアロンの拡張パッケージが作成されます。しかし、複数のコントリビューションを組み合わせた単一の拡張を持つ方がしばしば便利です。たとえば、新しい言語のサポートを追加する場合は、ユーザーに色付けとスニペット、さらにはデバッグサポートの両方の言語定義を提供したいと考えています。
 
@@ -221,7 +221,7 @@ MetaDescription: At the core of Visual Studio Code's extensibility model is an e
 
 別々の拡張機能を 'Extension Packs' にまとめてバンドルすることもできます。拡張パックは、一緒にインストールできる拡張機能のセットです。これにより、お気に入りの拡張機能を他のユーザと簡単に共有したり、 PHP 開発のような特定のシナリオ用の拡張セットを作成して、 PHP 開発者が VS Code をすばやく使い始める手助けをすることができます。
 
-Extension Packs には他のコントリビューションを含めることができます。 この依存関係は `package.json` ファイル内の `extensionDependencies` 属性を使って表現されます。
+Extension Pack には他のコントリビューションを含めることができます。 この依存関係は `package.json` ファイル内の `extensionDependencies` 属性を使って表現されます。
 
 たとえば、 PHP 用の Extension Pack には、デバッガ、言語サービス、およびフォーマッタが含まれています。
 

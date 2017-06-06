@@ -9,10 +9,9 @@ MetaDescription: Visual Studio Code language extensions contribute new programmi
 ---
 # 言語拡張ガイドライン
 
-VS Code でサポートされている言語について聞くと、通常、構文のハイライト、コード補完、および該当する場合は、
-デバッグサポート。これは良いスタートですが、言語拡張はもっと多くのことを行うことができます。
+VS Code でサポートされている言語について聞かれれば、通常、構文のハイライト、コード補完や場合によっては、デバッグサポートを思い浮かべるでしょう。 これは始まりとしては良いですが、言語拡張はもっと多くのことを行うことができます。
 
-構成ファイルだけで、拡張機能は構文の強調表示、スニペット、およびスマートブラケットのマッチングをサポートすることができます。高度な言語機能を使用するには、拡張性 [API](/docs/extensionAPI/vscode-api.md) または [言語サーバー](/docs/extensions/example-language-server) を使用して VS Code を拡張する必要があります。
+設定ファイルだけで、拡張機能は構文の強調表示、スニペット、およびスマートブラケットのマッチングをサポートすることができます。高度な言語機能を使用するには、拡張性 [API](/docs/extensionAPI/vscode-api.md) または [言語サーバー](/docs/extensions/example-language-server) を使用して VS Code を拡張する必要があります。
 
 言語サーバーは、 [言語サーバープロトコル](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) を使用するスタンドアロンサーバーです。タスクに最も適したプログラミング言語でサーバーを実装できます。たとえば、サポートしたい言語用の Python で書かれた良いライブラリがある場合は、 Python で言語サーバを実装することを検討することをお勧めします。言語サーバーを JavaScript または TypeScript で実装する場合は、 VS Code [npmモジュール](https://github.com/Microsoft/vscode-languageserver-node) の上に構築できます。
 
@@ -169,7 +168,7 @@ VS Code でサポートされている言語について聞くと、通常、構
 
 ## プログラム言語サポート
 
-残りの言語機能では、 VS Code からの要求を処理するための拡張コードの作成が必要です。言語拡張は、[言語サーバープロトコル](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) を実装するスタンドアロンサーバーとして実装することも、拡張機能の `activate` メソッドを呼び出す。どちらのアプローチも **LANGUAGE SERVER PROTOCOL** と **DIRECT IMPLEMENTATION** の2つのセクションに示されています。
+残りの言語機能では、 VS Code からの要求を処理するための拡張コードの作成が必要です。言語拡張は、[言語サーバープロトコル](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) を実装するスタンドアロンサーバーとして実装することも、拡張機能の `activate` メソッドを呼び出して実装することもできます。どちらのアプローチも **LANGUAGE SERVER PROTOCOL** と **DIRECT IMPLEMENTATION** の2つのセクションに示されています。
 
 言語サーバープロトコルのアプローチは、 `initialize` リクエストへの応答でサーバーの機能を記述し、ユーザーの動作に基づいて特定の要求を処理するパターンに従います。
 
@@ -225,15 +224,15 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 > **基本**
 >
->タイプ情報を表示し、使用可能な場合はドキュメントを含める。
+>型情報を表示し、使用可能な場合はドキュメントを含めます。
 
 > **上級**
 >
 >コードを色付けするのと同じスタイルでメソッドのシグネチャを色付けします。
 
-## コード補完提案を表示する
+## コード補完候補を表示する
 
-コードの補完は、状況に応じた提案をユーザーに提供します。
+コードの補完は、状況に応じた候補をユーザーに提示します。
 
 ![Code Completion at Work](images/language-support/code-completion.gif)
 
@@ -277,11 +276,11 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 > **基本**
 >
->あなたは解決プロバイダをサポートしていません。
+>解決プロバイダはサポートしません。
 
 > **上級**
 >
->ユーザーが選択した補完提案の追加情報を計算する解決プロバイダをサポートします。この情報は、選択したアイテムの横に表示されます。
+>ユーザーが選択した補完候補の追加情報を計算する解決プロバイダをサポートします。この情報は、選択したアイテムの横に表示されます。
 
 ## 診断を提供する
 
@@ -440,7 +439,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## シンボルへのすべての参照を見つける
 
-特定の変数/関数/メソッド/シンボルが使用されているすべてのソースコードの場所をユーザーに表示させる。
+特定の変数/関数/メソッド/シンボルが使用されているすべてのソースコードの場所をユーザーに表示させます。
 
 ![Type Hover](images/language-support/find-references.gif)
 
@@ -491,7 +490,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## ドキュメント内のシンボルのすべての出現を強調表示する
 
-開いているエディタでシンボルのすべての出現をユーザが見ることを可能にする。
+開いているエディタでシンボルのすべての出現をユーザが見ることを可能にします。
 
 ![Type Hover](images/language-support/document-highlights.gif)
 
@@ -583,7 +582,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 > **基本**
 >
->ドキュメント内のすべてのシンボルを返します。変数、関数、クラス、メソッドなどのシンボルの種類を定義する
+>ドキュメント内のすべてのシンボルを返します。変数、関数、クラス、メソッドなどのシンボルの種類を定義します
 
 > **上級**
 >
@@ -633,7 +632,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 > **基本**
 >
->開いているフォルダ内のソースコードで定義されているすべてのシンボルを返します。 変数、関数、クラス、メソッドなどのシンボルの種類を定義する
+>開いているフォルダ内のソースコードで定義されているすべてのシンボルを返します。 変数、関数、クラス、メソッドなどのシンボルの種類を定義します
 
 > **上級**
 >
@@ -641,7 +640,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## エラーまたは警告に関する考えられる処置
 
-エラーまたは警告の直後にユーザーに可能な修正措置を提供します。対応可能な場合は、エラーまたは警告の横に電球が表示されます。 ユーザが電球をクリックすると、利用可能なコードアクションのリストが提示される。
+エラーまたは警告の直後にユーザーに可能な修正措置を提供します。対応可能な場合は、エラーまたは警告の横に電球が表示されます。 ユーザが電球をクリックすると、利用可能なコードアクションのリストが提示されます。
 
 ![Type Hover](images/language-support/quick-fixes.gif)
 
