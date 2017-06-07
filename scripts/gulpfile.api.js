@@ -20,6 +20,7 @@ var DIST = 'docs/extensionAPI/vscode-api.md';
 var VSCODE_VERSION = process.env['vscode-lastest'] ? process.env['vscode-lastest'] : '0bec115779b11a9d78bdb24ad7918c22524ea2ac' /* 1.12.0 */;
 
 function getVSCodeDefFileURL() {
+    return __dirname+"/../../../vscode/src/vs/vscode.d.ts"
     if (VSCODE_VERSION === "latest") {
         return 'https://raw.githubusercontent.com/Microsoft/vscode/master/src/vs/vscode.d.ts';
     } else {
@@ -29,7 +30,7 @@ function getVSCodeDefFileURL() {
 
 gulp.task("download-vscode.d.ts", function (cb) {
     var url = getVSCodeDefFileURL();
-    request(url, function (error, resp, body) {
+    fs.readFile(url, 'utf8', function (error, body) {
         if (error) {
             console.log('Error download vscode.d.ts', url);
             console.log(error);
@@ -39,6 +40,17 @@ gulp.task("download-vscode.d.ts", function (cb) {
 
         cb(error);
     });
+    /*
+    request(url, function (error, resp, body) {
+        if (error) {
+            console.log('Error download vscode.d.ts', url);
+            console.log(error);
+        } else {
+            fs.writeFile(VSCODE_PATH, body);
+        }
+
+        cb(error);
+    });*/
 });
 
 gulp.task("api-doc-json", ["download-vscode.d.ts"], function () {
