@@ -270,15 +270,12 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 
 
 
-<div class="comment"><p>Namespace for participating in language-specific editor <a href="https://code.visualstudio.com/docs/editor/editingevolved">features</a>,
-like IntelliSense, code actions, diagnostics etc.</p>
-<p>Many programming languages exist and there is huge variety in syntaxes, semantics, and paradigms. Despite that, features
-like automatic word-completion, code navigation, or code checking have become popular across different tools for different
-programming languages.</p>
-<p>The editor provides an API that makes it simple to provide such common features by having all UI and actions already in place and
-by allowing you to participate by providing data only. For instance, to contribute a hover all you have to do is provide a function
-that can be called with a <a href="#TextDocument">TextDocument</a> and a <a href="#Position">Position</a> returning hover info. The rest, like tracking the
-mouse, positioning the hover, keeping the hover stable etc. is taken care of by the editor.</p>
+<div class="comment"><p>IntelliSense、コードアクション、診断などの言語固有のエディタ[機能]（<a href="https://code.visualstudio.com/docs/editor/editingevolved）に参加するための名前空間">https://code.visualstudio.com/docs/editor/editingevolved）に参加するための名前空間</a></p>
+<p>多くのプログラミング言語が存在し、シンタックス、セマンティクス、およびパラダイムには多種多様があります。
+それにもかかわらず、自動ワード補完、コードナビゲーション、コードチェックなどの機能は、さまざまなプログラミング言語で異なるツール間で普及しています。</p>
+<p>エディタには、すべてのUIとアクションを既に用意し、データのみを提供することで参加できるようにすることで、共通の機能を簡単に提供できるAPIが提供されています。
+例えば、ホバーに貢献するには、[TextDocument]（＃TextDocument）とホバー情報を返す[Position]（＃Position）で呼び出せる関数を用意するだけです。
+マウスを追跡する、ホバーを配置する、ホバーを安定に保つなどの残りの部分は、エディターによって処理されます。</p>
 
 <pre><code class="lang-javascript">languages.registerHoverProvider(<span class="hljs-string">'javascript'</span>, {
     provideHover(<span class="hljs-built_in">document</span>, position, token) {
@@ -286,12 +283,11 @@ mouse, positioning the hover, keeping the hover stable etc. is taken care of by 
     }
 });
 </code></pre>
-<p>Registration is done using a <a href="#DocumentSelector">document selector</a> which is either a language id, like <code>javascript</code> or
-a more complex <a href="#DocumentFilter">filter</a> like <code>{ language: &#39;typescript&#39;, scheme: &#39;file&#39; }</code>. Matching a document against such
-a selector will result in a <a href="#languages.match">score</a> that is used to determine if and how a provider shall be used. When
-scores are equal the provider that came last wins. For features that allow full arity, like <a href="#languages.registerHoverProvider">hover</a>,
-the score is only checked to be <code>&gt;0</code>, for other features, like <a href="#languages.registerCompletionItemProvider">IntelliSense</a> the
-score is used for determining the order in which providers are asked to participate.</p>
+<p>登録は、[javascript]のような言語ID、または[javascript]のような[document selector]（＃DocumentSelector）を使用して行われます。
+<code>{language： &#39;typescript&#39;、scheme： &#39;file&#39;}</code>のようなもっと複雑な[filter]（＃DocumentFilter）。
+ドキュメントをそのようなセレクタに照合すると、プロバイダの使用方法と使用方法を決定するために使用される[score]（＃languages.match）になります。
+スコアが等しい場合は、最後に来たプロバイダが勝ちます。
+[hover]（＃languages.registerHoverProvider）のようなフルアリティを可能にする機能の場合、スコアは[IntelliSense]（＃languages.registerCompletionItemProvider）などの他の機能の場合にのみスコアが使用されます プロバイダが参加するように求められる順序を決定する。</p>
 </div>
 
 #### Functions
@@ -300,15 +296,14 @@ score is used for determining the order in which providers are asked to particip
 
 <a name="languages.createDiagnosticCollection"></a><span class="ts" id=1384 data-target="#details-1384" data-toggle="collapse"><span class="ident">createDiagnosticCollection</span><span>(</span><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#DiagnosticCollection">DiagnosticCollection</a></span>
 <div class="details collapse" id="details-1384">
-<div class="comment"><p>Create a diagnostics collection.</p>
+<div class="comment"><p>診断コレクションを作成します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="name"></a><span class="ts" id=1385 data-target="#details-1385" data-toggle="collapse"><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The <a href="#DiagnosticCollection.name">name</a> of the collection.</p>
-</div></td></tr>
+<tr><td><a name="name"></a><span class="ts" id=1385 data-target="#details-1385" data-toggle="collapse"><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#DiagnosticCollection">DiagnosticCollection</a></span></td><td><div class="comment"><p>A new diagnostic collection.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#DiagnosticCollection">DiagnosticCollection</a></span></td><td><div class="comment"><p>新しい診断コレクションです。</p>
 </div></td></tr>
 </table>
 </div>
@@ -318,12 +313,12 @@ score is used for determining the order in which providers are asked to particip
 
 <a name="languages.getLanguages"></a><span class="ts" id=1378 data-target="#details-1378" data-toggle="collapse"><span class="ident">getLanguages</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span>
 <div class="details collapse" id="details-1378">
-<div class="comment"><p>Return the identifiers of all known languages.</p>
+<div class="comment"><p>既知のすべての言語の識別子を返します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>Promise resolving to an array of identifier strings.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>識別子文字列の配列への解決を約束します。</p>
 </div></td></tr>
 </table>
 </div>
@@ -333,17 +328,17 @@ score is used for determining the order in which providers are asked to particip
 
 <a name="languages.match"></a><span class="ts" id=1380 data-target="#details-1380" data-toggle="collapse"><span class="ident">match</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a><span>)</span><span>: </span><a class="type-instrinct">number</a></span>
 <div class="details collapse" id="details-1380">
-<div class="comment"><p>Compute the match between a document <a href="#DocumentSelector">selector</a> and a document. Values
-greater than zero mean the selector matches the document.</p>
-<p>A match is computed according to these rules:</p>
+<div class="comment"><p>ドキュメント[selector]（＃DocumentSelector）とドキュメントの一致を計算します。値
+0より大きい値は、セレクタがドキュメントと一致することを意味します。</p>
+<p>マッチは以下のルールに従って計算されます：</p>
 <ol>
-<li>When <a href="#DocumentSelector"><code>DocumentSelector</code></a> is an array, compute the match for each contained <code>DocumentFilter</code> or language identifier and take the maximum value.</li>
-<li>A string will be desugared to become the <code>language</code>-part of a <a href="#DocumentFilter"><code>DocumentFilter</code></a>, so <code>&quot;fooLang&quot;</code> is like <code>{ language: &quot;fooLang&quot; }</code>.</li>
-<li>A <a href="#DocumentFilter"><code>DocumentFilter</code></a> will be matched against the document by comparing its parts with the document. The following rules apply:<ol>
-<li>When the <code>DocumentFilter</code> is empty (<code>{}</code>) the result is <code>0</code></li>
-<li>When <code>scheme</code>, <code>language</code>, or <code>pattern</code> are defined but one doesn’t match, the result is <code>0</code></li>
-<li>Matching against <code>*</code> gives a score of <code>5</code>, matching via equality or via a glob-pattern gives a score of <code>10</code></li>
-<li>The result is the maximun value of each match</li>
+<li>[DocumentSelector<code>]（＃DocumentSelector）が配列の場合、含まれる各DocumentFilterまたは言語識別子の一致を計算し、最大値をとります。
+2.文字列は[DocumentFilter</code>]（＃DocumentFilter）の <code>language</code>部分になるようにdesugaredされるので、<code>`fooLang&quot;</code>は` {language： &quot;fooLang&quot;}と似ています。</li>
+<li>[<code>DocumentFilter</code>]（＃DocumentFilter）は、その部分をドキュメントと比較することによって、ドキュメントに対して照合されます。次の規則が適用されます。<ol>
+<li>DocumentFilterが空の場合（ <code>{} &#39;）、結果は</code> 0`です
+2.「scheme」、「language」、「pattern」は定義されているが、一致しない場合は「0」
+3.「*」とのマッチングは「5」のスコアを与え、等価またはグロブパターンを介したマッチングは「10」のスコアを与える
+4.結果は各試合の最大値です</li>
 </ol>
 </li>
 </ol>
@@ -370,12 +365,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1381 data-target="#details-1381" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A document selector.</p>
-</div></td></tr>
-<tr><td><a name="document"></a><span class="ts" id=1382 data-target="#details-1382" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>A text document.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1381 data-target="#details-1381" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=1382 data-target="#details-1382" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>A number <code>&gt;0</code> when the selector matches and <code>0</code> when the selector does not match.</p>
+<tr><td><span class="ts"><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>セレクタが一致するときは <code>&gt; 0、セレクタが一致しないときは</code> 0 &#39;になります。</p>
 </div></td></tr>
 </table>
 </div>
@@ -385,20 +378,18 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="languages.registerCodeActionsProvider"></a><span class="ts" id=1392 data-target="#details-1392" data-toggle="collapse"><span class="ident">registerCodeActionsProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeActionProvider">CodeActionProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1392">
-<div class="comment"><p>Register a code action provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are asked in
-parallel and the results are merged. A failing provider (rejected promise or exception) will
-not cause a failure of the whole operation.</p>
+<div class="comment"><p>コードアクションプロバイダを登録する。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ（約束または例外を拒否した）によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1393 data-target="#details-1393" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1394 data-target="#details-1394" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeActionProvider">CodeActionProvider</a></span></td><td><div class="comment"><p>A code action provider.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1393 data-target="#details-1393" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1394 data-target="#details-1394" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeActionProvider">CodeActionProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -408,20 +399,18 @@ not cause a failure of the whole operation.</p>
 
 <a name="languages.registerCodeLensProvider"></a><span class="ts" id=1396 data-target="#details-1396" data-toggle="collapse"><span class="ident">registerCodeLensProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeLensProvider">CodeLensProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1396">
-<div class="comment"><p>Register a code lens provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are asked in
-parallel and the results are merged. A failing provider (rejected promise or exception) will
-not cause a failure of the whole operation.</p>
+<div class="comment"><p>コードレンズ提供者を登録する。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ（約束または例外を拒否した）によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1397 data-target="#details-1397" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1398 data-target="#details-1398" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeLensProvider">CodeLensProvider</a></span></td><td><div class="comment"><p>A code lens provider.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1397 data-target="#details-1397" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1398 data-target="#details-1398" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeLensProvider">CodeLensProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -431,24 +420,21 @@ not cause a failure of the whole operation.</p>
 
 <a name="languages.registerCompletionItemProvider"></a><span class="ts" id=1387 data-target="#details-1387" data-toggle="collapse"><span class="ident">registerCompletionItemProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#CompletionItemProvider">CompletionItemProvider</a>, <span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1387">
-<div class="comment"><p>Register a completion provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and groups of equal score are sequentially asked for
-completion items. The process stops when one or many providers of a group return a
-result. A failing provider (rejected promise or exception) will not fail the whole
-operation.</p>
+<div class="comment"><p>補完提供者を登録する。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダは[score]（＃languages.match）でソートされ、等しいスコアのグループには
+完成品。
+グループの1人または複数のプロバイダが結果を返すと、プロセスは停止します。
+失敗したプロバイダ（約束または例外が拒否されても）が操作全体を失敗させることはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1388 data-target="#details-1388" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1389 data-target="#details-1389" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CompletionItemProvider">CompletionItemProvider</a></span></td><td><div class="comment"><p>A completion provider.</p>
-</div></td></tr>
-<tr><td><a name="triggerCharacters"></a><span class="ts" id=1390 data-target="#details-1390" data-toggle="collapse"><span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>Trigger completion when the user types one of the characters, like <code>.</code> or <code>:</code>.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1388 data-target="#details-1388" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1389 data-target="#details-1389" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CompletionItemProvider">CompletionItemProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="triggerCharacters"></a><span class="ts" id=1390 data-target="#details-1390" data-toggle="collapse"><span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -458,20 +444,18 @@ operation.</p>
 
 <a name="languages.registerDefinitionProvider"></a><span class="ts" id=1400 data-target="#details-1400" data-toggle="collapse"><span class="ident">registerDefinitionProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DefinitionProvider">DefinitionProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1400">
-<div class="comment"><p>Register a definition provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are asked in
-parallel and the results are merged. A failing provider (rejected promise or exception) will
-not cause a failure of the whole operation.</p>
+<div class="comment"><p>定義プロバイダを登録します。</p>
+<p>複数のプロバイダを言語に登録することができます。その場合、プロバイダーは
+パラレルに変換し、結果をマージします。失敗したプロバイダ（約束または例外を拒否）は、
+操作全体の失敗を引き起こさない。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1401 data-target="#details-1401" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1402 data-target="#details-1402" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DefinitionProvider">DefinitionProvider</a></span></td><td><div class="comment"><p>A definition provider.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1401 data-target="#details-1401" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1402 data-target="#details-1402" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DefinitionProvider">DefinitionProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -481,20 +465,18 @@ not cause a failure of the whole operation.</p>
 
 <a name="languages.registerDocumentFormattingEditProvider"></a><span class="ts" id=1435 data-target="#details-1435" data-toggle="collapse"><span class="ident">registerDocumentFormattingEditProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentFormattingEditProvider">DocumentFormattingEditProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1435">
-<div class="comment"><p>Register a formatting provider for a document.</p>
-<p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and the best-matching provider is used. Failure
-of the selected provider will cause a failure of the whole operation.</p>
+<div class="comment"><p>ドキュメントの書式設定プロバイダを登録します。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダは[score]（＃languages.match）でソートされ、最も一致するプロバイダが使用されます。
+選択したプロバイダの障害により、操作全体が失敗することがあります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1436 data-target="#details-1436" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1437 data-target="#details-1437" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentFormattingEditProvider">DocumentFormattingEditProvider</a></span></td><td><div class="comment"><p>A document formatting edit provider.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1436 data-target="#details-1436" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1437 data-target="#details-1437" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentFormattingEditProvider">DocumentFormattingEditProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -504,20 +486,18 @@ of the selected provider will cause a failure of the whole operation.</p>
 
 <a name="languages.registerDocumentHighlightProvider"></a><span class="ts" id=1416 data-target="#details-1416" data-toggle="collapse"><span class="ident">registerDocumentHighlightProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentHighlightProvider">DocumentHighlightProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1416">
-<div class="comment"><p>Register a document highlight provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and groups sequentially asked for document highlights.
-The process stops when a provider returns a <code>non-falsy</code> or <code>non-failure</code> result.</p>
+<div class="comment"><p>文書ハイライト提供者を登録する。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは[スコア]（＃languages.match）でソートされ、グループではドキュメントのハイライトが順番に求められます。
+プロバイダが「偽でない」または「失敗していない」結果を返すと、プロセスは停止します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1417 data-target="#details-1417" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1418 data-target="#details-1418" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentHighlightProvider">DocumentHighlightProvider</a></span></td><td><div class="comment"><p>A document highlight provider.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1417 data-target="#details-1417" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1418 data-target="#details-1418" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentHighlightProvider">DocumentHighlightProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -527,20 +507,17 @@ The process stops when a provider returns a <code>non-falsy</code> or <code>non-
 
 <a name="languages.registerDocumentLinkProvider"></a><span class="ts" id=1454 data-target="#details-1454" data-toggle="collapse"><span class="ident">registerDocumentLinkProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentLinkProvider">DocumentLinkProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1454">
-<div class="comment"><p>Register a document link provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are asked in
-parallel and the results are merged. A failing provider (rejected promise or exception) will
-not cause a failure of the whole operation.</p>
+<div class="comment"><p>ドキュメントリンクプロバイダを登録します。</p>
+<p>複数のプロバイダを言語に登録することができます。その場合、プロバイダは並行して質問され、結果はマージされます。
+失敗したプロバイダ（約束または例外を拒否した）によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1455 data-target="#details-1455" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1456 data-target="#details-1456" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentLinkProvider">DocumentLinkProvider</a></span></td><td><div class="comment"><p>A document link provider.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1455 data-target="#details-1455" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1456 data-target="#details-1456" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentLinkProvider">DocumentLinkProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -550,23 +527,21 @@ not cause a failure of the whole operation.</p>
 
 <a name="languages.registerDocumentRangeFormattingEditProvider"></a><span class="ts" id=1439 data-target="#details-1439" data-toggle="collapse"><span class="ident">registerDocumentRangeFormattingEditProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentRangeFormattingEditProvider">DocumentRangeFormattingEditProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1439">
-<div class="comment"><p>Register a formatting provider for a document range.</p>
-<p><em>Note:</em> A document range provider is also a <a href="#DocumentFormattingEditProvider">document formatter</a>
-which means there is no need to <a href="registerDocumentFormattingEditProvider">register</a> a document
-formatter when also registering a range provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and the best-matching provider is used. Failure
-of the selected provider will cause a failure of the whole operation.</p>
+<div class="comment"><p>ドキュメント範囲の書式設定プロバイダを登録します。</p>
+<p><em>注：</em>ドキュメント範囲プロバイダも[ドキュメントフォーマッタ]（＃DocumentFormattingEditProvider）です。
+つまり、ドキュメントを登録する必要はありません（registerDocumentFormattingEditProvider）
+範囲プロバイダを登録するときにもフォーマッタ。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは[score]（＃languages.match）でソートされ、最も一致するプロバイダーが使用されます。
+選択したプロバイダの障害により、操作全体が失敗することがあります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1440 data-target="#details-1440" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1441 data-target="#details-1441" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentRangeFormattingEditProvider">DocumentRangeFormattingEditProvider</a></span></td><td><div class="comment"><p>A document range formatting edit provider.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1440 data-target="#details-1440" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1441 data-target="#details-1441" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentRangeFormattingEditProvider">DocumentRangeFormattingEditProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -576,20 +551,18 @@ of the selected provider will cause a failure of the whole operation.</p>
 
 <a name="languages.registerDocumentSymbolProvider"></a><span class="ts" id=1420 data-target="#details-1420" data-toggle="collapse"><span class="ident">registerDocumentSymbolProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentSymbolProvider">DocumentSymbolProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1420">
-<div class="comment"><p>Register a document symbol provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are asked in
-parallel and the results are merged. A failing provider (rejected promise or exception) will
-not cause a failure of the whole operation.</p>
+<div class="comment"><p>ドキュメントシンボルプロバイダを登録します。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ（約束または例外を拒否した）によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1421 data-target="#details-1421" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1422 data-target="#details-1422" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentSymbolProvider">DocumentSymbolProvider</a></span></td><td><div class="comment"><p>A document symbol provider.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1421 data-target="#details-1421" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1422 data-target="#details-1422" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentSymbolProvider">DocumentSymbolProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -599,20 +572,18 @@ not cause a failure of the whole operation.</p>
 
 <a name="languages.registerHoverProvider"></a><span class="ts" id=1412 data-target="#details-1412" data-toggle="collapse"><span class="ident">registerHoverProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#HoverProvider">HoverProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1412">
-<div class="comment"><p>Register a hover provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are asked in
-parallel and the results are merged. A failing provider (rejected promise or exception) will
-not cause a failure of the whole operation.</p>
+<div class="comment"><p>ホバー提供者を登録する。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ（約束または例外を拒否した）によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1413 data-target="#details-1413" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1414 data-target="#details-1414" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#HoverProvider">HoverProvider</a></span></td><td><div class="comment"><p>A hover provider.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1413 data-target="#details-1413" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1414 data-target="#details-1414" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#HoverProvider">HoverProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -622,20 +593,18 @@ not cause a failure of the whole operation.</p>
 
 <a name="languages.registerImplementationProvider"></a><span class="ts" id=1404 data-target="#details-1404" data-toggle="collapse"><span class="ident">registerImplementationProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#ImplementationProvider">ImplementationProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1404">
-<div class="comment"><p>Register an implementation provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are asked in
-parallel and the results are merged. A failing provider (rejected promise or exception) will
-not cause a failure of the whole operation.</p>
+<div class="comment"><p>実装プロバイダを登録する。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ（約束または例外を拒否した）によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1405 data-target="#details-1405" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1406 data-target="#details-1406" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#ImplementationProvider">ImplementationProvider</a></span></td><td><div class="comment"><p>An implementation provider.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1405 data-target="#details-1405" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1406 data-target="#details-1406" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#ImplementationProvider">ImplementationProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -645,24 +614,22 @@ not cause a failure of the whole operation.</p>
 
 <a name="languages.registerOnTypeFormattingEditProvider"></a><span class="ts" id=1443 data-target="#details-1443" data-toggle="collapse"><span class="ident">registerOnTypeFormattingEditProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#OnTypeFormattingEditProvider">OnTypeFormattingEditProvider</a>, <span class="ident">firstTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">moreTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1443">
-<div class="comment"><p>Register a formatting provider that works on type. The provider is active when the user enables the setting <code>editor.formatOnType</code>.</p>
-<p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and the best-matching provider is used. Failure
-of the selected provider will cause a failure of the whole operation.</p>
+<div class="comment"><p>型で動作する書式設定プロバイダを登録します。
+プロバイダは、ユーザが <code>editor.formatOnType</code>の設定を有効にするとアクティブになります。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは[score]（＃languages.match）でソートされ、最も一致するプロバイダーが使用されます。
+選択したプロバイダの障害により、操作全体が失敗することがあります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1444 data-target="#details-1444" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
+<tr><td><a name="selector"></a><span class="ts" id=1444 data-target="#details-1444" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1445 data-target="#details-1445" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#OnTypeFormattingEditProvider">OnTypeFormattingEditProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="firstTriggerCharacter"></a><span class="ts" id=1446 data-target="#details-1446" data-toggle="collapse"><span class="ident">firstTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p><code>}</code>のように、書式設定を開始する文字。</p>
 </div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1445 data-target="#details-1445" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#OnTypeFormattingEditProvider">OnTypeFormattingEditProvider</a></span></td><td><div class="comment"><p>An on type formatting edit provider.</p>
-</div></td></tr>
-<tr><td><a name="firstTriggerCharacter"></a><span class="ts" id=1446 data-target="#details-1446" data-toggle="collapse"><span class="ident">firstTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A character on which formatting should be triggered, like <code>}</code>.</p>
-</div></td></tr>
-<tr><td><a name="moreTriggerCharacter"></a><span class="ts" id=1447 data-target="#details-1447" data-toggle="collapse"><span>...</span><span class="ident">moreTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>More trigger characters.</p>
-</div></td></tr>
+<tr><td><a name="moreTriggerCharacter"></a><span class="ts" id=1447 data-target="#details-1447" data-toggle="collapse"><span>...</span><span class="ident">moreTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -672,20 +639,18 @@ of the selected provider will cause a failure of the whole operation.</p>
 
 <a name="languages.registerReferenceProvider"></a><span class="ts" id=1427 data-target="#details-1427" data-toggle="collapse"><span class="ident">registerReferenceProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#ReferenceProvider">ReferenceProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1427">
-<div class="comment"><p>Register a reference provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are asked in
-parallel and the results are merged. A failing provider (rejected promise or exception) will
-not cause a failure of the whole operation.</p>
+<div class="comment"><p>参照プロバイダーを登録する。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ（約束または例外を拒否した）によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1428 data-target="#details-1428" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1429 data-target="#details-1429" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#ReferenceProvider">ReferenceProvider</a></span></td><td><div class="comment"><p>A reference provider.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1428 data-target="#details-1428" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1429 data-target="#details-1429" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#ReferenceProvider">ReferenceProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -695,20 +660,18 @@ not cause a failure of the whole operation.</p>
 
 <a name="languages.registerRenameProvider"></a><span class="ts" id=1431 data-target="#details-1431" data-toggle="collapse"><span class="ident">registerRenameProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#RenameProvider">RenameProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1431">
-<div class="comment"><p>Register a reference provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and the best-matching provider is used. Failure
-of the selected provider will cause a failure of the whole operation.</p>
+<div class="comment"><p>参照プロバイダーを登録する。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダは[score]（＃languages.match）でソートされ、最も一致するプロバイダが使用されます。
+選択したプロバイダの障害により、操作全体が失敗することがあります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1432 data-target="#details-1432" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1433 data-target="#details-1433" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#RenameProvider">RenameProvider</a></span></td><td><div class="comment"><p>A rename provider.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1432 data-target="#details-1432" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1433 data-target="#details-1433" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#RenameProvider">RenameProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -718,22 +681,18 @@ of the selected provider will cause a failure of the whole operation.</p>
 
 <a name="languages.registerSignatureHelpProvider"></a><span class="ts" id=1449 data-target="#details-1449" data-toggle="collapse"><span class="ident">registerSignatureHelpProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#SignatureHelpProvider">SignatureHelpProvider</a>, <span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1449">
-<div class="comment"><p>Register a signature help provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and called sequentially until a provider returns a
-valid result.</p>
+<div class="comment"><p>署名のヘルププロバイダを登録してください。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダは[score]（＃languages.match）でソートされ、プロバイダが有効な結果を返すまで順番に呼び出されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1450 data-target="#details-1450" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1451 data-target="#details-1451" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#SignatureHelpProvider">SignatureHelpProvider</a></span></td><td><div class="comment"><p>A signature help provider.</p>
-</div></td></tr>
-<tr><td><a name="triggerCharacters"></a><span class="ts" id=1452 data-target="#details-1452" data-toggle="collapse"><span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>Trigger signature help when the user types one of the characters, like <code>,</code> or <code>(</code>.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1450 data-target="#details-1450" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1451 data-target="#details-1451" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#SignatureHelpProvider">SignatureHelpProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="triggerCharacters"></a><span class="ts" id=1452 data-target="#details-1452" data-toggle="collapse"><span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -743,20 +702,18 @@ valid result.</p>
 
 <a name="languages.registerTypeDefinitionProvider"></a><span class="ts" id=1408 data-target="#details-1408" data-toggle="collapse"><span class="ident">registerTypeDefinitionProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#TypeDefinitionProvider">TypeDefinitionProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1408">
-<div class="comment"><p>Register a type definition provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are asked in
-parallel and the results are merged. A failing provider (rejected promise or exception) will
-not cause a failure of the whole operation.</p>
+<div class="comment"><p>型定義プロバイダを登録する。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ（約束または例外を拒否した）によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1409 data-target="#details-1409" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1410 data-target="#details-1410" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#TypeDefinitionProvider">TypeDefinitionProvider</a></span></td><td><div class="comment"><p>A type definition provider.</p>
-</div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1409 data-target="#details-1409" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1410 data-target="#details-1410" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#TypeDefinitionProvider">TypeDefinitionProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -766,18 +723,17 @@ not cause a failure of the whole operation.</p>
 
 <a name="languages.registerWorkspaceSymbolProvider"></a><span class="ts" id=1424 data-target="#details-1424" data-toggle="collapse"><span class="ident">registerWorkspaceSymbolProvider</span><span>(</span><span class="ident">provider</span><span>: </span><a class="type-ref" href="#WorkspaceSymbolProvider">WorkspaceSymbolProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1424">
-<div class="comment"><p>Register a workspace symbol provider.</p>
-<p>Multiple providers can be registered. In that case providers are asked in parallel and
-the results are merged. A failing provider (rejected promise or exception) will not cause
-a failure of the whole operation.</p>
+<div class="comment"><p>ワークスペースシンボルプロバイダを登録します。</p>
+<p>複数のプロバイダを登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ（約束または例外を拒否した）によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1425 data-target="#details-1425" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#WorkspaceSymbolProvider">WorkspaceSymbolProvider</a></span></td><td><div class="comment"><p>A workspace symbol provider.</p>
-</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1425 data-target="#details-1425" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#WorkspaceSymbolProvider">WorkspaceSymbolProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -787,17 +743,16 @@ a failure of the whole operation.</p>
 
 <a name="languages.setLanguageConfiguration"></a><span class="ts" id=1458 data-target="#details-1458" data-toggle="collapse"><span class="ident">setLanguageConfiguration</span><span>(</span><span class="ident">language</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">configuration</span><span>: </span><a class="type-ref" href="#LanguageConfiguration">LanguageConfiguration</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1458">
-<div class="comment"><p>Set a <a href="#LanguageConfiguration">language configuration</a> for a language.</p>
+<div class="comment"><p>言語の[言語設定]（＃LanguageConfiguration）を設定します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="language"></a><span class="ts" id=1459 data-target="#details-1459" data-toggle="collapse"><span class="ident">language</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A language identifier like <code>typescript</code>.</p>
+<tr><td><a name="language"></a><span class="ts" id=1459 data-target="#details-1459" data-toggle="collapse"><span class="ident">language</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p><code>typescript</code>のような言語識別子。</p>
 </div></td></tr>
-<tr><td><a name="configuration"></a><span class="ts" id=1460 data-target="#details-1460" data-toggle="collapse"><span class="ident">configuration</span><span>: </span><a class="type-ref" href="#LanguageConfiguration">LanguageConfiguration</a></span></td><td><div class="comment"><p>Language configuration.</p>
-</div></td></tr>
+<tr><td><a name="configuration"></a><span class="ts" id=1460 data-target="#details-1460" data-toggle="collapse"><span class="ident">configuration</span><span>: </span><a class="type-ref" href="#LanguageConfiguration">LanguageConfiguration</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unsets this configuration.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>この設定を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
