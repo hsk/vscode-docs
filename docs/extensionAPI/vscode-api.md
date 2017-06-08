@@ -33,7 +33,7 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
     <span class="hljs-built_in">window</span>.showInformationMessage(<span class="hljs-string">'Hello World!'</span>);
 });
 </code></pre>
-<p>次に、コマンド識別子をパレットに表示するタイトル （<code>package.json</code>） にバインドします。</p>
+<p>次に、コマンド識別子をパレットに表示するタイトル (<code>package.json</code>) にバインドします。</p>
 
 <pre><code class="lang-json">{
     <span class="hljs-attr">"contributes"</span>: {
@@ -52,23 +52,17 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 
 <a name="commands.executeCommand"></a><span class="ts" id=1192 data-target="#details-1192" data-toggle="collapse"><span class="ident">executeCommand</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">rest</span><span>: </span><a class="type-instrinct">any</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1192">
-<div class="comment"><p>指定されたコマンド識別子で指定されたコマンドを実行します。</p>
-<p>When executing an editor command not all types are allowed to
-be passed as arguments. Allowed are the primitive types <code>string</code>, <code>boolean</code>,
-<code>number</code>, <code>undefined</code>, and <code>null</code>, as well as classes defined in this API.
-There are no restrictions when executing commands that have been contributed
-by extensions.</p>
+<div class="comment"><p>指定されたコマンデン識別で指定されたコマンドを実行します。</p>
+<p>エディタコマンドを実行する際、すべての型を引数として渡すことはできません。 このAPIで定義されているクラスだけでなく、プリミティブ型 <code>string</code>、<code>boolean</code>、 <code>number</code>、<code>undefined</code>、 <code>null</code>も使用できます。
+拡張機能によって提供されたコマンドを実行する場合、制限はありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="command"></a><span class="ts" id=1194 data-target="#details-1194" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>Identifier of the command to execute.</p>
-</div></td></tr>
-<tr><td><a name="rest"></a><span class="ts" id=1195 data-target="#details-1195" data-toggle="collapse"><span>...</span><span class="ident">rest</span><span>: </span><a class="type-instrinct">any</a>[]</span></td><td><div class="comment"><p>Parameters passed to the command function.</p>
-</div></td></tr>
+<tr><td><a name="command"></a><span class="ts" id=1194 data-target="#details-1194" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="rest"></a><span class="ts" id=1195 data-target="#details-1195" data-toggle="collapse"><span>...</span><span class="ident">rest</span><span>: </span><a class="type-instrinct">any</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the returned value of the given command. <code>undefined</code> when
-the command handler function doesn&#39;t return anything.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>指定されたコマンドの戻り値に解決されるthenable。 コマンドハンドラ関数が何も返さないときは <code>undefined</code>を返します。</p>
 </div></td></tr>
 </table>
 </div>
@@ -84,7 +78,7 @@ the command handler function doesn&#39;t return anything.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="filterInternal"></a><span class="ts" id=1198 data-target="#details-1198" data-toggle="collapse"><span class="ident">filterInternal</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>内部コマンドが表示されないように <code>true</code>を設定します（アンダースコアで始まります）</p>
+<tr><td><a name="filterInternal"></a><span class="ts" id=1198 data-target="#details-1198" data-toggle="collapse"><span class="ident">filterInternal</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>内部コマンドが表示されないように <code>true</code>を設定します(アンダースコアで始まります)</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>コマンドIDのリストに解決される Thenable。</p>
@@ -97,22 +91,21 @@ the command handler function doesn&#39;t return anything.</p>
 
 <a name="commands.registerCommand"></a><span class="ts" id=1174 data-target="#details-1174" data-toggle="collapse"><span class="ident">registerCommand</span><span>(</span><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">callback</span><span>: </span>(args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">any</a>, <span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1174">
-<div class="comment"><p>Registers a command that can be invoked via a keyboard shortcut,
-a menu item, an action, or directly.</p>
-<p>Registering a command with an existing command identifier twice
-will cause an error.</p>
+<div class="comment"><p>キーボードショートカット、メニュー項目、アクション、
+または直接呼び出すことができるコマンドを登録します。</p>
+<p>既存のコマンド識別子を2回使用してコマンドを登録すると、エラーが発生します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="command"></a><span class="ts" id=1175 data-target="#details-1175" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A unique identifier for the command.</p>
+<tr><td><a name="command"></a><span class="ts" id=1175 data-target="#details-1175" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>コマンドの一意の識別子。</p>
 </div></td></tr>
-<tr><td><a name="callback"></a><span class="ts" id=1176 data-target="#details-1176" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"><p>A command handler function.</p>
+<tr><td><a name="callback"></a><span class="ts" id=1176 data-target="#details-1176" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"><p>コマンドハンドラ関数。</p>
 </div></td></tr>
-<tr><td><a name="thisArg"></a><span class="ts" id=1180 data-target="#details-1180" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>The <code>this</code> context used when invoking the handler function.</p>
+<tr><td><a name="thisArg"></a><span class="ts" id=1180 data-target="#details-1180" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>ハンドラ関数を呼び出すときに使用される <code>this</code> コンテキスト。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>Disposable which unregisters this command on disposal.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのコマンドの登録を解除する Disposable。</p>
 </div></td></tr>
 </table>
 </div>
@@ -122,24 +115,20 @@ will cause an error.</p>
 
 <a name="commands.registerTextEditorCommand"></a><span class="ts" id=1182 data-target="#details-1182" data-toggle="collapse"><span class="ident">registerTextEditorCommand</span><span>(</span><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">callback</span><span>: </span>(textEditor: <a class="type-ref" href="#TextEditor">TextEditor</a>, edit: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>, args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">void</a>, <span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1182">
-<div class="comment"><p>Registers a text editor command that can be invoked via a keyboard shortcut,
-a menu item, an action, or directly.</p>
-<p>Text editor commands are different from ordinary <a href="#commands.registerCommand">commands</a> as
-they only execute when there is an active editor when the command is called. Also, the
-command handler of an editor command has access to the active editor and to an
-<a href="#TextEditorEdit">edit</a>-builder.</p>
+<div class="comment"><p>キーボードショートカット、メニュー項目、アクション、または直接呼び出すことができるテキストエディタコマンドを登録します。</p>
+<p>テキストエディタコマンドは、コマンドが呼び出されたときにアクティブなエディタがある場合にのみ実行されるため、通常の<a href="#commands.registerCommand">commands</a>とは異なります。
+また、エディタコマンドのコマンドハンドラは、アクティブエディタと<a href="#TextEditorEdit">edit</a>-builderにアクセスできます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="command"></a><span class="ts" id=1183 data-target="#details-1183" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A unique identifier for the command.</p>
+<tr><td><a name="command"></a><span class="ts" id=1183 data-target="#details-1183" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="callback"></a><span class="ts" id=1184 data-target="#details-1184" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(textEditor: <a class="type-ref" href="#TextEditor">TextEditor</a>, edit: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>, args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">void</a></span></td><td><div class="comment"><p>(#TextEditor)と<a href="#TextEditorEdit">edit</a>にアクセスできるコマンドハンドラ関数です。</p>
 </div></td></tr>
-<tr><td><a name="callback"></a><span class="ts" id=1184 data-target="#details-1184" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(textEditor: <a class="type-ref" href="#TextEditor">TextEditor</a>, edit: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>, args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">void</a></span></td><td><div class="comment"><p>A command handler function with access to an <a href="#TextEditor">editor</a> and an <a href="#TextEditorEdit">edit</a>.</p>
-</div></td></tr>
-<tr><td><a name="thisArg"></a><span class="ts" id=1190 data-target="#details-1190" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>The <code>this</code> context used when invoking the handler function.</p>
+<tr><td><a name="thisArg"></a><span class="ts" id=1190 data-target="#details-1190" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>ハンドラ関数を呼び出すときに使用される <code>this</code>コンテキスト。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>Disposable which unregisters this command on disposal.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのコマンドの登録を解除する Disposable。</p>
 </div></td></tr>
 </table>
 </div>
@@ -149,7 +138,7 @@ command handler of an editor command has access to the active editor and to an
 
 
 
-<div class="comment"><p>Namespace describing the environment the editor runs in.</p>
+<div class="comment"><p>エディタが実行される環境を説明する名前空間。</p>
 </div>
 
 #### Variables
@@ -158,7 +147,7 @@ command handler of an editor command has access to the active editor and to an
 
 <a name="env.appName"></a><span class="ts" id=1168 data-target="#details-1168" data-toggle="collapse"><span class="ident">appName</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1168">
-<div class="comment"><p>The application name of the editor, like &#39;VS Code&#39;.</p>
+<div class="comment"><p>&#39;VSコード&#39;のようなエディタのアプリケーション名。</p>
 <ul>
 <li><em>readonly</em></li>
 </ul>
@@ -169,7 +158,7 @@ command handler of an editor command has access to the active editor and to an
 
 <a name="env.language"></a><span class="ts" id=1169 data-target="#details-1169" data-toggle="collapse"><span class="ident">language</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1169">
-<div class="comment"><p>Represents the preferred user-language, like <code>de-CH</code>, <code>fr</code>, or <code>en-US</code>.</p>
+<div class="comment"><p><code>de-CH</code>、<code>fr</code>、 <code>en-US</code>のような好みのユーザ言語を表します。</p>
 <ul>
 <li><em>readonly</em></li>
 </ul>
@@ -180,7 +169,7 @@ command handler of an editor command has access to the active editor and to an
 
 <a name="env.machineId"></a><span class="ts" id=1170 data-target="#details-1170" data-toggle="collapse"><span class="ident">machineId</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1170">
-<div class="comment"><p>A unique identifier for the computer.</p>
+<div class="comment"><p>コンピュータの一意の識別子。</p>
 <ul>
 <li><em>readonly</em></li>
 </ul>
@@ -191,8 +180,8 @@ command handler of an editor command has access to the active editor and to an
 
 <a name="env.sessionId"></a><span class="ts" id=1171 data-target="#details-1171" data-toggle="collapse"><span class="ident">sessionId</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1171">
-<div class="comment"><p>A unique identifier for the current session.
-Changes each time the editor is started.</p>
+<div class="comment"><p>現在のセッションの一意の識別子。
+エディタが起動するたびに変更されます。</p>
 <ul>
 <li><em>readonly</em></li>
 </ul>
@@ -203,10 +192,9 @@ Changes each time the editor is started.</p>
 
 
 
-<div class="comment"><p>Namespace for dealing with installed extensions. Extensions are represented
-by an <a href="#Extension">extension</a>-interface which allows to reflect on them.</p>
-<p>Extension writers can provide APIs to other extensions by returning their API public
-surface from the <code>activate</code>-call.</p>
+<div class="comment"><p>インストールされた拡張機能を扱うための名前空間。
+拡張機能は、拡張機能（＃拡張機能） - それらを反映できるインタフェースで表されます。</p>
+<p>拡張ライターは、API公開サーフェスを <code>activate</code>コールから返すことによって、他の拡張機能にAPIを提供することができます。</p>
 
 <pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">activate</span>(<span class="hljs-params">context: vscode.ExtensionContext</span>) </span>{
     <span class="hljs-keyword">let</span> api = {
@@ -221,9 +209,7 @@ surface from the <code>activate</code>-call.</p>
     <span class="hljs-keyword">return</span> api;
 }
 </code></pre>
-<p>When depending on the API of another extension add an <code>extensionDependency</code>-entry
-to <code>package.json</code>, and use the <a href="#extensions.getExtension">getExtension</a>-function
-and the <a href="#Extension.exports">exports</a>-property, like below:</p>
+<p>別の拡張機能のAPIに依存する場合は、 <code>extensionDependency</code>エントリを<code>package.json</code>に追加し、[getExtension]（＃extensions.getExtension）関数と[exports]（＃Extension.exports） 、以下のように：     *</p>
 
 <pre><code class="lang-javascript"><span class="hljs-keyword">let</span> mathExt = extensions.getExtension(<span class="hljs-string">'genius.math'</span>);
 <span class="hljs-keyword">let</span> importedApi = mathExt.exports;
@@ -238,7 +224,7 @@ and the <a href="#Extension.exports">exports</a>-property, like below:</p>
 
 <a name="extensions.all"></a><span class="ts" id=1474 data-target="#details-1474" data-toggle="collapse"><span class="ident">all</span><span>: </span><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">any</a>&gt;[]</span>
 <div class="details collapse" id="details-1474">
-<div class="comment"><p>All extensions currently known to the system.</p>
+<div class="comment"><p>システムに現在知られているすべての拡張機能。</p>
 </div>
 </div>
 
@@ -248,15 +234,15 @@ and the <a href="#Extension.exports">exports</a>-property, like below:</p>
 
 <a name="extensions.getExtension"></a><span class="ts" id=1469 data-target="#details-1469" data-toggle="collapse"><span class="ident">getExtension</span><span>(</span><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">any</a>&gt; &#124; <a class="type-instrinct">undefined</a></span>
 <div class="details collapse" id="details-1469">
-<div class="comment"><p>Get an extension by its full identifier in the form of: <code>publisher.name</code>.</p>
+<div class="comment"><p>拡張子を <code>publisher.name</code> の形式で完全な識別子で取得します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="extensionId"></a><span class="ts" id=1470 data-target="#details-1470" data-toggle="collapse"><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>An extension identifier.</p>
+<tr><td><a name="extensionId"></a><span class="ts" id=1470 data-target="#details-1470" data-toggle="collapse"><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>拡張識別子。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">any</a>&gt; &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>An extension or <code>undefined</code>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">any</a>&gt; &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>拡張子または <code>undefined</code>です。</p>
 </div></td></tr>
 </table>
 </div>
@@ -266,15 +252,15 @@ and the <a href="#Extension.exports">exports</a>-property, like below:</p>
 
 <a name="extensions.getExtension"></a><span class="ts" id=1471 data-target="#details-1471" data-toggle="collapse"><span class="ident">getExtension</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">T</a>&gt; &#124; <a class="type-instrinct">undefined</a></span>
 <div class="details collapse" id="details-1471">
-<div class="comment"><p>Get an extension its full identifier in the form of: <code>publisher.name</code>.</p>
+<div class="comment"><p>拡張子を <code>publisher.name</code> の形式で取得します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="extensionId"></a><span class="ts" id=1473 data-target="#details-1473" data-toggle="collapse"><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>An extension identifier.</p>
+<tr><td><a name="extensionId"></a><span class="ts" id=1473 data-target="#details-1473" data-toggle="collapse"><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>拡張識別子。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">T</a>&gt; &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>An extension or <code>undefined</code>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">T</a>&gt; &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>拡張子または <code>undefined</code>です。</p>
 </div></td></tr>
 </table>
 </div>
@@ -859,9 +845,8 @@ a failure of the whole operation.</p>
 
 
 
-<div class="comment"><p>Namespace for dealing with the current window of the editor. That is visible
-and active editors, as well as, UI elements to show messages, selections, and
-asking for user input.</p>
+<div class="comment"><p>エディタの現在のウィンドウを扱うための名前空間。
+これは、目に見えてアクティブなエディタだけでなく、メッセージ、選択、およびユーザー入力を表示するUI要素です。</p>
 </div>
 
 #### Variables
@@ -870,9 +855,8 @@ asking for user input.</p>
 
 <a name="window.activeTextEditor"></a><span class="ts" id=1200 data-target="#details-1200" data-toggle="collapse"><span class="ident">activeTextEditor</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a> &#124; <a class="type-instrinct">undefined</a></span>
 <div class="details collapse" id="details-1200">
-<div class="comment"><p>The currently active editor or <code>undefined</code>. The active editor is the one
-that currently has focus or, when none has focus, the one that has changed
-input most recently.</p>
+<div class="comment"><p>現在アクティブなエディタまたは <code>undefined</code>。
+現在アクティブなエディタは、現在フォーカスを持っているエディタです。フォーカスがない場合は、直前に入力を変更したエディタです。</p>
 </div>
 </div>
 
@@ -880,7 +864,7 @@ input most recently.</p>
 
 <a name="window.visibleTextEditors"></a><span class="ts" id=1201 data-target="#details-1201" data-toggle="collapse"><span class="ident">visibleTextEditors</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a>[]</span>
 <div class="details collapse" id="details-1201">
-<div class="comment"><p>The currently visible editors or an empty array.</p>
+<div class="comment"><p>現在表示されているエディタまたは空の配列。</p>
 </div>
 </div>
 
@@ -890,9 +874,10 @@ input most recently.</p>
 
 <a name="window.onDidChangeActiveTextEditor"></a><span class="ts" id=1202 data-target="#details-1202" data-toggle="collapse"><span class="ident">onDidChangeActiveTextEditor</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
 <div class="details collapse" id="details-1202">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the <a href="#window.activeTextEditor">active editor</a>
-has changed. <em>Note</em> that the event also fires when the active editor changes
-to <code>undefined</code>.</p>
+<div class="comment"><p><a href="#window.activeTextEditor">アクティブエディタ</a>が変更されたときに起動する<a href="#イベント">イベント</a>。</p>
+<ul>
+<li>*アクティブなエディタが <code>undefined</code>に変わったときにイベントが発生することもあります。</li>
+</ul>
 </div>
 </div>
 
@@ -900,7 +885,7 @@ to <code>undefined</code>.</p>
 
 <a name="window.onDidChangeTextEditorOptions"></a><span class="ts" id=1205 data-target="#details-1205" data-toggle="collapse"><span class="ident">onDidChangeTextEditorOptions</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorOptionsChangeEvent">TextEditorOptionsChangeEvent</a>&gt;</span>
 <div class="details collapse" id="details-1205">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the options of an editor have changed.</p>
+<div class="comment"><p><a href="#イベント">イベント</a>エディタのオプションが変更されたときに起動します。</p>
 </div>
 </div>
 
@@ -908,7 +893,7 @@ to <code>undefined</code>.</p>
 
 <a name="window.onDidChangeTextEditorSelection"></a><span class="ts" id=1204 data-target="#details-1204" data-toggle="collapse"><span class="ident">onDidChangeTextEditorSelection</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorSelectionChangeEvent">TextEditorSelectionChangeEvent</a>&gt;</span>
 <div class="details collapse" id="details-1204">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the selection in an editor has changed.</p>
+<div class="comment"><p>エディタでの選択が変更されたときに発生する<a href="#イベント">イベント</a>。</p>
 </div>
 </div>
 
@@ -916,7 +901,7 @@ to <code>undefined</code>.</p>
 
 <a name="window.onDidChangeTextEditorViewColumn"></a><span class="ts" id=1206 data-target="#details-1206" data-toggle="collapse"><span class="ident">onDidChangeTextEditorViewColumn</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorViewColumnChangeEvent">TextEditorViewColumnChangeEvent</a>&gt;</span>
 <div class="details collapse" id="details-1206">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the view column of an editor has changed.</p>
+<div class="comment"><p>エディタのビュー列が変更されたときに発生する<a href="#イベント">イベント</a>。</p>
 </div>
 </div>
 
@@ -924,8 +909,7 @@ to <code>undefined</code>.</p>
 
 <a name="window.onDidChangeVisibleTextEditors"></a><span class="ts" id=1203 data-target="#details-1203" data-toggle="collapse"><span class="ident">onDidChangeVisibleTextEditors</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>[]&gt;</span>
 <div class="details collapse" id="details-1203">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the array of <a href="#window.visibleTextEditors">visible editors</a>
-has changed.</p>
+<div class="comment"><p><a href="#window.visibleTextEditors">visible editor</a>の配列が変更されたときに発生する<a href="#Event">event</a>。</p>
 </div>
 </div>
 
@@ -933,7 +917,7 @@ has changed.</p>
 
 <a name="window.onDidCloseTerminal"></a><span class="ts" id=1207 data-target="#details-1207" data-toggle="collapse"><span class="ident">onDidCloseTerminal</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#Terminal">Terminal</a>&gt;</span>
 <div class="details collapse" id="details-1207">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when a terminal is disposed.</p>
+<div class="comment"><p>端末が破棄されたときに起動する<a href="#イベント">イベント</a>。</p>
 </div>
 </div>
 
@@ -943,12 +927,12 @@ has changed.</p>
 
 <a name="window.createOutputChannel"></a><span class="ts" id=1285 data-target="#details-1285" data-toggle="collapse"><span class="ident">createOutputChannel</span><span>(</span><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#OutputChannel">OutputChannel</a></span>
 <div class="details collapse" id="details-1285">
-<div class="comment"><p>Create a new <a href="#OutputChannel">output channel</a> with the given name.</p>
+<div class="comment"><p>指定した名前で新しい<a href="#OutputChannel">出力チャネル</a>を作成します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="name"></a><span class="ts" id=1286 data-target="#details-1286" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>Human-readable string which will be used to represent the channel in the UI.</p>
+<tr><td><a name="name"></a><span class="ts" id=1286 data-target="#details-1286" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>UIでチャンネルを表すために使用される人間が読める文字列です。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#OutputChannel">OutputChannel</a></span></td><td><div class="comment"></div></td></tr>
@@ -960,17 +944,15 @@ has changed.</p>
 
 <a name="window.createStatusBarItem"></a><span class="ts" id=1314 data-target="#details-1314" data-toggle="collapse"><span class="ident">createStatusBarItem</span><span>(</span><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-ref" href="#StatusBarAlignment">StatusBarAlignment</a>, <span class="ident">priority</span><span>?</span><span>: </span><a class="type-instrinct">number</a><span>)</span><span>: </span><a class="type-ref" href="#StatusBarItem">StatusBarItem</a></span>
 <div class="details collapse" id="details-1314">
-<div class="comment"><p>Creates a status bar <a href="#StatusBarItem">item</a>.</p>
+<div class="comment"><p>ステータスバー<a href="#StatusBarItem">item</a>を作成します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="alignment"></a><span class="ts" id=1315 data-target="#details-1315" data-toggle="collapse"><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-ref" href="#StatusBarAlignment">StatusBarAlignment</a></span></td><td><div class="comment"><p>The alignment of the item.</p>
-</div></td></tr>
-<tr><td><a name="priority"></a><span class="ts" id=1316 data-target="#details-1316" data-toggle="collapse"><span class="ident">priority</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>The priority of the item. Higher values mean the item should be shown more to the left.</p>
-</div></td></tr>
+<tr><td><a name="alignment"></a><span class="ts" id=1315 data-target="#details-1315" data-toggle="collapse"><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-ref" href="#StatusBarAlignment">StatusBarAlignment</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="priority"></a><span class="ts" id=1316 data-target="#details-1316" data-toggle="collapse"><span class="ident">priority</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#StatusBarItem">StatusBarItem</a></span></td><td><div class="comment"><p>A new status bar item.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#StatusBarItem">StatusBarItem</a></span></td><td><div class="comment"><p>新しいステータスバー項目。</p>
 </div></td></tr>
 </table>
 </div>
@@ -980,20 +962,18 @@ has changed.</p>
 
 <a name="window.createTerminal"></a><span class="ts" id=1318 data-target="#details-1318" data-toggle="collapse"><span class="ident">createTerminal</span><span>(</span><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">shellPath</span><span>?</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">shellArgs</span><span>?</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Terminal">Terminal</a></span>
 <div class="details collapse" id="details-1318">
-<div class="comment"><p>Creates a <a href="#Terminal">Terminal</a>. The cwd of the terminal will be the workspace directory
-if it exists, regardless of whether an explicit customStartPath setting exists.</p>
+<div class="comment"><p><a href="#端末">端末</a>を作成します。
+明示的なcustomStartPath設定が存在するかどうかにかかわらず、端末のcwdが存在する場合、ワークスペースディレクトリになります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="name"></a><span class="ts" id=1319 data-target="#details-1319" data-toggle="collapse"><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>Optional human-readable string which will be used to represent the terminal in the UI.</p>
+<tr><td><a name="name"></a><span class="ts" id=1319 data-target="#details-1319" data-toggle="collapse"><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>UIで端末を表すために人間が読める文字列(オプション)。</p>
 </div></td></tr>
-<tr><td><a name="shellPath"></a><span class="ts" id=1320 data-target="#details-1320" data-toggle="collapse"><span class="ident">shellPath</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>Optional path to a custom shell executable to be used in the terminal.</p>
-</div></td></tr>
-<tr><td><a name="shellArgs"></a><span class="ts" id=1321 data-target="#details-1321" data-toggle="collapse"><span class="ident">shellArgs</span><span>?</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>Optional args for the custom shell executable, this does not work on Windows (see #8429)</p>
-</div></td></tr>
+<tr><td><a name="shellPath"></a><span class="ts" id=1320 data-target="#details-1320" data-toggle="collapse"><span class="ident">shellPath</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="shellArgs"></a><span class="ts" id=1321 data-target="#details-1321" data-toggle="collapse"><span class="ident">shellArgs</span><span>?</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Terminal">Terminal</a></span></td><td><div class="comment"><p>A new Terminal.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Terminal">Terminal</a></span></td><td><div class="comment"><p>新しい端末。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1022,15 +1002,14 @@ if it exists, regardless of whether an explicit customStartPath setting exists.<
 
 <a name="window.createTextEditorDecorationType"></a><span class="ts" id=1217 data-target="#details-1217" data-toggle="collapse"><span class="ident">createTextEditorDecorationType</span><span>(</span><span class="ident">options</span><span>: </span><a class="type-ref" href="#DecorationRenderOptions">DecorationRenderOptions</a><span>)</span><span>: </span><a class="type-ref" href="#TextEditorDecorationType">TextEditorDecorationType</a></span>
 <div class="details collapse" id="details-1217">
-<div class="comment"><p>Create a TextEditorDecorationType that can be used to add decorations to text editors.</p>
+<div class="comment"><p>テキストエディタに装飾を追加するために使用できるTextEditorDecorationTypeを作成します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="options"></a><span class="ts" id=1218 data-target="#details-1218" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#DecorationRenderOptions">DecorationRenderOptions</a></span></td><td><div class="comment"><p>Rendering options for the decoration type.</p>
-</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1218 data-target="#details-1218" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#DecorationRenderOptions">DecorationRenderOptions</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#TextEditorDecorationType">TextEditorDecorationType</a></span></td><td><div class="comment"><p>A new decoration type instance.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#TextEditorDecorationType">TextEditorDecorationType</a></span></td><td><div class="comment"><p>新しいデコレーションタイプのインスタンス。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1040,15 +1019,13 @@ if it exists, regardless of whether an explicit customStartPath setting exists.<
 
 <a name="window.registerTreeDataProvider"></a><span class="ts" id=1325 data-target="#details-1325" data-toggle="collapse"><span class="ident">registerTreeDataProvider</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">viewId</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">treeDataProvider</span><span>: </span><a class="type-ref" href="#TreeDataProvider">TreeDataProvider</a>&lt;<a class="type-instrinct">T</a>&gt;<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1325">
-<div class="comment"><p>Register a <a href="#TreeDataProvider">TreeDataProvider</a> for the view contributed using the extension point <code>views</code>.</p>
+<div class="comment"><p>拡張ポイント <code>views</code>を使って提供されたビューの<a href="#TreeDataProvider">TreeDataProvider</a>を登録します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="viewId"></a><span class="ts" id=1327 data-target="#details-1327" data-toggle="collapse"><span class="ident">viewId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>Id of the view contributed using the extension point <code>views</code>.</p>
-</div></td></tr>
-<tr><td><a name="treeDataProvider"></a><span class="ts" id=1328 data-target="#details-1328" data-toggle="collapse"><span class="ident">treeDataProvider</span><span>: </span><a class="type-ref" href="#TreeDataProvider">TreeDataProvider</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A <a href="#TreeDataProvider">TreeDataProvider</a> that provides tree data for the view</p>
-</div></td></tr>
+<tr><td><a name="viewId"></a><span class="ts" id=1327 data-target="#details-1327" data-toggle="collapse"><span class="ident">viewId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="treeDataProvider"></a><span class="ts" id=1328 data-target="#details-1328" data-toggle="collapse"><span class="ident">treeDataProvider</span><span>: </span><a class="type-ref" href="#TreeDataProvider">TreeDataProvider</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -1059,18 +1036,16 @@ if it exists, regardless of whether an explicit customStartPath setting exists.<
 
 <a name="window.setStatusBarMessage"></a><span class="ts" id=1288 data-target="#details-1288" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">hideAfterTimeout</span><span>: </span><a class="type-instrinct">number</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1288">
-<div class="comment"><p>Set a message to the status bar. This is a short hand for the more powerful
-status bar <a href="#window.createStatusBarItem">items</a>.</p>
+<div class="comment"><p>ステータスバーにメッセージを設定します。
+これは、より強力なステータスバー<a href="#window.createStatusBarItem">items</a>の短い手です。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="text"></a><span class="ts" id=1289 data-target="#details-1289" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show, supports icon substitution as in status bar <a href="#StatusBarItem.text">items</a>.</p>
-</div></td></tr>
-<tr><td><a name="hideAfterTimeout"></a><span class="ts" id=1290 data-target="#details-1290" data-toggle="collapse"><span class="ident">hideAfterTimeout</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>Timeout in milliseconds after which the message will be disposed.</p>
-</div></td></tr>
+<tr><td><a name="text"></a><span class="ts" id=1289 data-target="#details-1289" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="hideAfterTimeout"></a><span class="ts" id=1290 data-target="#details-1290" data-toggle="collapse"><span class="ident">hideAfterTimeout</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A disposable which hides the status bar message.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>ステータスバーメッセージを隠す使い捨て。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1080,18 +1055,16 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 
 <a name="window.setStatusBarMessage"></a><span class="ts" id=1291 data-target="#details-1291" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1291">
-<div class="comment"><p>Set a message to the status bar. This is a short hand for the more powerful
-status bar <a href="#window.createStatusBarItem">items</a>.</p>
+<div class="comment"><p>ステータスバーにメッセージを設定します。
+これは、より強力なステータスバー<a href="#window.createStatusBarItem">items</a>の短い手です。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="text"></a><span class="ts" id=1292 data-target="#details-1292" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show, supports icon substitution as in status bar <a href="#StatusBarItem.text">items</a>.</p>
-</div></td></tr>
-<tr><td><a name="hideWhenDone"></a><span class="ts" id=1293 data-target="#details-1293" data-toggle="collapse"><span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;</span></td><td><div class="comment"><p>Thenable on which completion (resolve or reject) the message will be disposed.</p>
-</div></td></tr>
+<tr><td><a name="text"></a><span class="ts" id=1292 data-target="#details-1292" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="hideWhenDone"></a><span class="ts" id=1293 data-target="#details-1293" data-toggle="collapse"><span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A disposable which hides the status bar message.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>ステータスバーメッセージを隠す使い捨て。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1101,18 +1074,15 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 
 <a name="window.setStatusBarMessage"></a><span class="ts" id=1294 data-target="#details-1294" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1294">
-<div class="comment"><p>Set a message to the status bar. This is a short hand for the more powerful
-status bar <a href="#window.createStatusBarItem">items</a>.</p>
-<p><em>Note</em> that status bar messages stack and that they must be disposed when no
-longer used.</p>
+<div class="comment"><p>ステータスバーにメッセージを設定します。これは、より強力なステータスバー<a href="#window.createStatusBarItem">items</a>の短い手です。</p>
+<p><em>注</em>ステータスバーメッセージはスタックし、使用されなくなったときに廃棄する必要があります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="text"></a><span class="ts" id=1295 data-target="#details-1295" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show, supports icon substitution as in status bar <a href="#StatusBarItem.text">items</a>.</p>
-</div></td></tr>
+<tr><td><a name="text"></a><span class="ts" id=1295 data-target="#details-1295" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A disposable which hides the status bar message.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>ステータスバーメッセージを隠す使い捨て。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1122,7 +1092,7 @@ longer used.</p>
 
 <a name="window.showErrorMessage"></a><span class="ts" id=1254 data-target="#details-1254" data-toggle="collapse"><span class="ident">showErrorMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1254">
-<div class="comment"><p>Show an error message.</p>
+<div class="comment"><p>エラーメッセージを表示します。</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
 </ul>
@@ -1130,12 +1100,10 @@ longer used.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1255 data-target="#details-1255" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
-</div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1256 data-target="#details-1256" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
-</div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1255 data-target="#details-1255" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1256 data-target="#details-1256" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code>が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1145,7 +1113,7 @@ longer used.</p>
 
 <a name="window.showErrorMessage"></a><span class="ts" id=1257 data-target="#details-1257" data-toggle="collapse"><span class="ident">showErrorMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1257">
-<div class="comment"><p>Show an error message.</p>
+<div class="comment"><p>エラーメッセージを表示します。</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
 </ul>
@@ -1153,14 +1121,11 @@ longer used.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1258 data-target="#details-1258" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
-</div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1259 data-target="#details-1259" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"><p>Configures the behaviour of the message.</p>
-</div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1260 data-target="#details-1260" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
-</div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1258 data-target="#details-1258" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1259 data-target="#details-1259" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1260 data-target="#details-1260" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code>が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1170,7 +1135,7 @@ longer used.</p>
 
 <a name="window.showErrorMessage"></a><span class="ts" id=1261 data-target="#details-1261" data-toggle="collapse"><span class="ident">showErrorMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1261">
-<div class="comment"><p>Show an error message.</p>
+<div class="comment"><p>エラーメッセージを表示します。</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
 </ul>
@@ -1178,12 +1143,10 @@ longer used.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1263 data-target="#details-1263" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
-</div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1264 data-target="#details-1264" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
-</div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1263 data-target="#details-1263" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1264 data-target="#details-1264" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code>が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1193,7 +1156,7 @@ longer used.</p>
 
 <a name="window.showErrorMessage"></a><span class="ts" id=1265 data-target="#details-1265" data-toggle="collapse"><span class="ident">showErrorMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1265">
-<div class="comment"><p>Show an error message.</p>
+<div class="comment"><p>エラーメッセージを表示します。</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
 </ul>
@@ -1201,14 +1164,11 @@ longer used.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1267 data-target="#details-1267" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
-</div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1268 data-target="#details-1268" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"><p>Configures the behaviour of the message.</p>
-</div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1269 data-target="#details-1269" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
-</div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1267 data-target="#details-1267" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1268 data-target="#details-1268" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1269 data-target="#details-1269" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code>が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1218,18 +1178,16 @@ longer used.</p>
 
 <a name="window.showInformationMessage"></a><span class="ts" id=1220 data-target="#details-1220" data-toggle="collapse"><span class="ident">showInformationMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1220">
-<div class="comment"><p>Show an information message to users. Optionally provide an array of items which will be presented as
-clickable buttons.</p>
+<div class="comment"><p>ユーザーに情報メッセージを表示する。
+オプションで、クリック可能なボタンとして表示されるアイテムの配列を指定します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1221 data-target="#details-1221" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
-</div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1222 data-target="#details-1222" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
-</div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1221 data-target="#details-1221" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1222 data-target="#details-1222" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code>が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1239,20 +1197,17 @@ clickable buttons.</p>
 
 <a name="window.showInformationMessage"></a><span class="ts" id=1223 data-target="#details-1223" data-toggle="collapse"><span class="ident">showInformationMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1223">
-<div class="comment"><p>Show an information message to users. Optionally provide an array of items which will be presented as
-clickable buttons.</p>
+<div class="comment"><p>ユーザーに情報メッセージを表示する。
+オプションで、クリック可能なボタンとして表示されるアイテムの配列を指定します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1224 data-target="#details-1224" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
-</div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1225 data-target="#details-1225" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"><p>Configures the behaviour of the message.</p>
-</div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1226 data-target="#details-1226" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
-</div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1224 data-target="#details-1224" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1225 data-target="#details-1225" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1226 data-target="#details-1226" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code>が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1262,7 +1217,7 @@ clickable buttons.</p>
 
 <a name="window.showInformationMessage"></a><span class="ts" id=1227 data-target="#details-1227" data-toggle="collapse"><span class="ident">showInformationMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1227">
-<div class="comment"><p>Show an information message.</p>
+<div class="comment"><p>情報メッセージを表示する。</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
 </ul>
@@ -1270,12 +1225,10 @@ clickable buttons.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1229 data-target="#details-1229" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
-</div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1230 data-target="#details-1230" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
-</div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1229 data-target="#details-1229" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1230 data-target="#details-1230" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code>が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1285,7 +1238,7 @@ clickable buttons.</p>
 
 <a name="window.showInformationMessage"></a><span class="ts" id=1231 data-target="#details-1231" data-toggle="collapse"><span class="ident">showInformationMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1231">
-<div class="comment"><p>Show an information message.</p>
+<div class="comment"><p>情報メッセージを表示する。</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
 </ul>
@@ -1293,14 +1246,11 @@ clickable buttons.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1233 data-target="#details-1233" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
-</div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1234 data-target="#details-1234" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"><p>Configures the behaviour of the message.</p>
-</div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1235 data-target="#details-1235" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
-</div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1233 data-target="#details-1233" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1234 data-target="#details-1234" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1235 data-target="#details-1235" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code>が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1310,20 +1260,17 @@ clickable buttons.</p>
 
 <a name="window.showInputBox"></a><span class="ts" id=1281 data-target="#details-1281" data-toggle="collapse"><span class="ident">showInputBox</span><span>(</span><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#InputBoxOptions">InputBoxOptions</a>, <span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1281">
-<div class="comment"><p>Opens an input box to ask the user for input.</p>
-<p>The returned value will be <code>undefined</code> if the input box was canceled (e.g. pressing ESC). Otherwise the
-returned value will be the string typed by the user or an empty string if the user did not type
-anything but dismissed the input box with OK.</p>
+<div class="comment"><p>ユーザーに入力を求める入力ボックスを開きます。</p>
+<p>入力ボックスがキャンセルされた場合(ESCを押すなど)、戻り値は <code>undefined</code>になります。
+そうでない場合、戻り値はユーザーが入力した文字列、またはユーザーが何も入力せずにOKを押して入力ボックスを終了した場合は空の文字列になります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="options"></a><span class="ts" id=1282 data-target="#details-1282" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#InputBoxOptions">InputBoxOptions</a></span></td><td><div class="comment"><p>Configures the behavior of the input box.</p>
-</div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=1283 data-target="#details-1283" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A token that can be used to signal cancellation.</p>
-</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1282 data-target="#details-1282" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#InputBoxOptions">InputBoxOptions</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=1283 data-target="#details-1283" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a string the user provided or to <code>undefined</code> in case of dismissal.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>ユーザーが提供した文字列に解決する約束。解雇の場合は `未定義 &#39;にする。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1333,19 +1280,16 @@ anything but dismissed the input box with OK.</p>
 
 <a name="window.showQuickPick"></a><span class="ts" id=1271 data-target="#details-1271" data-toggle="collapse"><span class="ident">showQuickPick</span><span>(</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a>, <span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1271">
-<div class="comment"><p>Shows a selection list.</p>
+<div class="comment"><p>選択リストを表示します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="items"></a><span class="ts" id=1272 data-target="#details-1272" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>An array of strings, or a promise that resolves to an array of strings.</p>
-</div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1273 data-target="#details-1273" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a></span></td><td><div class="comment"><p>Configures the behavior of the selection list.</p>
-</div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=1274 data-target="#details-1274" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A token that can be used to signal cancellation.</p>
-</div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1272 data-target="#details-1272" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1273 data-target="#details-1273" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=1274 data-target="#details-1274" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to the selection or <code>undefined</code>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択または「未定義」に解決する約束。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1355,19 +1299,16 @@ anything but dismissed the input box with OK.</p>
 
 <a name="window.showQuickPick"></a><span class="ts" id=1275 data-target="#details-1275" data-toggle="collapse"><span class="ident">showQuickPick</span><span>&lt;</span>T extends <a class="type-ref" href="#QuickPickItem">QuickPickItem</a><span>&gt;</span><span>(</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>[]&gt;, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a>, <span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1275">
-<div class="comment"><p>Shows a selection list.</p>
+<div class="comment"><p>選択リストを表示します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="items"></a><span class="ts" id=1277 data-target="#details-1277" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>[]&gt;</span></td><td><div class="comment"><p>An array of items, or a promise that resolves to an array of items.</p>
-</div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1278 data-target="#details-1278" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a></span></td><td><div class="comment"><p>Configures the behavior of the selection list.</p>
-</div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=1279 data-target="#details-1279" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A token that can be used to signal cancellation.</p>
-</div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1277 data-target="#details-1277" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>[]&gt;</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1278 data-target="#details-1278" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=1279 data-target="#details-1279" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to the selected item or <code>undefined</code>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目または <code>undefined</code>を解決する約束です。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1377,21 +1318,19 @@ anything but dismissed the input box with OK.</p>
 
 <a name="window.showTextDocument"></a><span class="ts" id=1209 data-target="#details-1209" data-toggle="collapse"><span class="ident">showTextDocument</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a>, <span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
 <div class="details collapse" id="details-1209">
-<div class="comment"><p>Show the given document in a text editor. A <a href="#ViewColumn">column</a> can be provided
-to control where the editor is being shown. Might change the <a href="#window.activeTextEditor">active editor</a>.</p>
+<div class="comment"><p>テキストエディタで指定のドキュメントを表示します。
+<a href="#ViewColumn">column</a>は、エディタが表示されている場所を制御するために提供されます。
+<a href="#window.activeTextEditor">アクティブエディタ</a>を変更することがあります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=1210 data-target="#details-1210" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>A text document to be shown.</p>
-</div></td></tr>
-<tr><td><a name="column"></a><span class="ts" id=1211 data-target="#details-1211" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"><p>A view column in which the editor should be shown. The default is the <a href="#ViewColumn.One">one</a>, other values
-are adjusted to be <strong>Min(column, columnCount + 1)</strong>.</p>
-</div></td></tr>
-<tr><td><a name="preserveFocus"></a><span class="ts" id=1212 data-target="#details-1212" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>When <code>true</code> the editor will not take focus.</p>
+<tr><td><a name="document"></a><span class="ts" id=1210 data-target="#details-1210" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="column"></a><span class="ts" id=1211 data-target="#details-1211" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="preserveFocus"></a><span class="ts" id=1212 data-target="#details-1212" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p><code>true</code>の場合、エディタはフォーカスを取得しません。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to an <a href="#TextEditor">editor</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>(#TextEditor)に解決する約束です。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1401,18 +1340,18 @@ are adjusted to be <strong>Min(column, columnCount + 1)</strong>.</p>
 
 <a name="window.showTextDocument"></a><span class="ts" id=1213 data-target="#details-1213" data-toggle="collapse"><span class="ident">showTextDocument</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextDocumentShowOptions">TextDocumentShowOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
 <div class="details collapse" id="details-1213">
-<div class="comment"><p>Show the given document in a text editor. A <a href="#ViewColumn">column</a> can be provided
-to control where the editor is being shown. Might change the <a href="#window.activeTextEditor">active editor</a>.</p>
+<div class="comment"><p>テキストエディタで指定のドキュメントを表示します。
+<a href="#ViewColumn">column</a>は、エディタが表示されている場所を制御するために提供されます。
+<a href="#window.activeTextEditor">アクティブエディタ</a>を変更することがあります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=1214 data-target="#details-1214" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>A text document to be shown.</p>
-</div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1215 data-target="#details-1215" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextDocumentShowOptions">TextDocumentShowOptions</a></span></td><td><div class="comment"><p>(#ShowTextDocumentOptions) to configure the behavior of showing the <a href="#TextEditor">editor</a>.</p>
+<tr><td><a name="document"></a><span class="ts" id=1214 data-target="#details-1214" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1215 data-target="#details-1215" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextDocumentShowOptions">TextDocumentShowOptions</a></span></td><td><div class="comment"><p>(#ShowTextDocumentOptions)は、<a href="#TextEditor">editor</a>を表示する動作を設定します。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to an <a href="#TextEditor">editor</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>(#TextEditor)に解決する約束です。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1422,7 +1361,7 @@ to control where the editor is being shown. Might change the <a href="#window.ac
 
 <a name="window.showWarningMessage"></a><span class="ts" id=1237 data-target="#details-1237" data-toggle="collapse"><span class="ident">showWarningMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1237">
-<div class="comment"><p>Show a warning message.</p>
+<div class="comment"><p>警告メッセージを表示します。</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
 </ul>
@@ -1430,12 +1369,10 @@ to control where the editor is being shown. Might change the <a href="#window.ac
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1238 data-target="#details-1238" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
-</div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1239 data-target="#details-1239" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
-</div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1238 data-target="#details-1238" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1239 data-target="#details-1239" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code>が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1445,7 +1382,7 @@ to control where the editor is being shown. Might change the <a href="#window.ac
 
 <a name="window.showWarningMessage"></a><span class="ts" id=1240 data-target="#details-1240" data-toggle="collapse"><span class="ident">showWarningMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1240">
-<div class="comment"><p>Show a warning message.</p>
+<div class="comment"><p>警告メッセージを表示します。</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
 </ul>
@@ -1453,14 +1390,11 @@ to control where the editor is being shown. Might change the <a href="#window.ac
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1241 data-target="#details-1241" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
-</div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1242 data-target="#details-1242" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"><p>Configures the behaviour of the message.</p>
-</div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1243 data-target="#details-1243" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
-</div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1241 data-target="#details-1241" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1242 data-target="#details-1242" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1243 data-target="#details-1243" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code>が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1470,7 +1404,7 @@ to control where the editor is being shown. Might change the <a href="#window.ac
 
 <a name="window.showWarningMessage"></a><span class="ts" id=1244 data-target="#details-1244" data-toggle="collapse"><span class="ident">showWarningMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1244">
-<div class="comment"><p>Show a warning message.</p>
+<div class="comment"><p>警告メッセージを表示します。</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
 </ul>
@@ -1478,12 +1412,10 @@ to control where the editor is being shown. Might change the <a href="#window.ac
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1246 data-target="#details-1246" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
-</div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1247 data-target="#details-1247" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
-</div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1246 data-target="#details-1246" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1247 data-target="#details-1247" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code>が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1493,7 +1425,7 @@ to control where the editor is being shown. Might change the <a href="#window.ac
 
 <a name="window.showWarningMessage"></a><span class="ts" id=1248 data-target="#details-1248" data-toggle="collapse"><span class="ident">showWarningMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1248">
-<div class="comment"><p>Show a warning message.</p>
+<div class="comment"><p>警告メッセージを表示します。</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
 </ul>
@@ -1501,14 +1433,11 @@ to control where the editor is being shown. Might change the <a href="#window.ac
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1250 data-target="#details-1250" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
-</div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1251 data-target="#details-1251" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"><p>Configures the behaviour of the message.</p>
-</div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1252 data-target="#details-1252" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
-</div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1250 data-target="#details-1250" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1251 data-target="#details-1251" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1252 data-target="#details-1252" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code>が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1518,19 +1447,17 @@ to control where the editor is being shown. Might change the <a href="#window.ac
 
 <a name="window.withProgress"></a><span class="ts" id=1304 data-target="#details-1304" data-toggle="collapse"><span class="ident">withProgress</span><span>&lt;</span>R<span>&gt;</span><span>(</span><span class="ident">options</span><span>: </span><a class="type-ref" href="#ProgressOptions">ProgressOptions</a>, <span class="ident">task</span><span>: </span>(progress: <a class="type-ref" href="#Progress">Progress</a>&lt;{message: <a class="type-instrinct">string</a>}&gt;) =&gt; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span>
 <div class="details collapse" id="details-1304">
-<div class="comment"><p>Show progress in the editor. Progress is shown while running the given callback
-and while the promise it returned isn&#39;t resolved nor rejected. The location at which
-progress should show (and other details) is defined via the passed <a href="#ProgressOptions"><code>ProgressOptions</code></a>.</p>
+<div class="comment"><p>エディタで進行状況を表示します。
+指定されたコールバックを実行している間にプログレスが表示され、返された約束は解決されず、拒否されません。
+進捗状況(およびその他の詳細)は、渡された<a href="#ProgressOptions"><code>ProgressOptions</code></a>で定義されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="options"></a><span class="ts" id=1306 data-target="#details-1306" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#ProgressOptions">ProgressOptions</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="task"></a><span class="ts" id=1307 data-target="#details-1307" data-toggle="collapse"><span class="ident">task</span><span>: </span>(progress: <a class="type-ref" href="#Progress">Progress</a>&lt;{message: <a class="type-instrinct">string</a>}&gt;) =&gt; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span></td><td><div class="comment"><p>A callback returning a promise. Progress state can be reported with
-the provided <a href="#Progress">progress</a>-object.</p>
-</div></td></tr>
+<tr><td><a name="task"></a><span class="ts" id=1307 data-target="#details-1307" data-toggle="collapse"><span class="ident">task</span><span>: </span>(progress: <a class="type-ref" href="#Progress">Progress</a>&lt;{message: <a class="type-instrinct">string</a>}&gt;) =&gt; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span></td><td><div class="comment"><p>The thenable the task-callback returned.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span></td><td><div class="comment"><p>thenableタスクコールバックが返されました。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1541,19 +1468,16 @@ the provided <a href="#Progress">progress</a>-object.</p>
 <a name="window.withScmProgress"></a><span class="ts" id=1297 data-target="#details-1297" data-toggle="collapse"><span class="ident">withScmProgress</span><span>&lt;</span>R<span>&gt;</span><span>(</span><span class="ident">task</span><span>: </span>(progress: <a class="type-ref" href="#Progress">Progress</a>&lt;<a class="type-instrinct">number</a>&gt;) =&gt; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span>
 <div class="details collapse" id="details-1297">
 <div class="comment"><ul>
-<li><em>deprecated</em> - This function <strong>deprecated</strong>. Use <code>withProgress</code> instead.</li>
+<li><em>deprecated</em> - この関数は<strong>非推奨</strong>です。代わりに <code>withProgress</code>を使用してください。</li>
 </ul>
-<p><del>Show progress in the Source Control viewlet while running the given callback and while
-its returned promise isn&#39;t resolve or rejected.</del></p>
+<p>~~指定されたコールバックを実行している間および返された約束が解決または拒否されていない間に、ソースコントロールビューレットの進行状況を表示します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="task"></a><span class="ts" id=1299 data-target="#details-1299" data-toggle="collapse"><span class="ident">task</span><span>: </span>(progress: <a class="type-ref" href="#Progress">Progress</a>&lt;<a class="type-instrinct">number</a>&gt;) =&gt; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span></td><td><div class="comment"><p>A callback returning a promise. Progress increments can be reported with
-the provided <a href="#Progress">progress</a>-object.</p>
-</div></td></tr>
+<tr><td><a name="task"></a><span class="ts" id=1299 data-target="#details-1299" data-toggle="collapse"><span class="ident">task</span><span>: </span>(progress: <a class="type-ref" href="#Progress">Progress</a>&lt;<a class="type-instrinct">number</a>&gt;) =&gt; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span></td><td><div class="comment"><p>The thenable the task did rseturn.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span></td><td><div class="comment"><p>その次のタスクはrseturnでした。</p>
 </div></td></tr>
 </table>
 </div>
@@ -8799,7 +8723,7 @@ Using a theme color is preferred over a custom color as it gives theme authors a
 
 
 
-<div class="comment"><p>A data provider that provides tree data</p>
+<div class="comment"><p>ツリーデータを提供するデータプロバイダ</p>
 </div>
 
 #### Events
@@ -8808,8 +8732,8 @@ Using a theme color is preferred over a custom color as it gives theme authors a
 
 <a name="TreeDataProvider.onDidChangeTreeData"></a><span class="ts" id=1065 data-target="#details-1065" data-toggle="collapse"><span class="ident">onDidChangeTreeData</span><span>?</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a> &#124; <a class="type-instrinct">null</a>&gt;</span>
 <div class="details collapse" id="details-1065">
-<div class="comment"><p>An optional event to signal that an element or root has changed.
-To signal that root has changed, do not pass any argument or pass <code>undefined</code> or <code>null</code>.</p>
+<div class="comment"><p>要素またはルートが変更されたことを通知するオプションのイベント。
+ルートが変更されたことを通知するには、引数を渡さないか、 <code>undefined</code>または<code>null</code>を渡してください。</p>
 </div>
 </div>
 
@@ -8819,15 +8743,14 @@ To signal that root has changed, do not pass any argument or pass <code>undefine
 
 <a name="TreeDataProvider.getChildren"></a><span class="ts" id=1070 data-target="#details-1070" data-toggle="collapse"><span class="ident">getChildren</span><span>(</span><span class="ident">element</span><span>?</span><span>: </span><a class="type-instrinct">T</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-1070">
-<div class="comment"><p>Get the children of <code>element</code> or root if no element is passed.</p>
+<div class="comment"><p>要素が渡されない場合、 <code>element</code>の子を取得するか、ルートを取得します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="element"></a><span class="ts" id=1071 data-target="#details-1071" data-toggle="collapse"><span class="ident">element</span><span>?</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>The element from which the provider gets children. Can be <code>undefined</code>.</p>
-</div></td></tr>
+<tr><td><a name="element"></a><span class="ts" id=1071 data-target="#details-1071" data-toggle="collapse"><span class="ident">element</span><span>?</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>Children of <code>element</code> or root if no element is passed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>要素が渡されない場合、 <code>element</code>の子要素またはルート。</p>
 </div></td></tr>
 </table>
 </div>
@@ -8837,15 +8760,14 @@ To signal that root has changed, do not pass any argument or pass <code>undefine
 
 <a name="TreeDataProvider.getTreeItem"></a><span class="ts" id=1067 data-target="#details-1067" data-toggle="collapse"><span class="ident">getTreeItem</span><span>(</span><span class="ident">element</span><span>: </span><a class="type-instrinct">T</a><span>)</span><span>: </span><a class="type-ref" href="#TreeItem">TreeItem</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TreeItem">TreeItem</a>&gt;</span>
 <div class="details collapse" id="details-1067">
-<div class="comment"><p>Get <a href="#TreeItem">TreeItem</a> representation of the <code>element</code></p>
+<div class="comment"><p>[要素]の<a href="#TreeItem">TreeItem</a>表現を取得する</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="element"></a><span class="ts" id=1068 data-target="#details-1068" data-toggle="collapse"><span class="ident">element</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>The element for which <a href="#TreeItem">TreeItem</a> representation is asked for.</p>
-</div></td></tr>
+<tr><td><a name="element"></a><span class="ts" id=1068 data-target="#details-1068" data-toggle="collapse"><span class="ident">element</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#TreeItem">TreeItem</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TreeItem">TreeItem</a>&gt;</span></td><td><div class="comment"><p>(#TreeItem) representation of the element</p>
+<tr><td><span class="ts"><a class="type-ref" href="#TreeItem">TreeItem</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TreeItem">TreeItem</a>&gt;</span></td><td><div class="comment"><p>(#TreeItem)要素の表現</p>
 </div></td></tr>
 </table>
 </div>
