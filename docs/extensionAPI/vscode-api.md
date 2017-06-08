@@ -770,7 +770,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="scm.inputBox"></a><span class="ts" id=1462 data-target="#details-1462" data-toggle="collapse"><span class="ident">inputBox</span><span>: </span><a class="type-ref" href="#SourceControlInputBox">SourceControlInputBox</a></span>
 <div class="details collapse" id="details-1462">
-<div class="comment"><p>The <a href="#SourceControlInputBox">input box</a> in the Source Control viewlet.</p>
+<div class="comment"><p>ソースコントロールビューレットの <a href="#SourceControlInputBox">入力ボックス</a>。</p>
 </div>
 </div>
 
@@ -780,17 +780,15 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="scm.createSourceControl"></a><span class="ts" id=1464 data-target="#details-1464" data-toggle="collapse"><span class="ident">createSourceControl</span><span>(</span><span class="ident">id</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">label</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#SourceControl">SourceControl</a></span>
 <div class="details collapse" id="details-1464">
-<div class="comment"><p>Creates a new <a href="#SourceControl">source control</a> instance.</p>
+<div class="comment"><p>新しい <a href="#SourceControl">ソースコントロール</a> インスタンスの作成</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="id"></a><span class="ts" id=1465 data-target="#details-1465" data-toggle="collapse"><span class="ident">id</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A unique <code>id</code> for the source control. Something short, eg: <code>git</code>.</p>
-</div></td></tr>
-<tr><td><a name="label"></a><span class="ts" id=1466 data-target="#details-1466" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A human-readable string for the source control. Eg: <code>Git</code>.</p>
-</div></td></tr>
+<tr><td><a name="id"></a><span class="ts" id=1465 data-target="#details-1465" data-toggle="collapse"><span class="ident">id</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="label"></a><span class="ts" id=1466 data-target="#details-1466" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#SourceControl">SourceControl</a></span></td><td><div class="comment"><p>An instance of <a href="#SourceControl">source control</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#SourceControl">SourceControl</a></span></td><td><div class="comment"><p>(#SourceControl) のインスタンス。</p>
 </div></td></tr>
 </table>
 </div>
@@ -917,7 +915,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="window.createTerminal"></a><span class="ts" id=1318 data-target="#details-1318" data-toggle="collapse"><span class="ident">createTerminal</span><span>(</span><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">shellPath</span><span>?</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">shellArgs</span><span>?</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Terminal">Terminal</a></span>
 <div class="details collapse" id="details-1318">
-<div class="comment"><p><a href="#端末">端末</a>を作成します。
+<div class="comment"><p><a href="#Terminal">端末</a> を作成します。
 明示的なcustomStartPath設定が存在するかどうかにかかわらず、端末のcwdが存在する場合、ワークスペースディレクトリになります。</p>
 </div>
 <div class="signature">
@@ -938,16 +936,15 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="window.createTerminal"></a><span class="ts" id=1322 data-target="#details-1322" data-toggle="collapse"><span class="ident">createTerminal</span><span>(</span><span class="ident">options</span><span>: </span><a class="type-ref" href="#TerminalOptions">TerminalOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Terminal">Terminal</a></span>
 <div class="details collapse" id="details-1322">
-<div class="comment"><p>Creates a <a href="#Terminal">Terminal</a>. The cwd of the terminal will be the workspace directory
-if it exists, regardless of whether an explicit customStartPath setting exists.</p>
+<div class="comment"><p><a href="#Terminal">端末</a> を作成します。
+明示的なcustomStartPath設定が存在するかどうかにかかわらず、端末のcwdが存在する場合、ワークスペースディレクトリになります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="options"></a><span class="ts" id=1323 data-target="#details-1323" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#TerminalOptions">TerminalOptions</a></span></td><td><div class="comment"><p>A TerminalOptions object describing the characteristics of the new terminal.</p>
-</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1323 data-target="#details-1323" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#TerminalOptions">TerminalOptions</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Terminal">Terminal</a></span></td><td><div class="comment"><p>A new Terminal.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Terminal">Terminal</a></span></td><td><div class="comment"><p>新しい端末。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1442,12 +1439,11 @@ if it exists, regardless of whether an explicit customStartPath setting exists.<
 
 
 
-<div class="comment"><p>Namespace for dealing with the current workspace. A workspace is the representation
-of the folder that has been opened. There is no workspace when just a file but not a
-folder has been opened.</p>
-<p>The workspace offers support for <a href="#workspace.createFileSystemWatcher">listening</a> to fs
-events and for <a href="#workspace.findFiles">finding</a> files. Both perform well and run <em>outside</em>
-the editor-process so that they should be always used instead of nodejs-equivalents.</p>
+<div class="comment"><p>現在のワークスペースを扱うための名前空間。
+ワークスペースとは、開かれているフォルダを表します。
+ファイルだけでフォルダは開かれていないときは、ワークスペースはありません。</p>
+<p>ワークスペースは、[listening]（＃workspace.createFileSystemWatcher）をfsイベントに、[finding]（＃workspace.findFiles）ファイルに対応しています。
+どちらもうまく動作し、エディタプロセスをoutside_実行するので、nodejsに相当するものの代わりに常に使用する必要があります。</p>
 </div>
 
 #### Variables
@@ -1456,8 +1452,8 @@ the editor-process so that they should be always used instead of nodejs-equivale
 
 <a name="workspace.rootPath"></a><span class="ts" id=1336 data-target="#details-1336" data-toggle="collapse"><span class="ident">rootPath</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a></span>
 <div class="details collapse" id="details-1336">
-<div class="comment"><p>The folder that is open in the editor. <code>undefined</code> when no folder
-has been opened.</p>
+<div class="comment"><p>エディタで開いているフォルダ。
+フォルダが開かれていないときは `undefined &#39;。</p>
 <ul>
 <li><em>readonly</em></li>
 </ul>
@@ -1468,7 +1464,7 @@ has been opened.</p>
 
 <a name="workspace.textDocuments"></a><span class="ts" id=1352 data-target="#details-1352" data-toggle="collapse"><span class="ident">textDocuments</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>[]</span>
 <div class="details collapse" id="details-1352">
-<div class="comment"><p>All text documents currently known to the system.</p>
+<div class="comment"><p>現在システムに知られているすべてのテキスト文書。</p>
 <ul>
 <li><em>readonly</em></li>
 </ul>
@@ -1481,7 +1477,7 @@ has been opened.</p>
 
 <a name="workspace.onDidChangeConfiguration"></a><span class="ts" id=1375 data-target="#details-1375" data-toggle="collapse"><span class="ident">onDidChangeConfiguration</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-instrinct">void</a>&gt;</span>
 <div class="details collapse" id="details-1375">
-<div class="comment"><p>An event that is emitted when the <a href="#WorkspaceConfiguration">configuration</a> changed.</p>
+<div class="comment"><p>[構成]（＃WorkspaceConfiguration）が変更されたときに放出されるイベント。</p>
 </div>
 </div>
 
@@ -1489,7 +1485,7 @@ has been opened.</p>
 
 <a name="workspace.onDidChangeTextDocument"></a><span class="ts" id=1369 data-target="#details-1369" data-toggle="collapse"><span class="ident">onDidChangeTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocumentChangeEvent">TextDocumentChangeEvent</a>&gt;</span>
 <div class="details collapse" id="details-1369">
-<div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is changed.</p>
+<div class="comment"><p>[テキスト文書]（＃TextDocument）が変更されたときに発生するイベント。</p>
 </div>
 </div>
 
@@ -1497,7 +1493,7 @@ has been opened.</p>
 
 <a name="workspace.onDidCloseTextDocument"></a><span class="ts" id=1368 data-target="#details-1368" data-toggle="collapse"><span class="ident">onDidCloseTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-1368">
-<div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is disposed.</p>
+<div class="comment"><p>[テキストドキュメント]（＃TextDocument）が配置されたときに放出されるイベント。</p>
 </div>
 </div>
 
@@ -1505,7 +1501,7 @@ has been opened.</p>
 
 <a name="workspace.onDidOpenTextDocument"></a><span class="ts" id=1367 data-target="#details-1367" data-toggle="collapse"><span class="ident">onDidOpenTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-1367">
-<div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is opened.</p>
+<div class="comment"><p>[テキストドキュメント]（＃TextDocument）が開かれたときに放出されるイベント。</p>
 </div>
 </div>
 
@@ -1513,7 +1509,7 @@ has been opened.</p>
 
 <a name="workspace.onDidSaveTextDocument"></a><span class="ts" id=1371 data-target="#details-1371" data-toggle="collapse"><span class="ident">onDidSaveTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-1371">
-<div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is saved to disk.</p>
+<div class="comment"><p>[テキストドキュメント]（＃TextDocument）がディスクに保存されたときに放出されるイベント。</p>
 </div>
 </div>
 
@@ -1521,16 +1517,15 @@ has been opened.</p>
 
 <a name="workspace.onWillSaveTextDocument"></a><span class="ts" id=1370 data-target="#details-1370" data-toggle="collapse"><span class="ident">onWillSaveTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocumentWillSaveEvent">TextDocumentWillSaveEvent</a>&gt;</span>
 <div class="details collapse" id="details-1370">
-<div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> will be saved to disk.</p>
-<p><em>Note 1:</em> Subscribers can delay saving by registering asynchronous work. For the sake of data integrity the editor
-might save without firing this event. For instance when shutting down with dirty files.</p>
-<p><em>Note 2:</em> Subscribers are called sequentially and they can <a href="#TextDocumentWillSaveEvent.waitUntil">delay</a> saving
-by registering asynchronous work. Protection against misbehaving listeners is implemented as such:</p>
-<ul>
-<li>there is an overall time budget that all listeners share and if that is exhausted no further listener is called</li>
-<li>listeners that take a long time or produce errors frequently will not be called anymore</li>
-</ul>
-<p>The current thresholds are 1.5 seconds as overall time budget and a listener can misbehave 3 times before being ignored.</p>
+<div class="comment"><p>[テキスト文書]（＃TextDocument）がディスクに保存されるときに放出されるイベント。</p>
+<p><em>注1：</em>非同期作業を登録することで、契約者は保存を遅らせることができます。
+データの整合性のため、エディタはこのイベントを発生させずに保存できます。
+例えば汚れたファイルでシャットダウンする場合など。</p>
+<p><em>注2：</em>サブスクライバはシーケンシャルに呼び出され、非同期作業を登録することで[遅延]（＃TextDocumentWillSaveEvent.waitUntil）保存できます。
+不正なリスナーに対する保護は、そのように実装されています：
+*すべてのリスナーが共有する全体的な時間予算があり、それが使い果たされた場合、それ以上のリスナーは呼び出されません
+長い時間がかかる、または頻繁にエラーを生成するリスナーは、もはや呼び出されません</p>
+<p>現在のしきい値は全体の時間予算として1.5秒であり、リスナーは無視される前に3回不正行為をする可能性があります。</p>
 </div>
 </div>
 
@@ -1540,19 +1535,16 @@ by registering asynchronous work. Protection against misbehaving listeners is im
 
 <a name="workspace.applyEdit"></a><span class="ts" id=1350 data-target="#details-1350" data-toggle="collapse"><span class="ident">applyEdit</span><span>(</span><span class="ident">edit</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
 <div class="details collapse" id="details-1350">
-<div class="comment"><p>Make changes to one or many resources as defined by the given
-<a href="#WorkspaceEdit">workspace edit</a>.</p>
-<p>When applying a workspace edit, the editor implements an &#39;all-or-nothing&#39;-strategy,
-that means failure to load one document or make changes to one document will cause
-the edit to be rejected.</p>
+<div class="comment"><p>指定された1つまたは複数のリソースに変更を加える
+[ワークスペース編集]（＃WorkspaceEdit）。</p>
+<p>ワークスペースの編集を適用するとき、エディタは「すべてかどうか」の戦略を実装します。つまり、1つのドキュメントを読み込んだり、1つのドキュメントを変更したりすると、編集が拒否されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="edit"></a><span class="ts" id=1351 data-target="#details-1351" data-toggle="collapse"><span class="ident">edit</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a></span></td><td><div class="comment"><p>A workspace edit.</p>
-</div></td></tr>
+<tr><td><a name="edit"></a><span class="ts" id=1351 data-target="#details-1351" data-toggle="collapse"><span class="ident">edit</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves when the edit could be applied.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>編集可能なときに解決されるthenable。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1562,17 +1554,15 @@ the edit to be rejected.</p>
 
 <a name="workspace.asRelativePath"></a><span class="ts" id=1338 data-target="#details-1338" data-toggle="collapse"><span class="ident">asRelativePath</span><span>(</span><span class="ident">pathOrUri</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1338">
-<div class="comment"><p>Returns a path that is relative to the workspace root.</p>
-<p>When there is no <a href="#workspace.rootPath">workspace root</a> or when the path
-is not a child of that folder, the input is returned.</p>
+<div class="comment"><p>ワークスペースのルートに相対的なパスを返します。</p>
+<p>[workspace root]（#workspace.rootPath）がない場合、またはパスがそのフォルダの子でない場合は、入力が返されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="pathOrUri"></a><span class="ts" id=1339 data-target="#details-1339" data-toggle="collapse"><span class="ident">pathOrUri</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A path or uri. When a uri is given its <a href="#Uri.fsPath">fsPath</a> is used.</p>
-</div></td></tr>
+<tr><td><a name="pathOrUri"></a><span class="ts" id=1339 data-target="#details-1339" data-toggle="collapse"><span class="ident">pathOrUri</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A path relative to the root or the input.</p>
+<tr><td><span class="ts"><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>ルートまたは入力からの相対パス。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1582,24 +1572,21 @@ is not a child of that folder, the input is returned.</p>
 
 <a name="workspace.createFileSystemWatcher"></a><span class="ts" id=1331 data-target="#details-1331" data-toggle="collapse"><span class="ident">createFileSystemWatcher</span><span>(</span><span class="ident">globPattern</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">ignoreCreateEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a>, <span class="ident">ignoreChangeEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a>, <span class="ident">ignoreDeleteEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#FileSystemWatcher">FileSystemWatcher</a></span>
 <div class="details collapse" id="details-1331">
-<div class="comment"><p>Creates a file system watcher.</p>
-<p>A glob pattern that filters the file events must be provided. Optionally, flags to ignore certain
-kinds of events can be provided. To stop listening to events the watcher must be disposed.</p>
-<p><em>Note</em> that only files within the current <a href="#workspace.rootPath">workspace</a> can be watched.</p>
+<div class="comment"><p>ファイルシステムウォッチャーを作成します。</p>
+<p>ファイルイベントをフィルタリングするグロブパターンを提供する必要があります。
+オプションで、特定の種類のイベントを無視するフラグを提供することができます。
+イベントの受信を停止するには、ウォッチャーを処分する必要があります。</p>
+<p>現在の[workspace]（＃workspace.rootPath）内のファイルのみが監視されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="globPattern"></a><span class="ts" id=1332 data-target="#details-1332" data-toggle="collapse"><span class="ident">globPattern</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A glob pattern that is applied to the names of created, changed, and deleted files.</p>
-</div></td></tr>
-<tr><td><a name="ignoreCreateEvents"></a><span class="ts" id=1333 data-target="#details-1333" data-toggle="collapse"><span class="ident">ignoreCreateEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Ignore when files have been created.</p>
-</div></td></tr>
-<tr><td><a name="ignoreChangeEvents"></a><span class="ts" id=1334 data-target="#details-1334" data-toggle="collapse"><span class="ident">ignoreChangeEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Ignore when files have been changed.</p>
-</div></td></tr>
-<tr><td><a name="ignoreDeleteEvents"></a><span class="ts" id=1335 data-target="#details-1335" data-toggle="collapse"><span class="ident">ignoreDeleteEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Ignore when files have been deleted.</p>
-</div></td></tr>
+<tr><td><a name="globPattern"></a><span class="ts" id=1332 data-target="#details-1332" data-toggle="collapse"><span class="ident">globPattern</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="ignoreCreateEvents"></a><span class="ts" id=1333 data-target="#details-1333" data-toggle="collapse"><span class="ident">ignoreCreateEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="ignoreChangeEvents"></a><span class="ts" id=1334 data-target="#details-1334" data-toggle="collapse"><span class="ident">ignoreChangeEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="ignoreDeleteEvents"></a><span class="ts" id=1335 data-target="#details-1335" data-toggle="collapse"><span class="ident">ignoreDeleteEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#FileSystemWatcher">FileSystemWatcher</a></span></td><td><div class="comment"><p>A new file system watcher instance.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#FileSystemWatcher">FileSystemWatcher</a></span></td><td><div class="comment"><p>新しいファイルシステムウォッチャーインスタンス。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1609,24 +1596,20 @@ kinds of events can be provided. To stop listening to events the watcher must be
 
 <a name="workspace.findFiles"></a><span class="ts" id=1341 data-target="#details-1341" data-toggle="collapse"><span class="ident">findFiles</span><span>(</span><span class="ident">include</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">exclude</span><span>?</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">maxResults</span><span>?</span><span>: </span><a class="type-instrinct">number</a>, <span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Uri">Uri</a>[]&gt;</span>
 <div class="details collapse" id="details-1341">
-<div class="comment"><p>Find files in the workspace.</p>
+<div class="comment"><p>ワークスペース内のファイルを検索します。</p>
 <ul>
-<li><em>sample</em> - <code>findFiles(&#39;**∕*.js&#39;, &#39;**∕node_modules∕**&#39;, 10)</code></li>
+<li><em>sample</em> - <code>findFiles（ &#39;** / *。js&#39;、 &#39;** / node_modules / **&#39;、10）</code></li>
 </ul>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="include"></a><span class="ts" id=1342 data-target="#details-1342" data-toggle="collapse"><span class="ident">include</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A glob pattern that defines the files to search for.</p>
-</div></td></tr>
-<tr><td><a name="exclude"></a><span class="ts" id=1343 data-target="#details-1343" data-toggle="collapse"><span class="ident">exclude</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A glob pattern that defines files and folders to exclude.</p>
-</div></td></tr>
-<tr><td><a name="maxResults"></a><span class="ts" id=1344 data-target="#details-1344" data-toggle="collapse"><span class="ident">maxResults</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>An upper-bound for the result.</p>
-</div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=1345 data-target="#details-1345" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A token that can be used to signal cancellation to the underlying search engine.</p>
-</div></td></tr>
+<tr><td><a name="include"></a><span class="ts" id=1342 data-target="#details-1342" data-toggle="collapse"><span class="ident">include</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="exclude"></a><span class="ts" id=1343 data-target="#details-1343" data-toggle="collapse"><span class="ident">exclude</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="maxResults"></a><span class="ts" id=1344 data-target="#details-1344" data-toggle="collapse"><span class="ident">maxResults</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=1345 data-target="#details-1345" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Uri">Uri</a>[]&gt;</span></td><td><div class="comment"><p>A thenable that resolves to an array of resource identifiers.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Uri">Uri</a>[]&gt;</span></td><td><div class="comment"><p>リソース識別子の配列に解決されるthenable。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1636,18 +1619,16 @@ kinds of events can be provided. To stop listening to events the watcher must be
 
 <a name="workspace.getConfiguration"></a><span class="ts" id=1373 data-target="#details-1373" data-toggle="collapse"><span class="ident">getConfiguration</span><span>(</span><span class="ident">section</span><span>?</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#WorkspaceConfiguration">WorkspaceConfiguration</a></span>
 <div class="details collapse" id="details-1373">
-<div class="comment"><p>Get a configuration object.</p>
-<p>When a section-identifier is provided only that part of the configuration
-is returned. Dots in the section-identifier are interpreted as child-access,
-like <code>{ myExt: { setting: { doIt: true }}}</code> and <code>getConfiguration(&#39;myExt.setting&#39;).get(&#39;doIt&#39;) === true</code>.</p>
+<div class="comment"><p>設定オブジェクトを取得します。</p>
+<p>section-identifierが与えられている場合は、その部分だけが返されます。
+セクション識別子のドットは <code>{myExt：{setting：{doIt：true}}</code>や `getConfiguration（ &#39;myExt.setting&#39;）などの子アクセスと解釈されます。get（ &#39;doIt&#39;）===本当です。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="section"></a><span class="ts" id=1374 data-target="#details-1374" data-toggle="collapse"><span class="ident">section</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A dot-separated identifier.</p>
-</div></td></tr>
+<tr><td><a name="section"></a><span class="ts" id=1374 data-target="#details-1374" data-toggle="collapse"><span class="ident">section</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#WorkspaceConfiguration">WorkspaceConfiguration</a></span></td><td><div class="comment"><p>The full workspace configuration or a subset.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#WorkspaceConfiguration">WorkspaceConfiguration</a></span></td><td><div class="comment"><p>完全なワークスペース構成またはサブセット。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1657,26 +1638,28 @@ like <code>{ myExt: { setting: { doIt: true }}}</code> and <code>getConfiguratio
 
 <a name="workspace.openTextDocument"></a><span class="ts" id=1354 data-target="#details-1354" data-toggle="collapse"><span class="ident">openTextDocument</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-1354">
-<div class="comment"><p>Opens a document. Will return early if this document is already open. Otherwise
-the document is loaded and the <a href="#workspace.onDidOpenTextDocument">didOpen</a>-event fires.</p>
-<p>The document is denoted by an <a href="#Uri">uri</a>. Depending on the <a href="#Uri.scheme">scheme</a> the
-following rules apply:</p>
+<div class="comment"><p>ドキュメントを開きます。
+この文書が既に開いている場合は、早期に返却されます。
+それ以外の場合は、ドキュメントがロードされ、[didOpen]（＃workspace.onDidOpenTextDocument）-eventが発生します。</p>
+<p>この文書は[uri]（＃Uri）で示されています。
+[スキーム]（＃Uri.scheme）に応じて、以下のルールが適用されます。</p>
 <ul>
-<li><code>file</code>-scheme: Open a file on disk, will be rejected if the file does not exist or cannot be loaded.</li>
-<li><code>untitled</code>-scheme: A new file that should be saved on disk, e.g. <code>untitled:c:\frodo\new.js</code>. The language
-will be derived from the file name.</li>
-<li>For all other schemes the registered text document content <a href="#TextDocumentContentProvider">providers</a> are consulted.</li>
+<li><code>file</code>-scheme：ディスク上のファイルを開きます。ファイルが存在しないか、読み込めない場合は拒否されます。</li>
+<li><p><code>untitled</code>-scheme：ディスクに保存すべき新しいファイル。 <code>タイトルなし：c：\ frodo \ new.js</code>。言語
+はファイル名から派生します。
+*他のすべてのスキームでは、登録されたテキストドキュメントコンテンツ[providers]（＃TextDocumentContentProvider）が参照されます。</p>
+</li>
+<li><p>*返されたドキュメントのライフサイクルはエディタが所有し、拡張子は所有していないことに注意してください。
+つまり、[<code>onDidClose</code>]（＃workspace.onDidCloseTextDocument） - イベントは、それを開いた後いつでも発生する可能性があります。</p>
+</li>
 </ul>
-<p><em>Note</em> that the lifecycle of the returned document is owned by the editor and not by the extension. That means an
-<a href="#workspace.onDidCloseTextDocument"><code>onDidClose</code></a>-event can occur at any time after opening it.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=1355 data-target="#details-1355" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>Identifies the resource to open.</p>
-</div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=1355 data-target="#details-1355" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href="#TextDocument">document</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>（＃TextDocument）に解決する約束です。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1686,18 +1669,17 @@ will be derived from the file name.</li>
 
 <a name="workspace.openTextDocument"></a><span class="ts" id=1356 data-target="#details-1356" data-toggle="collapse"><span class="ident">openTextDocument</span><span>(</span><span class="ident">fileName</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-1356">
-<div class="comment"><p>A short-hand for <code>openTextDocument(Uri.file(fileName))</code>.</p>
+<div class="comment"><p><code>openTextDocument（Uri.file（fileName））</code>の略語。</p>
 <ul>
-<li><em>see</em> - <a href="#openTextDocument">openTextDocument</a></li>
+<li><em>see</em> - [openTextDocument]（＃openTextDocument）</li>
 </ul>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="fileName"></a><span class="ts" id=1357 data-target="#details-1357" data-toggle="collapse"><span class="ident">fileName</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A name of a file on disk.</p>
-</div></td></tr>
+<tr><td><a name="fileName"></a><span class="ts" id=1357 data-target="#details-1357" data-toggle="collapse"><span class="ident">fileName</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href="#TextDocument">document</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>（＃TextDocument）に解決する約束です。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1707,17 +1689,16 @@ will be derived from the file name.</li>
 
 <a name="workspace.openTextDocument"></a><span class="ts" id=1358 data-target="#details-1358" data-toggle="collapse"><span class="ident">openTextDocument</span><span>(</span><span class="ident">options</span><span>?</span><span>: </span>{content: <a class="type-instrinct">string</a>, language: <a class="type-instrinct">string</a>}<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-1358">
-<div class="comment"><p>Opens an untitled text document. The editor will prompt the user for a file
-path when the document is to be saved. The <code>options</code> parameter allows to
-specify the <em>language</em> and/or the <em>content</em> of the document.</p>
+<div class="comment"><p>タイトルのないテキスト文書を開きます。
+エディタは、ドキュメントを保存するときにファイルパスを入力するように求めます。
+<code>options</code>パラメータは、ドキュメントの言語<em>および/または</em>コンテンツ*を指定することを可能にします。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="options"></a><span class="ts" id=1359 data-target="#details-1359" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span>{content: <a class="type-instrinct">string</a>, language: <a class="type-instrinct">string</a>}</span></td><td><div class="comment"><p>Options to control how the document will be created.</p>
-</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1359 data-target="#details-1359" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span>{content: <a class="type-instrinct">string</a>, language: <a class="type-instrinct">string</a>}</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href="#TextDocument">document</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>（＃TextDocument）に解決する約束です。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1727,18 +1708,16 @@ specify the <em>language</em> and/or the <em>content</em> of the document.</p>
 
 <a name="workspace.registerTextDocumentContentProvider"></a><span class="ts" id=1364 data-target="#details-1364" data-toggle="collapse"><span class="ident">registerTextDocumentContentProvider</span><span>(</span><span class="ident">scheme</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#TextDocumentContentProvider">TextDocumentContentProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1364">
-<div class="comment"><p>Register a text document content provider.</p>
-<p>Only one provider can be registered per scheme.</p>
+<div class="comment"><p>テキストドキュメントコンテンツプロバイダを登録します。</p>
+<p>スキームごとに登録できるプロバイダは1つだけです。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="scheme"></a><span class="ts" id=1365 data-target="#details-1365" data-toggle="collapse"><span class="ident">scheme</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The uri-scheme to register for.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1366 data-target="#details-1366" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#TextDocumentContentProvider">TextDocumentContentProvider</a></span></td><td><div class="comment"><p>A content provider.</p>
-</div></td></tr>
+<tr><td><a name="scheme"></a><span class="ts" id=1365 data-target="#details-1365" data-toggle="collapse"><span class="ident">scheme</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1366 data-target="#details-1366" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#TextDocumentContentProvider">TextDocumentContentProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する[disposable]（＃Disposable）。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1748,15 +1727,14 @@ specify the <em>language</em> and/or the <em>content</em> of the document.</p>
 
 <a name="workspace.saveAll"></a><span class="ts" id=1347 data-target="#details-1347" data-toggle="collapse"><span class="ident">saveAll</span><span>(</span><span class="ident">includeUntitled</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
 <div class="details collapse" id="details-1347">
-<div class="comment"><p>Save all dirty files.</p>
+<div class="comment"><p>すべてのダーティファイルを保存します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="includeUntitled"></a><span class="ts" id=1348 data-target="#details-1348" data-toggle="collapse"><span class="ident">includeUntitled</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Also save files that have been created during this session.</p>
-</div></td></tr>
+<tr><td><a name="includeUntitled"></a><span class="ts" id=1348 data-target="#details-1348" data-toggle="collapse"><span class="ident">includeUntitled</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves when the files have been saved.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>ファイルが保存されたときに解決されるthenable。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1766,11 +1744,11 @@ specify the <em>language</em> and/or the <em>content</em> of the document.</p>
 
 
 
-<div class="comment"><p>A cancellation token is passed to an asynchronous or long running
-operation to request cancellation, like cancelling a request
-for completion items because the user continued to type.</p>
-<p>To get an instance of a <code>CancellationToken</code> use a
-<a href="#CancellationTokenSource">CancellationTokenSource</a>.</p>
+<div class="comment"><p>キャンセルトークンが非同期または長時間実行されている
+キャンセルをリクエストする操作、リクエストのキャンセルなど
+ユーザーが入力を続行したために完了アイテムが表示されます。</p>
+<p>CancellationTokenのインスタンスを取得するには、
+[CancellationTokenSource]（＃CancellationTokenSource）。</p>
 </div>
 
 #### Properties
@@ -1779,7 +1757,7 @@ for completion items because the user continued to type.</p>
 
 <a name="CancellationToken.isCancellationRequested"></a><span class="ts" id=400 data-target="#details-400" data-toggle="collapse"><span class="ident">isCancellationRequested</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-400">
-<div class="comment"><p>Is <code>true</code> when the token has been cancelled, <code>false</code> otherwise.</p>
+<div class="comment"><p>トークンが取り消されたときは <code>true &#39;、それ以外のときは</code> false`です。</p>
 </div>
 </div>
 
@@ -1787,7 +1765,7 @@ for completion items because the user continued to type.</p>
 
 <a name="CancellationToken.onCancellationRequested"></a><span class="ts" id=401 data-target="#details-401" data-toggle="collapse"><span class="ident">onCancellationRequested</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-instrinct">any</a>&gt;</span>
 <div class="details collapse" id="details-401">
-<div class="comment"><p>An <a href="#Event">event</a> which fires upon cancellation.</p>
+<div class="comment"><p>キャンセル時に発生する[イベント]（＃イベント）。</p>
 </div>
 </div>
 
@@ -1795,7 +1773,7 @@ for completion items because the user continued to type.</p>
 
 
 
-<div class="comment"><p>A cancellation source creates and controls a <a href="#CancellationToken">cancellation token</a>.</p>
+<div class="comment"><p>キャンセルソースは、[キャンセルトークン]（＃CancellationToken）を作成して制御します。</p>
 </div>
 
 #### Properties
@@ -1804,7 +1782,7 @@ for completion items because the user continued to type.</p>
 
 <a name="CancellationTokenSource.token"></a><span class="ts" id=403 data-target="#details-403" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span>
 <div class="details collapse" id="details-403">
-<div class="comment"><p>The cancellation token of this source.</p>
+<div class="comment"><p>このソースのキャンセルトークン。</p>
 </div>
 </div>
 
@@ -1814,7 +1792,7 @@ for completion items because the user continued to type.</p>
 
 <a name="CancellationTokenSource.cancel"></a><span class="ts" id=405 data-target="#details-405" data-toggle="collapse"><span class="ident">cancel</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-405">
-<div class="comment"><p>Signal cancellation on the token.</p>
+<div class="comment"><p>トークンのシグナルキャンセル。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1828,7 +1806,7 @@ for completion items because the user continued to type.</p>
 
 <a name="CancellationTokenSource.dispose"></a><span class="ts" id=407 data-target="#details-407" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-407">
-<div class="comment"><p>Dispose object and free resources. Will call <a href="#CancellationTokenSource.cancel">cancel</a>.</p>
+<div class="comment"><p>オブジェクトを廃棄し、リソースを解放します。 [キャンセル]（＃CancellationTokenSource.cancel）を呼び出します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1842,8 +1820,7 @@ for completion items because the user continued to type.</p>
 
 
 
-<div class="comment"><p>A tuple of two characters, like a pair of
-opening and closing brackets.</p>
+<div class="comment"><p>開閉ブラケットの一対のような、2つの文字の組。</p>
 </div>
 
 
@@ -1854,8 +1831,7 @@ opening and closing brackets.</p>
 
 
 
-<div class="comment"><p>Contains additional diagnostic information about the context in which
-a <a href="#CodeActionProvider.provideCodeActions">code action</a> is run.</p>
+<div class="comment"><p><a href="#CodeActionProvider.provideCodeActions">コードアクション</a> が実行されるコンテキストに関する追加の診断情報を含みます。</p>
 </div>
 
 #### Properties
@@ -1864,7 +1840,7 @@ a <a href="#CodeActionProvider.provideCodeActions">code action</a> is run.</p>
 
 <a name="CodeActionContext.diagnostics"></a><span class="ts" id=496 data-target="#details-496" data-toggle="collapse"><span class="ident">diagnostics</span><span>: </span><a class="type-ref" href="#Diagnostic">Diagnostic</a>[]</span>
 <div class="details collapse" id="details-496">
-<div class="comment"><p>An array of diagnostics.</p>
+<div class="comment"><p>診断の配列。</p>
 </div>
 </div>
 
@@ -1872,9 +1848,8 @@ a <a href="#CodeActionProvider.provideCodeActions">code action</a> is run.</p>
 
 
 
-<div class="comment"><p>The code action interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-action">light bulb</a> feature.</p>
-<p>A code action can be any command that is <a href="#commands.getCommands">known</a> to the system.</p>
+<div class="comment"><p>コードアクションインタフェースは、拡張機能と<a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-action">電球</a>機能の間の契約を定義します。</p>
+<p>コードアクションは、システムに <a href="#commands.getCommands">登録されている</a> 任意のコマンドにすることができます。</p>
 </div>
 
 #### Methods
@@ -1883,22 +1858,21 @@ the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-acti
 
 <a name="CodeActionProvider.provideCodeActions"></a><span class="ts" id=499 data-target="#details-499" data-toggle="collapse"><span class="ident">provideCodeActions</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">context</span><span>: </span><a class="type-ref" href="#CodeActionContext">CodeActionContext</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-499">
-<div class="comment"><p>Provide commands for the given document and range.</p>
+<div class="comment"><p>指定されたドキュメントと範囲のコマンドを提供します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=500 data-target="#details-500" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>The document in which the command was invoked.</p>
+<tr><td><a name="document"></a><span class="ts" id=500 data-target="#details-500" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
 </div></td></tr>
-<tr><td><a name="range"></a><span class="ts" id=501 data-target="#details-501" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>The range for which the command was invoked.</p>
+<tr><td><a name="range"></a><span class="ts" id=501 data-target="#details-501" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>コマンドが呼び出された範囲。</p>
 </div></td></tr>
-<tr><td><a name="context"></a><span class="ts" id=502 data-target="#details-502" data-toggle="collapse"><span class="ident">context</span><span>: </span><a class="type-ref" href="#CodeActionContext">CodeActionContext</a></span></td><td><div class="comment"><p>Context carrying additional information.</p>
+<tr><td><a name="context"></a><span class="ts" id=502 data-target="#details-502" data-toggle="collapse"><span class="ident">context</span><span>: </span><a class="type-ref" href="#CodeActionContext">CodeActionContext</a></span></td><td><div class="comment"><p>追加情報を保持するコンテキスト。</p>
 </div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=503 data-target="#details-503" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
+<tr><td><a name="token"></a><span class="ts" id=503 data-target="#details-503" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>An array of commands or a thenable of such. The lack of a result can be
-signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>コマンドの配列またはそのようなものからなる文字列。 結果の不足は、 <code>undefined</code>、 <code>null</code>、または空の配列を返すことによって通知することができます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1908,10 +1882,9 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 
 
 
-<div class="comment"><p>A code lens represents a <a href="#Command">command</a> that should be shown along with
-source text, like the number of references, a way to run tests, etc.</p>
-<p>A code lens is <em>unresolved</em> when no command is associated to it. For performance
-reasons the creation of a code lens and resolving should be done to two stages.</p>
+<div class="comment"><p>コードレンズは、参照の数、テストを実行する方法など、ソーステキストとともに表示される<a href="#Command">コマンド</a>を表します</p>
+<p>コードレンズは、コマンドが関連付けられていないときは <em>unresolved</em> (未解決) です。
+パフォーマンス上の理由から、コードレンズの作成と分解は2つの段階に分かれていなければなりません。</p>
 <ul>
 <li><em>see</em> - <a href="#CodeLensProvider.provideCodeLenses">CodeLensProvider.provideCodeLenses</a></li>
 </ul>
@@ -1926,14 +1899,14 @@ reasons the creation of a code lens and resolving should be done to two stages.<
 
 <a name="CodeLens.new CodeLens"></a><span class="ts" id=509 data-target="#details-509" data-toggle="collapse"><span class="ident">new CodeLens</span><span>(</span><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a><span>)</span><span>: </span><a class="type-ref" href="#CodeLens">CodeLens</a></span>
 <div class="details collapse" id="details-509">
-<div class="comment"><p>Creates a new code lens object.</p>
+<div class="comment"><p>新しいコードレンズオブジェクトを作成します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="range"></a><span class="ts" id=510 data-target="#details-510" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>The range to which this code lens applies.</p>
+<tr><td><a name="range"></a><span class="ts" id=510 data-target="#details-510" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>このコードレンズが適用される範囲です。</p>
 </div></td></tr>
-<tr><td><a name="command"></a><span class="ts" id=511 data-target="#details-511" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span></td><td><div class="comment"><p>The command associated to this code lens.</p>
+<tr><td><a name="command"></a><span class="ts" id=511 data-target="#details-511" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span></td><td><div class="comment"><p>このコードレンズに関連付けられたコマンド。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#CodeLens">CodeLens</a></span></td><td><div class="comment"></div></td></tr>
@@ -1947,7 +1920,7 @@ reasons the creation of a code lens and resolving should be done to two stages.<
 
 <a name="CodeLens.command"></a><span class="ts" id=506 data-target="#details-506" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span>
 <div class="details collapse" id="details-506">
-<div class="comment"><p>The command this code lens represents.</p>
+<div class="comment"><p>このコードレンズが表すコマンド。</p>
 </div>
 </div>
 
@@ -1955,7 +1928,7 @@ reasons the creation of a code lens and resolving should be done to two stages.<
 
 <a name="CodeLens.isResolved"></a><span class="ts" id=507 data-target="#details-507" data-toggle="collapse"><span class="ident">isResolved</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-507">
-<div class="comment"><p><code>true</code> when there is a command associated.</p>
+<div class="comment"><p>関連するコマンドがあるときは <code>true</code>。</p>
 </div>
 </div>
 
@@ -1963,7 +1936,7 @@ reasons the creation of a code lens and resolving should be done to two stages.<
 
 <a name="CodeLens.range"></a><span class="ts" id=505 data-target="#details-505" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
 <div class="details collapse" id="details-505">
-<div class="comment"><p>The range in which this code lens is valid. Should only span a single line.</p>
+<div class="comment"><p>このコードレンズが有効な範囲。 1行にまたがるだけです。</p>
 </div>
 </div>
 
@@ -1971,8 +1944,8 @@ reasons the creation of a code lens and resolving should be done to two stages.<
 
 
 
-<div class="comment"><p>A code lens provider adds <a href="#Command">commands</a> to source text. The commands will be shown
-as dedicated horizontal lines in between the source text.</p>
+<div class="comment"><p>コードレンズプロバイダは、 <a href="#Command">コマンド</a> をソーステキストに追加します。
+コマンドはソーステキストの間に専用水平線として表示されます。</p>
 </div>
 
 #### Events
@@ -1991,9 +1964,8 @@ as dedicated horizontal lines in between the source text.</p>
 
 <a name="CodeLensProvider.provideCodeLenses"></a><span class="ts" id=515 data-target="#details-515" data-toggle="collapse"><span class="ident">provideCodeLenses</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-515">
-<div class="comment"><p>Compute a list of <a href="#CodeLens">lenses</a>. This call should return as fast as possible and if
-computing the commands is expensive implementors should only return code lens objects with the
-range set and implement <a href="#CodeLensProvider.resolveCodeLens">resolve</a>.</p>
+<div class="comment"><p>Compute a list of <a href="#CodeLens">lenses</a>.
+This call should return as fast as possible and if computing the commands is expensive implementors should only return code lens objects with the range set and implement <a href="#CodeLensProvider.resolveCodeLens">resolve</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -2003,8 +1975,8 @@ range set and implement <a href="#CodeLensProvider.resolveCodeLens">resolve</a>.
 <tr><td><a name="token"></a><span class="ts" id=517 data-target="#details-517" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>An array of code lenses or a thenable that resolves to such. The lack of a result can be
-signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>An array of code lenses or a thenable that resolves to such.
+The lack of a result can be signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
 </div></td></tr>
 </table>
 </div>
@@ -2083,7 +2055,7 @@ invoked with.</p>
 
 
 
-<div class="comment"><p>Describes how comments for a language work.</p>
+<div class="comment"><p>言語のためのコメントの仕組みを説明します。</p>
 </div>
 
 #### Properties
@@ -3236,8 +3208,8 @@ all previous but not subsequent diagnostics are removed.</p>
 
 
 
-<div class="comment"><p>Represents a type which can release resources, such
-as event listening or a timer.</p>
+<div class="comment"><p>リソースを解放できるタイプを表します。
+イベントリスニングやタイマーとして。</p>
 </div>
 
 #### Static
@@ -3246,18 +3218,17 @@ as event listening or a timer.</p>
 
 <a name="Disposable.from"></a><span class="ts" id=410 data-target="#details-410" data-toggle="collapse"><span class="ident">from</span><span>(</span><span>...</span><span class="ident">disposableLikes</span><span>: </span>{dispose: () =&gt; <a class="type-instrinct">any</a>}[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-410">
-<div class="comment"><p>Combine many disposable-likes into one. Use this method
-when having objects with a dispose function which are not
-instances of Disposable.</p>
+<div class="comment"><p>1つに多くの使い捨ての好きなものを組み合わせる。このメソッドを使用する
+dispose関数を持つオブジェクトがない場合
+Disposableのインスタンス。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="disposableLikes"></a><span class="ts" id=411 data-target="#details-411" data-toggle="collapse"><span>...</span><span class="ident">disposableLikes</span><span>: </span>{dispose: () =&gt; <a class="type-instrinct">any</a>}[]</span></td><td><div class="comment"><p>Objects that have at least a <code>dispose</code>-function member.</p>
-</div></td></tr>
+<tr><td><a name="disposableLikes"></a><span class="ts" id=411 data-target="#details-411" data-toggle="collapse"><span>...</span><span class="ident">disposableLikes</span><span>: </span>{dispose: () =&gt; <a class="type-instrinct">any</a>}[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>Returns a new disposable which, upon dispose, will
-dispose all provided disposables.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>新しいディスポーザブルを返します。
+すべてのディスポーザブルを処分してください。</p>
 </div></td></tr>
 </table>
 </div>
@@ -3269,14 +3240,13 @@ dispose all provided disposables.</p>
 
 <a name="Disposable.new Disposable"></a><span class="ts" id=417 data-target="#details-417" data-toggle="collapse"><span class="ident">new Disposable</span><span>(</span><span class="ident">callOnDispose</span><span>: </span><a class="type-ref" href="#Function">Function</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-417">
-<div class="comment"><p>Creates a new Disposable calling the provided function
-on dispose.</p>
+<div class="comment"><p>提供された関数を呼び出す新しいDisposableを作成します。
+処分する。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="callOnDispose"></a><span class="ts" id=418 data-target="#details-418" data-toggle="collapse"><span class="ident">callOnDispose</span><span>: </span><a class="type-ref" href="#Function">Function</a></span></td><td><div class="comment"><p>Function that disposes something.</p>
-</div></td></tr>
+<tr><td><a name="callOnDispose"></a><span class="ts" id=418 data-target="#details-418" data-toggle="collapse"><span class="ident">callOnDispose</span><span>: </span><a class="type-ref" href="#Function">Function</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -3289,7 +3259,7 @@ on dispose.</p>
 
 <a name="Disposable.dispose"></a><span class="ts" id=420 data-target="#details-420" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">any</a></span>
 <div class="details collapse" id="details-420">
-<div class="comment"><p>Dispose this object.</p>
+<div class="comment"><p>このオブジェクトを廃棄します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -3733,9 +3703,9 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 
 
 
-<div class="comment"><p>Represents a typed event.</p>
-<p>A function that represents an event to which you subscribe by calling it with
-a listener function as argument.</p>
+<div class="comment"><p>型付きイベントを表します。</p>
+<p>あなたがそれを呼び出すことによって購読するイベントを表す関数。
+引数としてのリスナー関数。</p>
 <ul>
 <li><em>sample</em> - <code>item.onDidChange(function(event) { console.log(&quot;Event happened: &quot; + event); });</code></li>
 </ul>
@@ -3745,22 +3715,20 @@ a listener function as argument.</p>
 
 <a name="__call"></a><span class="ts" id=423 data-target="#details-423" data-toggle="collapse"><span>(</span><span class="ident">listener</span><span>: </span>(e: <a class="type-instrinct">T</a>) =&gt; <a class="type-instrinct">any</a>, <span class="ident">thisArgs</span><span>?</span><span>: </span><a class="type-instrinct">any</a>, <span class="ident">disposables</span><span>?</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-423">
-<div class="comment"><p>A function that represents an event to which you subscribe by calling it with
-a listener function as argument.</p>
-<p>A function that represents an event to which you subscribe by calling it with
-a listener function as argument.</p>
+<div class="comment"><p>あなたがそれを呼び出すことによって購読するイベントを表す関数。
+引数としてのリスナー関数。</p>
+<p>あなたがそれを呼び出すことによって購読するイベントを表す関数。
+引数としてのリスナー関数。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="listener"></a><span class="ts" id=424 data-target="#details-424" data-toggle="collapse"><span class="ident">listener</span><span>: </span>(e: <a class="type-instrinct">T</a>) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"><p>The listener function will be called when the event happens.</p>
-</div></td></tr>
-<tr><td><a name="thisArgs"></a><span class="ts" id=428 data-target="#details-428" data-toggle="collapse"><span class="ident">thisArgs</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>The <code>this</code>-argument which will be used when calling the event listener.</p>
-</div></td></tr>
-<tr><td><a name="disposables"></a><span class="ts" id=429 data-target="#details-429" data-toggle="collapse"><span class="ident">disposables</span><span>?</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a>[]</span></td><td><div class="comment"><p>An array to which a <a href="#Disposable">disposable</a> will be added.</p>
+<tr><td><a name="listener"></a><span class="ts" id=424 data-target="#details-424" data-toggle="collapse"><span class="ident">listener</span><span>: </span>(e: <a class="type-instrinct">T</a>) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="thisArgs"></a><span class="ts" id=428 data-target="#details-428" data-toggle="collapse"><span class="ident">thisArgs</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="disposables"></a><span class="ts" id=429 data-target="#details-429" data-toggle="collapse"><span class="ident">disposables</span><span>?</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a>[]</span></td><td><div class="comment"><p>（＃Disposable）が追加される配列。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A disposable which unsubscribes the event listener.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>イベントリスナーの登録を解除する使い捨て</p>
 </div></td></tr>
 </table>
 </div>
@@ -3770,11 +3738,11 @@ a listener function as argument.</p>
 
 
 
-<div class="comment"><p>An event emitter can be used to create and manage an <a href="#Event">event</a> for others
-to subscribe to. One emitter always owns one event.</p>
-<p>Use this class if you want to provide event from within your extension, for instance
-inside a <a href="#TextDocumentContentProvider">TextDocumentContentProvider</a> or when providing
-API to other extensions.</p>
+<div class="comment"><p>イベントエミッタを使用して、[イベント]（＃イベント）を作成して管理することができます
+購読する。エミッタは常に1つのイベントを所有します。</p>
+<p>エクステンション内からイベントを提供する場合は、このクラスを使用します
+[TextDocumentContentProvider]（＃TextDocumentContentProvider）内または提供時
+他の拡張機能へのAPI。</p>
 </div>
 
 #### Properties
@@ -3783,7 +3751,7 @@ API to other extensions.</p>
 
 <a name="EventEmitter.event"></a><span class="ts" id=432 data-target="#details-432" data-toggle="collapse"><span class="ident">event</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
 <div class="details collapse" id="details-432">
-<div class="comment"><p>The event listeners can subscribe to.</p>
+<div class="comment"><p>イベントリスナーは購読できます。</p>
 </div>
 </div>
 
@@ -3793,7 +3761,7 @@ API to other extensions.</p>
 
 <a name="EventEmitter.dispose"></a><span class="ts" id=437 data-target="#details-437" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-437">
-<div class="comment"><p>Dispose this object and free resources.</p>
+<div class="comment"><p>このオブジェクトを廃棄し、リソースを解放します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -3807,14 +3775,13 @@ API to other extensions.</p>
 
 <a name="EventEmitter.fire"></a><span class="ts" id=434 data-target="#details-434" data-toggle="collapse"><span class="ident">fire</span><span>(</span><span class="ident">data</span><span>?</span><span>: </span><a class="type-instrinct">T</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-434">
-<div class="comment"><p>Notify all subscribers of the <a href="EventEmitter#event">event</a>. Failure
-of one or more listener will not fail this function call.</p>
+<div class="comment"><p>[イベント]（EventEmitter＃イベント）のすべての加入者に通知します。失敗
+1つ以上のリスナーの*はこの関数呼び出しを失敗しません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="data"></a><span class="ts" id=435 data-target="#details-435" data-toggle="collapse"><span class="ident">data</span><span>?</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>The event object.</p>
-</div></td></tr>
+<tr><td><a name="data"></a><span class="ts" id=435 data-target="#details-435" data-toggle="collapse"><span class="ident">data</span><span>?</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -3972,10 +3939,10 @@ of the currently opened <a href="#workspace.rootPath">workspace</a>.</p>
 
 
 
-<div class="comment"><p>A file system watcher notifies about changes to files and folders
-on disk.</p>
-<p>To get an instance of a <code>FileSystemWatcher</code> use
-<a href="#workspace.createFileSystemWatcher">createFileSystemWatcher</a>.</p>
+<div class="comment"><p>ファイルシステムウォッチャーは、ファイルやフォルダの変更を通知します
+ディスク上の*。</p>
+<p><code>FileSystemWatcher</code>のインスタンスを取得するには
+[createFileSystemWatcher]（＃workspace.createFileSystemWatcher）。</p>
 </div>
 
 #### Events
@@ -3984,7 +3951,7 @@ on disk.</p>
 
 <a name="FileSystemWatcher.onDidChange"></a><span class="ts" id=443 data-target="#details-443" data-toggle="collapse"><span class="ident">onDidChange</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#Uri">Uri</a>&gt;</span>
 <div class="details collapse" id="details-443">
-<div class="comment"><p>An event which fires on file/folder change.</p>
+<div class="comment"><p>ファイル/フォルダの変更で発生するイベント。</p>
 </div>
 </div>
 
@@ -3992,7 +3959,7 @@ on disk.</p>
 
 <a name="FileSystemWatcher.onDidCreate"></a><span class="ts" id=442 data-target="#details-442" data-toggle="collapse"><span class="ident">onDidCreate</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#Uri">Uri</a>&gt;</span>
 <div class="details collapse" id="details-442">
-<div class="comment"><p>An event which fires on file/folder creation.</p>
+<div class="comment"><p>ファイル/フォルダ作成時に発生するイベント。</p>
 </div>
 </div>
 
@@ -4000,7 +3967,7 @@ on disk.</p>
 
 <a name="FileSystemWatcher.onDidDelete"></a><span class="ts" id=444 data-target="#details-444" data-toggle="collapse"><span class="ident">onDidDelete</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#Uri">Uri</a>&gt;</span>
 <div class="details collapse" id="details-444">
-<div class="comment"><p>An event which fires on file/folder deletion.</p>
+<div class="comment"><p>ファイル/フォルダの削除で発生するイベント。</p>
 </div>
 </div>
 
@@ -4010,18 +3977,17 @@ on disk.</p>
 
 <a name="FileSystemWatcher.from"></a><span class="ts" id=446 data-target="#details-446" data-toggle="collapse"><span class="ident">from</span><span>(</span><span>...</span><span class="ident">disposableLikes</span><span>: </span>{dispose: () =&gt; <a class="type-instrinct">any</a>}[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-446">
-<div class="comment"><p>Combine many disposable-likes into one. Use this method
-when having objects with a dispose function which are not
-instances of Disposable.</p>
+<div class="comment"><p>1つに多くの使い捨ての好きなものを組み合わせる。このメソッドを使用する
+dispose関数を持つオブジェクトがない場合
+Disposableのインスタンス。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="disposableLikes"></a><span class="ts" id=447 data-target="#details-447" data-toggle="collapse"><span>...</span><span class="ident">disposableLikes</span><span>: </span>{dispose: () =&gt; <a class="type-instrinct">any</a>}[]</span></td><td><div class="comment"><p>Objects that have at least a <code>dispose</code>-function member.</p>
-</div></td></tr>
+<tr><td><a name="disposableLikes"></a><span class="ts" id=447 data-target="#details-447" data-toggle="collapse"><span>...</span><span class="ident">disposableLikes</span><span>: </span>{dispose: () =&gt; <a class="type-instrinct">any</a>}[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>Returns a new disposable which, upon dispose, will
-dispose all provided disposables.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>新しいディスポーザブルを返します。
+すべてのディスポーザブルを処分してください。</p>
 </div></td></tr>
 </table>
 </div>
@@ -4033,14 +3999,13 @@ dispose all provided disposables.</p>
 
 <a name="FileSystemWatcher.new FileSystemWatcher"></a><span class="ts" id=453 data-target="#details-453" data-toggle="collapse"><span class="ident">new FileSystemWatcher</span><span>(</span><span class="ident">callOnDispose</span><span>: </span><a class="type-ref" href="#Function">Function</a><span>)</span><span>: </span><a class="type-ref" href="#FileSystemWatcher">FileSystemWatcher</a></span>
 <div class="details collapse" id="details-453">
-<div class="comment"><p>Creates a new Disposable calling the provided function
-on dispose.</p>
+<div class="comment"><p>提供された関数を呼び出す新しいDisposableを作成します。
+処分する。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="callOnDispose"></a><span class="ts" id=454 data-target="#details-454" data-toggle="collapse"><span class="ident">callOnDispose</span><span>: </span><a class="type-ref" href="#Function">Function</a></span></td><td><div class="comment"><p>Function that disposes something.</p>
-</div></td></tr>
+<tr><td><a name="callOnDispose"></a><span class="ts" id=454 data-target="#details-454" data-toggle="collapse"><span class="ident">callOnDispose</span><span>: </span><a class="type-ref" href="#Function">Function</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#FileSystemWatcher">FileSystemWatcher</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -4053,8 +4018,8 @@ on dispose.</p>
 
 <a name="FileSystemWatcher.ignoreChangeEvents"></a><span class="ts" id=440 data-target="#details-440" data-toggle="collapse"><span class="ident">ignoreChangeEvents</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-440">
-<div class="comment"><p>true if this file system watcher has been created such that
-it ignores change file system events.</p>
+<div class="comment"><p>このファイルシステムウォッチャーが作成されている場合はtrue
+変更ファイルシステムのイベントは無視されます。</p>
 </div>
 </div>
 
@@ -4062,8 +4027,8 @@ it ignores change file system events.</p>
 
 <a name="FileSystemWatcher.ignoreCreateEvents"></a><span class="ts" id=439 data-target="#details-439" data-toggle="collapse"><span class="ident">ignoreCreateEvents</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-439">
-<div class="comment"><p>true if this file system watcher has been created such that
-it ignores creation file system events.</p>
+<div class="comment"><p>このファイルシステムウォッチャーが作成されている場合はtrue
+作成ファイルシステムのイベントは無視されます。</p>
 </div>
 </div>
 
@@ -4071,8 +4036,8 @@ it ignores creation file system events.</p>
 
 <a name="FileSystemWatcher.ignoreDeleteEvents"></a><span class="ts" id=441 data-target="#details-441" data-toggle="collapse"><span class="ident">ignoreDeleteEvents</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-441">
-<div class="comment"><p>true if this file system watcher has been created such that
-it ignores delete file system events.</p>
+<div class="comment"><p>このファイルシステムウォッチャーが作成されている場合はtrue
+ファイルシステムイベントの削除を無視します。</p>
 </div>
 </div>
 
@@ -4082,7 +4047,7 @@ it ignores delete file system events.</p>
 
 <a name="FileSystemWatcher.dispose"></a><span class="ts" id=456 data-target="#details-456" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">any</a></span>
 <div class="details collapse" id="details-456">
-<div class="comment"><p>Dispose this object.</p>
+<div class="comment"><p>このオブジェクトを廃棄します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
