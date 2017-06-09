@@ -20,7 +20,7 @@ var DIST = 'docs/extensionAPI/vscode-api.md';
 var VSCODE_VERSION = process.env['vscode-lastest'] ? process.env['vscode-lastest'] : '0bec115779b11a9d78bdb24ad7918c22524ea2ac' /* 1.12.0 */;
 
 function getVSCodeDefFileURL() {
-    return __dirname+"/../../../vscode/src/vs/vscode.d.ts"
+    return __dirname+"/../../../vscode/src/vs/vscode.d.ja.ts"
     if (VSCODE_VERSION === "latest") {
         return 'https://raw.githubusercontent.com/Microsoft/vscode/master/src/vs/vscode.d.ts';
     } else {
