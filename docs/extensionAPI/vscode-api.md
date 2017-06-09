@@ -14,8 +14,8 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 
 
 <div class="comment"><p>コマンドを扱うための名前空間。
-要するに、コマンドは固有の識別子を持つ関数です。
-この関数は<em>command handler</em>とも呼ばれます。</p>
+つまり、コマンドは固有の識別子を持つ関数です。
+この関数は、 <em>command handler</em> と呼ばれることもあります。</p>
 <p>コマンドは<a href="#commands.registerCommand">registerCommand</a>コマンドを使ってエディタに追加することができます。
 および<a href="#commands.registerTextEditorCommand">registerTextEditorCommand</a>関数を使用します。
 コマンドは<a href="#commands.executeCommand">手動で</a>またはUIジェスチャーから実行できます。
@@ -31,19 +31,19 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 <p>これは、コマンドハンドラを登録し、そのコマンドのエントリをパレットに追加するサンプルです。
 最初に識別子 &#39;extension.sayHello`を持つコマンドハンドラを登録します。</p>
 
-<pre><code class="lang-javascript">commands.registerCommand( <span class="hljs-string">'extension.sayHello'</span>、()=&gt; {
-<span class="hljs-built_in">window</span>.showInformationMessage( <span class="hljs-string">'Hello World！'</span>);
+<pre><code class="lang-javascript">commands.registerCommand(<span class="hljs-string">'extension.sayHello'</span>, () =&gt; {
+    <span class="hljs-built_in">window</span>.showInformationMessage(<span class="hljs-string">'Hello World!'</span>);
 });
 </code></pre>
 <p>次に、コマンド識別子をパレットに表示するタイトル( <code>package.json</code> )にバインドします。</p>
 
 <pre><code class="lang-json">{
-&quot;貢献する&quot;：{
-&quot;コマンド&quot;：[{
-&quot;command&quot;： &quot;extension.sayHello&quot;、
-&quot;title&quot;： &quot;Hello World&quot;
-}]
-}
+    <span class="hljs-attr">"contributes"</span>: {
+        <span class="hljs-attr">"commands"</span>: [{
+            <span class="hljs-attr">"command"</span>: <span class="hljs-string">"extension.sayHello"</span>,
+            <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Hello World"</span>
+        }]
+    }
 }
 </code></pre>
 </div>
@@ -96,10 +96,8 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 
 <a name="commands.registerCommand"></a><span class="ts" id=1174 data-target="#details-1174" data-toggle="collapse"><span class="ident">registerCommand</span><span>(</span><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">callback</span><span>: </span>(args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">any</a>, <span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1174">
-<div class="comment"><p>キーボードショートカットで呼び出すことができるコマンドを登録します。
-メニューアイテム、アクション、または直接。</p>
-<p>既存のコマンド識別子を持つコマンドを2回登録する
-エラーが発生します。</p>
+<div class="comment"><p>キーボードショートカット、メニューアイテム、アクション、または直接、呼び出すことができるコマンドを登録します。</p>
+<p>既存のコマンド識別子を2回使用してコマンドを登録すると、エラーが発生します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1782,8 +1780,8 @@ provideHover(ドキュメント、位置、トークン){
 
 <a name="CancellationTokenSource.dispose"></a><span class="ts" id=407 data-target="#details-407" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-407">
-<div class="comment"><p>オブジェクトを廃棄し、リソースを解放します。</p>
-<p><a href="#CancellationTokenSource.cancel">キャンセル</a>が呼び出されます。</p>
+<div class="comment"><p>オブジェクトを廃棄し、リソースを解放します。
+<a href="#CancellationTokenSource.cancel">キャンセル</a>が呼び出されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1827,7 +1825,7 @@ provideHover(ドキュメント、位置、トークン){
 
 
 <div class="comment"><p>コードアクションインタフェースは、拡張機能と<a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-action">電球</a>機能の間の契約を定義します。</p>
-<p>コードアクションは、システムに知られている(#commands.getCommands)任意のコマンドです。</p>
+<p>コードアクションは、システムに <a href="#commands.getCommands">登録されている</a> 任意のコマンドにすることができます。</p>
 </div>
 
 #### Methods
@@ -1841,13 +1839,17 @@ provideHover(ドキュメント、位置、トークン){
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=500 data-target="#details-500" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="range"></a><span class="ts" id=501 data-target="#details-501" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="context"></a><span class="ts" id=502 data-target="#details-502" data-toggle="collapse"><span class="ident">context</span><span>: </span><a class="type-ref" href="#CodeActionContext">CodeActionContext</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=503 data-target="#details-503" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=500 data-target="#details-500" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=501 data-target="#details-501" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>コマンドが呼び出された範囲。</p>
+</div></td></tr>
+<tr><td><a name="context"></a><span class="ts" id=502 data-target="#details-502" data-toggle="collapse"><span class="ident">context</span><span>: </span><a class="type-ref" href="#CodeActionContext">CodeActionContext</a></span></td><td><div class="comment"><p>追加情報を保持するコンテキスト。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=503 data-target="#details-503" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>コマンドの配列またはそのようなものからなる文字列。
-結果の欠如は、 <code>undefined</code> 、 <code>null</code> 、または空の配列を返すことによって通知できます。</p>
+結果の不足は、 <code>undefined</code> 、 <code>null</code> 、または空の配列を返すことによって通知することができます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1857,10 +1859,9 @@ provideHover(ドキュメント、位置、トークン){
 
 
 
-<div class="comment"><p>コードレンズは、<a href="#コマンド">コマンド</a>と一緒に表示する必要があります
-ソーステキスト、参照数、テスト実行方法など</p>
-<p>コードレンズは、コマンドが関連付けられていないときは_未解決です。パフォーマンスのために
-コードレンズの作成と解決を2段階にする必要がある理由。</p>
+<div class="comment"><p>コードレンズは、参照の数、テストを実行する方法など、ソーステキストとともに表示される<a href="#Command">コマンド</a>を表します</p>
+<p>コードレンズは、コマンドが関連付けられていないときは <em>unresolved</em> (未解決) です。
+パフォーマンス上の理由から、コードレンズの作成と分解は2つの段階に分かれていなければなりません。</p>
 <ul>
 <li><em>see</em> - <a href="#CodeLensProvider.provideCodeLenses">CodeLensProvider.provideCodeLenses</a></li>
 </ul>
@@ -1880,8 +1881,10 @@ provideHover(ドキュメント、位置、トークン){
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="range"></a><span class="ts" id=510 data-target="#details-510" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="command"></a><span class="ts" id=511 data-target="#details-511" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=510 data-target="#details-510" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>このコードレンズが適用される範囲。</p>
+</div></td></tr>
+<tr><td><a name="command"></a><span class="ts" id=511 data-target="#details-511" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span></td><td><div class="comment"><p>このコードレンズに関連付けられたコマンド。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#CodeLens">CodeLens</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -1902,7 +1905,7 @@ provideHover(ドキュメント、位置、トークン){
 
 <a name="CodeLens.isResolved"></a><span class="ts" id=507 data-target="#details-507" data-toggle="collapse"><span class="ident">isResolved</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-507">
-<div class="comment"><p>関連するコマンドがあるときは `true &#39;。</p>
+<div class="comment"><p>関連するコマンドがあるときは <code>true</code>。</p>
 </div>
 </div>
 
@@ -2527,7 +2530,7 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="DecorationInstanceRenderOptions.light"></a><span class="ts" id=313 data-target="#details-313" data-toggle="collapse"><span class="ident">light</span><span>?</span><span>: </span><a class="type-ref" href="#ThemableDecorationInstanceRenderOptions">ThemableDecorationInstanceRenderOptions</a></span>
 <div class="details collapse" id="details-313">
-<div class="comment"><p>ライトテーマの*上書きオプション。</p>
+<div class="comment"><p>ライトテーマの上書きオプション。</p>
 </div>
 </div>
 
@@ -3178,13 +3181,13 @@ Disposableのインスタンス。</p>
 
 <a name="Disposable.new Disposable"></a><span class="ts" id=417 data-target="#details-417" data-toggle="collapse"><span class="ident">new Disposable</span><span>(</span><span class="ident">callOnDispose</span><span>: </span><a class="type-ref" href="#Function">Function</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-417">
-<div class="comment"><p>提供された関数を呼び出す新しいDisposableを作成します。
-処分する。</p>
+<div class="comment"><p>提供された処分する関数を呼び出す新しいDisposableを作成します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="callOnDispose"></a><span class="ts" id=418 data-target="#details-418" data-toggle="collapse"><span class="ident">callOnDispose</span><span>: </span><a class="type-ref" href="#Function">Function</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="callOnDispose"></a><span class="ts" id=418 data-target="#details-418" data-toggle="collapse"><span class="ident">callOnDispose</span><span>: </span><a class="type-ref" href="#Function">Function</a></span></td><td><div class="comment"><p>何かを処理する関数。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -3617,7 +3620,7 @@ Disposableのインスタンス。</p>
 <p>あなたがそれを呼び出すことによって購読するイベントを表す関数。
 引数としてのリスナー関数。</p>
 <ul>
-<li><em>sample</em> - <code>item.onDidChange(function(event){console.log(&quot;イベントが発生しました： &quot;+ event);});</code></li>
+<li><em>sample</em> - <code>item.onDidChange(function(event) { console.log(&quot;Event happened: &quot; + event); });</code></li>
 </ul>
 </div>
 
@@ -3635,7 +3638,7 @@ Disposableのインスタンス。</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="listener"></a><span class="ts" id=424 data-target="#details-424" data-toggle="collapse"><span class="ident">listener</span><span>: </span>(e: <a class="type-instrinct">T</a>) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
 <tr><td><a name="thisArgs"></a><span class="ts" id=428 data-target="#details-428" data-toggle="collapse"><span class="ident">thisArgs</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="disposables"></a><span class="ts" id=429 data-target="#details-429" data-toggle="collapse"><span class="ident">disposables</span><span>?</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a>[]</span></td><td><div class="comment"><p>(#Disposable)が追加される配列。</p>
+<tr><td><a name="disposables"></a><span class="ts" id=429 data-target="#details-429" data-toggle="collapse"><span class="ident">disposables</span><span>?</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a>[]</span></td><td><div class="comment"><p>(#Disposable) が追加される配列。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>イベントリスナーの登録を解除する使い捨て</p>
@@ -3650,9 +3653,7 @@ Disposableのインスタンス。</p>
 
 <div class="comment"><p>イベントエミッターを使用すると、他の人が購読する<a href="#イベント">イベント</a>を作成および管理できます。
 1つのエミッタは常に1つのイベントを所有します。</p>
-<ul>
-<li><a href="#TextDocumentContentProvider">TextDocumentContentProvider</a>内などの拡張機能内からイベントを提供する場合や、他の拡張機能にAPIを提供する場合は、このクラスを使用します。</li>
-</ul>
+<p><a href="#TextDocumentContentProvider">TextDocumentContentProvider</a>内などの拡張機能内からイベントを提供する場合や、他の拡張機能にAPIを提供する場合は、このクラスを使用します。</p>
 </div>
 
 #### Properties
@@ -3903,13 +3904,13 @@ Disposableのインスタンス。</p>
 
 <a name="FileSystemWatcher.new FileSystemWatcher"></a><span class="ts" id=453 data-target="#details-453" data-toggle="collapse"><span class="ident">new FileSystemWatcher</span><span>(</span><span class="ident">callOnDispose</span><span>: </span><a class="type-ref" href="#Function">Function</a><span>)</span><span>: </span><a class="type-ref" href="#FileSystemWatcher">FileSystemWatcher</a></span>
 <div class="details collapse" id="details-453">
-<div class="comment"><p>提供された関数を呼び出す新しいDisposableを作成します。
-処分する。</p>
+<div class="comment"><p>提供された処分する関数を呼び出す新しいDisposableを作成します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="callOnDispose"></a><span class="ts" id=454 data-target="#details-454" data-toggle="collapse"><span class="ident">callOnDispose</span><span>: </span><a class="type-ref" href="#Function">Function</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="callOnDispose"></a><span class="ts" id=454 data-target="#details-454" data-toggle="collapse"><span class="ident">callOnDispose</span><span>: </span><a class="type-ref" href="#Function">Function</a></span></td><td><div class="comment"><p>何かを処理する関数。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#FileSystemWatcher">FileSystemWatcher</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -4790,9 +4791,8 @@ UIに表示されます。</p>
 
 
 <div class="comment"><p>カーソルの位置などの行と文字の位置を表します。</p>
-<p>位置オブジェクトは<strong>immutable</strong>です。</p>
-<p><a href="#Position.with">with</a>または
-<a href="#Position.translate">translate</a>メソッドを使用して、既存の位置から新しい位置を派生させます。</p>
+<p>位置オブジェクトは<strong>immutable</strong>です。
+<a href="#Position.with">with</a>または <a href="#Position.translate">translate</a>メソッドを使用して、既存の位置から新しい position を派生させます。</p>
 </div>
 
 #### Constructors
@@ -4839,12 +4839,13 @@ UIに表示されます。</p>
 
 <a name="Position.compareTo"></a><span class="ts" id=97 data-target="#details-97" data-toggle="collapse"><span class="ident">compareTo</span><span>(</span><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a><span>)</span><span>: </span><a class="type-instrinct">number</a></span>
 <div class="details collapse" id="details-97">
-<div class="comment"><p>これを <code>other</code> と比較してください。</p>
+<div class="comment"><p>これを <code>other</code> と比較します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="other"></a><span class="ts" id=98 data-target="#details-98" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="other"></a><span class="ts" id=98 data-target="#details-98" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>その他の位置。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>この位置が指定された位置の前にある場合は0より小さい数値、この位置が指定された位置の後にある場合は0より大きい数値、これと指定された位置が等しい場合はゼロです。</p>
 </div></td></tr>
@@ -4856,7 +4857,7 @@ UIに表示されます。</p>
 
 <a name="Position.isAfter"></a><span class="ts" id=88 data-target="#details-88" data-toggle="collapse"><span class="ident">isAfter</span><span>(</span><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a><span>)</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-88">
-<div class="comment"><p>この位置の後ろに <code>other</code> があるか確認してください。</p>
+<div class="comment"><p>この位置の後ろに <code>other</code> があるか確認します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -4878,7 +4879,8 @@ UIに表示されます。</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="other"></a><span class="ts" id=92 data-target="#details-92" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="other"></a><span class="ts" id=92 data-target="#details-92" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>その他の位置。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>positionがより大きい行にあるか、より大きいか等しい文字の同じ行にある場合はtrueを返します。</p>
 </div></td></tr>
@@ -4897,7 +4899,7 @@ UIに表示されます。</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="other"></a><span class="ts" id=83 data-target="#details-83" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>positionが小さい行にある場合、または小さい文字の同じ行にある場合は `true &#39;</p>
+<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>positionが小さい行にある場合、または小さい文字の同じ行にある場合は <code>true</code></p>
 </div></td></tr>
 </table>
 </div>
@@ -4907,14 +4909,15 @@ UIに表示されます。</p>
 
 <a name="Position.isBeforeOrEqual"></a><span class="ts" id=85 data-target="#details-85" data-toggle="collapse"><span class="ident">isBeforeOrEqual</span><span>(</span><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a><span>)</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-85">
-<div class="comment"><p><code>other</code> がこの位置の前かどうかを確認してください。</p>
+<div class="comment"><p><code>other</code> がこの position の前かどうかを確認します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="other"></a><span class="ts" id=86 data-target="#details-86" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="other"></a><span class="ts" id=86 data-target="#details-86" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>その他の位置。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>positionが小さい行にある場合、または小さい文字または同じ文字の同じ行にある場合はtrueを返します。</p>
+<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>position が小さい行にある場合、または小さい文字または同じ文字の同じ行にある場合はtrueを返します。</p>
 </div></td></tr>
 </table>
 </div>
@@ -4924,14 +4927,15 @@ UIに表示されます。</p>
 
 <a name="Position.isEqual"></a><span class="ts" id=94 data-target="#details-94" data-toggle="collapse"><span class="ident">isEqual</span><span>(</span><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a><span>)</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-94">
-<div class="comment"><p><code>other</code> がこの位置に等しいかどうか確認してください。</p>
+<div class="comment"><p><code>other</code> がこの位置に等しいかどうか確認します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="other"></a><span class="ts" id=95 data-target="#details-95" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="other"></a><span class="ts" id=95 data-target="#details-95" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>その他の位置。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>指定された位置の行と文字がこの位置の行と文字と等しい場合は `true &#39;</p>
+<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>指定された位置の行と文字がこの位置の行と文字と等しい場合は <code>true</code></p>
 </div></td></tr>
 </table>
 </div>
@@ -4946,8 +4950,12 @@ UIに表示されます。</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="lineDelta"></a><span class="ts" id=101 data-target="#details-101" data-toggle="collapse"><span class="ident">lineDelta</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="characterDelta"></a><span class="ts" id=102 data-target="#details-102" data-toggle="collapse"><span class="ident">characterDelta</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="lineDelta"></a><span class="ts" id=101 data-target="#details-101" data-toggle="collapse"><span class="ident">lineDelta</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>ライン値のデルタ値。
+デフォルトは <code>0</code> です。</p>
+</div></td></tr>
+<tr><td><a name="characterDelta"></a><span class="ts" id=102 data-target="#details-102" data-toggle="collapse"><span class="ident">characterDelta</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>文字値のデルタ値。
+デフォルトは <code>0</code> です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>現在の行と文字、および対応するデルタの合計である行と文字の位置。</p>
 </div></td></tr>
@@ -4959,15 +4967,16 @@ UIに表示されます。</p>
 
 <a name="Position.translate"></a><span class="ts" id=103 data-target="#details-103" data-toggle="collapse"><span class="ident">translate</span><span>(</span><span class="ident">change</span><span>: </span>{characterDelta: <a class="type-instrinct">number</a>, lineDelta: <a class="type-instrinct">number</a>}<span>)</span><span>: </span><a class="type-ref" href="#Position">Position</a></span>
 <div class="details collapse" id="details-103">
-<div class="comment"><p>このポジションに関連して新しいポジションを導き出しました。</p>
+<div class="comment"><p>このポジションに関連して新しいポジションを導出します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="change"></a><span class="ts" id=104 data-target="#details-104" data-toggle="collapse"><span class="ident">change</span><span>: </span>{characterDelta: <a class="type-instrinct">number</a>, lineDelta: <a class="type-instrinct">number</a>}</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="change"></a><span class="ts" id=104 data-target="#details-104" data-toggle="collapse"><span class="ident">change</span><span>: </span>{characterDelta: <a class="type-instrinct">number</a>, lineDelta: <a class="type-instrinct">number</a>}</span></td><td><div class="comment"><p>この位置へのデルタを記述するオブジェクト。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>指定されたデルタを反映する位置。
-変更が何も変更していない場合、 <code>this</code> の位置に戻ります。</p>
+変更が何も変更していない場合、 <code>this</code> の位置が返ります。</p>
 </div></td></tr>
 </table>
 </div>
@@ -4995,15 +5004,16 @@ UIに表示されます。</p>
 
 <a name="Position.with"></a><span class="ts" id=112 data-target="#details-112" data-toggle="collapse"><span class="ident">with</span><span>(</span><span class="ident">change</span><span>: </span>{character: <a class="type-instrinct">number</a>, line: <a class="type-instrinct">number</a>}<span>)</span><span>: </span><a class="type-ref" href="#Position">Position</a></span>
 <div class="details collapse" id="details-112">
-<div class="comment"><p>このポジションから新しいポジションを導き出した。</p>
+<div class="comment"><p>このポジションから新しいポジションを導き出します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="change"></a><span class="ts" id=113 data-target="#details-113" data-toggle="collapse"><span class="ident">change</span><span>: </span>{character: <a class="type-instrinct">number</a>, line: <a class="type-instrinct">number</a>}</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="change"></a><span class="ts" id=113 data-target="#details-113" data-toggle="collapse"><span class="ident">change</span><span>: </span>{character: <a class="type-instrinct">number</a>, line: <a class="type-instrinct">number</a>}</span></td><td><div class="comment"><p>この位置への変更を記述するオブジェクトです。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>指定された変更を反映する位置。
-変更が何も変更していない場合、 <code>this</code> の位置に戻ります。</p>
+変更が何も変更していない場合、 <code>this</code> の位置が返ります。</p>
 </div></td></tr>
 </table>
 </div>
@@ -5239,10 +5249,10 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 
 
-<div class="comment"><p>範囲は、2つの位置の順序付けられたペアを表します。</p>
-<p><a href="#Range.start">開始</a>.isBeforeOrEqual(<a href="#Range.end">終了</a>)が保証されます。</p>
+<div class="comment"><p>範囲は、2つの位置の順序付けられたペアを表します。
+<a href="#Range.start">開始</a>.isBeforeOrEqual(<a href="#Range.end">終了</a>)が保証されます。</p>
 <p>Rangeオブジェクトは<strong>immutable</strong>です。</p>
-<p><a href="#Range.with">with</a>を使用して、
+<p><a href="#Range.with">with</a>、
 <a href="#Range.intersection">intersection</a>、または<a href="#Range.union">union</a>メソッドを使用して、既存の範囲から新しい範囲を派生させます。</p>
 </div>
 
@@ -5258,8 +5268,10 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="start"></a><span class="ts" id=122 data-target="#details-122" data-toggle="collapse"><span class="ident">start</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="end"></a><span class="ts" id=123 data-target="#details-123" data-toggle="collapse"><span class="ident">end</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="start"></a><span class="ts" id=122 data-target="#details-122" data-toggle="collapse"><span class="ident">start</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>位置。</p>
+</div></td></tr>
+<tr><td><a name="end"></a><span class="ts" id=123 data-target="#details-123" data-toggle="collapse"><span class="ident">end</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>位置。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -5271,7 +5283,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <a name="Range.new Range"></a><span class="ts" id=124 data-target="#details-124" data-toggle="collapse"><span class="ident">new Range</span><span>(</span><span class="ident">startLine</span><span>: </span><a class="type-instrinct">number</a>, <span class="ident">startCharacter</span><span>: </span><a class="type-instrinct">number</a>, <span class="ident">endLine</span><span>: </span><a class="type-instrinct">number</a>, <span class="ident">endCharacter</span><span>: </span><a class="type-instrinct">number</a><span>)</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
 <div class="details collapse" id="details-124">
 <div class="comment"><p>数値座標から新しい範囲を作成します。
-新しい範囲(新しい位置(startLine、startCharacter)、新しい位置(endLine、endCharacter))を使用することと同等です。</p>
+新しい範囲 <code>new Range(new Position(startLine, startCharacter), new Position(endLine, endCharacter))</code> を使用することと同等です。</p>
 <p><code>start</code> が <code>end</code> の前にないか等しい場合、値は入れ替えられます。</p>
 </div>
 <div class="signature">
@@ -5279,7 +5291,8 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="startLine"></a><span class="ts" id=125 data-target="#details-125" data-toggle="collapse"><span class="ident">startLine</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>0から始まる行の値。</p>
 </div></td></tr>
-<tr><td><a name="startCharacter"></a><span class="ts" id=126 data-target="#details-126" data-toggle="collapse"><span class="ident">startCharacter</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="startCharacter"></a><span class="ts" id=126 data-target="#details-126" data-toggle="collapse"><span class="ident">startCharacter</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>ゼロから始まる文字値。</p>
+</div></td></tr>
 <tr><td><a name="endLine"></a><span class="ts" id=127 data-target="#details-127" data-toggle="collapse"><span class="ident">endLine</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>0から始まる行の値。</p>
 </div></td></tr>
 <tr><td><a name="endCharacter"></a><span class="ts" id=128 data-target="#details-128" data-toggle="collapse"><span class="ident">endCharacter</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>0から始まる文字値。</p>
@@ -5296,8 +5309,8 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="Range.end"></a><span class="ts" id=119 data-target="#details-119" data-toggle="collapse"><span class="ident">end</span><span>: </span><a class="type-ref" href="#Position">Position</a></span>
 <div class="details collapse" id="details-119">
-<div class="comment"><p>終わりの位置。</p>
-<p><a href="#Range.start">開始</a>以後です。</p>
+<div class="comment"><p>終了位置。</p>
+<p><a href="#Range.start">start</a> と同じか後ろです。</p>
 </div>
 </div>
 
@@ -5322,7 +5335,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <a name="Range.start"></a><span class="ts" id=118 data-target="#details-118" data-toggle="collapse"><span class="ident">start</span><span>: </span><a class="type-ref" href="#Position">Position</a></span>
 <div class="details collapse" id="details-118">
 <div class="comment"><p>開始位置。
-これは<a href="#Range.end">end</a>と同じかそれ以上です。</p>
+これは <a href="#Range.end">end</a> と同じか手前です。</p>
 </div>
 </div>
 
@@ -5337,9 +5350,10 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="positionOrRange"></a><span class="ts" id=133 data-target="#details-133" data-toggle="collapse"><span class="ident">positionOrRange</span><span>: </span><a class="type-ref" href="#Position">Position</a> &#124; <a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="positionOrRange"></a><span class="ts" id=133 data-target="#details-133" data-toggle="collapse"><span class="ident">positionOrRange</span><span>: </span><a class="type-ref" href="#Position">Position</a> &#124; <a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>位置または範囲です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>位置または範囲がこの範囲の中またはそれに等しい場合は `true &#39;</p>
+<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>位置または範囲がこの範囲の中またはそれに等しい場合は <code>true</code></p>
 </div></td></tr>
 </table>
 </div>
@@ -5349,13 +5363,13 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="Range.intersection"></a><span class="ts" id=138 data-target="#details-138" data-toggle="collapse"><span class="ident">intersection</span><span>(</span><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a><span>)</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-instrinct">undefined</a></span>
 <div class="details collapse" id="details-138">
-<div class="comment"><p>この範囲で <code>range</code> を交差させ、新しい範囲または <code>undefined</code> を返します。
-範囲に重複がない場合</p>
+<div class="comment"><p>この範囲で <code>range</code> を交差させ、新しい範囲または 範囲に重複がない場合 <code>undefined</code> を返します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="range"></a><span class="ts" id=139 data-target="#details-139" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=139 data-target="#details-139" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>範囲です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>より大きい開始位置と終了位置の範囲。
 オーバーラップがない場合は未定義に戻ります。</p>
@@ -5368,14 +5382,15 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="Range.isEqual"></a><span class="ts" id=135 data-target="#details-135" data-toggle="collapse"><span class="ident">isEqual</span><span>(</span><span class="ident">other</span><span>: </span><a class="type-ref" href="#Range">Range</a><span>)</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-135">
-<div class="comment"><p><code>other</code> がこの範囲に等しいかどうか確認してください。</p>
+<div class="comment"><p><code>other</code> がこの範囲に等しいかどうか確認します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="other"></a><span class="ts" id=136 data-target="#details-136" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="other"></a><span class="ts" id=136 data-target="#details-136" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>その他の範囲。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>この範囲の開始と終了を開始と終了が<a href="#Position.isEqual">等しい</a>の場合はtrueを返します。</p>
+<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>この範囲の開始と終了を開始と終了が <a href="#Position.isEqual">等しい</a> 場合は <code>true</code> を返します。</p>
 </div></td></tr>
 </table>
 </div>
@@ -5390,7 +5405,8 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="other"></a><span class="ts" id=142 data-target="#details-142" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="other"></a><span class="ts" id=142 data-target="#details-142" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>その他の範囲。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>小さい開始位置と大きい終了位置の範囲。</p>
 </div></td></tr>
@@ -5402,7 +5418,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="Range.with"></a><span class="ts" id=144 data-target="#details-144" data-toggle="collapse"><span class="ident">with</span><span>(</span><span class="ident">start</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">end</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a><span>)</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
 <div class="details collapse" id="details-144">
-<div class="comment"><p>この範囲から新しい範囲を導き出しました。</p>
+<div class="comment"><p>この範囲から新しい範囲を導き出します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -5423,7 +5439,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="Range.with"></a><span class="ts" id=147 data-target="#details-147" data-toggle="collapse"><span class="ident">with</span><span>(</span><span class="ident">change</span><span>: </span>{end: <a class="type-ref" href="#Position">Position</a>, start: <a class="type-ref" href="#Position">Position</a>}<span>)</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
 <div class="details collapse" id="details-147">
-<div class="comment"><p>この範囲から新しい範囲を導き出しました。</p>
+<div class="comment"><p>この範囲から新しい範囲を導き出します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -5572,7 +5588,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <a name="Selection.active"></a><span class="ts" id=154 data-target="#details-154" data-toggle="collapse"><span class="ident">active</span><span>: </span><a class="type-ref" href="#Position">Position</a></span>
 <div class="details collapse" id="details-154">
 <div class="comment"><p>カーソルの位置。
-この位置は[anchor]の前後にある可能性があります(#Selection.anchor)。</p>
+この位置は <a href="#Selection.anchor">anchor</a> の前後にある可能性があります。</p>
 </div>
 </div>
 
@@ -5581,7 +5597,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <a name="Selection.anchor"></a><span class="ts" id=153 data-target="#details-153" data-toggle="collapse"><span class="ident">anchor</span><span>: </span><a class="type-ref" href="#Position">Position</a></span>
 <div class="details collapse" id="details-153">
 <div class="comment"><p>選択が始まる位置。
-この位置は、<a href="#Selection.active">アクティブ</a>の前後にある可能性があります。</p>
+この位置は、 <a href="#Selection.active">アクティブ</a> の前後にある可能性があります。</p>
 </div>
 </div>
 
@@ -5589,8 +5605,8 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="Selection.end"></a><span class="ts" id=166 data-target="#details-166" data-toggle="collapse"><span class="ident">end</span><span>: </span><a class="type-ref" href="#Position">Position</a></span>
 <div class="details collapse" id="details-166">
-<div class="comment"><p>終わりの位置。</p>
-<p><a href="#Range.start">開始</a>以後です。</p>
+<div class="comment"><p>終了位置。</p>
+<p><a href="#Range.start">start</a> と同じか後ろです。</p>
 </div>
 </div>
 
@@ -5623,7 +5639,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <a name="Selection.start"></a><span class="ts" id=165 data-target="#details-165" data-toggle="collapse"><span class="ident">start</span><span>: </span><a class="type-ref" href="#Position">Position</a></span>
 <div class="details collapse" id="details-165">
 <div class="comment"><p>開始位置。
-これは<a href="#Range.end">end</a>と同じかそれ以上です。</p>
+これは <a href="#Range.end">end</a> と同じか手前です。</p>
 </div>
 </div>
 
@@ -5638,9 +5654,10 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="positionOrRange"></a><span class="ts" id=171 data-target="#details-171" data-toggle="collapse"><span class="ident">positionOrRange</span><span>: </span><a class="type-ref" href="#Position">Position</a> &#124; <a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="positionOrRange"></a><span class="ts" id=171 data-target="#details-171" data-toggle="collapse"><span class="ident">positionOrRange</span><span>: </span><a class="type-ref" href="#Position">Position</a> &#124; <a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>位置または範囲です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>位置または範囲がこの範囲の中またはそれに等しい場合は `true &#39;</p>
+<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>位置または範囲がこの範囲の中またはそれに等しい場合は <code>true</code></p>
 </div></td></tr>
 </table>
 </div>
@@ -5650,13 +5667,13 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="Selection.intersection"></a><span class="ts" id=176 data-target="#details-176" data-toggle="collapse"><span class="ident">intersection</span><span>(</span><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a><span>)</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-instrinct">undefined</a></span>
 <div class="details collapse" id="details-176">
-<div class="comment"><p>この範囲で <code>range</code> を交差させ、新しい範囲または <code>undefined</code> を返します。
-範囲に重複がない場合</p>
+<div class="comment"><p>この範囲で <code>range</code> を交差させ、新しい範囲または 範囲に重複がない場合 <code>undefined</code> を返します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="range"></a><span class="ts" id=177 data-target="#details-177" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=177 data-target="#details-177" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>範囲です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>より大きい開始位置と終了位置の範囲。
 オーバーラップがない場合は未定義に戻ります。</p>
@@ -5669,14 +5686,15 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="Selection.isEqual"></a><span class="ts" id=173 data-target="#details-173" data-toggle="collapse"><span class="ident">isEqual</span><span>(</span><span class="ident">other</span><span>: </span><a class="type-ref" href="#Range">Range</a><span>)</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-173">
-<div class="comment"><p><code>other</code> がこの範囲に等しいかどうか確認してください。</p>
+<div class="comment"><p><code>other</code> がこの範囲に等しいかどうか確認します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="other"></a><span class="ts" id=174 data-target="#details-174" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="other"></a><span class="ts" id=174 data-target="#details-174" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>その他の範囲。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>この範囲の開始と終了を開始と終了が<a href="#Position.isEqual">等しい</a>の場合はtrueを返します。</p>
+<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>この範囲の開始と終了を開始と終了が <a href="#Position.isEqual">等しい</a> 場合は <code>true</code> を返します。</p>
 </div></td></tr>
 </table>
 </div>
@@ -5691,7 +5709,8 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="other"></a><span class="ts" id=180 data-target="#details-180" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="other"></a><span class="ts" id=180 data-target="#details-180" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>その他の範囲。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>小さい開始位置と大きい終了位置の範囲。</p>
 </div></td></tr>
@@ -5703,7 +5722,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="Selection.with"></a><span class="ts" id=182 data-target="#details-182" data-toggle="collapse"><span class="ident">with</span><span>(</span><span class="ident">start</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">end</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a><span>)</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
 <div class="details collapse" id="details-182">
-<div class="comment"><p>この範囲から新しい範囲を導き出しました。</p>
+<div class="comment"><p>この範囲から新しい範囲を導き出します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -5724,7 +5743,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="Selection.with"></a><span class="ts" id=185 data-target="#details-185" data-toggle="collapse"><span class="ident">with</span><span>(</span><span class="ident">change</span><span>: </span>{end: <a class="type-ref" href="#Position">Position</a>, start: <a class="type-ref" href="#Position">Position</a>}<span>)</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
 <div class="details collapse" id="details-185">
-<div class="comment"><p>この範囲から新しい範囲を導き出しました。</p>
+<div class="comment"><p>この範囲から新しい範囲を導き出します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -6791,8 +6810,7 @@ UIに表示されます。</p>
 
 
 <div class="comment"><p>ソースファイルなどのテキストドキュメントを表します。
-テキスト文書には
-<a href="#TextLine">lines</a>とファイルのような基礎となるリソースに関する知識。</p>
+テキストドキュメントには <a href="#TextLine">lines</a> とファイルのような基礎となるリソースに関する情報があります。</p>
 </div>
 
 #### Properties
@@ -6810,8 +6828,8 @@ UIに表示されます。</p>
 <a name="TextDocument.fileName"></a><span class="ts" id=40 data-target="#details-40" data-toggle="collapse"><span class="ident">fileName</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-40">
 <div class="comment"><p>関連リソースのファイルシステムパス。
-[TextDocument.uri.fsPath]の省略記​​法(#TextDocument.uri)。
-ウリ計画とは独立しています。</p>
+<a href="#TextDocument.uri">TextDocument.uri.fsPath</a> の省略記​​法。
+uri スキームとは独立しています。</p>
 </div>
 </div>
 
@@ -6828,7 +6846,7 @@ UIに表示されます。</p>
 
 <a name="TextDocument.isDirty"></a><span class="ts" id=44 data-target="#details-44" data-toggle="collapse"><span class="ident">isDirty</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-44">
-<div class="comment"><p>無修正の変更がある場合は `true &#39;。</p>
+<div class="comment"><p>無修正の変更がある場合は <code>true</code>。</p>
 </div>
 </div>
 
@@ -6836,7 +6854,7 @@ UIに表示されます。</p>
 
 <a name="TextDocument.isUntitled"></a><span class="ts" id=41 data-target="#details-41" data-toggle="collapse"><span class="ident">isUntitled</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-41">
-<div class="comment"><p>この文書は無題のファイルを表していますか？</p>
+<div class="comment"><p>この文書が無題のファイルを表しているか？</p>
 </div>
 </div>
 
@@ -6860,8 +6878,8 @@ UIに表示されます。</p>
 
 <a name="TextDocument.uri"></a><span class="ts" id=39 data-target="#details-39" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
 <div class="details collapse" id="details-39">
-<div class="comment"><p>このドキュメントの関連するURI。
-ほとんどのドキュメントには<strong>file </strong>-スキームがあり、ディスク上のファイルを表すことを示しています。
+<div class="comment"><p>このドキュメントの関連する URI。
+ほとんどのドキュメントには <strong>file</strong>-スキームがあり、ディスク上のファイルを表すことを示しています。
 ただし、ディスクによっては利用できないことを示す別のスキームがあるドキュメントもあります。</p>
 </div>
 </div>
@@ -6880,14 +6898,15 @@ UIに表示されます。</p>
 
 <a name="TextDocument.getText"></a><span class="ts" id=62 data-target="#details-62" data-toggle="collapse"><span class="ident">getText</span><span>(</span><span class="ident">range</span><span>?</span><span>: </span><a class="type-ref" href="#Range">Range</a><span>)</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-62">
-<div class="comment"><p>この文書のテキストを入手してください。
+<div class="comment"><p>この文書のテキストを取得します。
 範囲を指定すると、部分文字列を取得できます。
-範囲は調整されます(#TextDocument.validateRange)。</p>
+範囲は <a href="#TextDocument.validateRange">調整</a> されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="range"></a><span class="ts" id=63 data-target="#details-63" data-toggle="collapse"><span class="ident">range</span><span>?</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=63 data-target="#details-63" data-toggle="collapse"><span class="ident">range</span><span>?</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>範囲に含まれるテキストのみを含めます。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>指定された範囲内のテキストまたはテキスト全体。</p>
 </div></td></tr>
@@ -6904,14 +6923,16 @@ UIに表示されます。</p>
 また、langugeカスタムごとに
 <a href="#LanguageConfiguration.wordPattern">単語の定義</a>を定義することができます。
 カスタム正規表現を提供することも可能です。
-<em>注</em>カスタム正規表現は空の文字列と一致してはならず、そうであれば無視されます。</p>
-<p>位置は調整されます(#TextDocument.validatePosition)。</p>
+<em>注</em> カスタム正規表現は空の文字列と一致してはならず、そうであれば無視されます。</p>
+<p>位置は <a href="#TextDocument.validatePosition">調整</a> されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="position"></a><span class="ts" id=66 data-target="#details-66" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="regex"></a><span class="ts" id=67 data-target="#details-67" data-toggle="collapse"><span class="ident">regex</span><span>?</span><span>: </span><a class="type-ref" href="#RegExp">RegExp</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=66 data-target="#details-66" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>位置です。</p>
+</div></td></tr>
+<tr><td><a name="regex"></a><span class="ts" id=67 data-target="#details-67" data-toggle="collapse"><span class="ident">regex</span><span>?</span><span>: </span><a class="type-ref" href="#RegExp">RegExp</a></span></td><td><div class="comment"><p>単語が何であるかを記述するオプションの正規表現。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>単語にまたがる範囲、または <code>undefined</code> です。</p>
 </div></td></tr>
@@ -6923,13 +6944,13 @@ UIに表示されます。</p>
 
 <a name="TextDocument.lineAt"></a><span class="ts" id=51 data-target="#details-51" data-toggle="collapse"><span class="ident">lineAt</span><span>(</span><span class="ident">line</span><span>: </span><a class="type-instrinct">number</a><span>)</span><span>: </span><a class="type-ref" href="#TextLine">TextLine</a></span>
 <div class="details collapse" id="details-51">
-<div class="comment"><p>行番号で示されるテキスト行を返します。注意<em>返されたオブジェクトは</em> live *ではなく、
+<div class="comment"><p>行番号で示されるテキスト行を返します。注意 返されたオブジェクトは live では <em>なく</em>、
 文書は反映されません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="line"></a><span class="ts" id=52 data-target="#details-52" data-toggle="collapse"><span class="ident">line</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>の行番号です。</p>
+<tr><td><a name="line"></a><span class="ts" id=52 data-target="#details-52" data-toggle="collapse"><span class="ident">line</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>[0、lineCount) の行番号です。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TextLine">TextLine</a></span></td><td><div class="comment"><p>A <a href="#TextLine">行</a>。</p>
@@ -6943,7 +6964,7 @@ UIに表示されます。</p>
 <a name="TextDocument.lineAt"></a><span class="ts" id=53 data-target="#details-53" data-toggle="collapse"><span class="ident">lineAt</span><span>(</span><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a><span>)</span><span>: </span><a class="type-ref" href="#TextLine">TextLine</a></span>
 <div class="details collapse" id="details-53">
 <div class="comment"><p>位置によって示されるテキスト行を返します。
-返されたオブジェクトは生きていない*ことに注意してください。文書への変更は反映されません。</p>
+返されたオブジェクトは生きて<em>いない</em>ことに注意してください。文書への変更は反映されません。</p>
 <p>位置は調整されます(#TextDocument.validatePosition)。</p>
 <ul>
 <li><em>see</em> - <a href="#TextDocument.lineAt">TextDocument.lineAt</a></li>
@@ -6965,12 +6986,13 @@ UIに表示されます。</p>
 <a name="TextDocument.offsetAt"></a><span class="ts" id=56 data-target="#details-56" data-toggle="collapse"><span class="ident">offsetAt</span><span>(</span><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a><span>)</span><span>: </span><a class="type-instrinct">number</a></span>
 <div class="details collapse" id="details-56">
 <div class="comment"><p>位置をゼロベースのオフセットに変換します。</p>
-<p>位置は調整されます(#TextDocument.validatePosition)。</p>
+<p>位置は <a href="#TextDocument.validatePosition">調整</a> されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="position"></a><span class="ts" id=57 data-target="#details-57" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=57 data-target="#details-57" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>位置です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>有効なゼロベースのオフセットです。</p>
 </div></td></tr>
@@ -6982,14 +7004,15 @@ UIに表示されます。</p>
 
 <a name="TextDocument.positionAt"></a><span class="ts" id=59 data-target="#details-59" data-toggle="collapse"><span class="ident">positionAt</span><span>(</span><span class="ident">offset</span><span>: </span><a class="type-instrinct">number</a><span>)</span><span>: </span><a class="type-ref" href="#Position">Position</a></span>
 <div class="details collapse" id="details-59">
-<div class="comment"><p>ゼロベースのオフセットを位置に変換します。</p>
+<div class="comment"><p>ゼロベースのオフセットを Position に変換します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="offset"></a><span class="ts" id=60 data-target="#details-60" data-toggle="collapse"><span class="ident">offset</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="offset"></a><span class="ts" id=60 data-target="#details-60" data-toggle="collapse"><span class="ident">offset</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>ゼロベースのオフセット。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>有効な<a href="#位置">位置</a>。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>有効な <a href="#Position">Position</a>。</p>
 </div></td></tr>
 </table>
 </div>
@@ -7015,12 +7038,13 @@ UIに表示されます。</p>
 
 <a name="TextDocument.validatePosition"></a><span class="ts" id=72 data-target="#details-72" data-toggle="collapse"><span class="ident">validatePosition</span><span>(</span><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a><span>)</span><span>: </span><a class="type-ref" href="#Position">Position</a></span>
 <div class="details collapse" id="details-72">
-<div class="comment"><p>この文書の範囲に位置が含まれていることを確認してください。</p>
+<div class="comment"><p>この文書の範囲に position が含まれていることを確認します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="position"></a><span class="ts" id=73 data-target="#details-73" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=73 data-target="#details-73" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>位置です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>指定された位置または新しい、調整された位置。</p>
 </div></td></tr>
@@ -7032,12 +7056,13 @@ UIに表示されます。</p>
 
 <a name="TextDocument.validateRange"></a><span class="ts" id=69 data-target="#details-69" data-toggle="collapse"><span class="ident">validateRange</span><span>(</span><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a><span>)</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
 <div class="details collapse" id="details-69">
-<div class="comment"><p>この文書に範囲が完全に含まれていることを確認してください。</p>
+<div class="comment"><p>この文書に範囲が完全に含まれていることを確認します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="range"></a><span class="ts" id=70 data-target="#details-70" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=70 data-target="#details-70" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>範囲です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>指定された範囲または新しい調整済み範囲。</p>
 </div></td></tr>
@@ -7985,8 +8010,8 @@ UIに表示されます。</p>
 
 
 <div class="comment"><p>ソースコードなどのテキスト行を表します。</p>
-<p>TextLineオブジェクトは<strong>immutable</strong>です。</p>
-<p><a href="#TextDocument">document</a>が変更されると、以前に取得された行は最新の状態を表しません。</p>
+<p>TextLineオブジェクトは<strong>immutable</strong>です。
+<a href="#TextDocument">document</a> が変更されると、以前に取得された行は最新の状態を表しません。</p>
 </div>
 
 #### Properties
@@ -7995,8 +8020,8 @@ UIに表示されます。</p>
 
 <a name="TextLine.firstNonWhitespaceCharacterIndex"></a><span class="ts" id=36 data-target="#details-36" data-toggle="collapse"><span class="ident">firstNonWhitespaceCharacterIndex</span><span>: </span><a class="type-instrinct">number</a></span>
 <div class="details collapse" id="details-36">
-<div class="comment"><p><code>/ \ s /</code> で定義された空白文字ではない最初の文字のオフセット。
-<strong>注</strong>行がすべて空白の場合、行の長さが返されます。</p>
+<div class="comment"><p><code>/\s/</code> で定義された空白文字ではない最初の文字のオフセット。
+<strong>注</strong> 行がすべて空白の場合、行の長さが返されます。</p>
 </div>
 </div>
 
@@ -8004,7 +8029,7 @@ UIに表示されます。</p>
 
 <a name="TextLine.isEmptyOrWhitespace"></a><span class="ts" id=37 data-target="#details-37" data-toggle="collapse"><span class="ident">isEmptyOrWhitespace</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-37">
-<div class="comment"><p>この行が空白であるかどうかは、<a href="#TextLine.firstNonWhitespaceCharacterIndex">TextLine.firstNonWhitespaceCharacterIndex</a>=== <a href="#TextLine.text">TextLine.text.length</a>の省略形です。</p>
+<div class="comment"><p>この行が空白であるかどうかは、 <a href="#TextLine.firstNonWhitespaceCharacterIndex">TextLine.firstNonWhitespaceCharacterIndex</a> === <a href="#TextLine.text">TextLine.text.length</a> の省略形です。</p>
 </div>
 </div>
 
@@ -8570,9 +8595,8 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="Uri.file"></a><span class="ts" id=374 data-target="#details-374" data-toggle="collapse"><span class="ident">file</span><span>(</span><span class="ident">path</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
 <div class="details collapse" id="details-374">
-<div class="comment"><p>ファイルシステムパスからURIを作成します。</p>
-<p><a href="#Uri.scheme">スキーム</a>
-は <code>file</code> になります。</p>
+<div class="comment"><p>ファイルシステムパスからURIを作成します。
+<a href="#Uri.scheme">スキーム</a> は <code>file</code> になります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -8655,7 +8679,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="Uri.scheme"></a><span class="ts" id=379 data-target="#details-379" data-toggle="collapse"><span class="ident">scheme</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-379">
-<div class="comment"><p>Schemeは <code>http：//www.msft.com/some/path？query#fragment</code> の <code>http</code> 部分です。
+<div class="comment"><p>Schemeは <code>http://www.msft.com/some/path?query#fragment</code> の <code>http</code> 部分です。
 最初のコロンの前の部分。</p>
 </div>
 </div>
@@ -8701,10 +8725,12 @@ URIの表現と正規化はスキームに依存します。
 
 <a name="Uri.with"></a><span class="ts" id=386 data-target="#details-386" data-toggle="collapse"><span class="ident">with</span><span>(</span><span class="ident">change</span><span>: </span>{authority: <a class="type-instrinct">string</a>, fragment: <a class="type-instrinct">string</a>, path: <a class="type-instrinct">string</a>, query: <a class="type-instrinct">string</a>, scheme: <a class="type-instrinct">string</a>}<span>)</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
 <div class="details collapse" id="details-386">
-<div class="comment"><p>このウリから新しいウリを得る。</p>
-<p><code>ts* let file = Uri.parse( &#39;前：some / file / path&#39;);
-let other = file.with({scheme： &#39;after&#39;});
-assert.ok(other.toString()=== &#39;after：some / file / path&#39;);</code></p>
+<div class="comment"><p>このUri から新しい Uri を得る。</p>
+
+<pre><code class="lang-ts"><span class="hljs-keyword">let</span> file = Uri.parse(<span class="hljs-string">'before:some/file/path'</span>);
+<span class="hljs-keyword">let</span> other = file.with({ scheme: <span class="hljs-string">'after'</span> });
+assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'</span>);
+</code></pre>
 </div>
 <div class="signature">
 <table class="table table-bordered">
