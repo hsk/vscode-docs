@@ -2047,7 +2047,7 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="Command.tooltip"></a><span class="ts" id=29 data-target="#details-29" data-toggle="collapse"><span class="ident">tooltip</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-29">
-<div class="comment"><p>UIで表現されたときのコマンドのツールチップ。</p>
+<div class="comment"><p>UI で表現されたときのコマンドのツールチップ。</p>
 </div>
 </div>
 
@@ -2552,7 +2552,7 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="DecorationInstanceRenderOptions.dark"></a><span class="ts" id=314 data-target="#details-314" data-toggle="collapse"><span class="ident">dark</span><span>?</span><span>: </span><a class="type-ref" href="#ThemableDecorationInstanceRenderOptions">ThemableDecorationInstanceRenderOptions</a></span>
 <div class="details collapse" id="details-314">
-<div class="comment"><p>暗いテーマの上書きオプション。</p>
+<div class="comment"><p>ダークテーマの上書きオプション。</p>
 </div>
 </div>
 
@@ -2568,7 +2568,7 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 
 
-<div class="comment"><p><a href="#TextEditorDecorationType">デコレーションセット</a>内の特定のデコレーションのオプションを表します。</p>
+<div class="comment"><p><a href="#TextEditorDecorationType">デコレーションセット</a> 内の特定のデコレーションのオプションを表します。</p>
 </div>
 
 #### Properties
@@ -2640,7 +2640,7 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 
 
-<div class="comment"><p><a href="#TextEditorDecorationType">テキストエディタの装飾</a>のレンダリングスタイルを表します。</p>
+<div class="comment"><p><a href="#TextEditorDecorationType">テキストエディタの装飾</a> のレンダリングスタイルを表します。</p>
 </div>
 
 #### Properties
@@ -2658,8 +2658,8 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 <a name="DecorationRenderOptions.backgroundColor"></a><span class="ts" id=285 data-target="#details-285" data-toggle="collapse"><span class="ident">backgroundColor</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
 <div class="details collapse" id="details-285">
 <div class="comment"><p>装飾の背景色。
-rgba()を使用し、透明な背景色を定義して他の装飾とうまくやります。
-代替的に、カラーレジストリの色が参照されます(#ColorIdentifier)。</p>
+rgba() を使用し、透明な背景色を定義して他の装飾とうまくやります。
+代替的に、カラーレジストリの色が <a href="#ColorIdentifier">参照</a> されます。</p>
 </div>
 </div>
 
@@ -2675,7 +2675,7 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.border"></a><span class="ts" id=290 data-target="#details-290" data-toggle="collapse"><span class="ident">border</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-290">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -2683,8 +2683,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.borderColor"></a><span class="ts" id=291 data-target="#details-291" data-toggle="collapse"><span class="ident">borderColor</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
 <div class="details collapse" id="details-291">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々の境界線のプロパティを設定するために、「境界線」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々の境界線のプロパティを設定するために、 &#39;border&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -2692,8 +2692,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.borderRadius"></a><span class="ts" id=292 data-target="#details-292" data-toggle="collapse"><span class="ident">borderRadius</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-292">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々の境界線のプロパティを設定するために、「境界線」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々の境界線のプロパティを設定するために、 &#39;border&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -2701,8 +2701,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.borderSpacing"></a><span class="ts" id=293 data-target="#details-293" data-toggle="collapse"><span class="ident">borderSpacing</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-293">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々の境界線のプロパティを設定するために、「境界線」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々の境界線のプロパティを設定するために、 &#39;border&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -2710,8 +2710,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.borderStyle"></a><span class="ts" id=294 data-target="#details-294" data-toggle="collapse"><span class="ident">borderStyle</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-294">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々の境界線のプロパティを設定するために、「境界線」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々の境界線のプロパティを設定するために、 &#39;border&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -2719,8 +2719,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.borderWidth"></a><span class="ts" id=295 data-target="#details-295" data-toggle="collapse"><span class="ident">borderWidth</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-295">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々の境界線のプロパティを設定するために、「境界線」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々の境界線のプロパティを設定するために、 &#39;border&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -2728,7 +2728,7 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.color"></a><span class="ts" id=298 data-target="#details-298" data-toggle="collapse"><span class="ident">color</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
 <div class="details collapse" id="details-298">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -2736,7 +2736,7 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.cursor"></a><span class="ts" id=297 data-target="#details-297" data-toggle="collapse"><span class="ident">cursor</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-297">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -2744,7 +2744,7 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.dark"></a><span class="ts" id=284 data-target="#details-284" data-toggle="collapse"><span class="ident">dark</span><span>?</span><span>: </span><a class="type-ref" href="#ThemableDecorationRenderOptions">ThemableDecorationRenderOptions</a></span>
 <div class="details collapse" id="details-284">
-<div class="comment"><p>暗いテーマの上書きオプション。</p>
+<div class="comment"><p>ダークテーマの上書きオプション。</p>
 </div>
 </div>
 
@@ -2752,7 +2752,7 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.gutterIconPath"></a><span class="ts" id=300 data-target="#details-300" data-toggle="collapse"><span class="ident">gutterIconPath</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span>
 <div class="details collapse" id="details-300">
-<div class="comment"><p><strong>絶対パス</strong>またはガターにレンダリングされる画像へのURI。</p>
+<div class="comment"><p>ガターにレンダリングされる画像への <strong>絶対 path</strong> または URI 。</p>
 </div>
 </div>
 
@@ -2762,7 +2762,7 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 <div class="details collapse" id="details-301">
 <div class="comment"><p>ガターアイコンのサイズを指定します。
 使用可能な値は &#39;auto&#39;、 &#39;contains&#39;、 &#39;cover&#39;および任意のパーセント値です。
-詳細は<a href="https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspxを参照してください。">https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspxを参照してください。</a></p>
+詳細は <a href="https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspx</a> を参照してください。</p>
 </div>
 </div>
 
@@ -2786,7 +2786,7 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.light"></a><span class="ts" id=283 data-target="#details-283" data-toggle="collapse"><span class="ident">light</span><span>?</span><span>: </span><a class="type-ref" href="#ThemableDecorationRenderOptions">ThemableDecorationRenderOptions</a></span>
 <div class="details collapse" id="details-283">
-<div class="comment"><p>ライトテーマの*上書きオプション。</p>
+<div class="comment"><p>ライトテーマの上書きオプション。</p>
 </div>
 </div>
 
@@ -2794,7 +2794,7 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.outline"></a><span class="ts" id=286 data-target="#details-286" data-toggle="collapse"><span class="ident">outline</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-286">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -2802,8 +2802,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.outlineColor"></a><span class="ts" id=287 data-target="#details-287" data-toggle="collapse"><span class="ident">outlineColor</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
 <div class="details collapse" id="details-287">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々のアウトラインプロパティを設定する場合は、「アウトライン」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々のアウトラインプロパティを設定する場合は、 &#39;outline&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -2811,8 +2811,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.outlineStyle"></a><span class="ts" id=288 data-target="#details-288" data-toggle="collapse"><span class="ident">outlineStyle</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-288">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々のアウトラインプロパティを設定する場合は、「アウトライン」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々のアウトラインプロパティを設定する場合は、 &#39;outline&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -2820,8 +2820,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="DecorationRenderOptions.outlineWidth"></a><span class="ts" id=289 data-target="#details-289" data-toggle="collapse"><span class="ident">outlineWidth</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-289">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々のアウトラインプロパティを設定する場合は、「アウトライン」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々のアウトラインプロパティを設定する場合は、 &#39;outline&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -2855,7 +2855,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="DecorationRenderOptions.textDecoration"></a><span class="ts" id=296 data-target="#details-296" data-toggle="collapse"><span class="ident">textDecoration</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-296">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -4735,7 +4735,7 @@ Disposableのインスタンス。</p>
 
 
 
-<div class="comment"><p><a href="#DecorationRenderOptions.overviewRulerLane">概要ルーラー</a>で装飾をレンダリングするための異なる位置を表します。
+<div class="comment"><p><a href="#DecorationRenderOptions.overviewRulerLane">概要ルーラー</a> で装飾をレンダリングするための異なる位置を表します。
 概観ルーラーは3つのレーンをサポートしています。</p>
 </div>
 
@@ -4822,7 +4822,7 @@ UIに表示されます。</p>
 
 <div class="comment"><p>カーソルの位置などの行と文字の位置を表します。</p>
 <p>位置オブジェクトは<strong>immutable</strong>です。
-<a href="#Position.with">with</a>または <a href="#Position.translate">translate</a>メソッドを使用して、既存の位置から新しい position を派生させます。</p>
+<a href="#Position.with">with</a> または <a href="#Position.translate">translate</a> メソッドを使用して、既存の位置から新しい position を派生させます。</p>
 </div>
 
 #### Constructors
@@ -4859,7 +4859,7 @@ UIに表示されます。</p>
 
 <a name="Position.line"></a><span class="ts" id=75 data-target="#details-75" data-toggle="collapse"><span class="ident">line</span><span>: </span><a class="type-instrinct">number</a></span>
 <div class="details collapse" id="details-75">
-<div class="comment"><p>0から始まる行の値。</p>
+<div class="comment"><p>0 から始まる行の値。</p>
 </div>
 </div>
 
@@ -4894,7 +4894,7 @@ UIに表示されます。</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="other"></a><span class="ts" id=89 data-target="#details-89" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>positionが大きい行にある場合、または大きい文字の同じ行にある場合は `true &#39;</p>
+<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>position が大きい行にある場合、または大きい文字の同じ行にある場合は <code>true</code></p>
 </div></td></tr>
 </table>
 </div>
@@ -4912,7 +4912,7 @@ UIに表示されます。</p>
 <tr><td><a name="other"></a><span class="ts" id=92 data-target="#details-92" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>その他の位置。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>positionがより大きい行にあるか、より大きいか等しい文字の同じ行にある場合はtrueを返します。</p>
+<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>position がより大きい行にあるか、より大きいか等しい文字の同じ行にある場合はtrueを返します。</p>
 </div></td></tr>
 </table>
 </div>
@@ -4927,9 +4927,10 @@ UIに表示されます。</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="other"></a><span class="ts" id=83 data-target="#details-83" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="other"></a><span class="ts" id=83 data-target="#details-83" data-toggle="collapse"><span class="ident">other</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>その他の位置。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>positionが小さい行にある場合、または小さい文字の同じ行にある場合は <code>true</code></p>
+<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>position が小さい行にある場合、または小さい文字の同じ行にある場合は <code>true</code></p>
 </div></td></tr>
 </table>
 </div>
@@ -5282,10 +5283,10 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 
 <div class="comment"><p>範囲は、2つの位置の順序付けられたペアを表します。
-<a href="#Range.start">開始</a>.isBeforeOrEqual(<a href="#Range.end">終了</a>)が保証されます。</p>
+<a href="#Range.start">開始</a>.isBeforeOrEqual(<a href="#Range.end">終了</a>) が保証されます。</p>
 <p>Rangeオブジェクトは<strong>immutable</strong>です。</p>
 <p><a href="#Range.with">with</a>、
-<a href="#Range.intersection">intersection</a>、または<a href="#Range.union">union</a>メソッドを使用して、既存の範囲から新しい範囲を派生させます。</p>
+<a href="#Range.intersection">intersection</a>、 または <a href="#Range.union">union</a> メソッドを使用して、既存の範囲から新しい範囲を派生させます。</p>
 </div>
 
 #### Constructors
@@ -5458,7 +5459,9 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <tr><td><a name="start"></a><span class="ts" id=145 data-target="#details-145" data-toggle="collapse"><span class="ident">start</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>startとして使用する位置。
 デフォルト値は<a href="#Range.start">現在の開始位置</a>です。</p>
 </div></td></tr>
-<tr><td><a name="end"></a><span class="ts" id=146 data-target="#details-146" data-toggle="collapse"><span class="ident">end</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="end"></a><span class="ts" id=146 data-target="#details-146" data-toggle="collapse"><span class="ident">end</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>終了として使用されるべき位置。
+デフォルト値は<a href="#Range.end">現在の終了</a>です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>指定された開始位置と終了位置でこの範囲から派生した範囲。
 開始と終了が異なる場合、この範囲が返されます。</p>
@@ -5476,7 +5479,8 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="change"></a><span class="ts" id=148 data-target="#details-148" data-toggle="collapse"><span class="ident">change</span><span>: </span>{end: <a class="type-ref" href="#Position">Position</a>, start: <a class="type-ref" href="#Position">Position</a>}</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="change"></a><span class="ts" id=148 data-target="#details-148" data-toggle="collapse"><span class="ident">change</span><span>: </span>{end: <a class="type-ref" href="#Position">Position</a>, start: <a class="type-ref" href="#Position">Position</a>}</span></td><td><div class="comment"><p>この範囲への変更を記述するオブジェクトです。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>指定された変更を反映する範囲。
 変更が何も変更していない場合、 <code>this</code> の範囲を返します。</p>
@@ -5582,8 +5586,10 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="anchor"></a><span class="ts" id=157 data-target="#details-157" data-toggle="collapse"><span class="ident">anchor</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="active"></a><span class="ts" id=158 data-target="#details-158" data-toggle="collapse"><span class="ident">active</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="anchor"></a><span class="ts" id=157 data-target="#details-157" data-toggle="collapse"><span class="ident">anchor</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>位置です。</p>
+</div></td></tr>
+<tr><td><a name="active"></a><span class="ts" id=158 data-target="#details-158" data-toggle="collapse"><span class="ident">active</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>位置です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Selection">Selection</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -5654,7 +5660,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="Selection.isReversed"></a><span class="ts" id=164 data-target="#details-164" data-toggle="collapse"><span class="ident">isReversed</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-164">
-<div class="comment"><p><a href="#Selection.active">アクティブ</a>.isBefore(<a href="#Selection.anchor">anchor</a>)を選択すると、選択範囲が逆になります。</p>
+<div class="comment"><p><a href="#Selection.active">アクティブ</a>.isBefore(<a href="#Selection.anchor">anchor</a>) を選択すると、選択範囲が逆になります。</p>
 </div>
 </div>
 
@@ -5762,7 +5768,9 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <tr><td><a name="start"></a><span class="ts" id=183 data-target="#details-183" data-toggle="collapse"><span class="ident">start</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>startとして使用する位置。
 デフォルト値は<a href="#Range.start">現在の開始位置</a>です。</p>
 </div></td></tr>
-<tr><td><a name="end"></a><span class="ts" id=184 data-target="#details-184" data-toggle="collapse"><span class="ident">end</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="end"></a><span class="ts" id=184 data-target="#details-184" data-toggle="collapse"><span class="ident">end</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>終了として使用されるべき位置。
+デフォルト値は<a href="#Range.end">現在の終了</a>です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>指定された開始位置と終了位置でこの範囲から派生した範囲。
 開始と終了が異なる場合、この範囲が返されます。</p>
@@ -5780,7 +5788,8 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="change"></a><span class="ts" id=186 data-target="#details-186" data-toggle="collapse"><span class="ident">change</span><span>: </span>{end: <a class="type-ref" href="#Position">Position</a>, start: <a class="type-ref" href="#Position">Position</a>}</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="change"></a><span class="ts" id=186 data-target="#details-186" data-toggle="collapse"><span class="ident">change</span><span>: </span>{end: <a class="type-ref" href="#Position">Position</a>, start: <a class="type-ref" href="#Position">Position</a>}</span></td><td><div class="comment"><p>この範囲への変更を記述するオブジェクトです。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>指定された変更を反映する範囲。
 変更が何も変更していない場合、 <code>this</code> の範囲を返します。</p>
@@ -6862,7 +6871,7 @@ uri スキームとは独立しています。</p>
 
 <a name="TextDocument.isClosed"></a><span class="ts" id=45 data-target="#details-45" data-toggle="collapse"><span class="ident">isClosed</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-45">
-<div class="comment"><p>ドキュメントが閉じられている場合は <code>true</code> 。
+<div class="comment"><p>ドキュメントが閉じられている場合は <code>true</code>。
 閉じたドキュメントはもう同期されず、同じリソースが再度開かれたときに再利用されません。</p>
 </div>
 </div>
@@ -6944,9 +6953,8 @@ uri スキームとは独立しています。</p>
 <a name="TextDocument.getWordRangeAtPosition"></a><span class="ts" id=65 data-target="#details-65" data-toggle="collapse"><span class="ident">getWordRangeAtPosition</span><span>(</span><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">regex</span><span>?</span><span>: </span><a class="type-ref" href="#RegExp">RegExp</a><span>)</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-instrinct">undefined</a></span>
 <div class="details collapse" id="details-65">
 <div class="comment"><p>与えられた位置で単語の範囲を取得します。
-デフォルトでは、単語はスペース、 - 、_などの共通の区切り文字で定義されます。
-また、langugeカスタムごとに
-<a href="#LanguageConfiguration.wordPattern">単語の定義</a>を定義することができます。
+デフォルトでは、単語はスペース、 -、_ などの共通の区切り文字で定義されます。
+また、langugeカスタムごとに <a href="#LanguageConfiguration.wordPattern">単語の定義</a> を定義することができます。
 カスタム正規表現を提供することも可能です。
 <em>注</em> カスタム正規表現は空の文字列と一致してはならず、そうであれば無視されます。</p>
 <p>位置は <a href="#TextDocument.validatePosition">調整</a> されます。</p>
@@ -6975,7 +6983,7 @@ uri スキームとは独立しています。</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="line"></a><span class="ts" id=52 data-target="#details-52" data-toggle="collapse"><span class="ident">line</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>[0、lineCount) の行番号です。</p>
+<tr><td><a name="line"></a><span class="ts" id=52 data-target="#details-52" data-toggle="collapse"><span class="ident">line</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>[0, lineCount) の行番号です。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TextLine">TextLine</a></span></td><td><div class="comment"><p>A <a href="#TextLine">行</a>。</p>
@@ -6990,7 +6998,7 @@ uri スキームとは独立しています。</p>
 <div class="details collapse" id="details-53">
 <div class="comment"><p>位置によって示されるテキスト行を返します。
 返されたオブジェクトは生きて<em>いない</em>ことに注意してください。文書への変更は反映されません。</p>
-<p>位置は<a href="#TextDocument.validatePosition">調整</a> されます。</p>
+<p>位置は <a href="#TextDocument.validatePosition">調整</a> されます。</p>
 <ul>
 <li><em>see</em> - <a href="#TextDocument.lineAt">TextDocument.lineAt</a></li>
 </ul>
@@ -7000,7 +7008,7 @@ uri スキームとは独立しています。</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="position"></a><span class="ts" id=54 data-target="#details-54" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#TextLine">TextLine</a></span></td><td><div class="comment"><p>A <a href="#TextLine">行</a>。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#TextLine">TextLine</a></span></td><td><div class="comment"><p>(#TextLine)。</p>
 </div></td></tr>
 </table>
 </div>
@@ -7230,7 +7238,7 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p><a href="#TextDocument">document</a>を<a href="#TextEditor">editor</a>に表示する動作を設定するオプションを表します。</p>
+<div class="comment"><p><a href="#TextDocument">document</a> を <a href="#TextEditor">editor</a> に表示する動作を設定するオプションを表します。</p>
 </div>
 
 #### Properties
@@ -7239,7 +7247,7 @@ uri スキームとは独立しています。</p>
 
 <a name="TextDocumentShowOptions.preserveFocus"></a><span class="ts" id=241 data-target="#details-241" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-241">
-<div class="comment"><p>`true &#39;のときに<a href="#TextEditor">エディタ</a>がフォーカスを止めるオプションのフラグ。</p>
+<div class="comment"><p><code>true</code> のときに <a href="#TextEditor">エディタ</a> がフォーカスを止めるオプションのフラグ。</p>
 </div>
 </div>
 
@@ -7247,7 +7255,7 @@ uri スキームとは独立しています。</p>
 
 <a name="TextDocumentShowOptions.preview"></a><span class="ts" id=242 data-target="#details-242" data-toggle="collapse"><span class="ident">preview</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-242">
-<div class="comment"><p><a href="#TextEditor">エディタ</a>タブが次のエディタに置き換えられるかどうか、またはそれが保持されるかどうかを制御するオプションのフラグ。</p>
+<div class="comment"><p><a href="#TextEditor">エディタ</a> タブが次のエディタに置き換えられるかどうか、またはそれが保持されるかどうかを制御するオプションのフラグ。</p>
 </div>
 </div>
 
@@ -7255,9 +7263,8 @@ uri スキームとは独立しています。</p>
 
 <a name="TextDocumentShowOptions.viewColumn"></a><span class="ts" id=240 data-target="#details-240" data-toggle="collapse"><span class="ident">viewColumn</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span>
 <div class="details collapse" id="details-240">
-<div class="comment"><p><a href="#TextEditor">editor</a>が表示されるオプションのビュー列。
-デフォルトは<a href="#ViewColumn.One">1</a>です。
-他の値は<strong>Min(column、columnCount + 1)</strong>に調整されます。</p>
+<div class="comment"><p><a href="#TextEditor">editor</a> が表示されるオプションのビュー列。
+デフォルトは <a href="#ViewColumn.One">one</a> です。 他の値は <strong>Min(column, columnCount + 1)</strong> に調整されます。</p>
 </div>
 </div>
 
@@ -7467,7 +7474,7 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p><a href="#TextDocument">document</a>に添付されたエディタを表します。</p>
+<div class="comment"><p><a href="#TextDocument">document</a> に添付されたエディタを表します。</p>
 </div>
 
 #### Properties
@@ -7494,7 +7501,7 @@ uri スキームとは独立しています。</p>
 <a name="TextEditor.selection"></a><span class="ts" id=319 data-target="#details-319" data-toggle="collapse"><span class="ident">selection</span><span>: </span><a class="type-ref" href="#Selection">Selection</a></span>
 <div class="details collapse" id="details-319">
 <div class="comment"><p>このテキストエディタの主な選択肢。</p>
-<p><code>TextEditor.selections [0]</code> の短縮形です。</p>
+<p><code>TextEditor.selections[0]</code> の短縮形です。</p>
 </div>
 </div>
 
@@ -7512,7 +7519,7 @@ uri スキームとは独立しています。</p>
 <a name="TextEditor.viewColumn"></a><span class="ts" id=322 data-target="#details-322" data-toggle="collapse"><span class="ident">viewColumn</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span>
 <div class="details collapse" id="details-322">
 <div class="comment"><p>このエディターが表示する列。
-これが3つのメインエディタの1つではない場合、例えば埋め込みエディタの場合は「未定義」になります。</p>
+これが3つのメインエディタの1つではない場合、例えば埋め込みエディタの場合は <code>undefined</code> になります。</p>
 </div>
 </div>
 
@@ -7523,16 +7530,16 @@ uri スキームとは独立しています。</p>
 <a name="TextEditor.edit"></a><span class="ts" id=324 data-target="#details-324" data-toggle="collapse"><span class="ident">edit</span><span>(</span><span class="ident">callback</span><span>: </span>(editBuilder: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>) =&gt; <a class="type-instrinct">void</a>, <span class="ident">options</span><span>?</span><span>: </span>{undoStopAfter: <a class="type-instrinct">boolean</a>, undoStopBefore: <a class="type-instrinct">boolean</a>}<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
 <div class="details collapse" id="details-324">
 <div class="comment"><p>このテキストエディタに関連付けられたドキュメントの編集を実行します。</p>
-<p>与えられたコールバック関数は<a href="#TextEditorEdit">edit-builder</a>で呼び出されます。
-編集に使用すること。編集ビルダーは有効ですが、
-コールバックが実行されます。</p>
+<p>指定されたコールバック関数は、<a href="#TextEditorEdit">edit-builder</a>  で呼び出されます。これは編集に使用する必要があります。
+edit-builder は、コールバックの実行中にのみ有効です。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="callback"></a><span class="ts" id=325 data-target="#details-325" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(editBuilder: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>) =&gt; <a class="type-instrinct">void</a></span></td><td><div class="comment"><p>(#TextEditorEdit)を使用して編集を作成できる関数です。</p>
+<tr><td><a name="callback"></a><span class="ts" id=325 data-target="#details-325" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(editBuilder: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>) =&gt; <a class="type-instrinct">void</a></span></td><td><div class="comment"><p>(#TextEditorEdit) を使用して編集を作成できる関数です。</p>
 </div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=329 data-target="#details-329" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span>{undoStopAfter: <a class="type-instrinct">boolean</a>, undoStopBefore: <a class="type-instrinct">boolean</a>}</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=329 data-target="#details-329" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span>{undoStopAfter: <a class="type-instrinct">boolean</a>, undoStopBefore: <a class="type-instrinct">boolean</a>}</span></td><td><div class="comment"><p>この編集を元に戻す/やり直しの動作。既定では、この編集の前後に元に戻す停止が作成されます。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>編集が適用可能かどうかを示す値で解決される約束。</p>
 </div></td></tr>
@@ -7695,9 +7702,8 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p><a href="#TextEditor">テキストエディタ</a>で同じ<a href="#DecorationRenderOptions">スタイルオプション</a>を共有する一連の装飾のハンドルを表します。</p>
-<p><code>TextEditorDecorationType</code> のインスタンスを取得するには
-<a href="#window.createTextEditorDecorationType">createTextEditorDecorationType</a>。</p>
+<div class="comment"><p><a href="#TextEditor">テキストエディタ</a> で同じ <a href="#DecorationRenderOptions">スタイルオプション</a> を共有する一連の装飾のハンドルを表します。</p>
+<p><a href="#window.createTextEditorDecorationType">createTextEditorDecorationType</a> を用いて <code>TextEditorDecorationType</code> のインスタンスを取得する。</p>
 </div>
 
 #### Properties
@@ -7840,7 +7846,7 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p><a href="#TextEditor">テキストエディタ</a>の<a href="#TextEditor.options">options</a>を表します。</p>
+<div class="comment"><p><a href="#TextEditor">テキストエディタ</a> の <a href="#TextEditor.options">options</a>を表します。</p>
 </div>
 
 #### Properties
@@ -7859,9 +7865,9 @@ uri スキームとは独立しています。</p>
 
 <a name="TextEditorOptions.insertSpaces"></a><span class="ts" id=217 data-target="#details-217" data-toggle="collapse"><span class="ident">insertSpaces</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a> &#124; <a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-217">
-<div class="comment"><p>Tabを押すと<a href="#TextEditorOptions.tabSize">n</a>個のスペースが挿入されます。
+<div class="comment"><p>Tab を押すと <a href="#TextEditorOptions.tabSize">n</a> 個のスペースが挿入されます。
 テキストエディタのオプションを取得すると、このプロパティは常にブール値(解決済み)になります。
-テキストエディタのオプションを設定する場合、このプロパティはオプションでブール値または <code>` auto &#39;</code>にすることができます。</p>
+テキストエディタのオプションを設定する場合、このプロパティはオプションでブール値または <code>&quot;auto&quot;</code> にすることができます。</p>
 </div>
 </div>
 
@@ -7869,7 +7875,7 @@ uri スキームとは独立しています。</p>
 
 <a name="TextEditorOptions.lineNumbers"></a><span class="ts" id=219 data-target="#details-219" data-toggle="collapse"><span class="ident">lineNumbers</span><span>?</span><span>: </span><a class="type-ref" href="#TextEditorLineNumbersStyle">TextEditorLineNumbersStyle</a></span>
 <div class="details collapse" id="details-219">
-<div class="comment"><p>相対線番号w.r.tをレンダリングします。
+<div class="comment"><p>相対行番号 w.r.t. をレンダリングします。
 現在の行番号 テキストエディタのオプションを取得するとき、このプロパティは常に存在します。
 テキストエディタのオプションを設定する場合、このプロパティはオプションです。</p>
 </div>
@@ -7880,12 +7886,13 @@ uri スキームとは独立しています。</p>
 <a name="TextEditorOptions.tabSize"></a><span class="ts" id=216 data-target="#details-216" data-toggle="collapse"><span class="ident">tabSize</span><span>?</span><span>: </span><a class="type-instrinct">number</a> &#124; <a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-216">
 <div class="comment"><p>タブにかかるスペースのサイズ。
-これは2つの目的のために使用されます： - タブ文字の描画幅。</p>
+これは2つの目的のために使用されます:</p>
 <ul>
-<li><a href="#TextEditorOptions.insertSpaces">insertSpaces</a>がtrueのときに挿入するスペースの数。</li>
+<li>タブ文字の描画幅。</li>
+<li><a href="#TextEditorOptions.insertSpaces">insertSpaces</a> が true のときに挿入するスペースの数。</li>
 </ul>
 <p>テキストエディタのオプションを取得すると、このプロパティは常に数値(解決済み)になります。
-テキストエディタのオプションを設定する場合、このプロパティはオプションであり、数値または <code>` auto &#39;</code>にすることができます。</p>
+テキストエディタのオプションを設定する場合、このプロパティはオプションであり、数値または <code>&quot;auto&quot;</code> にすることができます。</p>
 </div>
 </div>
 
@@ -7893,7 +7900,7 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p><a href="#TextEditor.options">テキストエディタのオプション</a>の変更を説明するイベントを表します。</p>
+<div class="comment"><p><a href="#TextEditor.options">テキストエディタのオプション</a> の変更を説明するイベントを表します。</p>
 </div>
 
 #### Properties
@@ -7902,7 +7909,7 @@ uri スキームとは独立しています。</p>
 
 <a name="TextEditorOptionsChangeEvent.options"></a><span class="ts" id=200 data-target="#details-200" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#TextEditorOptions">TextEditorOptions</a></span>
 <div class="details collapse" id="details-200">
-<div class="comment"><p><a href="#TextEditor.options">テキストエディタのオプション</a>の新しい値。</p>
+<div class="comment"><p><a href="#TextEditor.options">テキストエディタのオプション</a> の新しい値。</p>
 </div>
 </div>
 
@@ -7910,7 +7917,7 @@ uri スキームとは独立しています。</p>
 
 <a name="TextEditorOptionsChangeEvent.textEditor"></a><span class="ts" id=199 data-target="#details-199" data-toggle="collapse"><span class="ident">textEditor</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a></span>
 <div class="details collapse" id="details-199">
-<div class="comment"><p>オプションが変更された<a href="#TextEditor">テキストエディタ</a>。</p>
+<div class="comment"><p>オプションが変更された <a href="#TextEditor">テキストエディタ</a>。</p>
 </div>
 </div>
 
@@ -7918,7 +7925,7 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p>異なる<a href="#TextEditor.revealRange">reveal</a>戦略をテキストエディタで表します。</p>
+<div class="comment"><p>異なる <a href="#TextEditor.revealRange">reveal</a> 戦略をテキストエディタで表します。</p>
 </div>
 
 #### Enumeration members
@@ -7955,7 +7962,7 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p><a href="#TextEditor.selections">テキストエディタの選択</a>の変更を説明するイベントを表します。</p>
+<div class="comment"><p><a href="#TextEditor.selections">テキストエディタの選択</a> の変更を説明するイベントを表します。</p>
 </div>
 
 #### Properties
@@ -7965,7 +7972,7 @@ uri スキームとは独立しています。</p>
 <a name="TextEditorSelectionChangeEvent.kind"></a><span class="ts" id=197 data-target="#details-197" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#TextEditorSelectionChangeKind">TextEditorSelectionChangeKind</a></span>
 <div class="details collapse" id="details-197">
 <div class="comment"><p>このイベントを発生させた<a href="#TextEditorSelectionChangeKind">種別の変更</a>。
-`undefined &#39;にすることができます。</p>
+<code>undefined</code> にすることができます。</p>
 </div>
 </div>
 
@@ -7973,7 +7980,7 @@ uri スキームとは独立しています。</p>
 
 <a name="TextEditorSelectionChangeEvent.selections"></a><span class="ts" id=196 data-target="#details-196" data-toggle="collapse"><span class="ident">selections</span><span>: </span><a class="type-ref" href="#Selection">Selection</a>[]</span>
 <div class="details collapse" id="details-196">
-<div class="comment"><p>[テキストエディタの選択]の新しい値(#TextEditor.selections)。</p>
+<div class="comment"><p><a href="#TextEditor.selections">テキストエディタの選択</a> の新しい値。</p>
 </div>
 </div>
 
@@ -7981,7 +7988,7 @@ uri スキームとは独立しています。</p>
 
 <a name="TextEditorSelectionChangeEvent.textEditor"></a><span class="ts" id=195 data-target="#details-195" data-toggle="collapse"><span class="ident">textEditor</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a></span>
 <div class="details collapse" id="details-195">
-<div class="comment"><p>選択が変更された<a href="#TextEditor">テキストエディタ</a>。</p>
+<div class="comment"><p>選択が変更された <a href="#TextEditor">テキストエディタ</a>。</p>
 </div>
 </div>
 
@@ -7989,7 +7996,7 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p><a href="#window.onDidChangeTextEditorSelection">select change events</a>を引き起こす可能性があるソースを表します。</p>
+<div class="comment"><p><a href="#window.onDidChangeTextEditorSelection">select change events</a> を引き起こす可能性があるソースを表します。</p>
 </div>
 
 #### Enumeration members
@@ -8019,7 +8026,7 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p><a href="#TextEditor.viewColumn">テキストエディタのビュー列</a>の変更を説明するイベントを表します。</p>
+<div class="comment"><p><a href="#TextEditor.viewColumn">テキストエディタのビュー列</a> の変更を説明するイベントを表します。</p>
 </div>
 
 #### Properties
@@ -8028,7 +8035,7 @@ uri スキームとは独立しています。</p>
 
 <a name="TextEditorViewColumnChangeEvent.textEditor"></a><span class="ts" id=202 data-target="#details-202" data-toggle="collapse"><span class="ident">textEditor</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a></span>
 <div class="details collapse" id="details-202">
-<div class="comment"><p>オプションが変更された<a href="#TextEditor">テキストエディタ</a>。</p>
+<div class="comment"><p>オプションが変更された <a href="#TextEditor">テキストエディタ</a>。</p>
 </div>
 </div>
 
@@ -8036,7 +8043,7 @@ uri スキームとは独立しています。</p>
 
 <a name="TextEditorViewColumnChangeEvent.viewColumn"></a><span class="ts" id=203 data-target="#details-203" data-toggle="collapse"><span class="ident">viewColumn</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span>
 <div class="details collapse" id="details-203">
-<div class="comment"><p><a href="#TextEditor.viewColumn">テキストエディタのビュー列</a>の新しい値。</p>
+<div class="comment"><p><a href="#TextEditor.viewColumn">テキストエディタのビューカラム</a> の新しい値。</p>
 </div>
 </div>
 
@@ -8112,7 +8119,7 @@ uri スキームとは独立しています。</p>
 
 <a name="ThemableDecorationAttachmentRenderOptions.backgroundColor"></a><span class="ts" id=275 data-target="#details-275" data-toggle="collapse"><span class="ident">backgroundColor</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
 <div class="details collapse" id="details-275">
-<div class="comment"><p>デコレーション添付ファイルに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーション添付ファイルに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -8120,7 +8127,7 @@ uri スキームとは独立しています。</p>
 
 <a name="ThemableDecorationAttachmentRenderOptions.border"></a><span class="ts" id=271 data-target="#details-271" data-toggle="collapse"><span class="ident">border</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-271">
-<div class="comment"><p>デコレーション添付ファイルに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーション添付ファイルに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -8128,7 +8135,7 @@ uri スキームとは独立しています。</p>
 
 <a name="ThemableDecorationAttachmentRenderOptions.borderColor"></a><span class="ts" id=272 data-target="#details-272" data-toggle="collapse"><span class="ident">borderColor</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
 <div class="details collapse" id="details-272">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -8136,7 +8143,7 @@ uri スキームとは独立しています。</p>
 
 <a name="ThemableDecorationAttachmentRenderOptions.color"></a><span class="ts" id=274 data-target="#details-274" data-toggle="collapse"><span class="ident">color</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
 <div class="details collapse" id="details-274">
-<div class="comment"><p>デコレーション添付ファイルに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーション添付ファイルに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -8144,7 +8151,7 @@ uri スキームとは独立しています。</p>
 
 <a name="ThemableDecorationAttachmentRenderOptions.contentIconPath"></a><span class="ts" id=270 data-target="#details-270" data-toggle="collapse"><span class="ident">contentIconPath</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span>
 <div class="details collapse" id="details-270">
-<div class="comment"><p>絶対パス**または添付ファイルにレンダリングされる画像のURI。
+<div class="comment"><p>添付ファイルにレンダリングされる画像の <strong>絶対パス</strong> または URI。
 アイコンまたはテキストのいずれかを表示できますが、両方を表示することはできません。</p>
 </div>
 </div>
@@ -8162,7 +8169,7 @@ uri スキームとは独立しています。</p>
 
 <a name="ThemableDecorationAttachmentRenderOptions.height"></a><span class="ts" id=278 data-target="#details-278" data-toggle="collapse"><span class="ident">height</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-278">
-<div class="comment"><p>デコレーション添付ファイルに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーション添付ファイルに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -8170,7 +8177,7 @@ uri スキームとは独立しています。</p>
 
 <a name="ThemableDecorationAttachmentRenderOptions.margin"></a><span class="ts" id=276 data-target="#details-276" data-toggle="collapse"><span class="ident">margin</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-276">
-<div class="comment"><p>デコレーション添付ファイルに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーション添付ファイルに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -8178,7 +8185,7 @@ uri スキームとは独立しています。</p>
 
 <a name="ThemableDecorationAttachmentRenderOptions.textDecoration"></a><span class="ts" id=273 data-target="#details-273" data-toggle="collapse"><span class="ident">textDecoration</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-273">
-<div class="comment"><p>デコレーション添付ファイルに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーション添付ファイルに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -8186,7 +8193,7 @@ uri スキームとは独立しています。</p>
 
 <a name="ThemableDecorationAttachmentRenderOptions.width"></a><span class="ts" id=277 data-target="#details-277" data-toggle="collapse"><span class="ident">width</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-277">
-<div class="comment"><p>デコレーション添付ファイルに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーション添付ファイルに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -8218,7 +8225,7 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p><a href="#TextEditorDecorationType">テキストエディタの装飾</a>のテーマ固有のレンダリングスタイルを表します。</p>
+<div class="comment"><p><a href="#TextEditorDecorationType">テキストエディタの装飾</a> のテーマ固有のレンダリングスタイルを表します。</p>
 </div>
 
 #### Properties
@@ -8236,8 +8243,8 @@ uri スキームとは独立しています。</p>
 <a name="ThemableDecorationRenderOptions.backgroundColor"></a><span class="ts" id=248 data-target="#details-248" data-toggle="collapse"><span class="ident">backgroundColor</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
 <div class="details collapse" id="details-248">
 <div class="comment"><p>装飾の背景色。
-rgba()を使用し、透明な背景色を定義して他の装飾とうまくやります。
-代替的に、カラーレジストリの色が参照されます(#ColorIdentifier)。</p>
+rgba() を使用し、透明な背景色を定義して他の装飾とうまくやります。
+代替的に、カラーレジストリの色が <a href="#ColorIdentifier">参照</a> されます。</p>
 </div>
 </div>
 
@@ -8253,7 +8260,7 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="ThemableDecorationRenderOptions.border"></a><span class="ts" id=253 data-target="#details-253" data-toggle="collapse"><span class="ident">border</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-253">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -8261,8 +8268,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="ThemableDecorationRenderOptions.borderColor"></a><span class="ts" id=254 data-target="#details-254" data-toggle="collapse"><span class="ident">borderColor</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
 <div class="details collapse" id="details-254">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々の境界線のプロパティを設定するために、「境界線」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々の境界線のプロパティを設定するために、 &#39;border&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -8270,8 +8277,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="ThemableDecorationRenderOptions.borderRadius"></a><span class="ts" id=255 data-target="#details-255" data-toggle="collapse"><span class="ident">borderRadius</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-255">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々の境界線のプロパティを設定するために、「境界線」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々の境界線のプロパティを設定するために、 &#39;border&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -8279,8 +8286,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="ThemableDecorationRenderOptions.borderSpacing"></a><span class="ts" id=256 data-target="#details-256" data-toggle="collapse"><span class="ident">borderSpacing</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-256">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々の境界線のプロパティを設定するために、「境界線」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々の境界線のプロパティを設定するために、 &#39;border&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -8288,8 +8295,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="ThemableDecorationRenderOptions.borderStyle"></a><span class="ts" id=257 data-target="#details-257" data-toggle="collapse"><span class="ident">borderStyle</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-257">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々の境界線のプロパティを設定するために、「境界線」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々の境界線のプロパティを設定するために、 &#39;border&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -8297,8 +8304,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="ThemableDecorationRenderOptions.borderWidth"></a><span class="ts" id=258 data-target="#details-258" data-toggle="collapse"><span class="ident">borderWidth</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-258">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々の境界線のプロパティを設定するために、「境界線」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々の境界線のプロパティを設定するために、 &#39;border&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -8306,7 +8313,7 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="ThemableDecorationRenderOptions.color"></a><span class="ts" id=261 data-target="#details-261" data-toggle="collapse"><span class="ident">color</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
 <div class="details collapse" id="details-261">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -8314,7 +8321,7 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="ThemableDecorationRenderOptions.cursor"></a><span class="ts" id=260 data-target="#details-260" data-toggle="collapse"><span class="ident">cursor</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-260">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -8322,7 +8329,7 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="ThemableDecorationRenderOptions.gutterIconPath"></a><span class="ts" id=263 data-target="#details-263" data-toggle="collapse"><span class="ident">gutterIconPath</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span>
 <div class="details collapse" id="details-263">
-<div class="comment"><p><strong>絶対パス</strong>またはガターにレンダリングされる画像へのURI。</p>
+<div class="comment"><p>ガターにレンダリングされる画像への <strong>絶対 path</strong> または URI 。</p>
 </div>
 </div>
 
@@ -8332,7 +8339,7 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 <div class="details collapse" id="details-264">
 <div class="comment"><p>ガターアイコンのサイズを指定します。
 使用可能な値は &#39;auto&#39;、 &#39;contains&#39;、 &#39;cover&#39;および任意のパーセント値です。
-詳細は<a href="https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspxを参照してください。">https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspxを参照してください。</a></p>
+詳細は <a href="https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspx</a> を参照してください。</p>
 </div>
 </div>
 
@@ -8348,7 +8355,7 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="ThemableDecorationRenderOptions.outline"></a><span class="ts" id=249 data-target="#details-249" data-toggle="collapse"><span class="ident">outline</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-249">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -8356,8 +8363,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="ThemableDecorationRenderOptions.outlineColor"></a><span class="ts" id=250 data-target="#details-250" data-toggle="collapse"><span class="ident">outlineColor</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
 <div class="details collapse" id="details-250">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々のアウトラインプロパティを設定する場合は、「アウトライン」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々のアウトラインプロパティを設定する場合は、 &#39;outline&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -8365,8 +8372,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="ThemableDecorationRenderOptions.outlineStyle"></a><span class="ts" id=251 data-target="#details-251" data-toggle="collapse"><span class="ident">outlineStyle</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-251">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々のアウトラインプロパティを設定する場合は、「アウトライン」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々のアウトラインプロパティを設定する場合は、 &#39;outline&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -8374,8 +8381,8 @@ rgba()を使用し、透明な背景色を定義して他の装飾とうまく�
 
 <a name="ThemableDecorationRenderOptions.outlineWidth"></a><span class="ts" id=252 data-target="#details-252" data-toggle="collapse"><span class="ident">outlineWidth</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-252">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。
-1つ以上の個々のアウトラインプロパティを設定する場合は、「アウトライン」を使用する方が効果的です。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。
+1つ以上の個々のアウトラインプロパティを設定する場合は、 &#39;outline&#39; を使用する方が効果的です。</p>
 </div>
 </div>
 
@@ -8392,7 +8399,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="ThemableDecorationRenderOptions.textDecoration"></a><span class="ts" id=259 data-target="#details-259" data-toggle="collapse"><span class="ident">textDecoration</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-259">
-<div class="comment"><p>デコレーションで囲まれたテキストに適用されるCSSスタイリングプロパティ。</p>
+<div class="comment"><p>デコレーションで囲まれたテキストに適用される CSS スタイリングプロパティ。</p>
 </div>
 </div>
 
@@ -8400,7 +8407,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 
 
-<div class="comment"><p><a href="https://code.visualstudio.com/docs/getstarted/theme-color-referenceに定義されているワークベンチ色のいずれかへの参照。">https://code.visualstudio.com/docs/getstarted/theme-color-referenceに定義されているワークベンチ色のいずれかへの参照。</a>
+<div class="comment"><p><a href="https://code.visualstudio.com/docs/getstarted/theme-color-reference">https://code.visualstudio.com/docs/getstarted/theme-color-reference</a> に定義されているワークベンチ色のいずれかへの参照。
 テーマの色を使用することは、テーマの作者とユーザーに色を変更する可能性があるため、カスタム色よりも優先されます。</p>
 </div>
 
@@ -8415,7 +8422,9 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="id"></a><span class="ts" id=246 data-target="#details-246" data-toggle="collapse"><span class="ident">id</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="id"></a><span class="ts" id=246 data-target="#details-246" data-toggle="collapse"><span class="ident">id</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>カラーのid。
+使用可能な色は <a href="https://code.visualstudio.com/docs/getstarted/theme-color-reference">https://code.visualstudio.com/docs/getstarted/theme-color-reference</a> にリストされています。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ThemeColor">ThemeColor</a></span></td><td><div class="comment"></div></td></tr>
 </table>
