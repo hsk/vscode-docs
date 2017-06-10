@@ -16,26 +16,26 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 <div class="comment"><p>コマンドを扱うための名前空間。
 つまり、コマンドは固有の識別子を持つ関数です。
 この関数は、 <em>command handler</em> と呼ばれることもあります。</p>
-<p>コマンドは<a href="#commands.registerCommand">registerCommand</a>コマンドを使ってエディタに追加することができます。
-および<a href="#commands.registerTextEditorCommand">registerTextEditorCommand</a>関数を使用します。
-コマンドは<a href="#commands.executeCommand">手動で</a>またはUIジェスチャーから実行できます。
+<p>コマンドは<a href="#commands.registerCommand">registerCommand</a> 関数と
+<a href="#commands.registerTextEditorCommand">registerTextEditorCommand</a> 関数を使用してエディタに追加できます。
+コマンドは <a href="#commands.executeCommand">手動</a> または UI ジェスチャーから実行できます。
 それらは：</p>
 <ul>
-<li>palette - <code>package.json</code> の <code>commands</code> セクションを使って<a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">command palette</a>にコマンドを表示させます。</li>
-<li>keybinding - <code>package.json</code> の <code>keybindings</code> セクションを有効にするには
-<a href="https://code.visualstudio.com/docs/getstarted/keybindings#_customizing-shortcuts">keybindings</a>
-あなたの内線番号。</li>
+<li>palette - <code>package.json</code> の <code>commands</code> セクションを使って
+<a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">command palette</a> にコマンドを表示させます。</li>
+<li>keybinding - あなたの拡張機能に <a href="https://code.visualstudio.com/docs/getstarted/keybindings#_customizing-shortcuts">keybindings</a>
+を有効にするには、 <code>package.json</code> の <code>keybindings</code> セクションを使います。</li>
 </ul>
 <p>他の拡張機能やエディタ自体からのコマンドは、拡張機能からアクセスできます。
-ただし、エディタコマンドを呼び出すときは、すべての引数タイプがサポートされているわけではありません。</p>
+ただし、 エディタコマンドを呼び出すときには、すべての引数型がサポートされているわけではありません。</p>
 <p>これは、コマンドハンドラを登録し、そのコマンドのエントリをパレットに追加するサンプルです。
-最初に識別子 &#39;extension.sayHello`を持つコマンドハンドラを登録します。</p>
+まず、 識別子 <code>extension.sayHello</code> を持つコマンドハンドラを登録します。</p>
 
 <pre><code class="lang-javascript">commands.registerCommand(<span class="hljs-string">'extension.sayHello'</span>, () =&gt; {
     <span class="hljs-built_in">window</span>.showInformationMessage(<span class="hljs-string">'Hello World!'</span>);
 });
 </code></pre>
-<p>次に、コマンド識別子をパレットに表示するタイトル( <code>package.json</code> )にバインドします。</p>
+<p>次に、コマンド識別子をパレットに表示するタイトル ( <code>package.json</code> ) にバインドします。</p>
 
 <pre><code class="lang-json">{
     <span class="hljs-attr">"contributes"</span>: {
@@ -54,12 +54,10 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 
 <a name="commands.executeCommand"></a><span class="ts" id=1192 data-target="#details-1192" data-toggle="collapse"><span class="ident">executeCommand</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">rest</span><span>: </span><a class="type-instrinct">any</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1192">
-<div class="comment"><p>指定されたコマンド識別子で指定されたコマンドを実行します。</p>
+<div class="comment"><p>指定されたコマンデン識別で指定されたコマンドを実行します。</p>
 <p>エディタコマンドを実行する際、すべての型を引数として渡すことはできません。
-使用できるプリミティブ型は <code>string</code> 、 <code>boolean</code> 、
-<code>number</code> 、 <code>undefined</code> 、および <code>null</code> 、およびこのAPIで定義されたクラスです。
-提供されたコマンドを実行するときに制限はありません
-拡張によって*。</p>
+このAPIで定義されているクラスだけでなく、プリミティブ型 <code>string</code> 、 <code>boolean</code> 、 <code>number</code> 、 <code>undefined</code> 、 <code>null</code> も使用できます。
+拡張機能によって提供されたコマンドを実行する場合、制限はありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -78,15 +76,16 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 
 <a name="commands.getCommands"></a><span class="ts" id=1197 data-target="#details-1197" data-toggle="collapse"><span class="ident">getCommands</span><span>(</span><span class="ident">filterInternal</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span>
 <div class="details collapse" id="details-1197">
-<div class="comment"><p>使用可能なすべてのコマンドのリストを取得します。アンダースコアを開始するコマンドは次のとおりです。
-内部コマンドとして扱われます。</p>
+<div class="comment"><p>使用可能なすべてのコマンドのリストを取得します。
+アンダースコアを開始するコマンドは、内部コマンドとして扱われます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="filterInternal"></a><span class="ts" id=1198 data-target="#details-1198" data-toggle="collapse"><span class="ident">filterInternal</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="filterInternal"></a><span class="ts" id=1198 data-target="#details-1198" data-toggle="collapse"><span class="ident">filterInternal</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>内部コマンドが表示されないように <code>true</code> を設定します(アンダースコアで始まります)</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>コマンドIDのリストに解決されるThenable。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>コマンドIDのリストに解決される Thenable。</p>
 </div></td></tr>
 </table>
 </div>
@@ -102,11 +101,14 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="command"></a><span class="ts" id=1175 data-target="#details-1175" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="callback"></a><span class="ts" id=1176 data-target="#details-1176" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="thisArg"></a><span class="ts" id=1180 data-target="#details-1180" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="command"></a><span class="ts" id=1175 data-target="#details-1175" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>コマンドの一意の識別子。</p>
+</div></td></tr>
+<tr><td><a name="callback"></a><span class="ts" id=1176 data-target="#details-1176" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"><p>コマンドハンドラ関数。</p>
+</div></td></tr>
+<tr><td><a name="thisArg"></a><span class="ts" id=1180 data-target="#details-1180" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>ハンドラ関数を呼び出すときに使用される <code>this</code> コンテキスト。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのコマンドの登録を解除するDisposable。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのコマンドの登録を解除する Disposable。</p>
 </div></td></tr>
 </table>
 </div>
@@ -118,8 +120,7 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 <div class="details collapse" id="details-1182">
 <div class="comment"><p>キーボードショートカット、メニュー項目、アクション、または直接呼び出すことができるテキストエディタコマンドを登録します。</p>
 <p>テキストエディタコマンドは、コマンドが呼び出されたときにアクティブなエディタがある場合にのみ実行されるため、通常の<a href="#commands.registerCommand">commands</a>とは異なります。
-また、エディタコマンドのコマンドハンドラは、アクティブなエディタと
-<a href="#TextEditorEdit">編集</a>-builder。</p>
+また、エディタコマンドのコマンドハンドラは、アクティブエディタと<a href="#TextEditorEdit">edit</a>-builderにアクセスできます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -127,9 +128,10 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 <tr><td><a name="command"></a><span class="ts" id=1183 data-target="#details-1183" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
 <tr><td><a name="callback"></a><span class="ts" id=1184 data-target="#details-1184" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(textEditor: <a class="type-ref" href="#TextEditor">TextEditor</a>, edit: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>, args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">void</a></span></td><td><div class="comment"><p>(#TextEditor)と<a href="#TextEditorEdit">edit</a>にアクセスできるコマンドハンドラ関数です。</p>
 </div></td></tr>
-<tr><td><a name="thisArg"></a><span class="ts" id=1190 data-target="#details-1190" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="thisArg"></a><span class="ts" id=1190 data-target="#details-1190" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>ハンドラ関数を呼び出すときに使用される <code>this</code> コンテキスト。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのコマンドの登録を解除するDisposable。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのコマンドの登録を解除する Disposable。</p>
 </div></td></tr>
 </table>
 </div>
@@ -195,11 +197,28 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 
 <div class="comment"><p>インストールされた拡張機能を扱うための名前空間。
 拡張機能は、拡張機能(#拡張機能) - それらを反映できるインタフェースで表されます。</p>
-<p>拡張ライターは、API公開サーフェスを <code>activate</code> -callから返すことによって、他の拡張機能にAPIを提供することができます。</p>
-<p>```javascript エクスポート関数activate(context：vscode.ExtensionContext){ let api = { sum(a、b){ a + bを返します。
-}、 mul(a、b){ a * bを返します。
+<p>拡張ライターは、API公開サーフェスを <code>activate</code> コールから返すことによって、他の拡張機能にAPIを提供することができます。</p>
+
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">activate</span>(<span class="hljs-params">context: vscode.ExtensionContext</span>) </span>{
+    <span class="hljs-keyword">let</span> api = {
+        sum(a, b) {
+            <span class="hljs-keyword">return</span> a + b;
+        },
+        mul(a, b) {
+            <span class="hljs-keyword">return</span> a * b;
+        }
+    };
+    <span class="hljs-comment">// 'export' public api-surface</span>
+    <span class="hljs-keyword">return</span> api;
 }
-};</p>
+</code></pre>
+<p>別の拡張機能のAPIに依存する場合は、 <code>extensionDependency</code> エントリを <code>package.json</code> に追加し、<a href="#extensions.getExtension">getExtension</a>関数と<a href="#Extension.exports">exports</a> 、以下のように：     *</p>
+
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> mathExt = extensions.getExtension(<span class="hljs-string">'genius.math'</span>);
+<span class="hljs-keyword">let</span> importedApi = mathExt.exports;
+
+<span class="hljs-built_in">console</span>.log(importedApi.mul(<span class="hljs-number">42</span>, <span class="hljs-number">1</span>));
+</code></pre>
 </div>
 
 #### Variables
@@ -256,21 +275,20 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 <p>多くのプログラミング言語が存在し、シンタックス、セマンティクス、およびパラダイムには多種多様があります。
 それにもかかわらず、自動ワード補完、コードナビゲーション、コードチェックなどの機能は、さまざまなプログラミング言語で異なるツール間で普及しています。</p>
 <p>エディタには、すべてのUIとアクションを既に用意し、データのみを提供することで参加できるようにすることで、共通の機能を簡単に提供できるAPIが提供されています。
-例えば、ホバーに貢献するには、<a href="#TextDocument">TextDocument</a>とホバー情報を返す<a href="#Position">Position</a>で呼び出せる関数を用意するだけです。残りの部分は、
-マウス、ホバーの位置を決める、ホバーを安定に保つなどはエディターが行います。</p>
+例えば、ホバーに貢献するには、<a href="#TextDocument">TextDocument</a>とホバー情報を返す<a href="#Position">Position</a>で呼び出せる関数を用意するだけです。
+マウスを追跡する、ホバーを配置する、ホバーを安定に保つなどの残りの部分は、エディターによって処理されます。</p>
 
-<pre><code class="lang-javascript">languages.registerHoverProvider( <span class="hljs-string">'javascript'</span>、{
-provideHover(ドキュメント、位置、トークン){
-新しいホバーを返す(「私はホバーです！」);
-}
+<pre><code class="lang-javascript">languages.registerHoverProvider(<span class="hljs-string">'javascript'</span>, {
+    provideHover(<span class="hljs-built_in">document</span>, position, token) {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Hover(<span class="hljs-string">'I am a hover!'</span>);
+    }
 });
 </code></pre>
-<p>登録は <code>javascript</code> のような言語IDか <code>{language： &#39;typescript&#39;、scheme： &#39;file&#39;のようなもっと複雑な[filter](#DocumentFilter)のいずれかである[document selector](#DocumentSelector) }</code>。
-ドキュメントをそのようなセレクタに照合すると、プロバイダの使用方法と使用方法を決定するために使用される<a href="#languages.match">score</a>が返されます。
+<p>登録は、[javascript]のような言語ID、または[javascript]のような<a href="#DocumentSelector">document selector</a>を使用して行われます。</p>
+<p><code>{language： &#39;typescript&#39;、scheme： &#39;file&#39;}</code> のようなもっと複雑な<a href="#DocumentFilter">filter</a>。
+ドキュメントをそのようなセレクタに照合すると、プロバイダの使用方法と使用方法を決定するために使用される<a href="#languages.match">score</a>になります。
 スコアが等しい場合は、最後に来たプロバイダが勝ちます。</p>
-<ul>
-<li><a href="#languages.registerHoverProvider">hover</a>のようなフルアリティを可能にする機能の場合、スコアは<a href="#languages.registerCompletionItemProvider">IntelliSense</a>などの他の機能の場合にのみスコアが使用されますプロバイダが参加するように求められる順序を決定する。</li>
-</ul>
+<p><a href="#languages.registerHoverProvider">hover</a>のようなフルアリティを可能にする機能の場合、スコアは<a href="#languages.registerCompletionItemProvider">IntelliSense</a>などの他の機能の場合にのみスコアが使用されます プロバイダが参加するように求められる順序を決定する。</p>
 </div>
 
 #### Functions
@@ -312,29 +330,48 @@ provideHover(ドキュメント、位置、トークン){
 <a name="languages.match"></a><span class="ts" id=1380 data-target="#details-1380" data-toggle="collapse"><span class="ident">match</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a><span>)</span><span>: </span><a class="type-instrinct">number</a></span>
 <div class="details collapse" id="details-1380">
 <div class="comment"><p>ドキュメント<a href="#DocumentSelector">selector</a>とドキュメントの一致を計算します。
-0より大きい値は、セレクタがドキュメントと一致することを意味します。</p>
-<p>マッチは以下のルールに従って計算されます：1。</p>
-<p><a href="#DocumentSelector"><code>DocumentSelector</code></a>が配列の場合、含まれる各DocumentFilterまたは言語識別子の一致を計算し、最大値をとります。
-2。
-文字列は<a href="#DocumentFilter">DocumentFilter`</a>の <code>language</code> 部分になるようにdesugaredされるので、 <code>` fooLang&quot;</code>は` {language： &quot;fooLang&quot;}と似ています。
-3。</p>
-<p><a href="#DocumentFilter">DocumentFilter`</a>は、その部分をドキュメントと比較することによってドキュメントと照合されます。
-以下の規則が適用されます： 1。</p>
-<p><code>DocumentFilter</code> が空の場合( <code>{}</code> )、結果は <code>0</code> です 2。</p>
-<p><code>scheme</code> 、 <code>language</code> または <code>pattern</code> が定義されているが、一致しない場合は <code>0</code> です。
-3。
-`* &#39;とのマッチングはスコア「5」を与え、等価またはグロブパターンを介したマッチングは「10」のスコアを与える
+値 0より大きい値は、セレクタがドキュメントと一致することを意味します。</p>
+<p>マッチは以下のルールに従って計算されます： 1.
+<a href="#DocumentSelector">DocumentSelector`</a>が配列の場合、含まれる各DocumentFilterまたは言語識別子の一致を計算し、最大値をとります。
+2.文字列は<a href="#DocumentFilter">DocumentFilter`</a>の <code>language</code> 部分になるようにdesugaredされるので、 <code>` fooLang&quot;</code>は<code>{language： &quot;fooLang&quot;}と似ています。
+3.
+[</code>DocumentFilter`](#DocumentFilter)は、その部分をドキュメントと比較することによって、ドキュメントに対して照合されます。
+次の規則が適用されます。</p>
+<p> 1.
+DocumentFilterが空の場合( <code>{} &#39;)、結果は</code> 0`です
+ 2.「scheme」、「language」、「pattern」は定義されているが、一致しない場合は「0」
+ 3.「*」とのマッチングは「5」のスコアを与え、等価またはグロブパターンを介したマッチングは「10」のスコアを与える
 4.結果は各試合の最大値です</p>
-<p>サンプル：
-```js</p>
+<p>Samples:</p>
+
+<pre><code class="lang-js"><span class="hljs-comment">// default document from disk (file-scheme)</span>
+doc.uri; <span class="hljs-comment">//'file:///my/file.js'</span>
+doc.languageId; <span class="hljs-comment">// 'javascript'</span>
+match(<span class="hljs-string">'javascript'</span>, doc); <span class="hljs-comment">// 10;</span>
+match({<span class="hljs-attr">language</span>: <span class="hljs-string">'javascript'</span>}, doc); <span class="hljs-comment">// 10;</span>
+match({<span class="hljs-attr">language</span>: <span class="hljs-string">'javascript'</span>, <span class="hljs-attr">scheme</span>: <span class="hljs-string">'file'</span>}, doc); <span class="hljs-comment">// 10;</span>
+match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 5</span>
+match(<span class="hljs-string">'fooLang'</span>, doc); <span class="hljs-comment">// 0</span>
+match([<span class="hljs-string">'fooLang'</span>, <span class="hljs-string">'*'</span>], doc); <span class="hljs-comment">// 5</span>
+
+<span class="hljs-comment">// virtual document, e.g. from git-index</span>
+doc.uri; <span class="hljs-comment">// 'git:/my/file.js'</span>
+doc.languageId; <span class="hljs-comment">// 'javascript'</span>
+match(<span class="hljs-string">'javascript'</span>, doc); <span class="hljs-comment">// 10;</span>
+match({<span class="hljs-attr">language</span>: <span class="hljs-string">'javascript'</span>, <span class="hljs-attr">scheme</span>: <span class="hljs-string">'git'</span>}, doc); <span class="hljs-comment">// 10;</span>
+match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 5</span>
+</code></pre>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1381 data-target="#details-1381" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="document"></a><span class="ts" id=1382 data-target="#details-1382" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1381 data-target="#details-1381" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>ドキュメントセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=1382 data-target="#details-1382" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>ドキュメントテキスト。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">number</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><span class="ts"><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>セレクタが一致するときは <code>&gt; 0、セレクタが一致しないときは</code> 0 &#39;になります。</p>
+</div></td></tr>
 </table>
 </div>
 </div>
@@ -344,9 +381,9 @@ provideHover(ドキュメント、位置、トークン){
 <a name="languages.registerCodeActionsProvider"></a><span class="ts" id=1392 data-target="#details-1392" data-toggle="collapse"><span class="ident">registerCodeActionsProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeActionProvider">CodeActionProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1392">
 <div class="comment"><p>コードアクションプロバイダを登録する。</p>
-<p>複数のプロバイダを言語に登録することができます。その場合、プロバイダーは
-パラレルに変換し、結果をマージします。失敗したプロバイダ(約束または例外を拒否)は、
-操作全体の失敗を引き起こさない。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ(約束または例外を拒否した)によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -365,9 +402,9 @@ provideHover(ドキュメント、位置、トークン){
 <a name="languages.registerCodeLensProvider"></a><span class="ts" id=1396 data-target="#details-1396" data-toggle="collapse"><span class="ident">registerCodeLensProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeLensProvider">CodeLensProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1396">
 <div class="comment"><p>コードレンズ提供者を登録する。</p>
-<p>複数のプロバイダを言語に登録することができます。その場合、プロバイダーは
-パラレルに変換し、結果をマージします。失敗したプロバイダ(約束または例外を拒否)は、
-操作全体の失敗を引き起こさない。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ(約束または例外を拒否した)によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -388,9 +425,9 @@ provideHover(ドキュメント、位置、トークン){
 <div class="comment"><p>補完提供者を登録する。</p>
 <p>複数のプロバイダを言語に登録することができます。
 その場合、プロバイダは<a href="#languages.match">score</a>でソートされ、等しいスコアのグループには
-完成品。このプロセスは、グループの1人または複数のプロバイダが
-結果。失敗したプロバイダ(約束または例外が拒否された場合)
-動作。</p>
+完成品。
+グループの1人または複数のプロバイダが結果を返すと、プロセスは停止します。
+失敗したプロバイダ(約束または例外が拒否されても)が操作全体を失敗させることはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -432,8 +469,8 @@ provideHover(ドキュメント、位置、トークン){
 <div class="details collapse" id="details-1435">
 <div class="comment"><p>ドキュメントの書式設定プロバイダを登録します。</p>
 <p>複数のプロバイダを言語に登録することができます。
-その場合、プロバイダーは<a href="#languages.match">score</a>でソートされ、最も一致するプロバイダーが使用されます。失敗
-が選択されたプロバイダーの場合、全体の操作が失敗することになります。</p>
+その場合、プロバイダは<a href="#languages.match">score</a>でソートされ、最も一致するプロバイダが使用されます。
+選択したプロバイダの障害により、操作全体が失敗することがあります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -473,9 +510,8 @@ provideHover(ドキュメント、位置、トークン){
 <a name="languages.registerDocumentLinkProvider"></a><span class="ts" id=1454 data-target="#details-1454" data-toggle="collapse"><span class="ident">registerDocumentLinkProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentLinkProvider">DocumentLinkProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1454">
 <div class="comment"><p>ドキュメントリンクプロバイダを登録します。</p>
-<p>複数のプロバイダを言語に登録することができます。その場合、プロバイダーは
-パラレルに変換し、結果をマージします。失敗したプロバイダ(約束または例外を拒否)は、
-操作全体の失敗を引き起こさない。</p>
+<p>複数のプロバイダを言語に登録することができます。その場合、プロバイダは並行して質問され、結果はマージされます。
+失敗したプロバイダ(約束または例外を拒否した)によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -495,10 +531,10 @@ provideHover(ドキュメント、位置、トークン){
 <div class="details collapse" id="details-1439">
 <div class="comment"><p>ドキュメント範囲の書式設定プロバイダを登録します。</p>
 <p><em>注：</em>ドキュメント範囲プロバイダも<a href="#DocumentFormattingEditProvider">ドキュメントフォーマッタ</a>です。
-これは、範囲プロバイダを登録するときに、ドキュメントフォーマッタを<a href="registerDocumentFormattingEditProvider">register</a>する必要がないことを意味します。</p>
+つまり、ドキュメントを登録する必要はありません(registerDocumentFormattingEditProvider) 範囲プロバイダを登録するときにもフォーマッタ。</p>
 <p>複数のプロバイダを言語に登録することができます。
-その場合、プロバイダーは<a href="#languages.match">score</a>でソートされ、最も一致するプロバイダーが使用されます。失敗
-が選択されたプロバイダーの場合、全体の操作が失敗することになります。</p>
+その場合、プロバイダーは<a href="#languages.match">score</a>でソートされ、最も一致するプロバイダーが使用されます。
+選択したプロバイダの障害により、操作全体が失敗することがあります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -506,7 +542,8 @@ provideHover(ドキュメント、位置、トークン){
 <tr><td><a name="selector"></a><span class="ts" id=1440 data-target="#details-1440" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
 <tr><td><a name="provider"></a><span class="ts" id=1441 data-target="#details-1441" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentRangeFormattingEditProvider">DocumentRangeFormattingEditProvider</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
+</div></td></tr>
 </table>
 </div>
 </div>
@@ -516,9 +553,9 @@ provideHover(ドキュメント、位置、トークン){
 <a name="languages.registerDocumentSymbolProvider"></a><span class="ts" id=1420 data-target="#details-1420" data-toggle="collapse"><span class="ident">registerDocumentSymbolProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentSymbolProvider">DocumentSymbolProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1420">
 <div class="comment"><p>ドキュメントシンボルプロバイダを登録します。</p>
-<p>複数のプロバイダを言語に登録することができます。その場合、プロバイダーは
-パラレルに変換し、結果をマージします。失敗したプロバイダ(約束または例外を拒否)は、
-操作全体の失敗を引き起こさない。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ(約束または例外を拒否した)によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -537,9 +574,9 @@ provideHover(ドキュメント、位置、トークン){
 <a name="languages.registerHoverProvider"></a><span class="ts" id=1412 data-target="#details-1412" data-toggle="collapse"><span class="ident">registerHoverProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#HoverProvider">HoverProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1412">
 <div class="comment"><p>ホバー提供者を登録する。</p>
-<p>複数のプロバイダを言語に登録することができます。その場合、プロバイダーは
-パラレルに変換し、結果をマージします。失敗したプロバイダ(約束または例外を拒否)は、
-操作全体の失敗を引き起こさない。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ(約束または例外を拒否した)によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -558,9 +595,9 @@ provideHover(ドキュメント、位置、トークン){
 <a name="languages.registerImplementationProvider"></a><span class="ts" id=1404 data-target="#details-1404" data-toggle="collapse"><span class="ident">registerImplementationProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#ImplementationProvider">ImplementationProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1404">
 <div class="comment"><p>実装プロバイダを登録する。</p>
-<p>複数のプロバイダを言語に登録することができます。その場合、プロバイダーは
-パラレルに変換し、結果をマージします。失敗したプロバイダ(約束または例外を拒否)は、
-操作全体の失敗を引き起こさない。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ(約束または例外を拒否した)によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -581,8 +618,8 @@ provideHover(ドキュメント、位置、トークン){
 <div class="comment"><p>型で動作する書式設定プロバイダを登録します。
 プロバイダは、ユーザが <code>editor.formatOnType</code> の設定を有効にするとアクティブになります。</p>
 <p>複数のプロバイダを言語に登録することができます。
-その場合、プロバイダーは<a href="#languages.match">score</a>でソートされ、最も一致するプロバイダーが使用されます。失敗
-が選択されたプロバイダーの場合、全体の操作が失敗することになります。</p>
+その場合、プロバイダーは<a href="#languages.match">score</a>でソートされ、最も一致するプロバイダーが使用されます。
+選択したプロバイダの障害により、操作全体が失敗することがあります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -604,9 +641,9 @@ provideHover(ドキュメント、位置、トークン){
 <a name="languages.registerReferenceProvider"></a><span class="ts" id=1427 data-target="#details-1427" data-toggle="collapse"><span class="ident">registerReferenceProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#ReferenceProvider">ReferenceProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1427">
 <div class="comment"><p>参照プロバイダーを登録する。</p>
-<p>複数のプロバイダを言語に登録することができます。その場合、プロバイダーは
-パラレルに変換し、結果をマージします。失敗したプロバイダ(約束または例外を拒否)は、
-操作全体の失敗を引き起こさない。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ(約束または例外を拒否した)によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -626,8 +663,8 @@ provideHover(ドキュメント、位置、トークン){
 <div class="details collapse" id="details-1431">
 <div class="comment"><p>参照プロバイダーを登録する。</p>
 <p>複数のプロバイダを言語に登録することができます。
-その場合、プロバイダーは<a href="#languages.match">score</a>でソートされ、最も一致するプロバイダーが使用されます。失敗
-が選択されたプロバイダーの場合、全体の操作が失敗することになります。</p>
+その場合、プロバイダは<a href="#languages.match">score</a>でソートされ、最も一致するプロバイダが使用されます。
+選択したプロバイダの障害により、操作全体が失敗することがあります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -645,10 +682,9 @@ provideHover(ドキュメント、位置、トークン){
 
 <a name="languages.registerSignatureHelpProvider"></a><span class="ts" id=1449 data-target="#details-1449" data-toggle="collapse"><span class="ident">registerSignatureHelpProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#SignatureHelpProvider">SignatureHelpProvider</a>, <span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1449">
-<div class="comment"><p>署名のヘルププロバイダを登録してください。</p>
+<div class="comment"><p>署名のヘルププロバイダを登録します。</p>
 <p>複数のプロバイダを言語に登録することができます。
-この場合、プロバイダは<a href="#languages.match">スコア</a>でソートされ、プロバイダが返すまで順番に呼び出されます
-有効な結果。</p>
+その場合、プロバイダは<a href="#languages.match">score</a>でソートされ、プロバイダが有効な結果を返すまで順番に呼び出されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -668,9 +704,9 @@ provideHover(ドキュメント、位置、トークン){
 <a name="languages.registerTypeDefinitionProvider"></a><span class="ts" id=1408 data-target="#details-1408" data-toggle="collapse"><span class="ident">registerTypeDefinitionProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#TypeDefinitionProvider">TypeDefinitionProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1408">
 <div class="comment"><p>型定義プロバイダを登録する。</p>
-<p>複数のプロバイダを言語に登録することができます。その場合、プロバイダーは
-パラレルに変換し、結果をマージします。失敗したプロバイダ(約束または例外を拒否)は、
-操作全体の失敗を引き起こさない。</p>
+<p>複数のプロバイダを言語に登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ(約束または例外を拒否した)によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -689,9 +725,9 @@ provideHover(ドキュメント、位置、トークン){
 <a name="languages.registerWorkspaceSymbolProvider"></a><span class="ts" id=1424 data-target="#details-1424" data-toggle="collapse"><span class="ident">registerWorkspaceSymbolProvider</span><span>(</span><span class="ident">provider</span><span>: </span><a class="type-ref" href="#WorkspaceSymbolProvider">WorkspaceSymbolProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1424">
 <div class="comment"><p>ワークスペースシンボルプロバイダを登録します。</p>
-<p>複数のプロバイダを登録することができます。その場合、プロバイダは並行して質問され、
-結果がマージされます。失敗したプロバイダ(約束または例外を拒否)は、
-全体の操作の失敗。</p>
+<p>複数のプロバイダを登録することができます。
+その場合、プロバイダーは並行して質問され、結果はマージされます。
+失敗したプロバイダ(約束または例外を拒否した)によって、操作全体が失敗することはありません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -708,14 +744,15 @@ provideHover(ドキュメント、位置、トークン){
 
 <a name="languages.setLanguageConfiguration"></a><span class="ts" id=1458 data-target="#details-1458" data-toggle="collapse"><span class="ident">setLanguageConfiguration</span><span>(</span><span class="ident">language</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">configuration</span><span>: </span><a class="type-ref" href="#LanguageConfiguration">LanguageConfiguration</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1458">
-<div class="comment"><p>言語の<a href="#LanguageConfiguration">言語設定</a>を設定します。</p>
+<div class="comment"><p>言語の <a href="#LanguageConfiguration">言語設定</a> を設定します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="language"></a><span class="ts" id=1459 data-target="#details-1459" data-toggle="collapse"><span class="ident">language</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p><code>typescript</code> のような言語識別子。</p>
 </div></td></tr>
-<tr><td><a name="configuration"></a><span class="ts" id=1460 data-target="#details-1460" data-toggle="collapse"><span class="ident">configuration</span><span>: </span><a class="type-ref" href="#LanguageConfiguration">LanguageConfiguration</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="configuration"></a><span class="ts" id=1460 data-target="#details-1460" data-toggle="collapse"><span class="ident">configuration</span><span>: </span><a class="type-ref" href="#LanguageConfiguration">LanguageConfiguration</a></span></td><td><div class="comment"><p>言語の設定。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>この設定を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -735,7 +772,7 @@ provideHover(ドキュメント、位置、トークン){
 
 <a name="scm.inputBox"></a><span class="ts" id=1462 data-target="#details-1462" data-toggle="collapse"><span class="ident">inputBox</span><span>: </span><a class="type-ref" href="#SourceControlInputBox">SourceControlInputBox</a></span>
 <div class="details collapse" id="details-1462">
-<div class="comment"><p>ソースコントロールビューレットの<a href="#SourceControlInputBox">入力ボックス</a>。</p>
+<div class="comment"><p>ソースコントロールビューレットの <a href="#SourceControlInputBox">入力ボックス</a>。</p>
 </div>
 </div>
 
@@ -745,7 +782,7 @@ provideHover(ドキュメント、位置、トークン){
 
 <a name="scm.createSourceControl"></a><span class="ts" id=1464 data-target="#details-1464" data-toggle="collapse"><span class="ident">createSourceControl</span><span>(</span><span class="ident">id</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">label</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#SourceControl">SourceControl</a></span>
 <div class="details collapse" id="details-1464">
-<div class="comment"><p>新しい<a href="#SourceControl">ソースコントロール</a>インスタンスを作成します。</p>
+<div class="comment"><p>新しい <a href="#SourceControl">ソースコントロール</a> インスタンスの作成</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -753,7 +790,7 @@ provideHover(ドキュメント、位置、トークン){
 <tr><td><a name="id"></a><span class="ts" id=1465 data-target="#details-1465" data-toggle="collapse"><span class="ident">id</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
 <tr><td><a name="label"></a><span class="ts" id=1466 data-target="#details-1466" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#SourceControl">SourceControl</a></span></td><td><div class="comment"><p>のインスタンス(#SourceControl)。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#SourceControl">SourceControl</a></span></td><td><div class="comment"><p>(#SourceControl) のインスタンス。</p>
 </div></td></tr>
 </table>
 </div>
@@ -793,8 +830,7 @@ provideHover(ドキュメント、位置、トークン){
 
 <a name="window.onDidChangeActiveTextEditor"></a><span class="ts" id=1202 data-target="#details-1202" data-toggle="collapse"><span class="ident">onDidChangeActiveTextEditor</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
 <div class="details collapse" id="details-1202">
-<div class="comment"><p><a href="#window.activeTextEditor">アクティブなエディタ</a>が起動したときに起動する<a href="#イベント">イベント</a>
-変更されました。</p>
+<div class="comment"><p><a href="#window.activeTextEditor">アクティブエディタ</a>が変更されたときに起動する<a href="#イベント">イベント</a>。</p>
 <ul>
 <li>*アクティブなエディタが <code>undefined</code> に変わったときにイベントが発生することもあります。</li>
 </ul>
@@ -829,8 +865,7 @@ provideHover(ドキュメント、位置、トークン){
 
 <a name="window.onDidChangeVisibleTextEditors"></a><span class="ts" id=1203 data-target="#details-1203" data-toggle="collapse"><span class="ident">onDidChangeVisibleTextEditors</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>[]&gt;</span>
 <div class="details collapse" id="details-1203">
-<div class="comment"><p>[visible editor]の配列(#window.visibleTextEditors)が呼び出されたときに発生する<a href="#Event">event</a>
-変更されました。</p>
+<div class="comment"><p><a href="#window.visibleTextEditors">visible editor</a>の配列が変更されたときに発生する<a href="#Event">event</a>。</p>
 </div>
 </div>
 
@@ -883,8 +918,8 @@ provideHover(ドキュメント、位置、トークン){
 
 <a name="window.createTerminal"></a><span class="ts" id=1318 data-target="#details-1318" data-toggle="collapse"><span class="ident">createTerminal</span><span>(</span><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">shellPath</span><span>?</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">shellArgs</span><span>?</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Terminal">Terminal</a></span>
 <div class="details collapse" id="details-1318">
-<div class="comment"><p><a href="#端末">端末</a>を作成します。ターミナルのcwdはワークスペースディレクトリになります
-明示的なcustomStartPath設定が存在するかどうかに関係なく、存在する場合は*。</p>
+<div class="comment"><p><a href="#Terminal">端末</a> を作成します。
+明示的なcustomStartPath設定が存在するかどうかにかかわらず、端末のcwdが存在する場合、ワークスペースディレクトリになります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -904,8 +939,8 @@ provideHover(ドキュメント、位置、トークン){
 
 <a name="window.createTerminal"></a><span class="ts" id=1322 data-target="#details-1322" data-toggle="collapse"><span class="ident">createTerminal</span><span>(</span><span class="ident">options</span><span>: </span><a class="type-ref" href="#TerminalOptions">TerminalOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Terminal">Terminal</a></span>
 <div class="details collapse" id="details-1322">
-<div class="comment"><p><a href="#端末">端末</a>を作成します。ターミナルのcwdはワークスペースディレクトリになります
-明示的なcustomStartPath設定が存在するかどうかに関係なく、存在する場合は*。</p>
+<div class="comment"><p><a href="#Terminal">端末</a> を作成します。
+明示的なcustomStartPath設定が存在するかどうかにかかわらず、端末のcwdが存在する場合、ワークスペースディレクトリになります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -976,7 +1011,7 @@ provideHover(ドキュメント、位置、トークン){
 <a name="window.setStatusBarMessage"></a><span class="ts" id=1291 data-target="#details-1291" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1291">
 <div class="comment"><p>ステータスバーにメッセージを設定します。
-*これは、より強力なステータスバー<a href="#window.createStatusBarItem">items</a>の短い手です。</p>
+これは、より強力なステータスバー<a href="#window.createStatusBarItem">items</a>の短い手です。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -996,8 +1031,7 @@ provideHover(ドキュメント、位置、トークン){
 <div class="details collapse" id="details-1294">
 <div class="comment"><p>ステータスバーにメッセージを設定します。
 これは、より強力なステータスバー<a href="#window.createStatusBarItem">items</a>の短い手です。</p>
-<p><em>注</em>ステータスバーメッセージはスタックしています。
-より長い使用。</p>
+<p><em>注</em>ステータスバーメッセージはスタックし、使用されなくなったときに廃棄する必要があります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1100,8 +1134,8 @@ provideHover(ドキュメント、位置、トークン){
 
 <a name="window.showInformationMessage"></a><span class="ts" id=1220 data-target="#details-1220" data-toggle="collapse"><span class="ident">showInformationMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1220">
-<div class="comment"><p>ユーザーに情報メッセージを表示する。必要に応じて提示されるアイテムの配列を提供する
-クリック可能なボタン。</p>
+<div class="comment"><p>ユーザーに情報メッセージを表示する。
+オプションで、クリック可能なボタンとして表示されるアイテムの配列を指定します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1109,7 +1143,8 @@ provideHover(ドキュメント、位置、トークン){
 <tr><td><a name="message"></a><span class="ts" id=1221 data-target="#details-1221" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
 <tr><td><a name="items"></a><span class="ts" id=1222 data-target="#details-1222" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"></div></td></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code> が返されます。</p>
+</div></td></tr>
 </table>
 </div>
 </div>
@@ -1118,8 +1153,8 @@ provideHover(ドキュメント、位置、トークン){
 
 <a name="window.showInformationMessage"></a><span class="ts" id=1223 data-target="#details-1223" data-toggle="collapse"><span class="ident">showInformationMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1223">
-<div class="comment"><p>ユーザーに情報メッセージを表示する。必要に応じて提示されるアイテムの配列を提供する
-クリック可能なボタン。</p>
+<div class="comment"><p>ユーザーに情報メッセージを表示する。
+オプションで、クリック可能なボタンとして表示されるアイテムの配列を指定します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1182,9 +1217,8 @@ provideHover(ドキュメント、位置、トークン){
 <a name="window.showInputBox"></a><span class="ts" id=1281 data-target="#details-1281" data-toggle="collapse"><span class="ident">showInputBox</span><span>(</span><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#InputBoxOptions">InputBoxOptions</a>, <span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1281">
 <div class="comment"><p>ユーザーに入力を求める入力ボックスを開きます。</p>
-<p>入力ボックスがキャンセルされた場合(ESCを押すなど)、戻り値は <code>undefined</code> になります。それ以外の場合
-戻り値はユーザーが入力した文字列、またはユーザーが入力しなかった場合は空の文字列です
-何でもOKで入力ボックスを却下しました。</p>
+<p>入力ボックスがキャンセルされた場合(ESCを押すなど)、戻り値は <code>undefined</code> になります。
+そうでない場合、戻り値はユーザーが入力した文字列、またはユーザーが何も入力せずにOKを押して入力ボックスを終了した場合は空の文字列になります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1394,8 +1428,7 @@ provideHover(ドキュメント、位置、トークン){
 <li><em>deprecated</em> - この関数は<strong>非推奨</strong>です。
 代わりに <code>withProgress</code> を使用してください。</li>
 </ul>
-<p>~~指定されたコールバックを実行している間、ソースコントロールビューレットの進行状況を表示します。
-返された約束は解決されず、却下されません。</p>
+<p>~~指定されたコールバックを実行している間および返された約束が解決または拒否されていない間に、ソースコントロールビューレットの進行状況を表示します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1426,8 +1459,7 @@ provideHover(ドキュメント、位置、トークン){
 <a name="workspace.rootPath"></a><span class="ts" id=1336 data-target="#details-1336" data-toggle="collapse"><span class="ident">rootPath</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a></span>
 <div class="details collapse" id="details-1336">
 <div class="comment"><p>エディタで開いているフォルダ。
-フォルダがないときは <code>undefined</code>
-が開かれました。</p>
+フォルダが開かれていないときは <code>undefined</code>。</p>
 <ul>
 <li><em>readonly</em></li>
 </ul>
@@ -1509,9 +1541,7 @@ provideHover(ドキュメント、位置、トークン){
 <div class="details collapse" id="details-1350">
 <div class="comment"><p>指定された1つまたは複数のリソースに変更を加える
 <a href="#WorkspaceEdit">ワークスペース編集</a>。</p>
-<p>ワークスペースの編集を適用するとき、エディタは「すべてかどうか」の戦略を実装しますが、
-は、1つのドキュメントを読み込んだり、1つのドキュメントを変更したりすると失敗することを意味します
-拒否する編集。</p>
+<p>ワークスペースの編集を適用するとき、エディタは「すべてかどうか」の戦略を実装します。つまり、1つのドキュメントを読み込んだり、1つのドキュメントを変更したりすると、編集が拒否されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1529,8 +1559,7 @@ provideHover(ドキュメント、位置、トークン){
 <a name="workspace.asRelativePath"></a><span class="ts" id=1338 data-target="#details-1338" data-toggle="collapse"><span class="ident">asRelativePath</span><span>(</span><span class="ident">pathOrUri</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1338">
 <div class="comment"><p>ワークスペースのルートに相対的なパスを返します。</p>
-<p><a href="#workspace.rootPath">ワークスペースルート</a>がない場合、またはパス
-はそのフォルダの子ではないため、入力が返されます。</p>
+<p><a href="#workspace.rootPath">workspace root</a>がない場合、またはパスがそのフォルダの子でない場合は、入力が返されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1551,7 +1580,7 @@ provideHover(ドキュメント、位置、トークン){
 <p>ファイルイベントをフィルタリングするグロブパターンを提供する必要があります。
 オプションで、特定の種類のイベントを無視するフラグを提供することができます。
 イベントの受信を停止するには、ウォッチャーを処分する必要があります。</p>
-<p> 現在の<a href="#workspace.rootPath">workspace</a>内のファイルのみが監視されます。</p>
+<p>現在の<a href="#workspace.rootPath">workspace</a>内のファイルのみが監視されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1572,7 +1601,9 @@ provideHover(ドキュメント、位置、トークン){
 <a name="workspace.findFiles"></a><span class="ts" id=1341 data-target="#details-1341" data-toggle="collapse"><span class="ident">findFiles</span><span>(</span><span class="ident">include</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">exclude</span><span>?</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">maxResults</span><span>?</span><span>: </span><a class="type-instrinct">number</a>, <span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Uri">Uri</a>[]&gt;</span>
 <div class="details collapse" id="details-1341">
 <div class="comment"><p>ワークスペース内のファイルを検索します。</p>
-<p>@@ sample &#39;findFiles(&#39; <strong> &#39;+&#39; / *。js &#39;、&#39; </strong> &#39;&#39; / node_modules / ** &#39;、10) `</p>
+<ul>
+<li><em>sample</em> - <code>findFiles( &#39;** / *。js&#39;、 &#39;** / node_modules / **&#39;、10)</code></li>
+</ul>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1615,24 +1646,25 @@ provideHover(ドキュメント、位置、トークン){
 この文書が既に開いている場合は、早期に返却されます。
 それ以外の場合は、ドキュメントがロードされ、<a href="#workspace.onDidOpenTextDocument">didOpen</a>-eventが発生します。</p>
 <p>この文書は<a href="#Uri">uri</a>で示されています。</p>
-<p><a href="#Uri.scheme">scheme</a>に応じて以下の規則が適用されます：* <code>file</code> -scheme：ディスク上のファイルを開きます。
-ファイルが存在しないか、読み込めない場合は拒否されます。</p>
+<p><a href="#Uri.scheme">スキーム</a>に応じて、以下のルールが適用されます。</p>
 <ul>
+<li><code>file</code> -scheme：ディスク上のファイルを開きます。
+ファイルが存在しないか、読み込めない場合は拒否されます。</li>
 <li><p><code>untitled</code> -scheme：ディスクに保存すべき新しいファイル。
 <code>タイトルなし：c：\ frodo \ new.js</code>。
-言語はファイル名から導出されます。
+言語 はファイル名から派生します。
 *他のすべてのスキームでは、登録されたテキストドキュメントコンテンツ<a href="#TextDocumentContentProvider">providers</a>が参照されます。</p>
 </li>
 <li><p>*返されたドキュメントのライフサイクルはエディタが所有し、拡張子は所有していないことに注意してください。
-つまり、
-<a href="#workspace.onDidCloseTextDocument"><code>onDidClose</code></a>-eventは、それを開いた後いつでも発生する可能性があります。</p>
+つまり、<a href="#workspace.onDidCloseTextDocument"><code>onDidClose</code></a> - イベントは、それを開いた後いつでも発生する可能性があります。</p>
 </li>
 </ul>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=1355 data-target="#details-1355" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=1355 data-target="#details-1355" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>開くリソースを指定します。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>(#TextDocument)に解決する約束です。</p>
 </div></td></tr>
@@ -1666,8 +1698,7 @@ provideHover(ドキュメント、位置、トークン){
 <div class="details collapse" id="details-1358">
 <div class="comment"><p>タイトルのないテキスト文書を開きます。
 エディタは、ドキュメントを保存するときにファイルパスを入力するように求めます。</p>
-<p><code>options</code> パラメータは
-ドキュメントの<em>言語</em>および/または<em>コンテンツ</em>を指定します。</p>
+<p><code>options</code> パラメータは、ドキュメントの言語<em>および/または</em>コンテンツ*を指定することを可能にします。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -1795,8 +1826,7 @@ provideHover(ドキュメント、位置、トークン){
 
 
 
-<div class="comment"><p>2つの文字のタプル。
-一対の開閉括弧のようです。</p>
+<div class="comment"><p>開閉ブラケットの一対のような、2つの文字の組。</p>
 </div>
 
 
@@ -2034,7 +2064,7 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="CommentRule.blockComment"></a><span class="ts" id=848 data-target="#details-848" data-toggle="collapse"><span class="ident">blockComment</span><span>?</span><span>: </span><a class="type-ref" href="#CharacterPair">CharacterPair</a></span>
 <div class="details collapse" id="details-848">
-<div class="comment"><p>ブロックコメント文字の組は、 `/ * block comment</p>
+<div class="comment"><p>ブロックコメント文字の組は、 <code>/* block comment*&amp;#47;</code></p>
 </div>
 </div>
 
@@ -2042,7 +2072,7 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="CommentRule.lineComment"></a><span class="ts" id=847 data-target="#details-847" data-toggle="collapse"><span class="ident">lineComment</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-847">
-<div class="comment"><p>``これはコメントです &#39;のような行コメントトークン</p>
+<div class="comment"><p><code>// これはコメントです</code> のような行コメントトークン</p>
 </div>
 </div>
 
@@ -5139,15 +5169,17 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="QuickDiffProvider.provideOriginalResource"></a><span class="ts" id=1122 data-target="#details-1122" data-toggle="collapse"><span class="ident">provideOriginalResource</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-1122">
-<div class="comment"><p>任意のリソースURIの元のリソースに<a href="#Uri">uri</a>を提供します。</p>
+<div class="comment"><p>任意のリソース URI の元のリソースに <a href="#Uri">uri</a> を提供します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=1123 data-target="#details-1123" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=1124 data-target="#details-1124" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=1123 data-target="#details-1123" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>リソースのURIがテキストエディタで開きます。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=1124 data-target="#details-1124" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>一致する元のリソースのuriに解決されるthenable。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>一致する元のリソースの uri に解決される thenable。</p>
 </div></td></tr>
 </table>
 </div>
@@ -5881,13 +5913,10 @@ UIに表示されます。</p>
 
 
 <div class="comment"><p>スニペット文字列は、挿入時にテキストを挿入し、エディタカーソルを制御するためのテンプレートです。</p>
-<p>スニペットは <code>$ 1</code> 、 <code>$ 2</code> でタブストップとプレースホルダを定義できます と <code>$ {3：foo}</code> になります。
-<code>$ 0</code> は最後のタブストップを定義します。
-デフォルトはスニペットの終わりです。
-変数は <code>$ name</code> で定義されています。</p>
-<p><code>$ {名前：デフォルト値}</code>。
-スニペットの完全な構文が文書化されています
-<a href="http://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets">ここ</a></p>
+<p>スニペットは <code>$1</code> 、 <code>$2</code>、 <code>${3:foo}</code> でタブストップとプレースホルダを定義できます。
+<code>$0</code> は最後のタブストップを定義し、これはデフォルトはスニペットの終わりです。
+変数は <code>$name</code> と <code>${name:default value}</code> で定義されています。</p>
+<p>スニペットの完全な構文が <a href="http://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets">ここ</a> に文書化されています</p>
 </div>
 
 #### Constructors
@@ -5994,7 +6023,7 @@ UIに表示されます。</p>
 
 
 
-<div class="comment"><p>ソースコントロールは<a href="#SourceControlResourceState">リソース状態</a>を提供することができます。
+<div class="comment"><p>ソースコントロールは <a href="#SourceControlResourceState">リソース状態</a> を提供することができます。
 をエディタに追加し、いくつかのソース管理関連の方法でエディタとやり取りします。</p>
 </div>
 
@@ -6114,7 +6143,7 @@ UIに表示されます。</p>
 
 
 
-<div class="comment"><p><a href="#SourceControlResourceState">ソースコントロールリソース状態</a>の装飾。
+<div class="comment"><p><a href="#SourceControlResourceState">ソースコントロールリソース状態</a> の装飾。
 *明るいテーマと暗いテーマを個別に指定できます。</p>
 </div>
 
@@ -6132,7 +6161,7 @@ UIに表示されます。</p>
 
 <a name="SourceControlResourceDecorations.faded"></a><span class="ts" id=1129 data-target="#details-1129" data-toggle="collapse"><span class="ident">faded</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-1129">
-<div class="comment"><p><a href="#SourceControlResourceState">Source control resource state</a>をUIでフェードするかどうか。</p>
+<div class="comment"><p><a href="#SourceControlResourceState">Source control resource state</a> をUIでフェードするかどうか。</p>
 </div>
 </div>
 
@@ -6140,8 +6169,7 @@ UIに表示されます。</p>
 
 <a name="SourceControlResourceDecorations.iconPath"></a><span class="ts" id=1132 data-target="#details-1132" data-toggle="collapse"><span class="ident">iconPath</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span>
 <div class="details collapse" id="details-1132">
-<div class="comment"><p>特定のアイコンのパス
-<a href="#SourceControlResourceState">ソース制御リソースの状態</a>。</p>
+<div class="comment"><p>特定 <a href="#SourceControlResourceState">ソース制御リソースの状態</a> のアイコンのパス。</p>
 </div>
 </div>
 
@@ -6157,7 +6185,7 @@ UIに表示されます。</p>
 
 <a name="SourceControlResourceDecorations.strikeThrough"></a><span class="ts" id=1128 data-target="#details-1128" data-toggle="collapse"><span class="ident">strikeThrough</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-1128">
-<div class="comment"><p><a href="#SourceControlResourceState">Source control resource state</a>をUIでストライクするかどうか。</p>
+<div class="comment"><p><a href="#SourceControlResourceState">Source control resource state</a> をUIでストライクするかどうか。</p>
 </div>
 </div>
 
@@ -6175,7 +6203,7 @@ UIに表示されます。</p>
 
 <a name="SourceControlResourceGroup.hideWhenEmpty"></a><span class="ts" id=1140 data-target="#details-1140" data-toggle="collapse"><span class="ident">hideWhenEmpty</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-1140">
-<div class="comment"><p><a href="#SourceControlResourceState">ソース制御リソースの状態</a>が含まれていない場合、このソース管理リソースグループが非表示になっているかどうか。</p>
+<div class="comment"><p><a href="#SourceControlResourceState">ソース制御リソースの状態</a> が含まれていない場合、このソース管理リソースグループが非表示になっているかどうか。</p>
 </div>
 </div>
 
@@ -6199,8 +6227,7 @@ UIに表示されます。</p>
 
 <a name="SourceControlResourceGroup.resourceStates"></a><span class="ts" id=1141 data-target="#details-1141" data-toggle="collapse"><span class="ident">resourceStates</span><span>: </span><a class="type-ref" href="#SourceControlResourceState">SourceControlResourceState</a>[]</span>
 <div class="details collapse" id="details-1141">
-<div class="comment"><p>このグループのコレクション
-<a href="#SourceControlResourceState">ソース制御リソースの状態</a>。</p>
+<div class="comment"><p><a href="#SourceControlResourceState">ソース制御リソースの状態</a>のグループのコレクション。</p>
 </div>
 </div>
 
@@ -6224,7 +6251,7 @@ UIに表示されます。</p>
 
 
 
-<div class="comment"><p>ソース管理リソース状態は、特定の<a href="#SourceControlResourceGroup">ソース管理グループ</a>内の基礎となるワークスペースリソースの状態を表します。</p>
+<div class="comment"><p>ソース管理リソース状態は、特定の <a href="#SourceControlResourceGroup">ソース管理グループ</a> 内の基礎となるワークスペースリソースの状態を表します。</p>
 </div>
 
 #### Properties
@@ -6233,7 +6260,7 @@ UIに表示されます。</p>
 
 <a name="SourceControlResourceState.command"></a><span class="ts" id=1135 data-target="#details-1135" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span>
 <div class="details collapse" id="details-1135">
-<div class="comment"><p>[ソース制御]ビューレットでリソース状態が開いているときに実行する<a href="#コマンド">コマンド</a>。</p>
+<div class="comment"><p>ソース制御ビューレットでリソース状態が開いているときに実行する<a href="#Command">コマンド</a>。</p>
 </div>
 </div>
 
@@ -6249,7 +6276,7 @@ UIに表示されます。</p>
 
 <a name="SourceControlResourceState.resourceUri"></a><span class="ts" id=1134 data-target="#details-1134" data-toggle="collapse"><span class="ident">resourceUri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
 <div class="details collapse" id="details-1134">
-<div class="comment"><p>ワークスペース内の基礎となるリソースの<a href="#Uri">uri</a>。</p>
+<div class="comment"><p>ワークスペース内の基礎となるリソースの <a href="#Uri">uri</a>。</p>
 </div>
 </div>
 
@@ -6257,8 +6284,7 @@ UIに表示されます。</p>
 
 
 
-<div class="comment"><p>aのためのテーマを意識した装飾
-<a href="#SourceControlResourceState">ソース制御リソースの状態</a>。</p>
+<div class="comment"><p><a href="#SourceControlResourceState">ソース制御リソースの状態</a> のテーマを意識した装飾。</p>
 </div>
 
 #### Properties
@@ -6267,8 +6293,7 @@ UIに表示されます。</p>
 
 <a name="SourceControlResourceThemableDecorations.iconPath"></a><span class="ts" id=1126 data-target="#details-1126" data-toggle="collapse"><span class="ident">iconPath</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span>
 <div class="details collapse" id="details-1126">
-<div class="comment"><p>特定のアイコンのパス
-<a href="#SourceControlResourceState">ソース制御リソースの状態</a>。</p>
+<div class="comment"><p>特定 <a href="#SourceControlResourceState">ソース制御リソースの状態</a> のアイコンのパス。</p>
 </div>
 </div>
 
@@ -6819,7 +6844,7 @@ UIに表示されます。</p>
 
 <a name="TextDocument.eol"></a><span class="ts" id=48 data-target="#details-48" data-toggle="collapse"><span class="ident">eol</span><span>: </span><a class="type-ref" href="#EndOfLine">EndOfLine</a></span>
 <div class="details collapse" id="details-48">
-<div class="comment"><p>この文書で主に使用されている<a href="#EndOfLine">end of line</a>シーケンス。</p>
+<div class="comment"><p>この文書で主に使用されている <a href="#EndOfLine">end of line</a> シーケンス。</p>
 </div>
 </div>
 
@@ -6837,7 +6862,7 @@ uri スキームとは独立しています。</p>
 
 <a name="TextDocument.isClosed"></a><span class="ts" id=45 data-target="#details-45" data-toggle="collapse"><span class="ident">isClosed</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-45">
-<div class="comment"><p>ドキュメントが閉じられている場合は `true &#39;。
+<div class="comment"><p>ドキュメントが閉じられている場合は <code>true</code> 。
 閉じたドキュメントはもう同期されず、同じリソースが再度開かれたときに再利用されません。</p>
 </div>
 </div>
@@ -6965,7 +6990,7 @@ uri スキームとは独立しています。</p>
 <div class="details collapse" id="details-53">
 <div class="comment"><p>位置によって示されるテキスト行を返します。
 返されたオブジェクトは生きて<em>いない</em>ことに注意してください。文書への変更は反映されません。</p>
-<p>位置は調整されます(#TextDocument.validatePosition)。</p>
+<p>位置は<a href="#TextDocument.validatePosition">調整</a> されます。</p>
 <ul>
 <li><em>see</em> - <a href="#TextDocument.lineAt">TextDocument.lineAt</a></li>
 </ul>
@@ -7027,8 +7052,8 @@ uri スキームとは独立しています。</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>ファイルが保存されたときにtrueに解決される約束。
-ファイルがダーティでないか、保存に失敗した場合はfalseを返します。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>ファイルが保存されたときに true に解決される promise。
+ファイルがダーティでないか、保存に失敗した場合は false を返します。</p>
 </div></td></tr>
 </table>
 </div>
@@ -7272,14 +7297,23 @@ uri スキームとは独立しています。</p>
 <div class="comment"><p>イベントループを一時停止し、<a href="#TextEdit">保存前編集</a>を適用することができます。
 この関数の後続の呼び出しの編集は、順番に適用されます。ザ
 ドキュメントの同時修正が行われた場合、編集内容は無視されます。</p>
-<p><em>注：</em>この関数は、イベントのディスパッチ中にのみ呼び出すことができます。
+<p><em>注:</em> この関数は、イベントのディスパッチ中にのみ呼び出すことができます。
 非同期で：</p>
-<p>```ts workspace.onWillSaveTextDocument(イベント=&gt; {</p>
+
+<pre><code class="lang-ts">workspace.onWillSaveTextDocument(<span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
+    <span class="hljs-comment">// async, will *throw* an error</span>
+    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> event.waitUntil(promise));
+
+    <span class="hljs-comment">// sync, OK</span>
+    event.waitUntil(promise);
+})
+</code></pre>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="thenable"></a><span class="ts" id=1115 data-target="#details-1115" data-toggle="collapse"><span class="ident">thenable</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="thenable"></a><span class="ts" id=1115 data-target="#details-1115" data-toggle="collapse"><span class="ident">thenable</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span></td><td><div class="comment"><p>A thenable that resolves to <a href="#TextEdit">pre-save-edits</a>.</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -7291,12 +7325,13 @@ uri スキームとは独立しています。</p>
 <a name="TextDocumentWillSaveEvent.waitUntil"></a><span class="ts" id=1116 data-target="#details-1116" data-toggle="collapse"><span class="ident">waitUntil</span><span>(</span><span class="ident">thenable</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;<span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-1116">
 <div class="comment"><p>提供されたthenableが解決されるまで、イベントループを一時停止することができます。</p>
-<p><em>注：</em>この関数は、イベントのディスパッチ中にのみ呼び出すことができます。</p>
+<p><em>注:</em>　この関数は、イベントのディスパッチ中にのみ呼び出すことができます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="thenable"></a><span class="ts" id=1117 data-target="#details-1117" data-toggle="collapse"><span class="ident">thenable</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="thenable"></a><span class="ts" id=1117 data-target="#details-1117" data-toggle="collapse"><span class="ident">thenable</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;</span></td><td><div class="comment"><p>保存を遅らせる thenable。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -8010,7 +8045,7 @@ uri スキームとは独立しています。</p>
 
 
 <div class="comment"><p>ソースコードなどのテキスト行を表します。</p>
-<p>TextLineオブジェクトは<strong>immutable</strong>です。
+<p>TextLine オブジェクトは <strong>immutable</strong> です。
 <a href="#TextDocument">document</a> が変更されると、以前に取得された行は最新の状態を表しません。</p>
 </div>
 
@@ -8037,7 +8072,7 @@ uri スキームとは独立しています。</p>
 
 <a name="TextLine.lineNumber"></a><span class="ts" id=32 data-target="#details-32" data-toggle="collapse"><span class="ident">lineNumber</span><span>: </span><a class="type-instrinct">number</a></span>
 <div class="details collapse" id="details-32">
-<div class="comment"><p>0から始まる行番号。</p>
+<div class="comment"><p>0 から始まる行番号。</p>
 </div>
 </div>
 
@@ -8457,8 +8492,11 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="label"></a><span class="ts" id=1083 data-target="#details-1083" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="collapsibleState"></a><span class="ts" id=1084 data-target="#details-1084" data-toggle="collapse"><span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-ref" href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="label"></a><span class="ts" id=1083 data-target="#details-1083" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>この項目を説明する人間が読める文字列</p>
+</div></td></tr>
+<tr><td><a name="collapsibleState"></a><span class="ts" id=1084 data-target="#details-1084" data-toggle="collapse"><span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-ref" href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a></span></td><td><div class="comment"><p>ツリー項目の <a href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a>。
+デフォルトは<a href="#TreeItemCollapsibleState.None">TreeItemCollapsibleState.None</a>です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TreeItem">TreeItem</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -8479,7 +8517,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="TreeItem.command"></a><span class="ts" id=1078 data-target="#details-1078" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span>
 <div class="details collapse" id="details-1078">
-<div class="comment"><p>ツリー項目が選択されたときに実行される<a href="#コマンド">command</a>。</p>
+<div class="comment"><p>ツリー項目が選択されたときに実行される<a href="#Command">command</a>。</p>
 </div>
 </div>
 
@@ -8490,19 +8528,19 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 <div class="comment"><p>ツリー項目のコンテキスト値。
 これは、ツリー内のアイテム固有のアクションに貢献するために使用できます。
 例えば、ツリー項目には <code>folder</code> というコンテキスト値が与えられます。</p>
-<p><code>view / item / context</code> にアクションを提供するとき
+<p><code>view/item/context</code> にアクションを提供するとき
 <code>menus</code> 拡張ポイントを使うと <code>viewItem == folder</code> のような <code>when</code> 式のキー <code>viewItem</code> のコンテキスト値を指定することができます。</p>
 
-<pre><code><span class="hljs-string">"貢献する"</span>：{
-<span class="hljs-string">"メニュー"</span>：{
-<span class="hljs-string">"ビュー/アイテム/コンテキスト"</span>：[
-{
-<span class="hljs-string">"command"</span>： <span class="hljs-string">"extension.deleteFolder"</span>、
-<span class="hljs-string">"when"</span>： <span class="hljs-string">"viewItem == folder"</span>
-}
-]
-}
-}
+<pre><code>    <span class="hljs-string">"contributes"</span>: {
+        <span class="hljs-string">"menus"</span>: {
+            <span class="hljs-string">"view/item/context"</span>: [
+                {
+                    <span class="hljs-string">"command"</span>: <span class="hljs-string">"extension.deleteFolder"</span>,
+                    <span class="hljs-string">"when"</span>: <span class="hljs-string">"viewItem == folder"</span>
+                }
+            ]
+        }
+    }
 </code></pre><p>これは <code>contextValue</code> が <code>folder</code> であるアイテムに対してのみ <code>extension.deleteFolder</code> アクションを表示します。</p>
 </div>
 </div>
@@ -8932,7 +8970,7 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts">[<a class="type-ref" href="#Uri">Uri</a>, <a class="type-ref" href="#TextEdit">TextEdit</a>[]][]</span></td><td><div class="comment"><p><code>[Uri、TextEdit []]</code> - の組の配列です。</p>
+<tr><td><span class="ts">[<a class="type-ref" href="#Uri">Uri</a>, <a class="type-ref" href="#TextEdit">TextEdit</a>[]][]</span></td><td><div class="comment"><p><code>[Uri, TextEdit[]]</code> - の組の配列です。</p>
 </div></td></tr>
 </table>
 </div>
@@ -8947,7 +8985,8 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=684 data-target="#details-684" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=684 data-target="#details-684" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>リソース識別子。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TextEdit">TextEdit</a>[]</span></td><td><div class="comment"><p>テキスト編集の配列。</p>
 </div></td></tr>
@@ -9017,8 +9056,10 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=680 data-target="#details-680" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="edits"></a><span class="ts" id=681 data-target="#details-681" data-toggle="collapse"><span class="ident">edits</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=680 data-target="#details-680" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>リソース識別子。</p>
+</div></td></tr>
+<tr><td><a name="edits"></a><span class="ts" id=681 data-target="#details-681" data-toggle="collapse"><span class="ident">edits</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a>[]</span></td><td><div class="comment"><p>テキスト編集の配列。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
