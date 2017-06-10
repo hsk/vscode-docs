@@ -1752,8 +1752,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 
 <div class="comment"><p>キャンセルトークンは、非同期または長時間実行される操作に渡され、ユーザーが入力を続行したために完了アイテムの要求を取り消すなど、取り消しを要求します。</p>
-<p>CancellationTokenのインスタンスを取得するには、
-<a href="#CancellationTokenSource">CancellationTokenSource</a>。</p>
+<p>CancellationTokenのインスタンスを取得するには、 <a href="#CancellationTokenSource">CancellationTokenSource</a> を用います。</p>
 </div>
 
 #### Properties
@@ -1762,7 +1761,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="CancellationToken.isCancellationRequested"></a><span class="ts" id=400 data-target="#details-400" data-toggle="collapse"><span class="ident">isCancellationRequested</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-400">
-<div class="comment"><p>トークンが取り消されたときは <code>true &#39;、それ以外のときは</code> false`です。</p>
+<div class="comment"><p>トークンが取り消されたときは <code>true</code>、それ以外のときは <code>false</code> です。</p>
 </div>
 </div>
 
@@ -1770,7 +1769,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="CancellationToken.onCancellationRequested"></a><span class="ts" id=401 data-target="#details-401" data-toggle="collapse"><span class="ident">onCancellationRequested</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-instrinct">any</a>&gt;</span>
 <div class="details collapse" id="details-401">
-<div class="comment"><p>キャンセル時に発生する<a href="#イベント">イベント</a>。</p>
+<div class="comment"><p>キャンセル時に発生する <a href="#Event">イベント</a>。</p>
 </div>
 </div>
 
@@ -1778,7 +1777,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 
 
-<div class="comment"><p>キャンセルソースは、<a href="#CancellationToken">キャンセルトークン</a>を作成して制御します。</p>
+<div class="comment"><p>キャンセルソースは、 <a href="#CancellationToken">キャンセルトークン</a> を作成して制御します。</p>
 </div>
 
 #### Properties
@@ -1812,7 +1811,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <a name="CancellationTokenSource.dispose"></a><span class="ts" id=407 data-target="#details-407" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-407">
 <div class="comment"><p>オブジェクトを廃棄し、リソースを解放します。
-<a href="#CancellationTokenSource.cancel">キャンセル</a>が呼び出されます。</p>
+<a href="#CancellationTokenSource.cancel">キャンセル</a> が呼び出されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -3189,17 +3188,16 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="Disposable.from"></a><span class="ts" id=410 data-target="#details-410" data-toggle="collapse"><span class="ident">from</span><span>(</span><span>...</span><span class="ident">disposableLikes</span><span>: </span>{dispose: () =&gt; <a class="type-instrinct">any</a>}[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-410">
-<div class="comment"><p>1つに多くの使い捨ての好きなものを組み合わせる。このメソッドを使用する
-dispose関数を持つオブジェクトがない場合
-Disposableのインスタンス。</p>
+<div class="comment"><p>1つに多くの使い捨ての好きなものを組み合わせる。
+Disposable のインスタンスではない dispose 関数を持つオブジェクトを使用する場合は、このメソッドを使用します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="disposableLikes"></a><span class="ts" id=411 data-target="#details-411" data-toggle="collapse"><span>...</span><span class="ident">disposableLikes</span><span>: </span>{dispose: () =&gt; <a class="type-instrinct">any</a>}[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="disposableLikes"></a><span class="ts" id=411 data-target="#details-411" data-toggle="collapse"><span>...</span><span class="ident">disposableLikes</span><span>: </span>{dispose: () =&gt; <a class="type-instrinct">any</a>}[]</span></td><td><div class="comment"><p>少なくとも <code>dispose</code> -functionメンバを持つオブジェクトです。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>新しいディスポーザブルを返します。
-このディスポーザブルは、処分すると、すべてのディスポーザブルを処分します。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>新しいディスポーザブルを返します。 このディスポーザブルは、処分すると、すべてのディスポーザブルを処分します。</p>
 </div></td></tr>
 </table>
 </div>
@@ -3590,7 +3588,7 @@ Disposableのインスタンス。</p>
 
 
 
-<div class="comment"><p><a href="#TextDocument">document</a>内の行末の文字列を表します。</p>
+<div class="comment"><p><a href="#TextDocument">document</a> 内の行末の文字列を表します。</p>
 </div>
 
 #### Enumeration members
@@ -3647,8 +3645,7 @@ Disposableのインスタンス。</p>
 
 
 <div class="comment"><p>型付きイベントを表します。</p>
-<p>あなたがそれを呼び出すことによって購読するイベントを表す関数。
-引数としてのリスナー関数。</p>
+<p>リスナー関数を引数として呼び出すことで、購読するイベントを表す関数。</p>
 <ul>
 <li><em>sample</em> - <code>item.onDidChange(function(event) { console.log(&quot;Event happened: &quot; + event); });</code></li>
 </ul>
@@ -3658,16 +3655,16 @@ Disposableのインスタンス。</p>
 
 <a name="__call"></a><span class="ts" id=423 data-target="#details-423" data-toggle="collapse"><span>(</span><span class="ident">listener</span><span>: </span>(e: <a class="type-instrinct">T</a>) =&gt; <a class="type-instrinct">any</a>, <span class="ident">thisArgs</span><span>?</span><span>: </span><a class="type-instrinct">any</a>, <span class="ident">disposables</span><span>?</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-423">
-<div class="comment"><p>あなたがそれを呼び出すことによって購読するイベントを表す関数。
-引数としてのリスナー関数。</p>
-<p>あなたがそれを呼び出すことによって購読するイベントを表す関数。
-引数としてのリスナー関数。</p>
+<div class="comment"><p>リスナー関数を引数として呼び出すことで、サブスクライブするイベントを表す関数です。</p>
+<p>リスナー関数を引数として呼び出すことで、購読するイベントを表す関数。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="listener"></a><span class="ts" id=424 data-target="#details-424" data-toggle="collapse"><span class="ident">listener</span><span>: </span>(e: <a class="type-instrinct">T</a>) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="thisArgs"></a><span class="ts" id=428 data-target="#details-428" data-toggle="collapse"><span class="ident">thisArgs</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="listener"></a><span class="ts" id=424 data-target="#details-424" data-toggle="collapse"><span class="ident">listener</span><span>: </span>(e: <a class="type-instrinct">T</a>) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"><p>イベントが発生すると、リスナー関数が呼び出されます。</p>
+</div></td></tr>
+<tr><td><a name="thisArgs"></a><span class="ts" id=428 data-target="#details-428" data-toggle="collapse"><span class="ident">thisArgs</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>イベントリスナーを呼び出すときに使用される <code>this</code> - 引数です。</p>
+</div></td></tr>
 <tr><td><a name="disposables"></a><span class="ts" id=429 data-target="#details-429" data-toggle="collapse"><span class="ident">disposables</span><span>?</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a>[]</span></td><td><div class="comment"><p>(#Disposable) が追加される配列。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
@@ -3716,13 +3713,14 @@ Disposableのインスタンス。</p>
 
 <a name="EventEmitter.fire"></a><span class="ts" id=434 data-target="#details-434" data-toggle="collapse"><span class="ident">fire</span><span>(</span><span class="ident">data</span><span>?</span><span>: </span><a class="type-instrinct">T</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-434">
-<div class="comment"><p><a href="EventEmitter#イベント">イベント</a>のすべての加入者に通知します。失敗
- 1つ以上のリスナーの*はこの関数呼び出しを失敗しません。</p>
+<div class="comment"><p><a href="EventEmitter#event">イベント</a> のすべての加入者に通知します。
+1つ以上の失敗のリスナーはこの関数呼び出しを失敗しません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="data"></a><span class="ts" id=435 data-target="#details-435" data-toggle="collapse"><span class="ident">data</span><span>?</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="data"></a><span class="ts" id=435 data-target="#details-435" data-toggle="collapse"><span class="ident">data</span><span>?</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>イベントオブジェクトです。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -3876,8 +3874,7 @@ Disposableのインスタンス。</p>
 
 
 <div class="comment"><p>ファイルシステムウォッチャーは、ディスク上のファイルやフォルダの変更を通知します。</p>
-<p><code>FileSystemWatcher</code> のインスタンスを取得するには
-<a href="#workspace.createFileSystemWatcher">createFileSystemWatcher</a>。</p>
+<p><code>FileSystemWatcher</code> のインスタンスを取得するには <a href="#workspace.createFileSystemWatcher">createFileSystemWatcher</a>。</p>
 </div>
 
 #### Events
@@ -3912,17 +3909,16 @@ Disposableのインスタンス。</p>
 
 <a name="FileSystemWatcher.from"></a><span class="ts" id=446 data-target="#details-446" data-toggle="collapse"><span class="ident">from</span><span>(</span><span>...</span><span class="ident">disposableLikes</span><span>: </span>{dispose: () =&gt; <a class="type-instrinct">any</a>}[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-446">
-<div class="comment"><p>1つに多くの使い捨ての好きなものを組み合わせる。このメソッドを使用する
-dispose関数を持つオブジェクトがない場合
-Disposableのインスタンス。</p>
+<div class="comment"><p>1つに多くの使い捨ての好きなものを組み合わせる。
+Disposable のインスタンスではない dispose 関数を持つオブジェクトを使用する場合は、このメソッドを使用します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="disposableLikes"></a><span class="ts" id=447 data-target="#details-447" data-toggle="collapse"><span>...</span><span class="ident">disposableLikes</span><span>: </span>{dispose: () =&gt; <a class="type-instrinct">any</a>}[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="disposableLikes"></a><span class="ts" id=447 data-target="#details-447" data-toggle="collapse"><span>...</span><span class="ident">disposableLikes</span><span>: </span>{dispose: () =&gt; <a class="type-instrinct">any</a>}[]</span></td><td><div class="comment"><p>少なくとも <code>dispose</code> -functionメンバを持つオブジェクトです。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>新しいディスポーザブルを返します。
-このディスポーザブルは、処分すると、すべてのディスポーザブルを処分します。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>新しいディスポーザブルを返します。 このディスポーザブルは、処分すると、すべてのディスポーザブルを処分します。</p>
 </div></td></tr>
 </table>
 </div>
@@ -3953,7 +3949,7 @@ Disposableのインスタンス。</p>
 
 <a name="FileSystemWatcher.ignoreChangeEvents"></a><span class="ts" id=440 data-target="#details-440" data-toggle="collapse"><span class="ident">ignoreChangeEvents</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-440">
-<div class="comment"><p>このファイルシステムウォッチャーが変更されたファイルシステムイベントを無視するように作成されている場合はtrue。</p>
+<div class="comment"><p>このファイルシステムウォッチャーが変更されたファイルシステムイベントを無視するように作成されている場合は true。</p>
 </div>
 </div>
 
@@ -3961,7 +3957,7 @@ Disposableのインスタンス。</p>
 
 <a name="FileSystemWatcher.ignoreCreateEvents"></a><span class="ts" id=439 data-target="#details-439" data-toggle="collapse"><span class="ident">ignoreCreateEvents</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-439">
-<div class="comment"><p>このファイルシステムウォッチャーが作成ファイルシステムイベントを無視するように作成されている場合はtrue。</p>
+<div class="comment"><p>このファイルシステムウォッチャーが作成ファイルシステムイベントを無視するように作成されている場合は true。</p>
 </div>
 </div>
 
@@ -3969,7 +3965,7 @@ Disposableのインスタンス。</p>
 
 <a name="FileSystemWatcher.ignoreDeleteEvents"></a><span class="ts" id=441 data-target="#details-441" data-toggle="collapse"><span class="ident">ignoreDeleteEvents</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-441">
-<div class="comment"><p>このファイルシステムウォッチャーがファイルシステムイベントの削除を無視するように作成されている場合はtrue。</p>
+<div class="comment"><p>このファイルシステムウォッチャーがファイルシステムイベントの削除を無視するように作成されている場合は true。</p>
 </div>
 </div>
 
@@ -7165,7 +7161,8 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p>テキストドキュメントコンテンツプロバイダは、dllからのソースやmdから生成されたhtmlなど、読取り専用のドキュメントをエディタに追加することができます。</p>
+<div class="comment"><p>TODO&gt;&gt;&gt;
+テキストドキュメントコンテンツプロバイダは、dllからのソースやmdから生成されたhtmlなど、読取り専用のドキュメントをエディタに追加することができます。</p>
 <p>コンテンツプロバイダは<a href="#workspace.registerTextDocumentContentProvider">登録済み</a>
 <a href="#Uri.scheme">uri-scheme</a>の場合。
 そのスキームを持つURIが読み込まれると(#workspace.openTextDocument)、コンテンツプロバイダーに尋ねられます。</p>
@@ -7553,7 +7550,8 @@ edit-builder は、コールバックの実行中にのみ有効です。</p>
 <div class="details collapse" id="details-353">
 <div class="comment"><p>テキストエディタを非表示にします。</p>
 <ul>
-<li><em>deprecated</em> - <strong>このメソッドは非推奨です</strong> コマンド &#39;workbench.action.closeActiveEditor&#39;を代わりに使用してください。
+<li><em>deprecated</em> - <strong>このメソッドは非推奨です。</strong>
+コマンド &#39;workbench.action.closeActiveEditor&#39; を代わりに使用してください。
 このメソッドは予期しない動作を示し、次のメジャーアップデートで削除されます。</li>
 </ul>
 </div>
@@ -7569,19 +7567,21 @@ edit-builder は、コールバックの実行中にのみ有効です。</p>
 
 <a name="TextEditor.insertSnippet"></a><span class="ts" id=334 data-target="#details-334" data-toggle="collapse"><span class="ident">insertSnippet</span><span>(</span><span class="ident">snippet</span><span>: </span><a class="type-ref" href="#SnippetString">SnippetString</a>, <span class="ident">location</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a> &#124; <a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Position">Position</a>[] &#124; <a class="type-ref" href="#Range">Range</a>[], <span class="ident">options</span><span>?</span><span>: </span>{undoStopAfter: <a class="type-instrinct">boolean</a>, undoStopBefore: <a class="type-instrinct">boolean</a>}<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
 <div class="details collapse" id="details-334">
-<div class="comment"><p><a href="#SnippetString">Snippet</a>を挿入し、エディタをスニペットモードにします。 「スニペットモード」
-は、エディターがプレースホルダーと追加カーソルを追加してユーザーが完了できることを意味します
-スニペットを受け入れる。</p>
+<div class="comment"><p><a href="#SnippetString">Snippet</a> を挿入し、エディタをスニペットモードにします。
+&quot;スニペットモード&quot; は、プレースホルダと追加カーソルを追加することで、ユーザーがスニペットを完了または受け入れることができることを意味します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="snippet"></a><span class="ts" id=335 data-target="#details-335" data-toggle="collapse"><span class="ident">snippet</span><span>: </span><a class="type-ref" href="#SnippetString">SnippetString</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="location"></a><span class="ts" id=336 data-target="#details-336" data-toggle="collapse"><span class="ident">location</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a> &#124; <a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Position">Position</a>[] &#124; <a class="type-ref" href="#Range">Range</a>[]</span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=337 data-target="#details-337" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span>{undoStopAfter: <a class="type-instrinct">boolean</a>, undoStopBefore: <a class="type-instrinct">boolean</a>}</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="snippet"></a><span class="ts" id=335 data-target="#details-335" data-toggle="collapse"><span class="ident">snippet</span><span>: </span><a class="type-ref" href="#SnippetString">SnippetString</a></span></td><td><div class="comment"><p>この編集に挿入するスニペット。</p>
+</div></td></tr>
+<tr><td><a name="location"></a><span class="ts" id=336 data-target="#details-336" data-toggle="collapse"><span class="ident">location</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a> &#124; <a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Position">Position</a>[] &#124; <a class="type-ref" href="#Range">Range</a>[]</span></td><td><div class="comment"><p>スニペットを挿入する位置または範囲です。デフォルトは現在のエディタの選択肢です。</p>
+</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=337 data-target="#details-337" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span>{undoStopAfter: <a class="type-instrinct">boolean</a>, undoStopBefore: <a class="type-instrinct">boolean</a>}</span></td><td><div class="comment"><p>この編集を元に戻す/やり直しの動作。既定では、この編集の前後に元に戻す停止が作成されます。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>スニペットを挿入できるかどうかを示す値で解決する約束。
-約束は、スニペットが完全に埋め込まれているか、受け入れられていることを示すものではありません。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>スニペットを挿入できるかどうかを示す値で解決する promise。
+promise は、スニペットが完全に埋め込まれているか、受け入れられていることを示すものではありません。</p>
 </div></td></tr>
 </table>
 </div>
@@ -7596,7 +7596,8 @@ edit-builder は、コールバックの実行中にのみ有効です。</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="range"></a><span class="ts" id=347 data-target="#details-347" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=347 data-target="#details-347" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>範囲です。</p>
+</div></td></tr>
 <tr><td><a name="revealType"></a><span class="ts" id=348 data-target="#details-348" data-toggle="collapse"><span class="ident">revealType</span><span>?</span><span>: </span><a class="type-ref" href="#TextEditorRevealType">TextEditorRevealType</a></span></td><td><div class="comment"><p><code>range</code> を明らかにするためのスクロール戦略。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
@@ -7610,16 +7611,17 @@ edit-builder は、コールバックの実行中にのみ有効です。</p>
 <a name="TextEditor.setDecorations"></a><span class="ts" id=342 data-target="#details-342" data-toggle="collapse"><span class="ident">setDecorations</span><span>(</span><span class="ident">decorationType</span><span>: </span><a class="type-ref" href="#TextEditorDecorationType">TextEditorDecorationType</a>, <span class="ident">rangesOrOptions</span><span>: </span><a class="type-ref" href="#Range">Range</a>[] &#124; <a class="type-ref" href="#DecorationOptions">DecorationOptions</a>[]<span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-342">
 <div class="comment"><p>装飾セットをテキストエディタに追加します。
-指定された<a href="#TextEditorDecorationType">デコレーションタイプ</a>でデコレーションのセットがすでに存在する場合、それらは置き換えられます。</p>
+指定された <a href="#TextEditorDecorationType">デコレーションタイプ</a> でデコレーションのセットがすでに存在する場合、それらは置き換えられます。</p>
 <ul>
-<li><em>see</em> - <a href="#window.createTextEditorDecorationType">createTextEditorDecorationType</a>を参照してください。</li>
+<li><em>see</em> - <a href="#window.createTextEditorDecorationType">createTextEditorDecorationType</a> を参照してください。</li>
 </ul>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="decorationType"></a><span class="ts" id=343 data-target="#details-343" data-toggle="collapse"><span class="ident">decorationType</span><span>: </span><a class="type-ref" href="#TextEditorDecorationType">TextEditorDecorationType</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="rangesOrOptions"></a><span class="ts" id=344 data-target="#details-344" data-toggle="collapse"><span class="ident">rangesOrOptions</span><span>: </span><a class="type-ref" href="#Range">Range</a>[] &#124; <a class="type-ref" href="#DecorationOptions">DecorationOptions</a>[]</span></td><td><div class="comment"><p>(#Range)またはより詳細な<a href="#DecorationOptions">options</a>のいずれかです。</p>
+<tr><td><a name="decorationType"></a><span class="ts" id=343 data-target="#details-343" data-toggle="collapse"><span class="ident">decorationType</span><span>: </span><a class="type-ref" href="#TextEditorDecorationType">TextEditorDecorationType</a></span></td><td><div class="comment"><p>デコレーションタイプ。</p>
+</div></td></tr>
+<tr><td><a name="rangesOrOptions"></a><span class="ts" id=344 data-target="#details-344" data-toggle="collapse"><span class="ident">rangesOrOptions</span><span>: </span><a class="type-ref" href="#Range">Range</a>[] &#124; <a class="type-ref" href="#DecorationOptions">DecorationOptions</a>[]</span></td><td><div class="comment"><p>(#Range) またはより詳細な <a href="#DecorationOptions">options</a> のいずれかです。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -7633,14 +7635,16 @@ edit-builder は、コールバックの実行中にのみ有効です。</p>
 <div class="details collapse" id="details-350">
 <div class="comment"><p>テキストエディタを表示します。</p>
 <ul>
-<li><em>deprecated</em> - <strong>このメソッドは非推奨です</strong>
-[window.showTextDocument]を使用する(#window.showTextDocument)*代わりに。このメソッドは予期しない動作を示し、次のメジャーアップデートで削除されます。</li>
+<li><em>deprecated</em> - <strong>このメソッドは非推奨です。</strong>
+代わりに <a href="#window.showTextDocument">window.showTextDocument</a> を使用してください。
+このメソッドは予期しない動作を示し、次のメジャーアップデートで削除されます。</li>
 </ul>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="column"></a><span class="ts" id=351 data-target="#details-351" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="column"></a><span class="ts" id=351 data-target="#details-351" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"><p>このエディタを表示する<a href="#ViewColumn">column</a>。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -7736,8 +7740,8 @@ edit-builder は、コールバックの実行中にのみ有効です。</p>
 
 
 
-<div class="comment"><p>TextEditorの1つのトランザクションに適用される複雑な編集。
-これは編集の説明を保持し、編集が有効な場合(つまり、重複していない領域、文書が変更されなかった場合など)、<a href="[テキストエディタ] ](#テキストエディタ">テキストエディタ</a>。</p>
+<div class="comment"><p>TextEditor の1つのトランザクションに適用される複雑な編集。
+これは編集の説明を保持し、編集が有効な場合(つまり、重複していない領域、文書が変更されなかった場合など)、<a href="#TextEditor">テキストエディタ</a> に関連付けられた <a href="#TextDocument">ドキュメント</a> に適用できます。</p>
 </div>
 
 #### Methods
@@ -7746,12 +7750,13 @@ edit-builder は、コールバックの実行中にのみ有効です。</p>
 
 <a name="TextEditorEdit.delete"></a><span class="ts" id=367 data-target="#details-367" data-toggle="collapse"><span class="ident">delete</span><span>(</span><span class="ident">location</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Selection">Selection</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-367">
-<div class="comment"><p>特定のテキスト領域を削除する。</p>
+<div class="comment"><p>特定のテキスト領域を削除します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="location"></a><span class="ts" id=368 data-target="#details-368" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Selection">Selection</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="location"></a><span class="ts" id=368 data-target="#details-368" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Selection">Selection</a></span></td><td><div class="comment"><p>このオペレーションを削除する範囲。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -7763,14 +7768,16 @@ edit-builder は、コールバックの実行中にのみ有効です。</p>
 <a name="TextEditorEdit.insert"></a><span class="ts" id=363 data-target="#details-363" data-toggle="collapse"><span class="ident">insert</span><span>(</span><span class="ident">location</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">value</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-363">
 <div class="comment"><p>場所にテキストを挿入します。</p>
-<p><code>value</code> で\ r \ nまたは\ nを使うことができ、現在の<a href="#TextDocument">document</a>に正規化されます。
-同等のテキスト編集は<a href="#TextEditorEdit.replace">replace</a>で行うことができますが、 <code>insert</code> は別の結果の選択を生成します(移動します)。</p>
+<p><code>value</code> で \r\n または \n を使うことができ、現在の <a href="#TextDocument">document</a> に正規化されます。
+同等のテキスト編集は <a href="#TextEditorEdit.replace">replace</a> で行うことができますが、 <code>insert</code> は別の結果の選択を生成します(移動します)。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="location"></a><span class="ts" id=364 data-target="#details-364" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="value"></a><span class="ts" id=365 data-target="#details-365" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="location"></a><span class="ts" id=364 data-target="#details-364" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>新しいテキストを挿入する位置。</p>
+</div></td></tr>
+<tr><td><a name="value"></a><span class="ts" id=365 data-target="#details-365" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>このオペレーションが挿入する新しいテキスト。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -7781,14 +7788,16 @@ edit-builder は、コールバックの実行中にのみ有効です。</p>
 
 <a name="TextEditorEdit.replace"></a><span class="ts" id=359 data-target="#details-359" data-toggle="collapse"><span class="ident">replace</span><span>(</span><span class="ident">location</span><span>: </span><a class="type-ref" href="#Position">Position</a> &#124; <a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Selection">Selection</a>, <span class="ident">value</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-359">
-<div class="comment"><p>特定のテキスト領域を新しい値に置き換えます。</p>
-<p><code>value</code> で\ r \ nまたは\ nを使うことができ、現在の<a href="#TextDocument">document</a>に正規化されます。</p>
+<div class="comment"><p>特定のテキスト領域を新しい値に置き換えます。
+<code>value</code> で \r\n または \n を使うことができ、現在の <a href="#TextDocument">document</a> に正規化されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="location"></a><span class="ts" id=360 data-target="#details-360" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-ref" href="#Position">Position</a> &#124; <a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Selection">Selection</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="value"></a><span class="ts" id=361 data-target="#details-361" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="location"></a><span class="ts" id=360 data-target="#details-360" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-ref" href="#Position">Position</a> &#124; <a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Selection">Selection</a></span></td><td><div class="comment"><p>このオペレーションを削除する範囲。</p>
+</div></td></tr>
+<tr><td><a name="value"></a><span class="ts" id=361 data-target="#details-361" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>このオペレーションは、 <code>location</code> を削除した後に挿入する必要がある新しいテキストです。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -7804,7 +7813,7 @@ edit-builder は、コールバックの実行中にのみ有効です。</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="endOfLine"></a><span class="ts" id=371 data-target="#details-371" data-toggle="collapse"><span class="ident">endOfLine</span><span>: </span><a class="type-ref" href="#EndOfLine">EndOfLine</a></span></td><td><div class="comment"><p>(#TextDocument)の新しい行の終わりです。</p>
+<tr><td><a name="endOfLine"></a><span class="ts" id=371 data-target="#details-371" data-toggle="collapse"><span class="ident">endOfLine</span><span>: </span><a class="type-ref" href="#EndOfLine">EndOfLine</a></span></td><td><div class="comment"><p>(#TextDocument) の新しい行の終わりです。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -8642,15 +8651,16 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="Uri.file"></a><span class="ts" id=374 data-target="#details-374" data-toggle="collapse"><span class="ident">file</span><span>(</span><span class="ident">path</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
 <div class="details collapse" id="details-374">
-<div class="comment"><p>ファイルシステムパスからURIを作成します。
+<div class="comment"><p>ファイルシステムパスから URI を作成します。
 <a href="#Uri.scheme">スキーム</a> は <code>file</code> になります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="path"></a><span class="ts" id=375 data-target="#details-375" data-toggle="collapse"><span class="ident">path</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="path"></a><span class="ts" id=375 data-target="#details-375" data-toggle="collapse"><span class="ident">path</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>ファイルシステムまたは UNC パス。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>新しいUriインスタンス。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>新しい Uri インスタンス。</p>
 </div></td></tr>
 </table>
 </div>
@@ -8660,16 +8670,15 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="Uri.parse"></a><span class="ts" id=377 data-target="#details-377" data-toggle="collapse"><span class="ident">parse</span><span>(</span><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
 <div class="details collapse" id="details-377">
-<div class="comment"><p>文字列からURIを作成する。与えられた値がそうでない場合にスローします。
-有効です。</p>
+<div class="comment"><p>文字列から URI を作成する。与えられた値が有効でない場合にスローします。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="value"></a><span class="ts" id=378 data-target="#details-378" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>Uriの文字列値。</p>
+<tr><td><a name="value"></a><span class="ts" id=378 data-target="#details-378" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>Uri の文字列値。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>新しいUriインスタンス。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>新しい Uri インスタンス。</p>
 </div></td></tr>
 </table>
 </div>
@@ -8681,7 +8690,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="Uri.authority"></a><span class="ts" id=380 data-target="#details-380" data-toggle="collapse"><span class="ident">authority</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-380">
-<div class="comment"><p>権限は <code>http：//www.msft.com/some/path？query#fragment</code> の <code>www.msft.com</code> の部分です。
+<div class="comment"><p>権限は <code>http://www.msft.com/some/path?query#fragment</code> の <code>www.msft.com</code> の部分です。
 最初の二重スラッシュと次のスラッシュの間の部分。</p>
 </div>
 </div>
@@ -8690,7 +8699,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="Uri.fragment"></a><span class="ts" id=383 data-target="#details-383" data-toggle="collapse"><span class="ident">fragment</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-383">
-<div class="comment"><p>Fragmentは <code>http：//www.msft.com/some/path？query#fragment</code> の <code>fragment</code> 部分です。</p>
+<div class="comment"><p>Fragment は <code>http://www.msft.com/some/path?query#fragment</code> の <code>fragment</code> 部分です。</p>
 </div>
 </div>
 
@@ -8698,11 +8707,11 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="Uri.fsPath"></a><span class="ts" id=384 data-target="#details-384" data-toggle="collapse"><span class="ident">fsPath</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-384">
-<div class="comment"><p>このUriの対応するファイルシステムパスを表す文字列。</p>
-<p>UNCパスを処理し、Windowsのドライブ文字を小文字に正規化します。
+<div class="comment"><p>この Uri の対応するファイルシステムパスを表す文字列。</p>
+<p>UNC パスを処理し、 Windows のドライブ文字を小文字に正規化します。
 プラットフォーム固有のパス区切り文字も使用します。
 無効な文字とセマンティクスのパスを検証しません。
-このウリの計画を見ない<em> </em>。</p>
+この Uri のスキームを<em>見ない</em>。</p>
 </div>
 </div>
 
@@ -8710,7 +8719,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="Uri.path"></a><span class="ts" id=381 data-target="#details-381" data-toggle="collapse"><span class="ident">path</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-381">
-<div class="comment"><p>Pathは <code>http：//www.msft.com/some/path？query#fragment</code> の <code>/ some / path</code> 部分です。</p>
+<div class="comment"><p>Path は <code>http://www.msft.com/some/path?query#fragment</code> の <code>/some/path</code> 部分です。</p>
 </div>
 </div>
 
@@ -8718,7 +8727,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="Uri.query"></a><span class="ts" id=382 data-target="#details-382" data-toggle="collapse"><span class="ident">query</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-382">
-<div class="comment"><p>クエリは <code>http：//www.msft.com/some/path？query#fragment</code> の <code>query</code> 部分です。</p>
+<div class="comment"><p>クエリは <code>http://www.msft.com/some/path?query#fragment</code> の <code>query</code> 部分です。</p>
 </div>
 </div>
 
@@ -8726,7 +8735,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="Uri.scheme"></a><span class="ts" id=379 data-target="#details-379" data-toggle="collapse"><span class="ident">scheme</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-379">
-<div class="comment"><p>Schemeは <code>http://www.msft.com/some/path?query#fragment</code> の <code>http</code> 部分です。
+<div class="comment"><p>Scheme は <code>http://www.msft.com/some/path?query#fragment</code> の <code>http</code> 部分です。
 最初のコロンの前の部分。</p>
 </div>
 </div>
@@ -8737,7 +8746,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="Uri.toJSON"></a><span class="ts" id=398 data-target="#details-398" data-toggle="collapse"><span class="ident">toJSON</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">any</a></span>
 <div class="details collapse" id="details-398">
-<div class="comment"><p>このUriのJSON表現を返します。</p>
+<div class="comment"><p>この Uri の JSON 表現を返します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -8752,17 +8761,18 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="Uri.toString"></a><span class="ts" id=395 data-target="#details-395" data-toggle="collapse"><span class="ident">toString</span><span>(</span><span class="ident">skipEncoding</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-395">
-<div class="comment"><p>このUriの文字列表現を返します。
-URIの表現と正規化はスキームに依存します。
-結果の文字列は、
-<a href="#Uri.parse">Uri.parse</a>。</p>
+<div class="comment"><p>この Uri の文字列表現を返します。
+URI の表現と正規化はスキームに依存します。
+結果の文字列は、 <a href="#Uri.parse">Uri.parse</a>。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="skipEncoding"></a><span class="ts" id=396 data-target="#details-396" data-toggle="collapse"><span class="ident">skipEncoding</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="skipEncoding"></a><span class="ts" id=396 data-target="#details-396" data-toggle="collapse"><span class="ident">skipEncoding</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>結果をパーセントエンコードしないで、デフォルトは <code>false</code> です。
+パスに出現する <code>#</code> と <code>?</code> 文字は、常にエンコードされますのでご了承ください。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>このUriの文字列表現。</p>
+<tr><td><span class="ts"><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>この Uri の文字列表現。</p>
 </div></td></tr>
 </table>
 </div>
@@ -8785,7 +8795,7 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <tr><td><a name="change"></a><span class="ts" id=387 data-target="#details-387" data-toggle="collapse"><span class="ident">change</span><span>: </span>{authority: <a class="type-instrinct">string</a>, fragment: <a class="type-instrinct">string</a>, path: <a class="type-instrinct">string</a>, query: <a class="type-instrinct">string</a>, scheme: <a class="type-instrinct">string</a>}</span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>指定された変更を反映する新しいUri。
-変更があれば <code>this</code> を返す 何も変えていない。</p>
+変更が何もなければ <code>this</code> を返す。</p>
 </div></td></tr>
 </table>
 </div>
