@@ -1836,7 +1836,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 
 
-<div class="comment"><p><a href="#CodeActionProvider.provideCodeActions">コードアクション</a>が実行されるコンテキストに関する追加の診断情報を含みます。</p>
+<div class="comment"><p><a href="#CodeActionProvider.provideCodeActions">コードアクション</a> が実行されるコンテキストに関する追加の診断情報を含みます。</p>
 </div>
 
 #### Properties
@@ -1853,7 +1853,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 
 
-<div class="comment"><p>コードアクションインタフェースは、拡張機能と<a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-action">電球</a>機能の間の契約を定義します。</p>
+<div class="comment"><p>コードアクションインタフェースは、拡張機能と <a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-action">電球</a> 機能の間の契約を定義します。</p>
 <p>コードアクションは、システムに <a href="#commands.getCommands">登録されている</a> 任意のコマンドにすることができます。</p>
 </div>
 
@@ -1888,7 +1888,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 
 
-<div class="comment"><p>コードレンズは、参照の数、テストを実行する方法など、ソーステキストとともに表示される<a href="#Command">コマンド</a>を表します</p>
+<div class="comment"><p>コードレンズは、参照の数、テストを実行する方法など、ソーステキストとともに表示される <a href="#Command">コマンド</a> を表します</p>
 <p>コードレンズは、コマンドが関連付けられていないときは <em>unresolved</em> (未解決) です。
 パフォーマンス上の理由から、コードレンズの作成と分解は2つの段階に分かれていなければなりません。</p>
 <ul>
@@ -1951,7 +1951,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 
 
-<div class="comment"><p>コードレンズプロバイダは、<a href="#コマンド">コマンド</a>をソーステキストに追加します。
+<div class="comment"><p>コードレンズプロバイダは、 <a href="#Command">コマンド</a> をソーステキストに追加します。
 コマンドはソーステキストの間に専用水平線として表示されます。</p>
 </div>
 
@@ -1971,14 +1971,16 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="CodeLensProvider.provideCodeLenses"></a><span class="ts" id=515 data-target="#details-515" data-toggle="collapse"><span class="ident">provideCodeLenses</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-515">
-<div class="comment"><p><a href="#CodeLens">レンズ</a>のリストを計算します。
-この呼び出しはできるだけ速く返さなければならず、コマンドを計算するのが高価な実装者の場合は、rangeコードセットを返すだけで、<a href="#CodeLensProvider.resolveCodeLens">resolve</a>を実装する必要があります。</p>
+<div class="comment"><p><a href="#CodeLens">レンズ</a> のリストを計算します。
+この呼び出しはできるだけ速く返さなければならず、コマンドを計算するのが高価な実装者の場合は、 range コードセットを返すだけで、 <a href="#CodeLensProvider.resolveCodeLens">resolve</a> を実装する必要があります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=516 data-target="#details-516" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=517 data-target="#details-517" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=516 data-target="#details-516" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=517 data-target="#details-517" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>コード・レンズの配列またはそれに対応するネクサブル。
 結果の欠如は、 <code>undefined</code> 、 <code>null</code> 、または空の配列を返すことによって通知できます。</p>
@@ -1991,13 +1993,14 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="CodeLensProvider.resolveCodeLens"></a><span class="ts" id=519 data-target="#details-519" data-toggle="collapse"><span class="ident">resolveCodeLens</span><span>(</span><span class="ident">codeLens</span><span>: </span><a class="type-ref" href="#CodeLens">CodeLens</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-519">
-<div class="comment"><p>この関数は、通常はスクロールして<a href="#CodeLensProvider.provideCodeLenses">計算</a> - 呼び出しを呼び出したときに、可視コードレンズごとに呼び出されます。</p>
+<div class="comment"><p>この関数は、通常はスクロールして <a href="#CodeLensProvider.provideCodeLenses">計算</a> - 呼び出しを呼び出したときに、可視コードレンズごとに呼び出されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="codeLens"></a><span class="ts" id=520 data-target="#details-520" data-toggle="collapse"><span class="ident">codeLens</span><span>: </span><a class="type-ref" href="#CodeLens">CodeLens</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=521 data-target="#details-521" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=521 data-target="#details-521" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>与えられた、解決されたコードのレンズまたはそれに解決されるネーブル。</p>
 </div></td></tr>
@@ -2079,13 +2082,12 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 
 
-<div class="comment"><p>完成品目は、入力中のテキストを完成させるために提案されたテキストスニペットを表します。</p>
-<p><a href="#CompletionItem.label">ラベル</a>から完成品を作成するだけで十分です。
-その場合、補完項目は<a href="#TextDocument.getWordRangeAtPosition">単語</a>を置き換えます。
-指定されたラベルまたは<a href="#CompletionItem.insertText">insertText</a>でカーソルを移動します。
-それ以外の場合、指定された<a href="#CompletionItem.textEdit">編集</a>が使用されます。</p>
-<p>エディタで補完項目を選択すると、その定義または合成されたテキスト編集が*すべてのカーソル/選択項目に適用されますが、<a href="CompletionItem.additionalTextEdits">additionalTextEdits</a>は
-提供されたとおりに適用されます。</p>
+<div class="comment"><p>補完項目は、入力中のテキストを完成させるために提案されたテキストスニペットを表します。</p>
+<p><a href="#CompletionItem.label">ラベル</a> から完成品を作成するだけで十分です。
+その場合、補完項目は <a href="#TextDocument.getWordRangeAtPosition">単語</a> を置き換えます。
+指定されたラベルまたは <a href="#CompletionItem.insertText">insertText</a> でカーソルを移動します。
+それ以外の場合、指定された <a href="#CompletionItem.textEdit">編集</a> が使用されます。</p>
+<p>エディタで補完項目を選択すると、定義されたテキスト編集または合成されたテキスト編集がすべてのカーソル/選択に適用されますが、<a href="#CompletionItem.additionalTextEdits">additionalTextEdits</a> は提供されたとおりに適用されます。</p>
 <ul>
 <li><em>see</em> - <a href="#CompletionItemProvider.provideCompletionItems">CompletionItemProvider.provideCompletionItems</a></li>
 </ul>
@@ -2101,14 +2103,16 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 <a name="CompletionItem.new CompletionItem"></a><span class="ts" id=810 data-target="#details-810" data-toggle="collapse"><span class="ident">new CompletionItem</span><span>(</span><span class="ident">label</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#CompletionItemKind">CompletionItemKind</a><span>)</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a></span>
 <div class="details collapse" id="details-810">
 <div class="comment"><p>新しい補完項目を作成します。</p>
-<p>完成品には少なくとも<a href="#CompletionItem.label">ラベル</a>が必要です。
+<p>補完項目には少なくとも <a href="#CompletionItem.label">ラベル</a> が必要です。
 は、並べ替えやフィルタリングのためだけでなく、挿入テキストとしても使用されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="label"></a><span class="ts" id=811 data-target="#details-811" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="kind"></a><span class="ts" id=812 data-target="#details-812" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#CompletionItemKind">CompletionItemKind</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="label"></a><span class="ts" id=811 data-target="#details-811" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>補完のラベル。</p>
+</div></td></tr>
+<tr><td><a name="kind"></a><span class="ts" id=812 data-target="#details-812" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#CompletionItemKind">CompletionItemKind</a></span></td><td><div class="comment"><p>補完の<a href="#CompletionItemKind">kind</a>です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#CompletionItem">CompletionItem</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -2121,8 +2125,8 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="CompletionItem.additionalTextEdits"></a><span class="ts" id=807 data-target="#details-807" data-toggle="collapse"><span class="ident">additionalTextEdits</span><span>?</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a>[]</span>
 <div class="details collapse" id="details-807">
-<div class="comment"><p>この補完を選択するときに適用される追加の<a href="#TextEdit">テキスト編集</a>のオプションの配列。
-編集はメインの[edit]と重複してはいけません(#CompletionItem.textEdit) それ自体ではありません。</p>
+<div class="comment"><p>この補完を選択するときに適用される追加の <a href="#TextEdit">テキスト編集</a> のオプションの配列。
+編集はメインの<a href="#CompletionItem.textEdit">edit</a>それ自体ではないので、重複してはいけません。</p>
 </div>
 </div>
 
@@ -2131,8 +2135,7 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 <a name="CompletionItem.command"></a><span class="ts" id=808 data-target="#details-808" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span>
 <div class="details collapse" id="details-808">
 <div class="comment"><p>この補完を挿入した後に<em>実行されるオプションの<a href="#コマンド">command</a>。
-</em>注*現在の文書に対する追加の修正は、
-<a href="#CompletionItem.additionalTextEdits">additionalTextEdits</a> - プロパティ。</p>
+</em>注*現在の文書に対する追加の修正は、 <a href="#CompletionItem.additionalTextEdits">additionalTextEdits</a> - プロパティです。</p>
 </div>
 </div>
 
@@ -2141,7 +2144,7 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 <a name="CompletionItem.commitCharacters"></a><span class="ts" id=805 data-target="#details-805" data-toggle="collapse"><span class="ident">commitCharacters</span><span>?</span><span>: </span><a class="type-instrinct">string</a>[]</span>
 <div class="details collapse" id="details-805">
 <div class="comment"><p>この補完がアクティブである間に押されると、最初にそれを受け入れ、その文字を入力するオプションの文字セットです。
-注*すべてのコミット文字は <code>length = 1</code> でなければならず、余計な文字は無視されます。</p>
+<em>注</em> すべてのコミット文字は <code>length=1</code> でなければならず、余計な文字は無視されます。</p>
 </div>
 </div>
 
@@ -2149,8 +2152,8 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="CompletionItem.detail"></a><span class="ts" id=799 data-target="#details-799" data-toggle="collapse"><span class="ident">detail</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-799">
-<div class="comment"><p>人間が読むことができる文字列。
-タイプやシンボル情報など、このアイテムに関する追加情報があります。</p>
+<div class="comment"><p>人類が読むことができる文字列。
+型やシンボル情報など、このアイテムに関する追加情報があります。</p>
 </div>
 </div>
 
@@ -2158,7 +2161,8 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="CompletionItem.documentation"></a><span class="ts" id=800 data-target="#details-800" data-toggle="collapse"><span class="ident">documentation</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-800">
-<div class="comment"><p>doc-commentを表す人間が読める文字列。</p>
+<div class="comment"><p>TODO&gt;&gt;&gt;
+doc-comment を表す人類が読める文字列。</p>
 </div>
 </div>
 
@@ -2166,9 +2170,8 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="CompletionItem.filterText"></a><span class="ts" id=802 data-target="#details-802" data-toggle="collapse"><span class="ident">filterText</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-802">
-<div class="comment"><p>完了項目のセットをフィルタリングするときに使用する文字列。</p>
-<p><a href="#CompletionItem.label">ラベル</a>を <code>偽装する</code>
-使用されている。</p>
+<div class="comment"><p>完了項目のセットをフィルタリングするときに使用する文字列。
+<code>偽装する</code><a href="#CompletionItem.label">ラベル</a> が使われているときに。</p>
 </div>
 </div>
 
@@ -2176,9 +2179,8 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="CompletionItem.insertText"></a><span class="ts" id=803 data-target="#details-803" data-toggle="collapse"><span class="ident">insertText</span><span>?</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#SnippetString">SnippetString</a></span>
 <div class="details collapse" id="details-803">
-<div class="comment"><p>この完了を選択するときにドキュメントに挿入する文字列またはスニペット。</p>
-<p><a href="#CompletionItem.label">ラベル</a>を <code>偽装する</code>
-使用されている。</p>
+<div class="comment"><p>この完了を選択するときにドキュメントに挿入する文字列またはスニペット。
+<code>偽装する</code><a href="#CompletionItem.label">ラベル</a> が使われているときに。</p>
 </div>
 </div>
 
@@ -2186,8 +2188,8 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="CompletionItem.kind"></a><span class="ts" id=798 data-target="#details-798" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#CompletionItemKind">CompletionItemKind</a></span>
 <div class="details collapse" id="details-798">
-<div class="comment"><p>この完成品の種類。
-*種類に基づいて、アイコンがエディタによって選択されます。</p>
+<div class="comment"><p>この補完項目の種類。
+種類に基づいて、アイコンがエディタによって選択されます。</p>
 </div>
 </div>
 
@@ -2195,7 +2197,7 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="CompletionItem.label"></a><span class="ts" id=797 data-target="#details-797" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-797">
-<div class="comment"><p>この完成品のラベル。
+<div class="comment"><p>この補完項目のラベル。
 デフォルトでは、これはこの補完を選択するときに挿入されるテキストです。</p>
 </div>
 </div>
@@ -2204,10 +2206,10 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="CompletionItem.range"></a><span class="ts" id=804 data-target="#details-804" data-toggle="collapse"><span class="ident">range</span><span>?</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
 <div class="details collapse" id="details-804">
-<div class="comment"><p>この完成品で置き換えられるテキストの範囲。</p>
+<div class="comment"><p>この補完項目で置き換えられるテキストの範囲。</p>
 <p><a href="#TextDocument.getWordRangeAtPosition">現在の単語</a>の先頭から現在位置までのデフォルト値です。</p>
-<p><em>注：</em>範囲は<a href="#Range.isSingleLine">単一行</a>でなければなりません。
-完了が[要求された]位置(#CompletionItemProvider.provideCompletionItems)を<a href="#Range.contains">contains</a>します。</p>
+<p><em>注:</em> 範囲は<a href="#Range.isSingleLine">単一行</a>でなければならず、
+補完が <a href="#CompletionItemProvider.provideCompletionItems">要求された</a> 位置を <a href="#Range.contains">抱腹</a> します。</p>
 </div>
 </div>
 
@@ -2215,9 +2217,8 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="CompletionItem.sortText"></a><span class="ts" id=801 data-target="#details-801" data-toggle="collapse"><span class="ident">sortText</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-801">
-<div class="comment"><p>この項目を他の項目と比較するときに使用する文字列。</p>
-<p><a href="#CompletionItem.label">ラベル</a>を <code>偽装する</code>
-使用されている。</p>
+<div class="comment"><p>この項目を他の項目と比較するときに使用する文字列。
+<code>偽装する</code><a href="#CompletionItem.label">ラベル</a> が使われているときに。</p>
 </div>
 </div>
 
@@ -2226,11 +2227,10 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 <a name="CompletionItem.textEdit"></a><span class="ts" id=806 data-target="#details-806" data-toggle="collapse"><span class="ident">textEdit</span><span>?</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a></span>
 <div class="details collapse" id="details-806">
 <div class="comment"><ul>
-<li><em>deprecated</em> - <strong> <code>CompletionItem.insertText</code> と <code>CompletionItem.range</code> のために</strong>非推奨です。</li>
+<li><em>deprecated</em> - <strong><code>CompletionItem.insertText</code> と <code>CompletionItem.range</code> があるので</strong> 非推奨です。</li>
 </ul>
-<p>~~この補完を選択するときに文書に適用される<a href="#TextEdit">edit</a>。
-編集が提供されると、
-<a href="#CompletionItem.insertText">insertText</a>は無視されます。
+<p>~~<a href="#TextEdit">編集</a>はこの補完を選択するときに文書に適用されます。
+編集が提供されると、 <a href="#CompletionItem.insertText">insertText</a>は無視されます。
 ~~</p>
 <p>~~編集の<a href="#Range">range</a>はシングルラインでなければならず、同じ行でCompletionItemProvider.provideCompletionItems)が〜要求されました。
 ~~</p>
@@ -2241,7 +2241,7 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 
 
-<div class="comment"><p>完成品の種類。</p>
+<div class="comment"><p>Completion item の種類。</p>
 </div>
 
 #### Enumeration members
@@ -2425,8 +2425,8 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 
 
-<div class="comment"><p>補完項目プロバイダインタフェースは、拡張機能と拡張機能の間の契約を定義します。</p>
-<p><a href="https://code.visualstudio.com/docs/editor/intellisense">IntelliSense</a>。</p>
+<div class="comment"><p>補完項目プロバイダインタフェースは、拡張機能と拡張機能の間の契約を定義します。
+<a href="https://code.visualstudio.com/docs/editor/intellisense">IntelliSense</a>。</p>
 <p>完了<em>完了アイテムを計算するのが高価な場合、プロバイダはオプションでresolveCompletionItem関数を実装することができます。
 その場合、<a href="#CompletionItem.label">ラベル</a>を持つ補完アイテムを</em> <a href="#CompletionItemProvider.provideCompletionItems">provideCompletionItems</a> - 関数。
 その後、完成品がUIに表示され、フォーカスが得られたら、このプロバイダは<a href="#CompletionItem.documentation">doc-comment</a>または<a href="#CompletionItem.detail">details</a>の追加など、項目の解決を求められます。</p>
@@ -2482,7 +2482,7 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 
 
-<div class="comment"><p>エディタに表示される<a href="#CompletionItem">完了項目</a>のコレクションを表します。</p>
+<div class="comment"><p>エディタに表示される <a href="#CompletionItem">補完項目</a> のコレクションを表します。</p>
 </div>
 
 #### Constructors
@@ -2496,8 +2496,10 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="items"></a><span class="ts" id=818 data-target="#details-818" data-toggle="collapse"><span class="ident">items</span><span>?</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a>[]</span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="isIncomplete"></a><span class="ts" id=819 data-target="#details-819" data-toggle="collapse"><span class="ident">isIncomplete</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=818 data-target="#details-818" data-toggle="collapse"><span class="ident">items</span><span>?</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a>[]</span></td><td><div class="comment"><p>補完項目です。</p>
+</div></td></tr>
+<tr><td><a name="isIncomplete"></a><span class="ts" id=819 data-target="#details-819" data-toggle="collapse"><span class="ident">isIncomplete</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>リストは完全ではありません。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#CompletionList">CompletionList</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -2519,7 +2521,7 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="CompletionList.items"></a><span class="ts" id=815 data-target="#details-815" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a>[]</span>
 <div class="details collapse" id="details-815">
-<div class="comment"><p>完成品。</p>
+<div class="comment"><p>補完項目。</p>
 </div>
 </div>
 
@@ -2862,7 +2864,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 
 
-<div class="comment"><p>1つまたは複数の<a href="#Location">locations</a>として表されるシンボルの定義。
+<div class="comment"><p>1つまたは複数の <a href="#Location">locations</a> として表されるシンボルの定義。
 ほとんどのプログラミング言語では、シンボルが定義されている場所は1つだけです。</p>
 </div>
 
@@ -2874,8 +2876,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 
 
-<div class="comment"><p>定義プロバイダインタフェースは、拡張と[定義に移動]の間の契約を定義します(<a href="https://code.visualstudio.com/docs/editor/editingevolved#_go-to-definition">https://code.visualstudio.com/docs/editor/editingevolved#_go-to-definition</a>)
-とはっきりとした定義機能。</p>
+<div class="comment"><p>定義プロバイダインタフェースは、拡張と <a href="https://code.visualstudio.com/docs/editor/editingevolved#_go-to-definition">定義に移動</a> の間の契約を定義し、定義機能をpeekします。</p>
 </div>
 
 #### Methods
@@ -2884,14 +2885,17 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="DefinitionProvider.provideDefinition"></a><span class="ts" id=524 data-target="#details-524" data-toggle="collapse"><span class="ident">provideDefinition</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-524">
-<div class="comment"><p>指定された位置と文書のシンボルの定義を提供する。</p>
+<div class="comment"><p>指定された位置と文書のシンボルの定義を提供します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=525 data-target="#details-525" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="position"></a><span class="ts" id=526 data-target="#details-526" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=527 data-target="#details-527" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=525 data-target="#details-525" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=526 data-target="#details-526" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>コマンドが呼び出された位置。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=527 data-target="#details-527" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>このように解決される定義または変換可能なテーブル。
 結果の不足は、 <code>undefined</code> または <code>null</code> を返すことで通知できます。</p>
@@ -3242,12 +3246,12 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 
 
-<div class="comment"><p>ドキュメントフィルタは、ドキュメントの<a href="#TextDocument.languageId">言語</a>、リソースの<a href="#Uri.scheme">スキーム</a>、または[パス]に適用されるグロブパターン( #TextDocument.fileName)。</p>
+<div class="comment"><p>ドキュメントフィルタは、ドキュメントの<a href="#TextDocument.languageId">言語</a>、リソースの<a href="#Uri.scheme">スキーム</a>、または<a href="#TextDocument.fileName">パス</a> に適用される glob パターン。</p>
 <ul>
-<li><em>sample</em> - ディスク上のtypescriptファイルに適用される言語フィルタ： <code>{language： &#39;typescript&#39;、scheme： &#39;file&#39;}</code></li>
+<li><em>sample</em> - ディスク上の typescript ファイルに適用される言語フィルタ: <code>{ language: &#39;typescript&#39;, scheme: &#39;file&#39; }</code></li>
 </ul>
 <ul>
-<li><em>sample</em> - すべてのpackage.jsonパスに適用される言語フィルタ： `{language： &#39;json&#39;、pattern： &#39;*</li>
+<li><em>sample</em> - すべての package.json パスに適用される言語フィルタ: <code>{language: &#39;json&#39;, pattern: &#39;**∕package.json&#39; }</code></li>
 </ul>
 </div>
 
@@ -3265,8 +3269,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="DocumentFilter.pattern"></a><span class="ts" id=494 data-target="#details-494" data-toggle="collapse"><span class="ident">pattern</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-494">
-<div class="comment"><p>グロブパターン。
-<code>*。{ts、js}</code> のようです。</p>
+<div class="comment"><p><code>*.{ts,js}</code> のような glob パターン。</p>
 </div>
 </div>
 
@@ -3274,7 +3277,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="DocumentFilter.scheme"></a><span class="ts" id=493 data-target="#details-493" data-toggle="collapse"><span class="ident">scheme</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-493">
-<div class="comment"><p>Uri <a href="#Uri.scheme">scheme</a>、 <code>file</code> や <code>untitled</code> のように。</p>
+<div class="comment"><p><code>file</code> や <code>untitled</code> のような、 Uri <a href="#Uri.scheme">scheme</a>。</p>
 </div>
 </div>
 
@@ -3296,11 +3299,14 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=727 data-target="#details-727" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=728 data-target="#details-728" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#FormattingOptions">FormattingOptions</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=729 data-target="#details-729" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=727 data-target="#details-727" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=728 data-target="#details-728" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#FormattingOptions">FormattingOptions</a></span></td><td><div class="comment"><p>フォーマットを制御するオプション。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=729 data-target="#details-729" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>テキストの編集のセットまたはそのように解決されるthenable。
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>テキストの編集のセットまたはそのように解決される thenable。
 結果の欠如は、 <code>undefined</code> 、 <code>null</code> 、または空の配列を返すことによって通知できます。</p>
 </div></td></tr>
 </table>
@@ -3326,8 +3332,11 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="range"></a><span class="ts" id=562 data-target="#details-562" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="kind"></a><span class="ts" id=563 data-target="#details-563" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#DocumentHighlightKind">DocumentHighlightKind</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=562 data-target="#details-562" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>ハイライトが適用される範囲です。</p>
+</div></td></tr>
+<tr><td><a name="kind"></a><span class="ts" id=563 data-target="#details-563" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#DocumentHighlightKind">DocumentHighlightKind</a></span></td><td><div class="comment"><p>ハイライトの種類です。
+デフォルトは <a href="#DocumentHighlightKind.Text">text</a> です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#DocumentHighlight">DocumentHighlight</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -3340,7 +3349,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="DocumentHighlight.kind"></a><span class="ts" id=559 data-target="#details-559" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#DocumentHighlightKind">DocumentHighlightKind</a></span>
 <div class="details collapse" id="details-559">
-<div class="comment"><p>ハイライトの種類は、デフォルトで<a href="#DocumentHighlightKind.Text">text</a>です。</p>
+<div class="comment"><p>ハイライトの種類は、デフォルトで <a href="#DocumentHighlightKind.Text">text</a> です。</p>
 </div>
 </div>
 
@@ -3395,15 +3404,17 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="DocumentHighlightProvider.provideDocumentHighlights"></a><span class="ts" id=566 data-target="#details-566" data-toggle="collapse"><span class="ident">provideDocumentHighlights</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-566">
-<div class="comment"><p>すべての変数のように、ドキュメントハイライトのセットを提供する
-関数のすべての出口点。</p>
+<div class="comment"><p>すべての変数又は関数のすべての出口点のように、ドキュメントハイライトのセットを提供します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=567 data-target="#details-567" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="position"></a><span class="ts" id=568 data-target="#details-568" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=569 data-target="#details-569" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=567 data-target="#details-567" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=568 data-target="#details-568" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>コマンドが呼び出された位置。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=569 data-target="#details-569" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>ドキュメントハイライトの配列またはそのように解釈されるネーブル。
 結果の欠如は、 <code>undefined</code> 、 <code>null</code> 、または空の配列を返すことによって通知できます。</p>
@@ -3520,19 +3531,22 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <a name="DocumentRangeFormattingEditProvider.provideDocumentRangeFormattingEdits"></a><span class="ts" id=732 data-target="#details-732" data-toggle="collapse"><span class="ident">provideDocumentRangeFormattingEdits</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#FormattingOptions">FormattingOptions</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-732">
 <div class="comment"><p>ドキュメントの範囲の書式設定を編集します。</p>
-<p>指定された範囲はヒントであり、プロバイダはより小さな
-以上の範囲。多くの場合、これは開始点と終了点を調整することによって行われます
-の完全な構文ノードの範囲。</p>
+<p>指定された範囲はヒントであり、プロバイダーはより小さいまたは大きい範囲をフォーマットすることを決定できます。
+これは、範囲の開始と終了を完全な構文ノードに調整することによって行われます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=733 data-target="#details-733" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="range"></a><span class="ts" id=734 data-target="#details-734" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=735 data-target="#details-735" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#FormattingOptions">FormattingOptions</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=736 data-target="#details-736" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=733 data-target="#details-733" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=734 data-target="#details-734" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>フォーマットする範囲。</p>
+</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=735 data-target="#details-735" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#FormattingOptions">FormattingOptions</a></span></td><td><div class="comment"><p>フォーマットを制御するオプション。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=736 data-target="#details-736" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>テキストの編集のセットまたはそのように解決されるthenable。
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>テキストの編集のセットまたはそのように解決される thenable。
 結果の欠如は、 <code>undefined</code> 、 <code>null</code> 、または空の配列を返すことによって通知できます。</p>
 </div></td></tr>
 </table>
@@ -3543,12 +3557,12 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 
 
-<div class="comment"><p>言語セレクタは、1つまたは複数の言語識別子と<a href="#DocumentFilter">言語フィルタ</a>の組み合わせです。</p>
+<div class="comment"><p>言語セレクタは、1つまたは複数の言語識別子と <a href="#DocumentFilter">言語フィルタ</a> の組み合わせです。</p>
 <ul>
-<li><em>sample</em> - <code>let sel：DocumentSelector = &#39;typescript&#39;</code>;</li>
+<li><em>sample</em> - <code>let sel:DocumentSelector = &#39;typescript&#39;</code>;</li>
 </ul>
 <ul>
-<li><em>sample</em> - `let sel：DocumentSelector = [&#39;typescript&#39;、{言語： &#39;json&#39;、パターン： &#39;*</li>
+<li><em>sample</em> - <code>let sel:DocumentSelector = [&#39;typescript&#39;, { language: &#39;json&#39;, pattern: &#39;**∕tsconfig.json&#39; }]</code>;</li>
 </ul>
 </div>
 
@@ -3560,7 +3574,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 
 
-<div class="comment"><p>ドキュメントシンボルプロバイダインタフェースは、エクステンションと<a href="https://code.visualstudio.com/docs/editor/editingevolved#_go-to-symbol">go to symbol</a>の間のコントラクトを定義します。</p>
+<div class="comment"><p>ドキュメントシンボルプロバイダインタフェースは、エクステンションと <a href="https://code.visualstudio.com/docs/editor/editingevolved#_go-to-symbol">go to symbol</a> の間のコントラクトを定義します。</p>
 </div>
 
 #### Methods
@@ -3574,8 +3588,10 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=617 data-target="#details-617" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=618 data-target="#details-618" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=617 data-target="#details-617" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=618 data-target="#details-618" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>ドキュメントハイライトの配列またはそのように解釈されるネーブル。
 *結果の欠如は、 <code>undefined</code> 、 <code>null</code> 、または空の配列を返すことによって通知できます。</p>
@@ -3989,7 +4005,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 
 
-<div class="comment"><p>オプション - どのオプションの書式設定を使用するかを記述するValueオブジェクト。</p>
+<div class="comment"><p>オプション - どのオプションの書式設定を使用するかを記述する Value オブジェクト。</p>
 </div>
 
 #### Properties
@@ -4029,8 +4045,10 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="contents"></a><span class="ts" id=545 data-target="#details-545" data-toggle="collapse"><span class="ident">contents</span><span>: </span><a class="type-ref" href="#MarkedString">MarkedString</a> &#124; <a class="type-ref" href="#MarkedString">MarkedString</a>[]</span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="range"></a><span class="ts" id=546 data-target="#details-546" data-toggle="collapse"><span class="ident">range</span><span>?</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="contents"></a><span class="ts" id=545 data-target="#details-545" data-toggle="collapse"><span class="ident">contents</span><span>: </span><a class="type-ref" href="#MarkedString">MarkedString</a> &#124; <a class="type-ref" href="#MarkedString">MarkedString</a>[]</span></td><td><div class="comment"><p>ホバーの内容です。</p>
+</div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=546 data-target="#details-546" data-toggle="collapse"><span class="ident">range</span><span>?</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>ホバーが適用される範囲です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Hover">Hover</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -4069,16 +4087,20 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="HoverProvider.provideHover"></a><span class="ts" id=549 data-target="#details-549" data-toggle="collapse"><span class="ident">provideHover</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-549">
-<div class="comment"><p>与えられた位置とドキュメントのホバーを提供する。同じ複数のホバー
-位置はエディタによってマージされます。ホバーにはデフォルトの範囲があります
-省略された位置の単語範囲に*。</p>
+<div class="comment"><p>TODO&gt;&gt;&gt;
+与えられた位置とドキュメントのホバーを提供する。
+同じ位置にある複数のホバーは、エディターによってマージされます。
+ホバーの省略可能な範囲は、省略時の位置の単語範囲になります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=550 data-target="#details-550" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="position"></a><span class="ts" id=551 data-target="#details-551" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=552 data-target="#details-552" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=550 data-target="#details-550" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=551 data-target="#details-551" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>コマンドが呼び出された位置。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=552 data-target="#details-552" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>そのように解決するホバーまたはネクサブルです。
 結果の不足は、 <code>undefined</code> または <code>null</code> を返すことで通知できます。</p>
@@ -4198,7 +4220,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 
 
-<div class="comment"><p>入力ボックスのUIの動作を設定するオプション。</p>
+<div class="comment"><p>入力ボックスの UI の動作を設定するオプション。</p>
 </div>
 
 #### Properties
@@ -4247,9 +4269,9 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="InputBoxOptions.valueSelection"></a><span class="ts" id=483 data-target="#details-483" data-toggle="collapse"><span class="ident">valueSelection</span><span>?</span><span>: </span>[<a class="type-instrinct">number</a>, <a class="type-instrinct">number</a>]</span>
 <div class="details collapse" id="details-483">
-<div class="comment"><p>プレフィルド[ <code>value</code> ]の選択(#InputBoxOptions.value)。
+<div class="comment"><p>プレフィルド[<code>value</code>]の選択(#InputBoxOptions.value)。
 2つの数値のタプルとして定義され、最初はインクルーシブ開始インデックス、2番目は排他終了インデックスです。
-`undefined &#39;のときは単語全体が選択され、空の場合(start equals end)はカーソルのみが設定され、そうでなければ定義された範囲が選択されます。</p>
+<code>undefined</code> のときは単語全体が選択され、空の場合 (start equals end) はカーソルのみが設定され、そうでなければ定義された範囲が選択されます。</p>
 </div>
 </div>
 
@@ -4259,13 +4281,13 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="InputBoxOptions.validateInput"></a><span class="ts" id=489 data-target="#details-489" data-toggle="collapse"><span class="ident">validateInput</span><span>(</span><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a> &#124; <a class="type-instrinct">null</a></span>
 <div class="details collapse" id="details-489">
-<div class="comment"><p>入力を検証してヒントを与えるために呼び出されるオプションの関数
-をユーザーに送信します。</p>
+<div class="comment"><p>入力を検証し、ユーザーにヒントを与えるために呼び出されるオプション関数。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="value"></a><span class="ts" id=490 data-target="#details-490" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="value"></a><span class="ts" id=490 data-target="#details-490" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>入力ボックスの現在の値。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a> &#124; <a class="type-instrinct">null</a></span></td><td><div class="comment"><p>診断メッセージとして表示される人間が読める文字列。
 &#39;value&#39;が有効な場合は <code>undefined</code> 、 <code>null</code> 、または空文字列を返します。</p>
@@ -4396,7 +4418,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 
 
-<div class="comment"><p>MarkedStringは、人間が読めるテキストを表示するために使用できます。
+<div class="comment"><p>MarkedString は、人が読めるテキストを表示するために使用できます。
 マークダウン文字列か、言語とコードスニペットを提供するコードブロックのいずれかです。
 マークダウン文字列はサニタイズされます。
 つまり、HTMLはエスケープされます。</p>
@@ -4472,10 +4494,12 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 
 
-<div class="comment"><p>情報、警告、または情報とともに表示されるアクションを表します。
-エラーメッセージ。</p>
+<div class="comment"><p>情報、警告、またはエラーメッセージとともに表示されるアクションを表します。</p>
 <ul>
-<li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a>* @@see <a href="#window.showWarningMessage">showWarningMessage</a></li>
+<li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
+</ul>
+<ul>
+<li><em>see</em> - <a href="#window.showWarningMessage">showWarningMessage</a></li>
 </ul>
 <ul>
 <li><em>see</em> - <a href="#window.showErrorMessage">showErrorMessage</a></li>
@@ -4488,7 +4512,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="MessageItem.isCloseAffordance"></a><span class="ts" id=478 data-target="#details-478" data-toggle="collapse"><span class="ident">isCloseAffordance</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-478">
-<div class="comment"><p>この項目がデフォルトの「閉じる」アクションを置き換えることを示します。</p>
+<div class="comment"><p>この項目がデフォルトの &#39;Close&#39; アクションを置き換えることを示します。</p>
 </div>
 </div>
 
@@ -4496,7 +4520,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="MessageItem.title"></a><span class="ts" id=477 data-target="#details-477" data-toggle="collapse"><span class="ident">title</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-477">
-<div class="comment"><p>&#39;Retry&#39;、 &#39;Open Log&#39;などの短いタイトル</p>
+<div class="comment"><p>&#39;Retry&#39;、 &#39;Open Log&#39; などの短いタイトル</p>
 </div>
 </div>
 
@@ -4573,20 +4597,23 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <a name="OnTypeFormattingEditProvider.provideOnTypeFormattingEdits"></a><span class="ts" id=739 data-target="#details-739" data-toggle="collapse"><span class="ident">provideOnTypeFormattingEdits</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">ch</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#FormattingOptions">FormattingOptions</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-739">
 <div class="comment"><p>文字の入力後に書式の編集を行います。</p>
-<p>与えられた位置と文字は、展開する位置の範囲をプロバイダに示唆する必要があります。
-一致する <code>{</code>
-<code>}</code> が入力されたとき*。</p>
+<p>与えられた位置と文字は、  <code>}</code>が入力されたときに一致する <code>{</code>が見つかるように、展開する位置の範囲をプロバイダに示唆する必要があります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=740 data-target="#details-740" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="position"></a><span class="ts" id=741 data-target="#details-741" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="ch"></a><span class="ts" id=742 data-target="#details-742" data-toggle="collapse"><span class="ident">ch</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=743 data-target="#details-743" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#FormattingOptions">FormattingOptions</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=744 data-target="#details-744" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=740 data-target="#details-740" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=741 data-target="#details-741" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>コマンドが呼び出された位置。</p>
+</div></td></tr>
+<tr><td><a name="ch"></a><span class="ts" id=742 data-target="#details-742" data-toggle="collapse"><span class="ident">ch</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>入力された文字。</p>
+</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=743 data-target="#details-743" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#FormattingOptions">FormattingOptions</a></span></td><td><div class="comment"><p>フォーマットを制御するオプション。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=744 data-target="#details-744" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>テキストの編集のセットまたはそのように解決されるthenable。
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>テキストの編集のセットまたはそのように解決される thenable。
 結果の欠如は、 <code>undefined</code> 、 <code>null</code> 、または空の配列を返すことによって通知できます。</p>
 </div></td></tr>
 </table>
@@ -4784,8 +4811,10 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="label"></a><span class="ts" id=750 data-target="#details-750" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="documentation"></a><span class="ts" id=751 data-target="#details-751" data-toggle="collapse"><span class="ident">documentation</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="label"></a><span class="ts" id=750 data-target="#details-750" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>ラベル文字列。</p>
+</div></td></tr>
+<tr><td><a name="documentation"></a><span class="ts" id=751 data-target="#details-751" data-toggle="collapse"><span class="ident">documentation</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>ドキュメント文字列。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ParameterInformation">ParameterInformation</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -4798,8 +4827,8 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="ParameterInformation.documentation"></a><span class="ts" id=747 data-target="#details-747" data-toggle="collapse"><span class="ident">documentation</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-747">
-<div class="comment"><p>この署名の人間が読めるdocコメント。
-UIに表示されますが、省略することができます。</p>
+<div class="comment"><p>この署名の人間が読める doc コメント。
+UI に表示されますが、省略することができます。</p>
 </div>
 </div>
 
@@ -5124,28 +5153,29 @@ UIに表示されます。</p>
 
 
 
-<div class="comment"><p>プロバイダ結果は、<a href="#HoverProvider">HoverProvider</a>のようなプロバイダが返す値を表します。
-一度これは <code>Hover</code> のような実際の結果の型 <code>T</code> 、または <code>T</code> 型に解決されるthenableです。
-さらに、 <code>null</code> と <code>undefined</code> を返すことができます - 直接またはthenableから返すことができます。</p>
-<p>以下のスニペットはすべて<a href="#HoverProvider">HoverProvider</a>の有効な実装です：</p>
+<div class="comment"><p>プロバイダ結果は、 <a href="#HoverProvider"><code>HoverProvider</code></a> のようなプロバイダが返す値を表します。
+一度これは <code>Hover</code> のような実際の結果の型 <code>T</code> 、または <code>T</code> 型に解決される thenable です。
+さらに、 <code>null</code> と <code>undefined</code> を返すことができます - 直接または thenable から返すことができます。</p>
+<p>以下のスニペットはすべて <a href="#HoverProvider"><code>HoverProvider</code></a> の有効な実装です：</p>
 
-<pre><code class="lang-ts"><span class="hljs-keyword">let</span> a：HoverProvider = {
-provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
-新しいホバー( <span class="hljs-string">'Hello World'</span>)を返します。
-}
+<pre><code class="lang-ts"><span class="hljs-keyword">let</span> a: HoverProvider = {
+    provideHover(doc, pos, token): ProviderResult&lt;Hover&gt; {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Hover(<span class="hljs-string">'Hello World'</span>);
+    }
 }
 
-<span class="hljs-keyword">let</span> b：HoverProvider = {
-provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
-新しい約束を返す(解決=&gt; {
-resolve(新しいホバー( <span class="hljs-string">'Hello World'</span>));
-});
+<span class="hljs-keyword">let</span> b: HoverProvider = {
+    provideHover(doc, pos, token): ProviderResult&lt;Hover&gt; {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> {
+            resolve(<span class="hljs-keyword">new</span> Hover(<span class="hljs-string">'Hello World'</span>));
+         });
+    }
 }
-}
-* <span class="hljs-keyword">let</span> c：HoverProvider = {
-provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
-リターン; <span class="hljs-comment">//未定義</span>
-}
+
+<span class="hljs-keyword">let</span> c: HoverProvider = {
+    provideHover(doc, pos, token): ProviderResult&lt;Hover&gt; {
+        <span class="hljs-keyword">return</span>; <span class="hljs-comment">// undefined</span>
+    }
 }
 </code></pre>
 </div>
@@ -5195,7 +5225,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="QuickPickItem.description"></a><span class="ts" id=465 data-target="#details-465" data-toggle="collapse"><span class="ident">description</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-465">
-<div class="comment"><p>あまり目立たない人間が読める文字列。</p>
+<div class="comment"><p>人が読める文字列で、あまり目立たないように表示されます。</p>
 </div>
 </div>
 
@@ -5203,7 +5233,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="QuickPickItem.detail"></a><span class="ts" id=466 data-target="#details-466" data-toggle="collapse"><span class="ident">detail</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-466">
-<div class="comment"><p>あまり目立たない人間が読める文字列。</p>
+<div class="comment"><p>人が読める文字列で、あまり目立たないように表示されます。</p>
 </div>
 </div>
 
@@ -5211,7 +5241,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="QuickPickItem.label"></a><span class="ts" id=464 data-target="#details-464" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-464">
-<div class="comment"><p>人間が読める文字列で、目立つように表示されます。</p>
+<div class="comment"><p>人が読める文字列で、目立つように表示されます。</p>
 </div>
 </div>
 
@@ -5219,7 +5249,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 
 
-<div class="comment"><p>クイックピックUIの動作を設定するオプション。</p>
+<div class="comment"><p>クイックピック UI の動作を設定するオプション。</p>
 </div>
 
 #### Events
@@ -5246,7 +5276,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="QuickPickOptions.ignoreFocusOut"></a><span class="ts" id=471 data-target="#details-471" data-toggle="collapse"><span class="ident">ignoreFocusOut</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-471">
-<div class="comment"><p>フォーカスがエディタの別の部分または別のウィンドウに移動したときにピッカーを開いたままにするには、「true」に設定します。</p>
+<div class="comment"><p>フォーカスがエディタの別の部分または別のウィンドウに移動したときにピッカーを開いたままにするには、 <code>true</code> に設定します。</p>
 </div>
 </div>
 
@@ -5270,7 +5300,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="QuickPickOptions.placeHolder"></a><span class="ts" id=470 data-target="#details-470" data-toggle="collapse"><span class="ident">placeHolder</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-470">
-<div class="comment"><p>入力ボックスにプレースホルダーとして表示してユーザーに何を選択させるかを案内するオプションのストリング。</p>
+<div class="comment"><p>入力ボックスにプレースホルダーとして表示してユーザーに何を選択させるかを案内するオプションの文字列。</p>
 </div>
 </div>
 
@@ -5489,7 +5519,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 
 
-<div class="comment"><p>Valueオブジェクト。
+<div class="comment"><p>Value オブジェクト。
 参照を要求するときに追加情報が含まれます。</p>
 </div>
 
@@ -5507,7 +5537,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 
 
-<div class="comment"><p>参照プロバイダーインターフェイスは、拡張機能と<a href="https://code.visualstudio.com/docs/editor/editingevolved#_peek">参照の参照</a> - 機能の間の契約を定義します。</p>
+<div class="comment"><p>参照プロバイダーインターフェイスは、拡張機能と <a href="https://code.visualstudio.com/docs/editor/editingevolved#_peek">参照を検索する</a> - 機能の間の契約を定義します。</p>
 </div>
 
 #### Methods
@@ -5521,12 +5551,16 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=633 data-target="#details-633" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="position"></a><span class="ts" id=634 data-target="#details-634" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="context"></a><span class="ts" id=635 data-target="#details-635" data-toggle="collapse"><span class="ident">context</span><span>: </span><a class="type-ref" href="#ReferenceContext">ReferenceContext</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=636 data-target="#details-636" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=633 data-target="#details-633" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=634 data-target="#details-634" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>コマンドが呼び出された位置。</p>
+</div></td></tr>
+<tr><td><a name="context"></a><span class="ts" id=635 data-target="#details-635" data-toggle="collapse"><span class="ident">context</span><span>: </span><a class="type-ref" href="#ReferenceContext">ReferenceContext</a></span></td><td><div class="comment"><p>コンテキスト</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=636 data-target="#details-636" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>そのように解決される場所またはthenableの配列。
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>そのように解決される場所または thenable の配列。
 結果の欠如は、 <code>undefined</code> 、 <code>null</code> 、または空の配列を返すことによって通知できます。</p>
 </div></td></tr>
 </table>
@@ -5537,7 +5571,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 
 
-<div class="comment"><p>リネームプロバイダインタフェースは、拡張機能と<a href="https://code.visualstudio.com/docs/editor/editingevolved#_rename-symbol">名前変更</a>機能の間の契約を定義します。</p>
+<div class="comment"><p>リネームプロバイダインタフェースは、拡張機能と <a href="https://code.visualstudio.com/docs/editor/editingevolved#_rename-symbol">名前変更</a> 機能の間の契約を定義します。</p>
 </div>
 
 #### Methods
@@ -5546,16 +5580,19 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="RenameProvider.provideRenameEdits"></a><span class="ts" id=714 data-target="#details-714" data-toggle="collapse"><span class="ident">provideRenameEdits</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">newName</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-714">
-<div class="comment"><p>1つに加えなければならない変更を記述する編集を提供する
-シンボルの名前を別の名前に変更するためのリソース</p>
+<div class="comment"><p>シンボル名を別の名前に変更するために、1つまたは複数のリソースに対して行わなければならない変更を記述する編集を提供します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=715 data-target="#details-715" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="position"></a><span class="ts" id=716 data-target="#details-716" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="newName"></a><span class="ts" id=717 data-target="#details-717" data-toggle="collapse"><span class="ident">newName</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=718 data-target="#details-718" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=715 data-target="#details-715" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=716 data-target="#details-716" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>コマンドが呼び出された位置。</p>
+</div></td></tr>
+<tr><td><a name="newName"></a><span class="ts" id=717 data-target="#details-717" data-toggle="collapse"><span class="ident">newName</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>シンボルの新しい名前。指定された名前が有効でない場合、プロバイダは拒否された約束を返さなければなりません。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=718 data-target="#details-718" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>ワークスペースの編集またはそのように解決されるthenable。
 結果の不足は、 <code>undefined</code> または <code>null</code> を返すことで通知できます。</p>
@@ -5833,7 +5870,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 
 
-<div class="comment"><p>シグネチャヘルププロバイダインターフェイスは、拡張機能と<a href="https://code.visualstudio.com/docs/editor/intellisense">パラメータヒント</a>の間のコントラクトを定義します。</p>
+<div class="comment"><p>シグネチャヘルププロバイダインターフェイスは、拡張機能と <a href="https://code.visualstudio.com/docs/editor/intellisense">パラメータヒント</a> の間のコントラクトを定義します。</p>
 </div>
 
 #### Methods
@@ -5847,9 +5884,12 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=767 data-target="#details-767" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="position"></a><span class="ts" id=768 data-target="#details-768" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=769 data-target="#details-769" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=767 data-target="#details-767" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=768 data-target="#details-768" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>コマンドが呼び出された位置。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=769 data-target="#details-769" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>署名のヘルプまたはそれに解決されるネーブル。
 結果の不足は、 <code>undefined</code> または <code>null</code> を返すことで通知できます。</p>
@@ -5877,8 +5917,10 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="label"></a><span class="ts" id=758 data-target="#details-758" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="documentation"></a><span class="ts" id=759 data-target="#details-759" data-toggle="collapse"><span class="ident">documentation</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="label"></a><span class="ts" id=758 data-target="#details-758" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>ラベル文字列。</p>
+</div></td></tr>
+<tr><td><a name="documentation"></a><span class="ts" id=759 data-target="#details-759" data-toggle="collapse"><span class="ident">documentation</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>ドキュメント文字列。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#SignatureInformation">SignatureInformation</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -5891,7 +5933,7 @@ provideHover(doc、pos、token)：ProviderResult &lt;Hover&gt; {
 
 <a name="SignatureInformation.documentation"></a><span class="ts" id=754 data-target="#details-754" data-toggle="collapse"><span class="ident">documentation</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-754">
-<div class="comment"><p>この署名の人間が読めるdocコメント。
+<div class="comment"><p>この署名の人間が読める doc コメント。
 UIに表示されますが、省略することができます。</p>
 </div>
 </div>
@@ -5957,13 +5999,17 @@ UIに表示されます。</p>
 
 <a name="SnippetString.appendPlaceholder"></a><span class="ts" id=699 data-target="#details-699" data-toggle="collapse"><span class="ident">appendPlaceholder</span><span>(</span><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a> &#124; (snippet: <a class="type-ref" href="#SnippetString">SnippetString</a>) =&gt; <a class="type-instrinct">any</a>, <span class="ident">number</span><span>?</span><span>: </span><a class="type-instrinct">number</a><span>)</span><span>: </span><a class="type-ref" href="#SnippetString">SnippetString</a></span>
 <div class="details collapse" id="details-699">
-<div class="comment"><p>このスニペット文字列の<a href="#SnippetString.value"><code>value</code></a>にプレースホルダ( <code>$ {1：value}</code> )を追加するBuilder関数。</p>
+<div class="comment"><p>このスニペット文字列の <a href="#SnippetString.value"><code>value</code></a> にプレースホルダ (<code>${1:value}</code>) を追加する Builder 関数。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="value"></a><span class="ts" id=700 data-target="#details-700" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a> &#124; (snippet: <a class="type-ref" href="#SnippetString">SnippetString</a>) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="number"></a><span class="ts" id=704 data-target="#details-704" data-toggle="collapse"><span class="ident">number</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="value"></a><span class="ts" id=700 data-target="#details-700" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a> &#124; (snippet: <a class="type-ref" href="#SnippetString">SnippetString</a>) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"><p>このプレースホルダの値 - 文字列または関数
+ネストされたスニペットを作成することができます。</p>
+</div></td></tr>
+<tr><td><a name="number"></a><span class="ts" id=704 data-target="#details-704" data-toggle="collapse"><span class="ident">number</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>このタブストップの番号。デフォルトは自動インクリメント
+値は1から始まります。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#SnippetString">SnippetString</a></span></td><td><div class="comment"><p>このスニペット文字列。</p>
 </div></td></tr>
@@ -5975,12 +6021,14 @@ UIに表示されます。</p>
 
 <a name="SnippetString.appendTabstop"></a><span class="ts" id=696 data-target="#details-696" data-toggle="collapse"><span class="ident">appendTabstop</span><span>(</span><span class="ident">number</span><span>?</span><span>: </span><a class="type-instrinct">number</a><span>)</span><span>: </span><a class="type-ref" href="#SnippetString">SnippetString</a></span>
 <div class="details collapse" id="details-696">
-<div class="comment"><p>ビルダー - このスニペット文字列の<a href="#SnippetString.value"><code>value</code></a>にタブストップ( <code>$ 1</code> 、 <code>$ 2</code> など)を追加する関数。</p>
+<div class="comment"><p>ビルダー - このスニペット文字列の <a href="#SnippetString.value"><code>value</code></a> にタブストップ (<code>$1</code>, <code>$2</code> など) を追加する関数。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="number"></a><span class="ts" id=697 data-target="#details-697" data-toggle="collapse"><span class="ident">number</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="number"></a><span class="ts" id=697 data-target="#details-697" data-toggle="collapse"><span class="ident">number</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>このタブストップの番号。デフォルトは自動インクリメント
+値は1から始まります。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#SnippetString">SnippetString</a></span></td><td><div class="comment"><p>このスニペット文字列。</p>
 </div></td></tr>
@@ -5992,12 +6040,12 @@ UIに表示されます。</p>
 
 <a name="SnippetString.appendText"></a><span class="ts" id=693 data-target="#details-693" data-toggle="collapse"><span class="ident">appendText</span><span>(</span><span class="ident">string</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#SnippetString">SnippetString</a></span>
 <div class="details collapse" id="details-693">
-<div class="comment"><p>ビルダ - このスニペット文字列の<a href="#SnippetString.value"><code>value</code></a>に指定された文字列を追加します。</p>
+<div class="comment"><p>ビルダ - このスニペット文字列の <a href="#SnippetString.value"><code>value</code></a> に指定された文字列を追加します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="string"></a><span class="ts" id=694 data-target="#details-694" data-toggle="collapse"><span class="ident">string</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>&#39;given as&#39;を追加する値。文字列はエスケープされます。</p>
+<tr><td><a name="string"></a><span class="ts" id=694 data-target="#details-694" data-toggle="collapse"><span class="ident">string</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>&#39;as given&#39; を追加する値。文字列はエスケープされます。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#SnippetString">SnippetString</a></span></td><td><div class="comment"><p>このスニペット文字列。</p>
@@ -6010,13 +6058,16 @@ UIに表示されます。</p>
 
 <a name="SnippetString.appendVariable"></a><span class="ts" id=706 data-target="#details-706" data-toggle="collapse"><span class="ident">appendVariable</span><span>(</span><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">defaultValue</span><span>: </span><a class="type-instrinct">string</a> &#124; (snippet: <a class="type-ref" href="#SnippetString">SnippetString</a>) =&gt; <a class="type-instrinct">any</a><span>)</span><span>: </span><a class="type-ref" href="#SnippetString">SnippetString</a></span>
 <div class="details collapse" id="details-706">
-<div class="comment"><p>ビルダ - このスニペット文字列の<a href="#SnippetString.value"><code>value</code></a>に変数( <code>$ {VAR}</code> )を追加する関数。</p>
+<div class="comment"><p>ビルダ - このスニペット文字列の <a href="#SnippetString.value"><code>value</code></a> に変数 (<code>${VAR}</code>) を追加する関数。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="name"></a><span class="ts" id=707 data-target="#details-707" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="defaultValue"></a><span class="ts" id=708 data-target="#details-708" data-toggle="collapse"><span class="ident">defaultValue</span><span>: </span><a class="type-instrinct">string</a> &#124; (snippet: <a class="type-ref" href="#SnippetString">SnippetString</a>) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="name"></a><span class="ts" id=707 data-target="#details-707" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>変数の名前 - <code>$</code> を除く。</p>
+</div></td></tr>
+<tr><td><a name="defaultValue"></a><span class="ts" id=708 data-target="#details-708" data-toggle="collapse"><span class="ident">defaultValue</span><span>: </span><a class="type-instrinct">string</a> &#124; (snippet: <a class="type-ref" href="#SnippetString">SnippetString</a>) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"><p>変数名が使用できない場合に使用されるデフォルト値
+解決される - 文字列またはネストされたスニペットが作成される関数のいずれか。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#SnippetString">SnippetString</a></span></td><td><div class="comment"><p>このスニペット文字列。</p>
 </div></td></tr>
@@ -6453,10 +6504,14 @@ UIに表示されます。</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="name"></a><span class="ts" id=604 data-target="#details-604" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="kind"></a><span class="ts" id=605 data-target="#details-605" data-toggle="collapse"><span class="ident">kind</span><span>: </span><a class="type-ref" href="#SymbolKind">SymbolKind</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="containerName"></a><span class="ts" id=606 data-target="#details-606" data-toggle="collapse"><span class="ident">containerName</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="location"></a><span class="ts" id=607 data-target="#details-607" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-ref" href="#Location">Location</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="name"></a><span class="ts" id=604 data-target="#details-604" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>シンボルの名前。</p>
+</div></td></tr>
+<tr><td><a name="kind"></a><span class="ts" id=605 data-target="#details-605" data-toggle="collapse"><span class="ident">kind</span><span>: </span><a class="type-ref" href="#SymbolKind">SymbolKind</a></span></td><td><div class="comment"><p>シンボルの種類。</p>
+</div></td></tr>
+<tr><td><a name="containerName"></a><span class="ts" id=606 data-target="#details-606" data-toggle="collapse"><span class="ident">containerName</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>シンボルを含むシンボルの名前。</p>
+</div></td></tr>
+<tr><td><a name="location"></a><span class="ts" id=607 data-target="#details-607" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-ref" href="#Location">Location</a></span></td><td><div class="comment"><p>シンボルの位置。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#SymbolInformation">SymbolInformation</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -6469,18 +6524,23 @@ UIに表示されます。</p>
 <div class="details collapse" id="details-608">
 <div class="comment"><p>新しいシンボル情報オブジェクトを作成します。</p>
 <ul>
-<li><em>deprecated</em> - <a href="#Location">location</a>オブジェクトを使用してコンストラクタを使用してください。</li>
+<li><em>deprecated</em> - <a href="#Location">location</a> オブジェクトを使用してコンストラクタを使用してください。</li>
 </ul>
 <p>新しいシンボル情報オブジェクトを作成します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="name"></a><span class="ts" id=609 data-target="#details-609" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="kind"></a><span class="ts" id=610 data-target="#details-610" data-toggle="collapse"><span class="ident">kind</span><span>: </span><a class="type-ref" href="#SymbolKind">SymbolKind</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="range"></a><span class="ts" id=611 data-target="#details-611" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="uri"></a><span class="ts" id=612 data-target="#details-612" data-toggle="collapse"><span class="ident">uri</span><span>?</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="containerName"></a><span class="ts" id=613 data-target="#details-613" data-toggle="collapse"><span class="ident">containerName</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="name"></a><span class="ts" id=609 data-target="#details-609" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>シンボルの名前。</p>
+</div></td></tr>
+<tr><td><a name="kind"></a><span class="ts" id=610 data-target="#details-610" data-toggle="collapse"><span class="ident">kind</span><span>: </span><a class="type-ref" href="#SymbolKind">SymbolKind</a></span></td><td><div class="comment"><p>シンボルの種類。</p>
+</div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=611 data-target="#details-611" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>シンボルの位置の範囲。</p>
+</div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=612 data-target="#details-612" data-toggle="collapse"><span class="ident">uri</span><span>?</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>シンボルの場所のリソースです。デフォルトは現在のドキュメントです。</p>
+</div></td></tr>
+<tr><td><a name="containerName"></a><span class="ts" id=613 data-target="#details-613" data-toggle="collapse"><span class="ident">containerName</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>シンボルを含むシンボルの名前。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#SymbolInformation">SymbolInformation</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -7161,11 +7221,9 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p>TODO&gt;&gt;&gt;
-テキストドキュメントコンテンツプロバイダは、dllからのソースやmdから生成されたhtmlなど、読取り専用のドキュメントをエディタに追加することができます。</p>
-<p>コンテンツプロバイダは<a href="#workspace.registerTextDocumentContentProvider">登録済み</a>
-<a href="#Uri.scheme">uri-scheme</a>の場合。
-そのスキームを持つURIが読み込まれると(#workspace.openTextDocument)、コンテンツプロバイダーに尋ねられます。</p>
+<div class="comment"><p>テキストドキュメントコンテンツプロバイダは、 dll からのソースや md から生成された html など、読取り専用のドキュメントをエディタに追加することができます。</p>
+<p><a href="#Uri.scheme">uri-scheme</a>のためのコンテンツプロバイダは <a href="#workspace.registerTextDocumentContentProvider">登録済み</a> です。
+そのスキームを持つURIが読み込まれると (#workspace.openTextDocument)、 コンテンツプロバイダーに尋ねられます。</p>
 </div>
 
 #### Events
@@ -7184,16 +7242,17 @@ uri スキームとは独立しています。</p>
 
 <a name="TextDocumentContentProvider.provideTextDocumentContent"></a><span class="ts" id=460 data-target="#details-460" data-toggle="collapse"><span class="ident">provideTextDocumentContent</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-460">
-<div class="comment"><p>与えられたURIのテキストコンテンツを提供する。</p>
-<p>エディタは返された文字列コンテンツを使用して読み取り専用を作成します
-<a href="#TextDocument">document</a>。
+<div class="comment"><p>与えられた URI のテキストコンテンツを提供します。</p>
+<p>エディタは返された文字列コンテンツを使用して読み取り専用の <a href="#TextDocument">document</a> を作成します。
 割り当てられたリソースは、対応するドキュメントが<a href="#workspace.onDidCloseTextDocument">閉じる</a>されたときに解放される必要があります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=461 data-target="#details-461" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=462 data-target="#details-462" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=461 data-target="#details-461" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>このプロバイダが <a href="#workspace.registerTextDocumentContentProvider">登録済み</a> のスキームと一致する URI。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=462 data-target="#details-462" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>このように解決される文字列または文字列。</p>
 </div></td></tr>
@@ -7360,7 +7419,8 @@ uri スキームとは独立しています。</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="range"></a><span class="ts" id=648 data-target="#details-648" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=648 data-target="#details-648" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>範囲です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TextEdit">TextEdit</a></span></td><td><div class="comment"><p>新しいテキスト編集オブジェクト。</p>
 </div></td></tr>
@@ -7377,8 +7437,10 @@ uri スキームとは独立しています。</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="position"></a><span class="ts" id=644 data-target="#details-644" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="newText"></a><span class="ts" id=645 data-target="#details-645" data-toggle="collapse"><span class="ident">newText</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=644 data-target="#details-644" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>位置は、空の範囲になります。</p>
+</div></td></tr>
+<tr><td><a name="newText"></a><span class="ts" id=645 data-target="#details-645" data-toggle="collapse"><span class="ident">newText</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>文字列です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TextEdit">TextEdit</a></span></td><td><div class="comment"><p>新しいテキスト編集オブジェクト。</p>
 </div></td></tr>
@@ -7395,8 +7457,10 @@ uri スキームとは独立しています。</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="range"></a><span class="ts" id=640 data-target="#details-640" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="newText"></a><span class="ts" id=641 data-target="#details-641" data-toggle="collapse"><span class="ident">newText</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=640 data-target="#details-640" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>範囲です。</p>
+</div></td></tr>
+<tr><td><a name="newText"></a><span class="ts" id=641 data-target="#details-641" data-toggle="collapse"><span class="ident">newText</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>文字列です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TextEdit">TextEdit</a></span></td><td><div class="comment"><p>新しいテキスト編集オブジェクト。</p>
 </div></td></tr>
@@ -7408,12 +7472,13 @@ uri スキームとは独立しています。</p>
 
 <a name="TextEdit.setEndOfLine"></a><span class="ts" id=650 data-target="#details-650" data-toggle="collapse"><span class="ident">setEndOfLine</span><span>(</span><span class="ident">eol</span><span>: </span><a class="type-ref" href="#EndOfLine">EndOfLine</a><span>)</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a></span>
 <div class="details collapse" id="details-650">
-<div class="comment"><p>eol-editを作成するユーティリティ。</p>
+<div class="comment"><p>eol-edit を作成するユーティリティ。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="eol"></a><span class="ts" id=651 data-target="#details-651" data-toggle="collapse"><span class="ident">eol</span><span>: </span><a class="type-ref" href="#EndOfLine">EndOfLine</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="eol"></a><span class="ts" id=651 data-target="#details-651" data-toggle="collapse"><span class="ident">eol</span><span>: </span><a class="type-ref" href="#EndOfLine">EndOfLine</a></span></td><td><div class="comment"><p>シーケンス</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TextEdit">TextEdit</a></span></td><td><div class="comment"><p>新しいテキスト編集オブジェクト。</p>
 </div></td></tr>
@@ -7427,13 +7492,15 @@ uri スキームとは独立しています。</p>
 
 <a name="TextEdit.new TextEdit"></a><span class="ts" id=656 data-target="#details-656" data-toggle="collapse"><span class="ident">new TextEdit</span><span>(</span><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">newText</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a></span>
 <div class="details collapse" id="details-656">
-<div class="comment"><p>新しいTextEditを作成します。</p>
+<div class="comment"><p>新しい TextEdit を作成します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="range"></a><span class="ts" id=657 data-target="#details-657" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="newText"></a><span class="ts" id=658 data-target="#details-658" data-toggle="collapse"><span class="ident">newText</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=657 data-target="#details-657" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>範囲です。</p>
+</div></td></tr>
+<tr><td><a name="newText"></a><span class="ts" id=658 data-target="#details-658" data-toggle="collapse"><span class="ident">newText</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>文字列です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TextEdit">TextEdit</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -7446,8 +7513,8 @@ uri スキームとは独立しています。</p>
 
 <a name="TextEdit.newEol"></a><span class="ts" id=654 data-target="#details-654" data-toggle="collapse"><span class="ident">newEol</span><span>: </span><a class="type-ref" href="#EndOfLine">EndOfLine</a></span>
 <div class="details collapse" id="details-654">
-<div class="comment"><p>この文書で使用されているeol-sequence。</p>
-<p>注* eol-sequenceは文書全体に適用されます。</p>
+<div class="comment"><p>この文書で使用されている eol-sequence。</p>
+<p><em>注</em> eol-sequence は文書全体に適用されます。</p>
 </div>
 </div>
 
@@ -8627,9 +8694,12 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=537 data-target="#details-537" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="position"></a><span class="ts" id=538 data-target="#details-538" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=539 data-target="#details-539" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=537 data-target="#details-537" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=538 data-target="#details-538" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>コマンドが呼び出された位置。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=539 data-target="#details-539" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>このように解決される定義または変換可能なテーブル。
 結果の不足は、 <code>undefined</code> または <code>null</code> を返すことで通知できます。</p>
@@ -8842,7 +8912,13 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <p><em>注：</em>現在の<a href="#workspace.rootPath">workspace</a>のマージされた設定は、 には <code>launch.json</code> や <code>tasks.json</code> のようなファイルの設定も含まれています。
 それらのベース名はセクション識別子の一部になります。
 以下のスニペットは <code>launch.json</code> からすべての設定を取得する方法を示しています：</p>
-<p>```ts</p>
+
+<pre><code class="lang-ts"><span class="hljs-comment">// launch.json configuration</span>
+<span class="hljs-keyword">const</span> config = workspace.getConfiguration(<span class="hljs-string">'launch'</span>);
+
+<span class="hljs-comment">// retrieve values</span>
+<span class="hljs-keyword">const</span> values = config.get(<span class="hljs-string">'configurations'</span>);
+</code></pre>
 </div>
 
 #### Methods
@@ -8972,8 +9048,10 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=673 data-target="#details-673" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="range"></a><span class="ts" id=674 data-target="#details-674" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=673 data-target="#details-673" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>リソース識別子。</p>
+</div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=674 data-target="#details-674" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>範囲です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -9022,9 +9100,10 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=677 data-target="#details-677" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=677 data-target="#details-677" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>リソース識別子。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>指定されたリソースにこの編集が適用される場合はtrueを返します。</p>
+<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>指定されたリソースにこの編集が適用される場合は true を返します。</p>
 </div></td></tr>
 </table>
 </div>
@@ -9039,9 +9118,12 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=668 data-target="#details-668" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="position"></a><span class="ts" id=669 data-target="#details-669" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="newText"></a><span class="ts" id=670 data-target="#details-670" data-toggle="collapse"><span class="ident">newText</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=668 data-target="#details-668" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>リソース識別子。</p>
+</div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=669 data-target="#details-669" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>位置です。</p>
+</div></td></tr>
+<tr><td><a name="newText"></a><span class="ts" id=670 data-target="#details-670" data-toggle="collapse"><span class="ident">newText</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>文字列です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -9057,9 +9139,12 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=663 data-target="#details-663" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="range"></a><span class="ts" id=664 data-target="#details-664" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="newText"></a><span class="ts" id=665 data-target="#details-665" data-toggle="collapse"><span class="ident">newText</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=663 data-target="#details-663" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>リソース識別子。</p>
+</div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=664 data-target="#details-664" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>範囲です。</p>
+</div></td></tr>
+<tr><td><a name="newText"></a><span class="ts" id=665 data-target="#details-665" data-toggle="collapse"><span class="ident">newText</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>文字列です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -9089,7 +9174,7 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 
 
 
-<div class="comment"><p>ワークスペースシンボルプロバイダインタフェースは、拡張機能と<a href="https://code.visualstudio.com/docs/editor/editingevolved#_open-symbol-by-name">シンボル検索</a> - 機能の間の契約を定義します。</p>
+<div class="comment"><p>ワークスペースシンボルプロバイダインタフェースは、拡張機能と <a href="https://code.visualstudio.com/docs/editor/editingevolved#_open-symbol-by-name">シンボル検索</a> - 機能の間の契約を定義します。</p>
 </div>
 
 #### Methods
@@ -9099,15 +9184,16 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <a name="WorkspaceSymbolProvider.provideWorkspaceSymbols"></a><span class="ts" id=621 data-target="#details-621" data-toggle="collapse"><span class="ident">provideWorkspaceSymbols</span><span>(</span><span class="ident">query</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-621">
 <div class="comment"><p>指定されたクエリ文字列に一致するシンボルのプロジェクト全体の検索。
-サブストリング、indexOfなどのように、クエリ文字列を検索する方法はプロバイダに依存します。
-パフォーマンスの実装者を改善するために、シンボルの<a href="#SymbolInformation.location">location</a>をスキップして、それを行うために <code>resolveWorkspaceSymbol</code> を実装することができます
-後で。</p>
+サブストリング、 indexOf などのように、クエリ文字列を検索する方法はプロバイダに依存します。
+パフォーマンスの実装者を改善するために、シンボルの <a href="#SymbolInformation.location">location</a> をスキップして、後でそれを行うために <code>resolveWorkspaceSymbol</code> を実装することができます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="query"></a><span class="ts" id=622 data-target="#details-622" data-toggle="collapse"><span class="ident">query</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=623 data-target="#details-623" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="query"></a><span class="ts" id=622 data-target="#details-622" data-toggle="collapse"><span class="ident">query</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>空でないクエリ文字列。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=623 data-target="#details-623" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>ドキュメントハイライトの配列またはそのように解釈されるネーブル。
 結果の欠如は、 <code>undefined</code> 、 <code>null</code> 、または空の配列を返すことによって通知できます。</p>
@@ -9120,7 +9206,8 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 
 <a name="WorkspaceSymbolProvider.resolveWorkspaceSymbol"></a><span class="ts" id=625 data-target="#details-625" data-toggle="collapse"><span class="ident">resolveWorkspaceSymbol</span><span>(</span><span class="ident">symbol</span><span>: </span><a class="type-ref" href="#SymbolInformation">SymbolInformation</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-625">
-<div class="comment"><p><a href="#SymbolInformation.location">location</a>にシンボルを記入してください。
+<div class="comment"><p>TODO&gt;&gt;&gt;
+<a href="#SymbolInformation.location">location</a> にシンボルを記入します。
 このメソッドは、UIでシンボルが選択されるたびに呼び出されます。
 プロバイダはこのメソッドを実装し、不完全なシンボルを返すことができます
 <a href="#WorkspaceSymbolProvider.provideWorkspaceSymbols"><code>provideWorkspaceSymbols</code></a>改善に役立つことが多い
@@ -9129,11 +9216,14 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="symbol"></a><span class="ts" id=626 data-target="#details-626" data-toggle="collapse"><span class="ident">symbol</span><span>: </span><a class="type-ref" href="#SymbolInformation">SymbolInformation</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=627 data-target="#details-627" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="symbol"></a><span class="ts" id=626 data-target="#details-626" data-toggle="collapse"><span class="ident">symbol</span><span>: </span><a class="type-ref" href="#SymbolInformation">SymbolInformation</a></span></td><td><div class="comment"><p>解決されるシンボル。
+以前の <code>provideWorkspaceSymbols</code> 呼び出しから返されたオブジェクトのインスタンスであることが保証されています。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=627 data-target="#details-627" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>解決されたシンボルまたはそれを解決するネーブル。
-結果が返ってこないときは、与えられた <code>symbol</code> が使われます。</p>
+結果が返ってこないときは、与えられた <code>symbol</code> が使われます。TODO^^^</p>
 </div></td></tr>
 </table>
 </div>
