@@ -62,8 +62,10 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="command"></a><span class="ts" id=1194 data-target="#details-1194" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="rest"></a><span class="ts" id=1195 data-target="#details-1195" data-toggle="collapse"><span>...</span><span class="ident">rest</span><span>: </span><a class="type-instrinct">any</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="command"></a><span class="ts" id=1194 data-target="#details-1194" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>実行するコマンドの識別子。</p>
+</div></td></tr>
+<tr><td><a name="rest"></a><span class="ts" id=1195 data-target="#details-1195" data-toggle="collapse"><span>...</span><span class="ident">rest</span><span>: </span><a class="type-instrinct">any</a>[]</span></td><td><div class="comment"><p>コマンド関数に渡されるパラメータ。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>指定されたコマンドの戻り値に解決されるthenable。
 コマンドハンドラ関数が何も返さないときは <code>undefined</code> を返します。</p>
@@ -119,8 +121,8 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 <a name="commands.registerTextEditorCommand"></a><span class="ts" id=1182 data-target="#details-1182" data-toggle="collapse"><span class="ident">registerTextEditorCommand</span><span>(</span><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">callback</span><span>: </span>(textEditor: <a class="type-ref" href="#TextEditor">TextEditor</a>, edit: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>, args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">void</a>, <span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1182">
 <div class="comment"><p>キーボードショートカット、メニュー項目、アクション、または直接呼び出すことができるテキストエディタコマンドを登録します。</p>
-<p>テキストエディタコマンドは、コマンドが呼び出されたときにアクティブなエディタがある場合にのみ実行されるため、通常の<a href="#commands.registerCommand">commands</a>とは異なります。
-また、エディタコマンドのコマンドハンドラは、アクティブエディタと<a href="#TextEditorEdit">edit</a>-builderにアクセスできます。</p>
+<p>テキストエディタコマンドは、コマンドが呼び出されたときにアクティブなエディタがある場合にのみ実行されるため、通常の<a href="#commands.registerCommand">commands</a> とは異なります。
+また、エディタコマンドのコマンドハンドラは、アクティブエディタと <a href="#TextEditorEdit">edit</a>-builder にアクセスできます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -150,7 +152,7 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 
 <a name="env.appName"></a><span class="ts" id=1168 data-target="#details-1168" data-toggle="collapse"><span class="ident">appName</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1168">
-<div class="comment"><p>&#39;VSコード&#39;のようなエディタのアプリケーション名。</p>
+<div class="comment"><p>&#39;VS Code&#39; のようなエディタのアプリケーション名。</p>
 <ul>
 <li><em>readonly</em></li>
 </ul>
@@ -161,7 +163,7 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 
 <a name="env.language"></a><span class="ts" id=1169 data-target="#details-1169" data-toggle="collapse"><span class="ident">language</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1169">
-<div class="comment"><p><code>de-CH</code> 、 <code>fr</code> 、 <code>en-US</code> のような好みのユーザ言語を表します。</p>
+<div class="comment"><p><code>de-CH</code> 、 <code>fr</code> 、 <code>en-US</code> のような優先ユーザ言語を表します。</p>
 <ul>
 <li><em>readonly</em></li>
 </ul>
@@ -197,7 +199,7 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 
 <div class="comment"><p>インストールされた拡張機能を扱うための名前空間。
 拡張機能は、拡張機能(#拡張機能) - それらを反映できるインタフェースで表されます。</p>
-<p>拡張ライターは、API公開サーフェスを <code>activate</code> コールから返すことによって、他の拡張機能にAPIを提供することができます。</p>
+<p>拡張ライターは、 API 公開サーフェスを <code>activate</code> コールから返すことによって、他の拡張機能にAPIを提供することができます。</p>
 
 <pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">activate</span>(<span class="hljs-params">context: vscode.ExtensionContext</span>) </span>{
     <span class="hljs-keyword">let</span> api = {
@@ -212,7 +214,7 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
     <span class="hljs-keyword">return</span> api;
 }
 </code></pre>
-<p>別の拡張機能のAPIに依存する場合は、 <code>extensionDependency</code> エントリを <code>package.json</code> に追加し、<a href="#extensions.getExtension">getExtension</a>関数と<a href="#Extension.exports">exports</a> 、以下のように：     *</p>
+<p>別の拡張機能のAPIに依存する場合は、 <code>extensionDependency</code> エントリを <code>package.json</code> に追加し、<a href="#extensions.getExtension">getExtension</a> 関数と <a href="#Extension.exports">exports</a> 、以下のように：</p>
 
 <pre><code class="lang-javascript"><span class="hljs-keyword">let</span> mathExt = extensions.getExtension(<span class="hljs-string">'genius.math'</span>);
 <span class="hljs-keyword">let</span> importedApi = mathExt.exports;
@@ -237,14 +239,15 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 
 <a name="extensions.getExtension"></a><span class="ts" id=1469 data-target="#details-1469" data-toggle="collapse"><span class="ident">getExtension</span><span>(</span><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">any</a>&gt; &#124; <a class="type-instrinct">undefined</a></span>
 <div class="details collapse" id="details-1469">
-<div class="comment"><p>拡張子を <code>publisher.name</code> の形式で完全な識別子で取得します。</p>
+<div class="comment"><p>拡張機能を <code>publisher.name</code> の形式で完全な識別子で取得します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="extensionId"></a><span class="ts" id=1470 data-target="#details-1470" data-toggle="collapse"><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="extensionId"></a><span class="ts" id=1470 data-target="#details-1470" data-toggle="collapse"><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>拡張機能識別子。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">any</a>&gt; &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>拡張子または <code>undefined</code> です。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">any</a>&gt; &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>拡張機能または <code>undefined</code> です。</p>
 </div></td></tr>
 </table>
 </div>
@@ -254,14 +257,15 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 
 <a name="extensions.getExtension"></a><span class="ts" id=1471 data-target="#details-1471" data-toggle="collapse"><span class="ident">getExtension</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">T</a>&gt; &#124; <a class="type-instrinct">undefined</a></span>
 <div class="details collapse" id="details-1471">
-<div class="comment"><p>拡張子を <code>publisher.name</code> の形式で取得します。</p>
+<div class="comment"><p>拡張機能を <code>publisher.name</code> の形式で取得します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="extensionId"></a><span class="ts" id=1473 data-target="#details-1473" data-toggle="collapse"><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="extensionId"></a><span class="ts" id=1473 data-target="#details-1473" data-toggle="collapse"><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>拡張機能識別子。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">T</a>&gt; &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>拡張子または <code>undefined</code> です。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">T</a>&gt; &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>拡張機能または <code>undefined</code> です。</p>
 </div></td></tr>
 </table>
 </div>
@@ -302,7 +306,8 @@ MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="name"></a><span class="ts" id=1385 data-target="#details-1385" data-toggle="collapse"><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="name"></a><span class="ts" id=1385 data-target="#details-1385" data-toggle="collapse"><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>コレクションの<a href="#DiagnosticCollection.name">name</a>。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#DiagnosticCollection">DiagnosticCollection</a></span></td><td><div class="comment"><p>新しい診断コレクションです。</p>
 </div></td></tr>
@@ -409,8 +414,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1397 data-target="#details-1397" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1398 data-target="#details-1398" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeLensProvider">CodeLensProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1397 data-target="#details-1397" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1398 data-target="#details-1398" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeLensProvider">CodeLensProvider</a></span></td><td><div class="comment"><p>コードレンズのプロバイダ。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -432,9 +439,12 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1388 data-target="#details-1388" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1389 data-target="#details-1389" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CompletionItemProvider">CompletionItemProvider</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="triggerCharacters"></a><span class="ts" id=1390 data-target="#details-1390" data-toggle="collapse"><span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1388 data-target="#details-1388" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1389 data-target="#details-1389" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CompletionItemProvider">CompletionItemProvider</a></span></td><td><div class="comment"><p>補完プロバイダ。</p>
+</div></td></tr>
+<tr><td><a name="triggerCharacters"></a><span class="ts" id=1390 data-target="#details-1390" data-toggle="collapse"><span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>ユーザが <code>.</code> や <code>：</code> のような文字を入力すると完了をトリガーします。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -454,8 +464,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1401 data-target="#details-1401" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1402 data-target="#details-1402" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DefinitionProvider">DefinitionProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1401 data-target="#details-1401" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1402 data-target="#details-1402" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DefinitionProvider">DefinitionProvider</a></span></td><td><div class="comment"><p>定義プロバイダ。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -475,8 +487,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1436 data-target="#details-1436" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1437 data-target="#details-1437" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentFormattingEditProvider">DocumentFormattingEditProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1436 data-target="#details-1436" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1437 data-target="#details-1437" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentFormattingEditProvider">DocumentFormattingEditProvider</a></span></td><td><div class="comment"><p>ドキュメント書式エディットプロバイダ。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -496,8 +510,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1417 data-target="#details-1417" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1418 data-target="#details-1418" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentHighlightProvider">DocumentHighlightProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1417 data-target="#details-1417" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1418 data-target="#details-1418" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentHighlightProvider">DocumentHighlightProvider</a></span></td><td><div class="comment"><p>ドキュメントハイライトプロバイダです。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -516,8 +532,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1455 data-target="#details-1455" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1456 data-target="#details-1456" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentLinkProvider">DocumentLinkProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1455 data-target="#details-1455" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1456 data-target="#details-1456" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentLinkProvider">DocumentLinkProvider</a></span></td><td><div class="comment"><p>ドキュメントリンクプロバイダ。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -539,8 +557,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1440 data-target="#details-1440" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1441 data-target="#details-1441" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentRangeFormattingEditProvider">DocumentRangeFormattingEditProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1440 data-target="#details-1440" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1441 data-target="#details-1441" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentRangeFormattingEditProvider">DocumentRangeFormattingEditProvider</a></span></td><td><div class="comment"><p>ドキュメント範囲の書式設定エディタです。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -560,8 +580,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1421 data-target="#details-1421" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1422 data-target="#details-1422" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentSymbolProvider">DocumentSymbolProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1421 data-target="#details-1421" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1422 data-target="#details-1422" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentSymbolProvider">DocumentSymbolProvider</a></span></td><td><div class="comment"><p>ドキュメントシンボルプロバイダです。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -581,8 +603,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1413 data-target="#details-1413" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1414 data-target="#details-1414" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#HoverProvider">HoverProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1413 data-target="#details-1413" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1414 data-target="#details-1414" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#HoverProvider">HoverProvider</a></span></td><td><div class="comment"><p>ホバープロバイダ。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -602,8 +626,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1405 data-target="#details-1405" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1406 data-target="#details-1406" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#ImplementationProvider">ImplementationProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1405 data-target="#details-1405" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1406 data-target="#details-1406" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#ImplementationProvider">ImplementationProvider</a></span></td><td><div class="comment"><p>実装プロバイダ。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -624,11 +650,14 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1444 data-target="#details-1444" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1445 data-target="#details-1445" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#OnTypeFormattingEditProvider">OnTypeFormattingEditProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1444 data-target="#details-1444" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1445 data-target="#details-1445" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#OnTypeFormattingEditProvider">OnTypeFormattingEditProvider</a></span></td><td><div class="comment"><p>型の書式設定エディタです。</p>
+</div></td></tr>
 <tr><td><a name="firstTriggerCharacter"></a><span class="ts" id=1446 data-target="#details-1446" data-toggle="collapse"><span class="ident">firstTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p><code>}</code> のように、書式設定を開始する文字。</p>
 </div></td></tr>
-<tr><td><a name="moreTriggerCharacter"></a><span class="ts" id=1447 data-target="#details-1447" data-toggle="collapse"><span>...</span><span class="ident">moreTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="moreTriggerCharacter"></a><span class="ts" id=1447 data-target="#details-1447" data-toggle="collapse"><span>...</span><span class="ident">moreTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>より多くのトリガー文字。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -648,8 +677,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1428 data-target="#details-1428" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1429 data-target="#details-1429" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#ReferenceProvider">ReferenceProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1428 data-target="#details-1428" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1429 data-target="#details-1429" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#ReferenceProvider">ReferenceProvider</a></span></td><td><div class="comment"><p>参照プロバイダ。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -669,8 +700,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1432 data-target="#details-1432" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1433 data-target="#details-1433" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#RenameProvider">RenameProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1432 data-target="#details-1432" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1433 data-target="#details-1433" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#RenameProvider">RenameProvider</a></span></td><td><div class="comment"><p>名前変更プロバイダ。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -689,9 +722,12 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1450 data-target="#details-1450" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1451 data-target="#details-1451" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#SignatureHelpProvider">SignatureHelpProvider</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="triggerCharacters"></a><span class="ts" id=1452 data-target="#details-1452" data-toggle="collapse"><span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1450 data-target="#details-1450" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1451 data-target="#details-1451" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#SignatureHelpProvider">SignatureHelpProvider</a></span></td><td><div class="comment"><p>シグネチャヘルププロバイダ。</p>
+</div></td></tr>
+<tr><td><a name="triggerCharacters"></a><span class="ts" id=1452 data-target="#details-1452" data-toggle="collapse"><span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>トリガ署名は、ユーザが <code>、</code> 、 <code>(</code> のような文字を入力すると助けになります。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -711,8 +747,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1409 data-target="#details-1409" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1410 data-target="#details-1410" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#TypeDefinitionProvider">TypeDefinitionProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1409 data-target="#details-1409" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>このプロバイダが適用可能なドキュメントを定義するセレクタです。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1410 data-target="#details-1410" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#TypeDefinitionProvider">TypeDefinitionProvider</a></span></td><td><div class="comment"><p>型定義プロバイダ。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -732,7 +770,8 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1425 data-target="#details-1425" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#WorkspaceSymbolProvider">WorkspaceSymbolProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1425 data-target="#details-1425" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#WorkspaceSymbolProvider">WorkspaceSymbolProvider</a></span></td><td><div class="comment"><p>ワークスペースシンボルプロバイダ。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -830,7 +869,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="window.onDidChangeActiveTextEditor"></a><span class="ts" id=1202 data-target="#details-1202" data-toggle="collapse"><span class="ident">onDidChangeActiveTextEditor</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
 <div class="details collapse" id="details-1202">
-<div class="comment"><p><a href="#window.activeTextEditor">アクティブエディタ</a>が変更されたときに起動する<a href="#イベント">イベント</a>。</p>
+<div class="comment"><p><a href="#window.activeTextEditor">アクティブエディタ</a>が変更されたときに起動する<a href="#Event">イベント</a>。</p>
 <ul>
 <li>*アクティブなエディタが <code>undefined</code> に変わったときにイベントが発生することもあります。</li>
 </ul>
@@ -841,7 +880,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="window.onDidChangeTextEditorOptions"></a><span class="ts" id=1205 data-target="#details-1205" data-toggle="collapse"><span class="ident">onDidChangeTextEditorOptions</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorOptionsChangeEvent">TextEditorOptionsChangeEvent</a>&gt;</span>
 <div class="details collapse" id="details-1205">
-<div class="comment"><p><a href="#イベント">イベント</a>エディタのオプションが変更されたときに起動します。</p>
+<div class="comment"><p><a href="#Event">イベント</a> エディタのオプションが変更されたときに起動します。</p>
 </div>
 </div>
 
@@ -849,7 +888,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="window.onDidChangeTextEditorSelection"></a><span class="ts" id=1204 data-target="#details-1204" data-toggle="collapse"><span class="ident">onDidChangeTextEditorSelection</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorSelectionChangeEvent">TextEditorSelectionChangeEvent</a>&gt;</span>
 <div class="details collapse" id="details-1204">
-<div class="comment"><p>エディタでの選択が変更されたときに発生する<a href="#イベント">イベント</a>。</p>
+<div class="comment"><p>エディタでの選択が変更されたときに発生する<a href="#Event">イベント</a>。</p>
 </div>
 </div>
 
@@ -857,7 +896,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="window.onDidChangeTextEditorViewColumn"></a><span class="ts" id=1206 data-target="#details-1206" data-toggle="collapse"><span class="ident">onDidChangeTextEditorViewColumn</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorViewColumnChangeEvent">TextEditorViewColumnChangeEvent</a>&gt;</span>
 <div class="details collapse" id="details-1206">
-<div class="comment"><p>エディタのビュー列が変更されたときに発生する<a href="#イベント">イベント</a>。</p>
+<div class="comment"><p>エディタのビュー列が変更されたときに発生する<a href="#Event">イベント</a>。</p>
 </div>
 </div>
 
@@ -873,7 +912,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="window.onDidCloseTerminal"></a><span class="ts" id=1207 data-target="#details-1207" data-toggle="collapse"><span class="ident">onDidCloseTerminal</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#Terminal">Terminal</a>&gt;</span>
 <div class="details collapse" id="details-1207">
-<div class="comment"><p>端末が破棄されたときに起動する<a href="#イベント">イベント</a>。</p>
+<div class="comment"><p>端末が破棄されたときに起動する<a href="#Event">イベント</a>。</p>
 </div>
 </div>
 
@@ -883,12 +922,12 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="window.createOutputChannel"></a><span class="ts" id=1285 data-target="#details-1285" data-toggle="collapse"><span class="ident">createOutputChannel</span><span>(</span><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#OutputChannel">OutputChannel</a></span>
 <div class="details collapse" id="details-1285">
-<div class="comment"><p>指定した名前で新しい<a href="#OutputChannel">出力チャネル</a>を作成します。</p>
+<div class="comment"><p>指定した名前で新しい <a href="#OutputChannel">出力チャネル</a> を作成します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="name"></a><span class="ts" id=1286 data-target="#details-1286" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>UIでチャンネルを表すために使用される人間が読める文字列です。</p>
+<tr><td><a name="name"></a><span class="ts" id=1286 data-target="#details-1286" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>UI でチャンネルを表すために使用される人類が読める文字列です。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#OutputChannel">OutputChannel</a></span></td><td><div class="comment"></div></td></tr>
@@ -900,13 +939,15 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="window.createStatusBarItem"></a><span class="ts" id=1314 data-target="#details-1314" data-toggle="collapse"><span class="ident">createStatusBarItem</span><span>(</span><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-ref" href="#StatusBarAlignment">StatusBarAlignment</a>, <span class="ident">priority</span><span>?</span><span>: </span><a class="type-instrinct">number</a><span>)</span><span>: </span><a class="type-ref" href="#StatusBarItem">StatusBarItem</a></span>
 <div class="details collapse" id="details-1314">
-<div class="comment"><p>ステータスバー<a href="#StatusBarItem">item</a>を作成します。</p>
+<div class="comment"><p>ステータスバー <a href="#StatusBarItem">item</a> を作成します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="alignment"></a><span class="ts" id=1315 data-target="#details-1315" data-toggle="collapse"><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-ref" href="#StatusBarAlignment">StatusBarAlignment</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="priority"></a><span class="ts" id=1316 data-target="#details-1316" data-toggle="collapse"><span class="ident">priority</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="alignment"></a><span class="ts" id=1315 data-target="#details-1315" data-toggle="collapse"><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-ref" href="#StatusBarAlignment">StatusBarAlignment</a></span></td><td><div class="comment"><p>アイテムの配置。</p>
+</div></td></tr>
+<tr><td><a name="priority"></a><span class="ts" id=1316 data-target="#details-1316" data-toggle="collapse"><span class="ident">priority</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>アイテムの優先度。値が大きいほど、左にアイテムを表示する必要があることを意味します。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#StatusBarItem">StatusBarItem</a></span></td><td><div class="comment"><p>新しいステータスバー項目。</p>
 </div></td></tr>
@@ -919,15 +960,17 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <a name="window.createTerminal"></a><span class="ts" id=1318 data-target="#details-1318" data-toggle="collapse"><span class="ident">createTerminal</span><span>(</span><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">shellPath</span><span>?</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">shellArgs</span><span>?</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Terminal">Terminal</a></span>
 <div class="details collapse" id="details-1318">
 <div class="comment"><p><a href="#Terminal">端末</a> を作成します。
-明示的なcustomStartPath設定が存在するかどうかにかかわらず、端末のcwdが存在する場合、ワークスペースディレクトリになります。</p>
+明示的な customStartPath 設定が存在するかどうかにかかわらず、端末のcwdが存在する場合、ワークスペースディレクトリになります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="name"></a><span class="ts" id=1319 data-target="#details-1319" data-toggle="collapse"><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>UIで端末を表すために人間が読める文字列(オプション)。</p>
+<tr><td><a name="name"></a><span class="ts" id=1319 data-target="#details-1319" data-toggle="collapse"><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>UI で端末を表すために人類が読める文字列(オプション)。</p>
 </div></td></tr>
-<tr><td><a name="shellPath"></a><span class="ts" id=1320 data-target="#details-1320" data-toggle="collapse"><span class="ident">shellPath</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="shellArgs"></a><span class="ts" id=1321 data-target="#details-1321" data-toggle="collapse"><span class="ident">shellArgs</span><span>?</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="shellPath"></a><span class="ts" id=1320 data-target="#details-1320" data-toggle="collapse"><span class="ident">shellPath</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>ターミナルで使用される実行可能なカスタムシェルへのオプションのパス。</p>
+</div></td></tr>
+<tr><td><a name="shellArgs"></a><span class="ts" id=1321 data-target="#details-1321" data-toggle="collapse"><span class="ident">shellArgs</span><span>?</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>カスタムシェル実行ファイルのオプションの引数です。これは Windows では動作しません(#8429を参照)</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Terminal">Terminal</a></span></td><td><div class="comment"><p>新しい端末。</p>
 </div></td></tr>
@@ -940,12 +983,13 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <a name="window.createTerminal"></a><span class="ts" id=1322 data-target="#details-1322" data-toggle="collapse"><span class="ident">createTerminal</span><span>(</span><span class="ident">options</span><span>: </span><a class="type-ref" href="#TerminalOptions">TerminalOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Terminal">Terminal</a></span>
 <div class="details collapse" id="details-1322">
 <div class="comment"><p><a href="#Terminal">端末</a> を作成します。
-明示的なcustomStartPath設定が存在するかどうかにかかわらず、端末のcwdが存在する場合、ワークスペースディレクトリになります。</p>
+明示的な customStartPath 設定が存在するかどうかにかかわらず、端末のcwdが存在する場合、ワークスペースディレクトリになります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="options"></a><span class="ts" id=1323 data-target="#details-1323" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#TerminalOptions">TerminalOptions</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1323 data-target="#details-1323" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#TerminalOptions">TerminalOptions</a></span></td><td><div class="comment"><p>新しい端末の特性を記述する TerminalOptions オブジェクトです。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Terminal">Terminal</a></span></td><td><div class="comment"><p>新しい端末。</p>
 </div></td></tr>
@@ -962,7 +1006,8 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="options"></a><span class="ts" id=1218 data-target="#details-1218" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#DecorationRenderOptions">DecorationRenderOptions</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1218 data-target="#details-1218" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#DecorationRenderOptions">DecorationRenderOptions</a></span></td><td><div class="comment"><p>装飾型のレンダリングオプション。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TextEditorDecorationType">TextEditorDecorationType</a></span></td><td><div class="comment"><p>新しいデコレーションタイプのインスタンス。</p>
 </div></td></tr>
@@ -974,13 +1019,15 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="window.registerTreeDataProvider"></a><span class="ts" id=1325 data-target="#details-1325" data-toggle="collapse"><span class="ident">registerTreeDataProvider</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">viewId</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">treeDataProvider</span><span>: </span><a class="type-ref" href="#TreeDataProvider">TreeDataProvider</a>&lt;<a class="type-instrinct">T</a>&gt;<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1325">
-<div class="comment"><p>拡張ポイント <code>views</code> を使って提供されたビューの<a href="#TreeDataProvider">TreeDataProvider</a>を登録します。</p>
+<div class="comment"><p>拡張ポイント <code>views</code> を使って提供されたビューの <a href="#TreeDataProvider">TreeDataProvider</a> を登録します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="viewId"></a><span class="ts" id=1327 data-target="#details-1327" data-toggle="collapse"><span class="ident">viewId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="treeDataProvider"></a><span class="ts" id=1328 data-target="#details-1328" data-toggle="collapse"><span class="ident">treeDataProvider</span><span>: </span><a class="type-ref" href="#TreeDataProvider">TreeDataProvider</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="viewId"></a><span class="ts" id=1327 data-target="#details-1327" data-toggle="collapse"><span class="ident">viewId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>拡張ポイント <code>views</code> を使用して提供されたビューのID。</p>
+</div></td></tr>
+<tr><td><a name="treeDataProvider"></a><span class="ts" id=1328 data-target="#details-1328" data-toggle="collapse"><span class="ident">treeDataProvider</span><span>: </span><a class="type-ref" href="#TreeDataProvider">TreeDataProvider</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>ビューのツリーデータを提供する<a href="#TreeDataProvider">TreeDataProvider</a></p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -992,13 +1039,15 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <a name="window.setStatusBarMessage"></a><span class="ts" id=1288 data-target="#details-1288" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">hideAfterTimeout</span><span>: </span><a class="type-instrinct">number</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1288">
 <div class="comment"><p>ステータスバーにメッセージを設定します。
-これは、より強力なステータスバー<a href="#window.createStatusBarItem">items</a>の短い手です。</p>
+これは、より強力なステータスバー <a href="#window.createStatusBarItem">items</a> のショートカットです。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="text"></a><span class="ts" id=1289 data-target="#details-1289" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="hideAfterTimeout"></a><span class="ts" id=1290 data-target="#details-1290" data-toggle="collapse"><span class="ident">hideAfterTimeout</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="text"></a><span class="ts" id=1289 data-target="#details-1289" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>表示するメッセージは、ステータスバー<a href="#StatusBarItem.text">items</a>のようにアイコン置換をサポートしています。</p>
+</div></td></tr>
+<tr><td><a name="hideAfterTimeout"></a><span class="ts" id=1290 data-target="#details-1290" data-toggle="collapse"><span class="ident">hideAfterTimeout</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>メッセージが破棄されるまでのミリ秒単位のタイムアウト。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>ステータスバーメッセージを隠す使い捨て。</p>
 </div></td></tr>
@@ -1011,13 +1060,15 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <a name="window.setStatusBarMessage"></a><span class="ts" id=1291 data-target="#details-1291" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1291">
 <div class="comment"><p>ステータスバーにメッセージを設定します。
-これは、より強力なステータスバー<a href="#window.createStatusBarItem">items</a>の短い手です。</p>
+これは、より強力なステータスバー<a href="#window.createStatusBarItem">items</a>の省略形です。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="text"></a><span class="ts" id=1292 data-target="#details-1292" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="hideWhenDone"></a><span class="ts" id=1293 data-target="#details-1293" data-toggle="collapse"><span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="text"></a><span class="ts" id=1292 data-target="#details-1292" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>表示するメッセージは、ステータスバー <a href="#StatusBarItem.text">items</a> のようにアイコン置換をサポートしています。</p>
+</div></td></tr>
+<tr><td><a name="hideWhenDone"></a><span class="ts" id=1293 data-target="#details-1293" data-toggle="collapse"><span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;</span></td><td><div class="comment"><p>メッセージの処理が完了(解決または拒否)されるときに呼び出すことができます。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>ステータスバーメッセージを隠す使い捨て。</p>
 </div></td></tr>
@@ -1030,13 +1081,14 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <a name="window.setStatusBarMessage"></a><span class="ts" id=1294 data-target="#details-1294" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1294">
 <div class="comment"><p>ステータスバーにメッセージを設定します。
-これは、より強力なステータスバー<a href="#window.createStatusBarItem">items</a>の短い手です。</p>
-<p><em>注</em>ステータスバーメッセージはスタックし、使用されなくなったときに廃棄する必要があります。</p>
+これは、より強力なステータスバー<a href="#window.createStatusBarItem">items</a>の省略形です。</p>
+<p><em>注</em> ステータスバーメッセージはスタックし、使用されなくなったときに廃棄する必要があります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="text"></a><span class="ts" id=1295 data-target="#details-1295" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="text"></a><span class="ts" id=1295 data-target="#details-1295" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>表示するメッセージは、ステータスバー<a href="#StatusBarItem.text">items</a>のようにアイコン置換をサポートしています。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>ステータスバーメッセージを隠す使い捨て。</p>
 </div></td></tr>
@@ -1056,10 +1108,12 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1255 data-target="#details-1255" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1256 data-target="#details-1256" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1255 data-target="#details-1255" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>表示するメッセージ。</p>
+</div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1256 data-target="#details-1256" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>メッセージのアクションとしてレンダリングされるアイテムのセット。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code> が返されます。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決される thenable、または却下されるときに <code>undefined</code> が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1077,11 +1131,14 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1258 data-target="#details-1258" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1259 data-target="#details-1259" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1260 data-target="#details-1260" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1258 data-target="#details-1258" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>表示するメッセージ。</p>
+</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1259 data-target="#details-1259" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"><p>メッセージの動作を設定します。</p>
+</div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1260 data-target="#details-1260" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>メッセージのアクションとしてレンダリングされるアイテムのセット。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code> が返されます。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決される thenable、または却下されるときに <code>undefined</code> が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1099,10 +1156,12 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1263 data-target="#details-1263" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1264 data-target="#details-1264" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1263 data-target="#details-1263" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>表示するメッセージ。</p>
+</div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1264 data-target="#details-1264" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>メッセージのアクションとしてレンダリングされるアイテムのセット。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code> が返されます。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決される thenable、または却下されるときに <code>undefined</code> が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1120,11 +1179,14 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1267 data-target="#details-1267" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1268 data-target="#details-1268" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1269 data-target="#details-1269" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1267 data-target="#details-1267" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>表示するメッセージ。</p>
+</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1268 data-target="#details-1268" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"><p>メッセージの動作を設定します。</p>
+</div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1269 data-target="#details-1269" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>メッセージのアクションとしてレンダリングされるアイテムのセット。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code> が返されます。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決される thenable、または却下されるときに <code>undefined</code> が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1140,8 +1202,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1221 data-target="#details-1221" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1222 data-target="#details-1222" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1221 data-target="#details-1221" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>表示するメッセージ。</p>
+</div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1222 data-target="#details-1222" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>メッセージのアクションとしてレンダリングされるアイテムのセット。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code> が返されます。</p>
 </div></td></tr>
@@ -1159,11 +1223,14 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1224 data-target="#details-1224" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1225 data-target="#details-1225" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1226 data-target="#details-1226" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1224 data-target="#details-1224" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>表示するメッセージ。</p>
+</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1225 data-target="#details-1225" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"><p>メッセージの動作を設定します。</p>
+</div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1226 data-target="#details-1226" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>メッセージのアクションとしてレンダリングされるアイテムのセット。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code> が返されます。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決される thenable、または却下されるときに <code>undefined</code> が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1181,10 +1248,12 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1229 data-target="#details-1229" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1230 data-target="#details-1230" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1229 data-target="#details-1229" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>表示するメッセージ。</p>
+</div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1230 data-target="#details-1230" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>メッセージのアクションとしてレンダリングされるアイテムのセット。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code> が返されます。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決される thenable、または却下されるときに <code>undefined</code> が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1202,11 +1271,14 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1233 data-target="#details-1233" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1234 data-target="#details-1234" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1235 data-target="#details-1235" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1233 data-target="#details-1233" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>表示するメッセージ。</p>
+</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1234 data-target="#details-1234" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"><p>メッセージの動作を設定します。</p>
+</div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1235 data-target="#details-1235" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>メッセージのアクションとしてレンダリングされるアイテムのセット。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code> が返されます。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決される thenable、または却下されるときに <code>undefined</code> が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1217,17 +1289,18 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <a name="window.showInputBox"></a><span class="ts" id=1281 data-target="#details-1281" data-toggle="collapse"><span class="ident">showInputBox</span><span>(</span><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#InputBoxOptions">InputBoxOptions</a>, <span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span>
 <div class="details collapse" id="details-1281">
 <div class="comment"><p>ユーザーに入力を求める入力ボックスを開きます。</p>
-<p>入力ボックスがキャンセルされた場合(ESCを押すなど)、戻り値は <code>undefined</code> になります。
+<p>入力ボックスがキャンセルされた場合 (ESCを押すなど)、戻り値は <code>undefined</code> になります。
 そうでない場合、戻り値はユーザーが入力した文字列、またはユーザーが何も入力せずにOKを押して入力ボックスを終了した場合は空の文字列になります。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="options"></a><span class="ts" id=1282 data-target="#details-1282" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#InputBoxOptions">InputBoxOptions</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=1283 data-target="#details-1283" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1282 data-target="#details-1282" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#InputBoxOptions">InputBoxOptions</a></span></td><td><div class="comment"><p>入力ボックスの動作を設定します。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=1283 data-target="#details-1283" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルを通知するために使用できるトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>ユーザーが提供した文字列に解決する約束。
-解雇の場合は `未定義 &#39;にする。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>ユーザーが提供した文字列に、削除の場合は <code>undefined</code> に解決する promise。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1242,11 +1315,14 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="items"></a><span class="ts" id=1272 data-target="#details-1272" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1273 data-target="#details-1273" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=1274 data-target="#details-1274" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1272 data-target="#details-1272" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>文字列の配列、または文字列の配列に解決する promise です。</p>
+</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1273 data-target="#details-1273" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a></span></td><td><div class="comment"><p>選択リストの動作を設定します。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=1274 data-target="#details-1274" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルを通知するために使用できるトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択または「未定義」に解決する約束。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択または <code>undefined</code> に解決するpromise。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1261,11 +1337,14 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="items"></a><span class="ts" id=1277 data-target="#details-1277" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>[]&gt;</span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1278 data-target="#details-1278" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=1279 data-target="#details-1279" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1277 data-target="#details-1277" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>[]&gt;</span></td><td><div class="comment"><p>アイテムの配列、またはアイテムの配列に解決する promise です。</p>
+</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1278 data-target="#details-1278" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a></span></td><td><div class="comment"><p>選択リストの動作を設定します。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=1279 data-target="#details-1279" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルを通知するために使用できるトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目または <code>undefined</code> を解決する約束です。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目または <code>undefined</code> に解決する promise です。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1277,13 +1356,17 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="details collapse" id="details-1209">
 <div class="comment"><p>テキストエディタで指定のドキュメントを表示します。</p>
 <p><a href="#ViewColumn">column</a>は、エディタが表示されている場所を制御するために提供されます。</p>
-<p><a href="#window.activeTextEditor">アクティブエディタ</a>を変更することがあります。</p>
+<p><a href="#window.activeTextEditor">アクティブエディタ</a>を変更することがあります。
+TODO&gt;&gt;&gt;</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=1210 data-target="#details-1210" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="column"></a><span class="ts" id=1211 data-target="#details-1211" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=1210 data-target="#details-1210" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>表示されるテキストドキュメントです。</p>
+</div></td></tr>
+<tr><td><a name="column"></a><span class="ts" id=1211 data-target="#details-1211" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"><p>エディタを表示するビューの列。
+デフォルトは<a href="#ViewColumn.One">1</a>、他の値は<strong>Min(column、columnCount + 1)</strong>に調整されます。</p>
+</div></td></tr>
 <tr><td><a name="preserveFocus"></a><span class="ts" id=1212 data-target="#details-1212" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p><code>true</code> の場合、エディタはフォーカスを取得しません。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
@@ -1326,10 +1409,12 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1238 data-target="#details-1238" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1239 data-target="#details-1239" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1238 data-target="#details-1238" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>表示するメッセージ。</p>
+</div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1239 data-target="#details-1239" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>メッセージのアクションとしてレンダリングされるアイテムのセット。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code> が返されます。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決される thenable、または却下されるときに <code>undefined</code> が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1369,10 +1454,12 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1246 data-target="#details-1246" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1247 data-target="#details-1247" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1246 data-target="#details-1246" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>表示するメッセージ。</p>
+</div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1247 data-target="#details-1247" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>メッセージのアクションとしてレンダリングされるアイテムのセット。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code> が返されます。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決される thenable、または却下されるときに <code>undefined</code> が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1390,11 +1477,14 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=1250 data-target="#details-1250" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=1251 data-target="#details-1251" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=1252 data-target="#details-1252" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=1250 data-target="#details-1250" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>表示するメッセージ。</p>
+</div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1251 data-target="#details-1251" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#MessageOptions">MessageOptions</a></span></td><td><div class="comment"><p>メッセージの動作を設定します。</p>
+</div></td></tr>
+<tr><td><a name="items"></a><span class="ts" id=1252 data-target="#details-1252" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>メッセージのアクションとしてレンダリングされるアイテムのセット。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決されるthenable、または却下されるときに <code>undefined</code> が返されます。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a>&gt;</span></td><td><div class="comment"><p>選択された項目に解決される thenable、または却下されるときに <code>undefined</code> が返されます。</p>
 </div></td></tr>
 </table>
 </div>
@@ -1404,7 +1494,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="window.withProgress"></a><span class="ts" id=1304 data-target="#details-1304" data-toggle="collapse"><span class="ident">withProgress</span><span>&lt;</span>R<span>&gt;</span><span>(</span><span class="ident">options</span><span>: </span><a class="type-ref" href="#ProgressOptions">ProgressOptions</a>, <span class="ident">task</span><span>: </span>(progress: <a class="type-ref" href="#Progress">Progress</a>&lt;{message: <a class="type-instrinct">string</a>}&gt;) =&gt; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span>
 <div class="details collapse" id="details-1304">
-<div class="comment"><p>エディタで進行状況を表示します。
+<div class="comment"><p>エディタで進捗状況を表示します。
 指定されたコールバックを実行している間にプログレスが表示され、返された約束は解決されず、拒否されません。
 進捗状況(およびその他の詳細)は、渡された<a href="#ProgressOptions"><code>ProgressOptions</code></a>で定義されます。</p>
 </div>
@@ -1412,7 +1502,9 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="options"></a><span class="ts" id=1306 data-target="#details-1306" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#ProgressOptions">ProgressOptions</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="task"></a><span class="ts" id=1307 data-target="#details-1307" data-toggle="collapse"><span class="ident">task</span><span>: </span>(progress: <a class="type-ref" href="#Progress">Progress</a>&lt;{message: <a class="type-instrinct">string</a>}&gt;) =&gt; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="task"></a><span class="ts" id=1307 data-target="#details-1307" data-toggle="collapse"><span class="ident">task</span><span>: </span>(progress: <a class="type-ref" href="#Progress">Progress</a>&lt;{message: <a class="type-instrinct">string</a>}&gt;) =&gt; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span></td><td><div class="comment"><p>promise を返すコールバック。
+進行状況は、提供された <a href="#Progress">進捗</a> オブジェクトで報告できます。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span></td><td><div class="comment"><p>thenableタスクコールバックが返されました。</p>
 </div></td></tr>
@@ -1433,7 +1525,9 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="task"></a><span class="ts" id=1299 data-target="#details-1299" data-toggle="collapse"><span class="ident">task</span><span>: </span>(progress: <a class="type-ref" href="#Progress">Progress</a>&lt;<a class="type-instrinct">number</a>&gt;) =&gt; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="task"></a><span class="ts" id=1299 data-target="#details-1299" data-toggle="collapse"><span class="ident">task</span><span>: </span>(progress: <a class="type-ref" href="#Progress">Progress</a>&lt;<a class="type-instrinct">number</a>&gt;) =&gt; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span></td><td><div class="comment"><p>promise を返すコールバック。
+進行の増分は、提供された <a href="#Progress">進行</a> オブジェクトで報告できます。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">R</a>&gt;</span></td><td><div class="comment"><p>その次のタスクはrseturnでした。</p>
 </div></td></tr>
@@ -1483,7 +1577,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="workspace.onDidChangeConfiguration"></a><span class="ts" id=1375 data-target="#details-1375" data-toggle="collapse"><span class="ident">onDidChangeConfiguration</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-instrinct">void</a>&gt;</span>
 <div class="details collapse" id="details-1375">
-<div class="comment"><p><a href="#WorkspaceConfiguration">構成</a>が変更されたときに放出されるイベント。</p>
+<div class="comment"><p><a href="#WorkspaceConfiguration">構成</a> が変更されたときに放出されるイベント。</p>
 </div>
 </div>
 
@@ -1491,7 +1585,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="workspace.onDidChangeTextDocument"></a><span class="ts" id=1369 data-target="#details-1369" data-toggle="collapse"><span class="ident">onDidChangeTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocumentChangeEvent">TextDocumentChangeEvent</a>&gt;</span>
 <div class="details collapse" id="details-1369">
-<div class="comment"><p><a href="#TextDocument">テキスト文書</a>が変更されたときに発生するイベント。</p>
+<div class="comment"><p><a href="#TextDocument">テキスト文書</a> が変更されたときに発生するイベント。</p>
 </div>
 </div>
 
@@ -1499,7 +1593,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="workspace.onDidCloseTextDocument"></a><span class="ts" id=1368 data-target="#details-1368" data-toggle="collapse"><span class="ident">onDidCloseTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-1368">
-<div class="comment"><p><a href="#TextDocument">テキストドキュメント</a>が配置されたときに放出されるイベント。</p>
+<div class="comment"><p><a href="#TextDocument">テキストドキュメント</a> が配置されたときに放出されるイベント。</p>
 </div>
 </div>
 
@@ -1507,7 +1601,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="workspace.onDidOpenTextDocument"></a><span class="ts" id=1367 data-target="#details-1367" data-toggle="collapse"><span class="ident">onDidOpenTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-1367">
-<div class="comment"><p><a href="#TextDocument">テキストドキュメント</a>が開かれたときに放出されるイベント。</p>
+<div class="comment"><p><a href="#TextDocument">テキストドキュメント</a> が開かれたときに放出されるイベント。</p>
 </div>
 </div>
 
@@ -1515,7 +1609,7 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="workspace.onDidSaveTextDocument"></a><span class="ts" id=1371 data-target="#details-1371" data-toggle="collapse"><span class="ident">onDidSaveTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-1371">
-<div class="comment"><p><a href="#TextDocument">テキストドキュメント</a>がディスクに保存されたときに放出されるイベント。</p>
+<div class="comment"><p><a href="#TextDocument">テキストドキュメント</a> がディスクに保存されたときに放出されるイベント。</p>
 </div>
 </div>
 
@@ -1523,11 +1617,11 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 
 <a name="workspace.onWillSaveTextDocument"></a><span class="ts" id=1370 data-target="#details-1370" data-toggle="collapse"><span class="ident">onWillSaveTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocumentWillSaveEvent">TextDocumentWillSaveEvent</a>&gt;</span>
 <div class="details collapse" id="details-1370">
-<div class="comment"><p><a href="#TextDocument">テキスト文書</a>がディスクに保存されるときに放出されるイベント。</p>
-<p><em>注1：</em>非同期作業を登録することで、契約者は保存を遅らせることができます。
+<div class="comment"><p><a href="#TextDocument">テキスト文書</a> がディスクに保存されるときに放出されるイベント。</p>
+<p><em>注1:</em> 非同期作業を登録することで、契約者は保存を遅らせることができます。
 データの整合性のため、エディタはこのイベントを発生させずに保存できます。
 例えば汚れたファイルでシャットダウンする場合など。</p>
-<p><em>注2：</em>サブスクライバはシーケンシャルに呼び出され、非同期作業を登録することで<a href="#TextDocumentWillSaveEvent.waitUntil">遅延</a>保存できます。
+<p><em>注2:</em> サブスクライバはシーケンシャルに呼び出され、非同期作業を登録することで<a href="#TextDocumentWillSaveEvent.waitUntil">遅延</a>保存できます。
 不正なリスナーに対する保護は、そのように実装されています： *すべてのリスナーが共有する全体的な時間予算があり、それが使い果たされた場合、それ以上のリスナーは呼び出されません 長い時間がかかる、または頻繁にエラーを生成するリスナーは、もはや呼び出されません</p>
 <p>現在のしきい値は全体の時間予算として1.5秒であり、リスナーは無視される前に3回不正行為をする可能性があります。</p>
 </div>
@@ -1546,7 +1640,8 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="edit"></a><span class="ts" id=1351 data-target="#details-1351" data-toggle="collapse"><span class="ident">edit</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="edit"></a><span class="ts" id=1351 data-target="#details-1351" data-toggle="collapse"><span class="ident">edit</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a></span></td><td><div class="comment"><p>ワークスペースの編集。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>編集可能なときに解決されるthenable。</p>
 </div></td></tr>
@@ -1564,7 +1659,9 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="pathOrUri"></a><span class="ts" id=1339 data-target="#details-1339" data-toggle="collapse"><span class="ident">pathOrUri</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="pathOrUri"></a><span class="ts" id=1339 data-target="#details-1339" data-toggle="collapse"><span class="ident">pathOrUri</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>パスまたはURI。
+uriが与えられると、その<a href="#Uri.fsPath">fsPath</a>が使用されます。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>ルートまたは入力からの相対パス。</p>
 </div></td></tr>
@@ -1585,10 +1682,14 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="globPattern"></a><span class="ts" id=1332 data-target="#details-1332" data-toggle="collapse"><span class="ident">globPattern</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="ignoreCreateEvents"></a><span class="ts" id=1333 data-target="#details-1333" data-toggle="collapse"><span class="ident">ignoreCreateEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="ignoreChangeEvents"></a><span class="ts" id=1334 data-target="#details-1334" data-toggle="collapse"><span class="ident">ignoreChangeEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="ignoreDeleteEvents"></a><span class="ts" id=1335 data-target="#details-1335" data-toggle="collapse"><span class="ident">ignoreDeleteEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="globPattern"></a><span class="ts" id=1332 data-target="#details-1332" data-toggle="collapse"><span class="ident">globPattern</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>作成、変更、および削除されたファイルの名前に適用されるグロブパターン。</p>
+</div></td></tr>
+<tr><td><a name="ignoreCreateEvents"></a><span class="ts" id=1333 data-target="#details-1333" data-toggle="collapse"><span class="ident">ignoreCreateEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>ファイルが作成されたときは無視します。</p>
+</div></td></tr>
+<tr><td><a name="ignoreChangeEvents"></a><span class="ts" id=1334 data-target="#details-1334" data-toggle="collapse"><span class="ident">ignoreChangeEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>ファイルが変更されたときは無視します。</p>
+</div></td></tr>
+<tr><td><a name="ignoreDeleteEvents"></a><span class="ts" id=1335 data-target="#details-1335" data-toggle="collapse"><span class="ident">ignoreDeleteEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>ファイルが削除されたときは無視します。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#FileSystemWatcher">FileSystemWatcher</a></span></td><td><div class="comment"><p>新しいファイルシステムウォッチャーインスタンス。</p>
 </div></td></tr>
@@ -1608,10 +1709,14 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="include"></a><span class="ts" id=1342 data-target="#details-1342" data-toggle="collapse"><span class="ident">include</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="exclude"></a><span class="ts" id=1343 data-target="#details-1343" data-toggle="collapse"><span class="ident">exclude</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="maxResults"></a><span class="ts" id=1344 data-target="#details-1344" data-toggle="collapse"><span class="ident">maxResults</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=1345 data-target="#details-1345" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="include"></a><span class="ts" id=1342 data-target="#details-1342" data-toggle="collapse"><span class="ident">include</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>検索するファイルを定義するglobパターン。</p>
+</div></td></tr>
+<tr><td><a name="exclude"></a><span class="ts" id=1343 data-target="#details-1343" data-toggle="collapse"><span class="ident">exclude</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>除外するファイルとフォルダを定義するグロボパターン。</p>
+</div></td></tr>
+<tr><td><a name="maxResults"></a><span class="ts" id=1344 data-target="#details-1344" data-toggle="collapse"><span class="ident">maxResults</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>結果の上限。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=1345 data-target="#details-1345" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>基本となる検索エンジンへの取り消しを通知するために使用できるトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Uri">Uri</a>[]&gt;</span></td><td><div class="comment"><p>リソース識別子の配列に解決されるthenable。</p>
 </div></td></tr>
@@ -1625,12 +1730,13 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="details collapse" id="details-1373">
 <div class="comment"><p>設定オブジェクトを取得します。</p>
 <p>section-identifierが与えられている場合は、その部分だけが返されます。
-セクション識別子のドットは <code>{myExt：{setting：{doIt：true}}</code> や `getConfiguration( &#39;myExt.setting&#39;)などの子アクセスと解釈されます。get( &#39;doIt&#39;)===本当です。</p>
+セクション識別子のドットは <code>{ myExt: { setting: { doIt: true }}}</code> や <code>getConfiguration(&#39;myExt.setting&#39;).get(&#39;doIt&#39;) === true</code> などの子アクセスと解釈されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="section"></a><span class="ts" id=1374 data-target="#details-1374" data-toggle="collapse"><span class="ident">section</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="section"></a><span class="ts" id=1374 data-target="#details-1374" data-toggle="collapse"><span class="ident">section</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>ドット区切りの識別子。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#WorkspaceConfiguration">WorkspaceConfiguration</a></span></td><td><div class="comment"><p>完全なワークスペース構成またはサブセット。</p>
 </div></td></tr>
@@ -1684,7 +1790,8 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="fileName"></a><span class="ts" id=1357 data-target="#details-1357" data-toggle="collapse"><span class="ident">fileName</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="fileName"></a><span class="ts" id=1357 data-target="#details-1357" data-toggle="collapse"><span class="ident">fileName</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>ディスク上のファイルの名前。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>(#TextDocument)に解決する約束です。</p>
 </div></td></tr>
@@ -1703,7 +1810,8 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="options"></a><span class="ts" id=1359 data-target="#details-1359" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span>{content: <a class="type-instrinct">string</a>, language: <a class="type-instrinct">string</a>}</span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="options"></a><span class="ts" id=1359 data-target="#details-1359" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span>{content: <a class="type-instrinct">string</a>, language: <a class="type-instrinct">string</a>}</span></td><td><div class="comment"><p>ドキュメントの作成方法を制御するオプション。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>(#TextDocument)に解決する約束です。</p>
 </div></td></tr>
@@ -1721,8 +1829,10 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="scheme"></a><span class="ts" id=1365 data-target="#details-1365" data-toggle="collapse"><span class="ident">scheme</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1366 data-target="#details-1366" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#TextDocumentContentProvider">TextDocumentContentProvider</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="scheme"></a><span class="ts" id=1365 data-target="#details-1365" data-toggle="collapse"><span class="ident">scheme</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>登録するURIスキーム。</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1366 data-target="#details-1366" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#TextDocumentContentProvider">TextDocumentContentProvider</a></span></td><td><div class="comment"><p>コンテンツプロバイダです。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>廃棄時にこのプロバイダの登録を解除する<a href="#Disposable">disposable</a>。</p>
 </div></td></tr>
@@ -1739,7 +1849,8 @@ match(<span class="hljs-string">'*'</span>, doc); <span class="hljs-comment">// 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="includeUntitled"></a><span class="ts" id=1348 data-target="#details-1348" data-toggle="collapse"><span class="ident">includeUntitled</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="includeUntitled"></a><span class="ts" id=1348 data-target="#details-1348" data-toggle="collapse"><span class="ident">includeUntitled</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>このセッション中に作成されたファイルも保存します。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>ファイルが保存されたときに解決されるthenable。</p>
 </div></td></tr>
@@ -2104,7 +2215,7 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 <div class="details collapse" id="details-810">
 <div class="comment"><p>新しい補完項目を作成します。</p>
 <p>補完項目には少なくとも <a href="#CompletionItem.label">ラベル</a> が必要です。
-は、並べ替えやフィルタリングのためだけでなく、挿入テキストとしても使用されます。</p>
+これは、並べ替えやフィルタリングのためだけでなく、挿入テキストとしても使用されます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -2134,8 +2245,8 @@ UIでコマンドを表すのに使用されるタイトルを提供し、オプ
 
 <a name="CompletionItem.command"></a><span class="ts" id=808 data-target="#details-808" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span>
 <div class="details collapse" id="details-808">
-<div class="comment"><p>この補完を挿入した後に<em>実行されるオプションの<a href="#コマンド">command</a>。
-</em>注*現在の文書に対する追加の修正は、 <a href="#CompletionItem.additionalTextEdits">additionalTextEdits</a> - プロパティです。</p>
+<div class="comment"><p>この補完を挿入した後に<em>実行されるオプションの<a href="#Command">command</a>。
+</em>注* 現在の文書に対する追加の修正は、 <a href="#CompletionItem.additionalTextEdits">additionalTextEdits</a> - プロパティです。</p>
 </div>
 </div>
 
@@ -2170,7 +2281,7 @@ doc-comment を表す人類が読める文字列。</p>
 
 <a name="CompletionItem.filterText"></a><span class="ts" id=802 data-target="#details-802" data-toggle="collapse"><span class="ident">filterText</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-802">
-<div class="comment"><p>完了項目のセットをフィルタリングするときに使用する文字列。
+<div class="comment"><p>補完項目のセットをフィルタリングするときに使用する文字列。
 <code>偽装する</code><a href="#CompletionItem.label">ラベル</a> が使われているときに。</p>
 </div>
 </div>
@@ -2226,14 +2337,15 @@ doc-comment を表す人類が読める文字列。</p>
 
 <a name="CompletionItem.textEdit"></a><span class="ts" id=806 data-target="#details-806" data-toggle="collapse"><span class="ident">textEdit</span><span>?</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a></span>
 <div class="details collapse" id="details-806">
-<div class="comment"><ul>
+<div class="comment"><p>TODO&gt;&gt;&gt;</p>
+<ul>
 <li><em>deprecated</em> - <strong><code>CompletionItem.insertText</code> と <code>CompletionItem.range</code> があるので</strong> 非推奨です。</li>
 </ul>
 <p>~~<a href="#TextEdit">編集</a>はこの補完を選択するときに文書に適用されます。
 編集が提供されると、 <a href="#CompletionItem.insertText">insertText</a>は無視されます。
 ~~</p>
 <p>~~編集の<a href="#Range">range</a>はシングルラインでなければならず、同じ行でCompletionItemProvider.provideCompletionItems)が〜要求されました。
-~~</p>
+~~^^^TODO</p>
 </div>
 </div>
 
@@ -2425,11 +2537,10 @@ doc-comment を表す人類が読める文字列。</p>
 
 
 
-<div class="comment"><p>補完項目プロバイダインタフェースは、拡張機能と拡張機能の間の契約を定義します。
-<a href="https://code.visualstudio.com/docs/editor/intellisense">IntelliSense</a>。</p>
-<p>完了<em>完了アイテムを計算するのが高価な場合、プロバイダはオプションでresolveCompletionItem関数を実装することができます。
-その場合、<a href="#CompletionItem.label">ラベル</a>を持つ補完アイテムを</em> <a href="#CompletionItemProvider.provideCompletionItems">provideCompletionItems</a> - 関数。
-その後、完成品がUIに表示され、フォーカスが得られたら、このプロバイダは<a href="#CompletionItem.documentation">doc-comment</a>または<a href="#CompletionItem.detail">details</a>の追加など、項目の解決を求められます。</p>
+<div class="comment"><p>補完項目プロバイダインタフェースは、拡張機能と <a href="https://code.visualstudio.com/docs/editor/intellisense">IntelliSense</a> の間の契約を定義します。</p>
+<p><em>補完</em> 項目を計算するのが高価な場合、プロバイダはオプションで resolveCompletionItem 関数を実装することができます。
+その場合、<a href="#CompletionItemProvider.provideCompletionItems">provideCompletionItems</a> 関数から<a href="#CompletionItem.label">ラベル</a> で補完項目を返すだけで十分です。
+その後、補完項目がUIに表示され、フォーカスが得られたら、このプロバイダは <a href="#CompletionItem.documentation">doc-comment</a> または <a href="#CompletionItem.detail">details</a> の追加など、項目の解決を求められます。</p>
 <p>プロバイダーは、ユーザージェスチャーによって明示的に、または単語またはトリガー文字を入力するときに暗黙的に構成に基づいて補完を求められます。</p>
 </div>
 
@@ -2439,16 +2550,19 @@ doc-comment を表す人類が読める文字列。</p>
 
 <a name="CompletionItemProvider.provideCompletionItems"></a><span class="ts" id=822 data-target="#details-822" data-toggle="collapse"><span class="ident">provideCompletionItems</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-822">
-<div class="comment"><p>与えられた位置と文書の完成品を提供する。</p>
+<div class="comment"><p>与えられた位置と文書の補完項目を提供する。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=823 data-target="#details-823" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="position"></a><span class="ts" id=824 data-target="#details-824" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=825 data-target="#details-825" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=823 data-target="#details-823" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=824 data-target="#details-824" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>コマンドが呼び出された位置。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=825 data-target="#details-825" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>補完の配列、<a href="#CompletionList">補完リスト</a>、またはどちらかに解決されるthenable。
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>補完の配列、 <a href="#CompletionList">補完リスト</a>、または thenable のどちらかに解決される。
 結果の欠如は、 <code>undefined</code> 、 <code>null</code> 、または空の配列を返すことによって通知できます。</p>
 </div></td></tr>
 </table>
@@ -2459,17 +2573,19 @@ doc-comment を表す人類が読める文字列。</p>
 
 <a name="CompletionItemProvider.resolveCompletionItem"></a><span class="ts" id=827 data-target="#details-827" data-toggle="collapse"><span class="ident">resolveCompletionItem</span><span>(</span><span class="ident">item</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-827">
-<div class="comment"><p>補完アイテムがあれば、<a href="#CompletionItem.documentation">doc-comment</a>
+<div class="comment"><p>補完項目があれば、<a href="#CompletionItem.documentation">doc-comment</a>
 または<a href="#CompletionItem.detail">詳細</a>。</p>
 <p>エディタは完了アイテムを1回だけ解決します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="item"></a><span class="ts" id=828 data-target="#details-828" data-toggle="collapse"><span class="ident">item</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=829 data-target="#details-829" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="item"></a><span class="ts" id=828 data-target="#details-828" data-toggle="collapse"><span class="ident">item</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a></span></td><td><div class="comment"><p>現在UIでアクティブな補完項目です。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=829 data-target="#details-829" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>解決された完了項目またはそのように解決されるthenable。
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>解決された補完項目またはそのように解決される thenable。
 返品はOKです。</p>
 <p><code>item</code>。
 結果が返されない場合、指定された <code>item</code> が使用されます。</p>
@@ -2491,7 +2607,7 @@ doc-comment を表す人類が読める文字列。</p>
 
 <a name="CompletionList.new CompletionList"></a><span class="ts" id=817 data-target="#details-817" data-toggle="collapse"><span class="ident">new CompletionList</span><span>(</span><span class="ident">items</span><span>?</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a>[], <span class="ident">isIncomplete</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#CompletionList">CompletionList</a></span>
 <div class="details collapse" id="details-817">
-<div class="comment"><p>新しい完了リストを作成します。</p>
+<div class="comment"><p>新しい補完リストを作成します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -2923,9 +3039,12 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="range"></a><span class="ts" id=937 data-target="#details-937" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="message"></a><span class="ts" id=938 data-target="#details-938" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="severity"></a><span class="ts" id=939 data-target="#details-939" data-toggle="collapse"><span class="ident">severity</span><span>?</span><span>: </span><a class="type-ref" href="#DiagnosticSeverity">DiagnosticSeverity</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=937 data-target="#details-937" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>この診断が適用される範囲。</p>
+</div></td></tr>
+<tr><td><a name="message"></a><span class="ts" id=938 data-target="#details-938" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>人間が読めるメッセージです。</p>
+</div></td></tr>
+<tr><td><a name="severity"></a><span class="ts" id=939 data-target="#details-939" data-toggle="collapse"><span class="ident">severity</span><span>?</span><span>: </span><a class="type-ref" href="#DiagnosticSeverity">DiagnosticSeverity</a></span></td><td><div class="comment"><p>重要度は、デフォルトは <a href="#DiagnosticSeverity.Error">error</a> です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Diagnostic">Diagnostic</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -2939,8 +3058,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 <a name="Diagnostic.code"></a><span class="ts" id=934 data-target="#details-934" data-toggle="collapse"><span class="ident">code</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-instrinct">number</a></span>
 <div class="details collapse" id="details-934">
 <div class="comment"><p>この診断のコードまたは識別子。
-ユーザーには表示されませんが、後で処理するために使用する必要があります。
-<a href="#CodeActionContext">コードアクション</a>を提供するとき。</p>
+ユーザーには表示されませんが、(例えば <a href="#CodeActionContext">コードアクション</a> を提供するとき等に)後で処理するために使用する必要があります。</p>
 </div>
 </div>
 
@@ -2964,7 +3082,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="Diagnostic.severity"></a><span class="ts" id=933 data-target="#details-933" data-toggle="collapse"><span class="ident">severity</span><span>: </span><a class="type-ref" href="#DiagnosticSeverity">DiagnosticSeverity</a></span>
 <div class="details collapse" id="details-933">
-<div class="comment"><p>重大度は、デフォルトは<a href="#DiagnosticSeverity.Error">error</a>です。</p>
+<div class="comment"><p>重大度は、デフォルトは <a href="#DiagnosticSeverity.Error">error</a> です。</p>
 </div>
 </div>
 
@@ -2973,7 +3091,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 <a name="Diagnostic.source"></a><span class="ts" id=932 data-target="#details-932" data-toggle="collapse"><span class="ident">source</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-932">
 <div class="comment"><p>この診断のソースを説明する人間が判読可能な文字列。
-&#39;typescript&#39;または &#39;super lint&#39;。</p>
+&#39;typescript&#39; または &#39;super lint&#39;。</p>
 </div>
 </div>
 
@@ -2981,11 +3099,9 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 
 
-<div class="comment"><p>診断コレクションは、一連の
-<a href="#診断">診断</a>。
+<div class="comment"><p>診断コレクションは、 <a href="#Diagnostic">診断</a> のセットを管理するコンテナです。
 診断は、常に診断コレクションとリソースのスコープです。</p>
-<p><code>DiagnosticCollection</code> のインスタンスを取得するには
-<a href="#languages.createDiagnosticCollection">createDiagnosticCollection</a>。</p>
+<p><code>DiagnosticCollection</code> のインスタンスを取得するには <a href="#languages.createDiagnosticCollection">createDiagnosticCollection</a> を用います。</p>
 </div>
 
 #### Properties
@@ -2994,7 +3110,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="DiagnosticCollection.name"></a><span class="ts" id=941 data-target="#details-941" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-941">
-<div class="comment"><p>この診断コレクションの名前です(例：typescript)。
+<div class="comment"><p>この診断コレクションの名前です (例: typescript)。
 このコレクションのすべての診断は、この名前に関連付けられます。
 また、タスクフレームワークは、<a href="https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher">problem matchers</a>を定義するときにこの名前を使用します。</p>
 </div>
@@ -3021,8 +3137,8 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="DiagnosticCollection.delete"></a><span class="ts" id=949 data-target="#details-949" data-toggle="collapse"><span class="ident">delete</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-949">
-<div class="comment"><p>提供された <code>uri</code> に属するすべての診断をこのコレクションから削除します。</p>
-<p><code>#set(uri、undefined)</code> と同じです。</p>
+<div class="comment"><p>提供された <code>uri</code> に属するすべての診断をこのコレクションから削除します。
+<code>#set(uri, undefined)</code> と同じです。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -3039,8 +3155,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 <a name="DiagnosticCollection.dispose"></a><span class="ts" id=969 data-target="#details-969" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-969">
 <div class="comment"><p>廃棄し、関連するリソースを解放します。
-通話
-<a href="#DiagnosticCollection.clear">クリア</a>。</p>
+<a href="#DiagnosticCollection.clear">clear</a>を呼びます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -3059,8 +3174,10 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="callback"></a><span class="ts" id=955 data-target="#details-955" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(uri: <a class="type-ref" href="#Uri">Uri</a>, diagnostics: <a class="type-ref" href="#Diagnostic">Diagnostic</a>[], collection: <a class="type-ref" href="#DiagnosticCollection">DiagnosticCollection</a>) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="thisArg"></a><span class="ts" id=961 data-target="#details-961" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="callback"></a><span class="ts" id=955 data-target="#details-955" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(uri: <a class="type-ref" href="#Uri">Uri</a>, diagnostics: <a class="type-ref" href="#Diagnostic">Diagnostic</a>[], collection: <a class="type-ref" href="#DiagnosticCollection">DiagnosticCollection</a>) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"><p>各エントリに対して実行する関数。</p>
+</div></td></tr>
+<tr><td><a name="thisArg"></a><span class="ts" id=961 data-target="#details-961" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>ハンドラ関数を呼び出すときに使用される <code>this</code> コンテキスト。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -3071,15 +3188,16 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="DiagnosticCollection.get"></a><span class="ts" id=963 data-target="#details-963" data-toggle="collapse"><span class="ident">get</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-ref" href="#Diagnostic">Diagnostic</a>[] &#124; <a class="type-instrinct">undefined</a></span>
 <div class="details collapse" id="details-963">
-<div class="comment"><p>特定のリソースの診断を取得します。 <em>注意</em>あなたはできません
-この呼び出しから返された診断配列を変更する。</p>
+<div class="comment"><p>特定のリソースの診断を取得します。
+<em>注意</em> あなたはこの呼び出しから返された診断配列を変更できません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=964 data-target="#details-964" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=964 data-target="#details-964" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>リソース識別子。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Diagnostic">Diagnostic</a>[] &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>(#Diagnostic)または <code>undefined</code> の不変な配列です。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Diagnostic">Diagnostic</a>[] &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>(#Diagnostic) または <code>undefined</code> の不変な配列です。</p>
 </div></td></tr>
 </table>
 </div>
@@ -3089,15 +3207,15 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="DiagnosticCollection.has"></a><span class="ts" id=966 data-target="#details-966" data-toggle="collapse"><span class="ident">has</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-966">
-<div class="comment"><p>このコレクションに
-与えられたリソース。</p>
+<div class="comment"><p>このコレクションに特定のリソースの診断が含まれているかどうかを確認します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=967 data-target="#details-967" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=967 data-target="#details-967" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>リソース識別子。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>このコレクションが指定されたリソースの診断を持っている場合はtrueを返します。</p>
+<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>このコレクションが指定されたリソースの診断を持っている場合は <code>true</code> を返します。</p>
 </div></td></tr>
 </table>
 </div>
@@ -3107,14 +3225,16 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="DiagnosticCollection.set"></a><span class="ts" id=943 data-target="#details-943" data-toggle="collapse"><span class="ident">set</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">diagnostics</span><span>: </span><a class="type-ref" href="#Diagnostic">Diagnostic</a>[] &#124; <a class="type-instrinct">undefined</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-943">
-<div class="comment"><p>与えられたリソースに対して診断を割り当てます。置き換える
-そのリソースの既存の診断。</p>
+<div class="comment"><p>与えられたリソースに対して診断を割り当てます。
+そのリソースの既存の診断を置き換えます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=944 data-target="#details-944" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="diagnostics"></a><span class="ts" id=945 data-target="#details-945" data-toggle="collapse"><span class="ident">diagnostics</span><span>: </span><a class="type-ref" href="#Diagnostic">Diagnostic</a>[] &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=944 data-target="#details-944" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>リソース識別子。</p>
+</div></td></tr>
+<tr><td><a name="diagnostics"></a><span class="ts" id=945 data-target="#details-945" data-toggle="collapse"><span class="ident">diagnostics</span><span>: </span><a class="type-ref" href="#Diagnostic">Diagnostic</a>[] &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>診断配列または <code>undefined</code></p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -3125,16 +3245,16 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="DiagnosticCollection.set"></a><span class="ts" id=946 data-target="#details-946" data-toggle="collapse"><span class="ident">set</span><span>(</span><span class="ident">entries</span><span>: </span>[<a class="type-ref" href="#Uri">Uri</a>, <a class="type-ref" href="#Diagnostic">Diagnostic</a>[] &#124; <a class="type-instrinct">undefined</a>][]<span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-946">
-<div class="comment"><p>このコレクション内のすべてのエントリを置き換えます。</p>
+<div class="comment"><p>TODO&gt;&gt;
+このコレクション内のすべてのエントリを置き換えます。</p>
 <p>同じURIの複数のタプルの診断がマージされます。
-[[file1、[d1]]、[file1、[d2]]] <code>は[[file1、[d1、d2]]]と同等です。
-診断項目が</code>[file1、undefined]<code>のように</code>undefined` である場合
-前の診断診断はすべて削除されますが、その後の診断は削除されません。</p>
+<code>[[file1, [d1]], [file1, [d2]]]</code> は <code>[[file1, [d1, d2]]]</code> と同等です。
+診断項目が <code>[file1, undefined]</code> のように <code>undefined</code> である場合、前の診断診断はすべて削除されますが、その後の診断は削除されません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="entries"></a><span class="ts" id=947 data-target="#details-947" data-toggle="collapse"><span class="ident">entries</span><span>: </span>[<a class="type-ref" href="#Uri">Uri</a>, <a class="type-ref" href="#Diagnostic">Diagnostic</a>[] &#124; <a class="type-instrinct">undefined</a>][]</span></td><td><div class="comment"><p><code>[[file1、[d1、d2]]、[file2、[d3、d4、d5]]]、または</code> undefined`のようなタプルの配列。</p>
+<tr><td><a name="entries"></a><span class="ts" id=947 data-target="#details-947" data-toggle="collapse"><span class="ident">entries</span><span>: </span>[<a class="type-ref" href="#Uri">Uri</a>, <a class="type-ref" href="#Diagnostic">Diagnostic</a>[] &#124; <a class="type-instrinct">undefined</a>][]</span></td><td><div class="comment"><p><code>[[file1, [d1, d2]], [file2, [d3, d4, d5]]]</code> または <code>undefined</code> のようなタプルの配列。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -3441,8 +3561,10 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="range"></a><span class="ts" id=835 data-target="#details-835" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="target"></a><span class="ts" id=836 data-target="#details-836" data-toggle="collapse"><span class="ident">target</span><span>?</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=835 data-target="#details-835" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>ドキュメントリンクが適用される範囲です。空であってはいけません。</p>
+</div></td></tr>
+<tr><td><a name="target"></a><span class="ts" id=836 data-target="#details-836" data-toggle="collapse"><span class="ident">target</span><span>?</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>ドキュメントリンクのURIです。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#DocumentLink">DocumentLink</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -3463,7 +3585,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="DocumentLink.target"></a><span class="ts" id=832 data-target="#details-832" data-toggle="collapse"><span class="ident">target</span><span>?</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
 <div class="details collapse" id="details-832">
-<div class="comment"><p>このリンク先のuri。</p>
+<div class="comment"><p>このリンク先の uri。</p>
 </div>
 </div>
 
@@ -3487,10 +3609,12 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=840 data-target="#details-840" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=841 data-target="#details-841" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="document"></a><span class="ts" id=840 data-target="#details-840" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>コマンドが呼び出されたドキュメント。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=841 data-target="#details-841" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>(#DocumentLink)の配列またはそのように解決されるthenable。
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>(#DocumentLink) の配列またはそのように解決されるthenable。
 結果の欠如は、 <code>undefined</code> 、 <code>null</code> 、または空の配列を返すことによって通知できます。</p>
 </div></td></tr>
 </table>
@@ -3503,14 +3627,16 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <div class="details collapse" id="details-843">
 <div class="comment"><p><a href="#DocumentLink.target">target</a>にリンクを入力します。
 このメソッドは、UIで不完全なリンクが選択されたときに呼び出されます。
-プロバイダはこのメソッドを実装し、<a href="#DocumentLinkProvider.provideDocumentLinks"><code>provideDocumentLinks</code></a>メソッドから不完全なリンク(ターゲットなし)を返すことができます。
+プロバイダはこのメソッドを実装し、 <a href="#DocumentLinkProvider.provideDocumentLinks"><code>provideDocumentLinks</code></a> メソッドから不完全なリンク(ターゲットなし)を返すことができます。
 パフォーマンス向上に役立ちます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="link"></a><span class="ts" id=844 data-target="#details-844" data-toggle="collapse"><span class="ident">link</span><span>: </span><a class="type-ref" href="#DocumentLink">DocumentLink</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=845 data-target="#details-845" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="link"></a><span class="ts" id=844 data-target="#details-844" data-toggle="collapse"><span class="ident">link</span><span>: </span><a class="type-ref" href="#DocumentLink">DocumentLink</a></span></td><td><div class="comment"><p>解決されるリンク。</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=845 data-target="#details-845" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>キャンセルトークン。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -3627,7 +3753,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 
 
-<div class="comment"><p>Enterキーを押したときの処理について説明します。</p>
+<div class="comment"><p>Enter キーを押したときの処理について説明します。</p>
 </div>
 
 #### Properties
@@ -3747,8 +3873,8 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 
 
-<div class="comment"><p>拡張子を表します。</p>
-<p>Extensionのインスタンスを取得するには、<a href="#extensions.getExtension">getExtension</a>を使用します。</p>
+<div class="comment"><p>拡張機能を表します。</p>
+<p><code>Extension</code> のインスタンスを取得するには、<a href="#extensions.getExtension">getExtension</a> を使用します。</p>
 </div>
 
 #### Properties
@@ -3766,7 +3892,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="Extension.extensionPath"></a><span class="ts" id=1032 data-target="#details-1032" data-toggle="collapse"><span class="ident">extensionPath</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1032">
-<div class="comment"><p>この拡張子を含むディレクトリの絶対パス。</p>
+<div class="comment"><p>この拡張機能を含むディレクトリの絶対パス。</p>
 </div>
 </div>
 
@@ -3774,7 +3900,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="Extension.id"></a><span class="ts" id=1031 data-target="#details-1031" data-toggle="collapse"><span class="ident">id</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1031">
-<div class="comment"><p>正式な拡張識別子は <code>publisher.name</code> の形式です。</p>
+<div class="comment"><p>正式な拡張機能識別子は <code>publisher.name</code> の形式です。</p>
 </div>
 </div>
 
@@ -3782,7 +3908,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="Extension.isActive"></a><span class="ts" id=1033 data-target="#details-1033" data-toggle="collapse"><span class="ident">isActive</span><span>: </span><a class="type-instrinct">boolean</a></span>
 <div class="details collapse" id="details-1033">
-<div class="comment"><p>拡張機能が有効になっている場合は `true &#39;。</p>
+<div class="comment"><p>拡張機能が有効になっている場合は <code>true</code>。</p>
 </div>
 </div>
 
@@ -3790,7 +3916,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="Extension.packageJSON"></a><span class="ts" id=1034 data-target="#details-1034" data-toggle="collapse"><span class="ident">packageJSON</span><span>: </span><a class="type-instrinct">any</a></span>
 <div class="details collapse" id="details-1034">
-<div class="comment"><p>拡張機能のpackage.jsonの解析された内容。</p>
+<div class="comment"><p>拡張機能の package.json の解析された内容。</p>
 </div>
 </div>
 
@@ -3800,7 +3926,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="Extension.activate"></a><span class="ts" id=1037 data-target="#details-1037" data-toggle="collapse"><span class="ident">activate</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
 <div class="details collapse" id="details-1037">
-<div class="comment"><p>この拡張機能を有効にして、公開APIを返します。</p>
+<div class="comment"><p>この拡張機能を有効にして、公開 API を返します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -3825,7 +3951,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="ExtensionContext.extensionPath"></a><span class="ts" id=1045 data-target="#details-1045" data-toggle="collapse"><span class="ident">extensionPath</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1045">
-<div class="comment"><p>拡張子を含むディレクトリの絶対パス。</p>
+<div class="comment"><p>拡張機能を含むディレクトリの絶対パス。</p>
 </div>
 </div>
 
@@ -3833,7 +3959,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="ExtensionContext.globalState"></a><span class="ts" id=1044 data-target="#details-1044" data-toggle="collapse"><span class="ident">globalState</span><span>: </span><a class="type-ref" href="#Memento">Memento</a></span>
 <div class="details collapse" id="details-1044">
-<div class="comment"><p>現在開いている<a href="#workspace.rootPath">workspace</a>に依存しない状態を保存するメモオブジェクト。</p>
+<div class="comment"><p>現在開いている <a href="#workspace.rootPath">workspace</a> に依存しない状態を保存するメモオブジェクト。</p>
 </div>
 </div>
 
@@ -3841,8 +3967,8 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="ExtensionContext.storagePath"></a><span class="ts" id=1049 data-target="#details-1049" data-toggle="collapse"><span class="ident">storagePath</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a></span>
 <div class="details collapse" id="details-1049">
-<div class="comment"><p>エクステンションがプライベート状態を格納できるワークスペース固有のディレクトリの絶対ファイルパス。
-ディレクトリがディスク上に存在せず、作成が拡張子までです。
+<div class="comment"><p>拡張機能がプライベート状態を格納できるワークスペース固有のディレクトリの絶対ファイルパス。
+ディレクトリがディスク上に存在せず、作成は拡張機能までです。
 ただし、親ディレクトリは存在することが保証されています。</p>
 <p><a href="#ExtensionContext.workspaceState"><code>workspaceState</code></a>を使用するか、
 <a href="#ExtensionContext.globalState"><code>globalState</code></a>キー値のデータを格納します。</p>
@@ -3862,7 +3988,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="ExtensionContext.workspaceState"></a><span class="ts" id=1043 data-target="#details-1043" data-toggle="collapse"><span class="ident">workspaceState</span><span>: </span><a class="type-ref" href="#Memento">Memento</a></span>
 <div class="details collapse" id="details-1043">
-<div class="comment"><p>現在開いている<a href="#workspace.rootPath">workspace</a>のコンテキストに状態を保存するメモオブジェクト。</p>
+<div class="comment"><p>現在開いている <a href="#workspace.rootPath">workspace</a> のコンテキストに状態を保存するメモオブジェクト。</p>
 </div>
 </div>
 
@@ -3872,12 +3998,13 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="ExtensionContext.asAbsolutePath"></a><span class="ts" id=1047 data-target="#details-1047" data-toggle="collapse"><span class="ident">asAbsolutePath</span><span>(</span><span class="ident">relativePath</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1047">
-<div class="comment"><p>エクステンションに含まれるリソースの絶対パスを取得します。</p>
+<div class="comment"><p>拡張機能に含まれるリソースの絶対パスを取得します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="relativePath"></a><span class="ts" id=1048 data-target="#details-1048" data-toggle="collapse"><span class="ident">relativePath</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="relativePath"></a><span class="ts" id=1048 data-target="#details-1048" data-toggle="collapse"><span class="ident">relativePath</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>拡張機能に含まれるリソースへの相対パス。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>リソースの絶対パス。</p>
 </div></td></tr>
@@ -4087,8 +4214,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="HoverProvider.provideHover"></a><span class="ts" id=549 data-target="#details-549" data-toggle="collapse"><span class="ident">provideHover</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a></span>
 <div class="details collapse" id="details-549">
-<div class="comment"><p>TODO&gt;&gt;&gt;
-与えられた位置とドキュメントのホバーを提供する。
+<div class="comment"><p>与えられた位置とドキュメントのホバーを提供する。
 同じ位置にある複数のホバーは、エディターによってマージされます。
 ホバーの省略可能な範囲は、省略時の位置の単語範囲になります。</p>
 </div>
@@ -4142,7 +4268,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 
 
-<div class="comment"><p>Enterキーを押したときのインデントの処理方法を説明します。</p>
+<div class="comment"><p>Enter キーを押したときのインデントの処理方法を説明します。</p>
 </div>
 
 #### Enumeration members
@@ -4188,7 +4314,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="IndentationRule.decreaseIndentPattern"></a><span class="ts" id=850 data-target="#details-850" data-toggle="collapse"><span class="ident">decreaseIndentPattern</span><span>: </span><a class="type-ref" href="#RegExp">RegExp</a></span>
 <div class="details collapse" id="details-850">
-<div class="comment"><p>行がこのパターンと一致する場合、その行の後ろにあるすべての行は、(他の規則が一致するまで)一度インデントされていないはずです。</p>
+<div class="comment"><p>行がこのパターンと一致する場合、その行の後ろにあるすべての行は、 (他の規則が一致するまで) 一度インデントされていないはずです。</p>
 </div>
 </div>
 
@@ -4204,7 +4330,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="IndentationRule.indentNextLinePattern"></a><span class="ts" id=852 data-target="#details-852" data-toggle="collapse"><span class="ident">indentNextLinePattern</span><span>?</span><span>: </span><a class="type-ref" href="#RegExp">RegExp</a></span>
 <div class="details collapse" id="details-852">
-<div class="comment"><p>行がこのパターンと一致する場合は、<strong>一度インデントされた後に</strong>次の行**のみが表示されます。</p>
+<div class="comment"><p>行がこのパターンと一致する場合は、一度インデントされた後に <strong>次の行のみ</strong> が表示されます。</p>
 </div>
 </div>
 
@@ -4309,9 +4435,9 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="LanguageConfiguration.___characterPairSupport"></a><span class="ts" id=882 data-target="#details-882" data-toggle="collapse"><span class="ident">___characterPairSupport</span><span>?</span><span>: </span>{autoClosingPairs: {close: <a class="type-instrinct">string</a>, notIn: <a class="type-instrinct">string</a>[], open: <a class="type-instrinct">string</a>}[]}</span>
 <div class="details collapse" id="details-882">
-<div class="comment"><p><strong>非推奨* </strong>使用しないでください。</p>
+<div class="comment"><p><strong>非推奨</strong> 使用しないでください。</p>
 <ul>
-<li><em>deprecated</em> - *代わりに言語設定ファイルのautoClosingPairsプロパティを使用します。</li>
+<li><em>deprecated</em> - 代わりに言語設定ファイルの autoClosingPairs プロパティを使用します。</li>
 </ul>
 </div>
 </div>
@@ -4320,9 +4446,9 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="LanguageConfiguration.___electricCharacterSupport"></a><span class="ts" id=873 data-target="#details-873" data-toggle="collapse"><span class="ident">___electricCharacterSupport</span><span>?</span><span>: </span>{brackets: <a class="type-instrinct">any</a>, docComment: {close: <a class="type-instrinct">string</a>, lineStart: <a class="type-instrinct">string</a>, open: <a class="type-instrinct">string</a>, scope: <a class="type-instrinct">string</a>}}</span>
 <div class="details collapse" id="details-873">
-<div class="comment"><p><strong>非推奨* </strong>使用しないでください。</p>
+<div class="comment"><p><strong>非推奨</strong> 使用しないでください。</p>
 <ul>
-<li><em>deprecated</em> - すぐにより良いAPIに置き換えられます。</li>
+<li><em>deprecated</em> - すぐにより良い API に置き換えられます。</li>
 </ul>
 </div>
 </div>
@@ -4332,7 +4458,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <a name="LanguageConfiguration.brackets"></a><span class="ts" id=869 data-target="#details-869" data-toggle="collapse"><span class="ident">brackets</span><span>?</span><span>: </span><a class="type-ref" href="#CharacterPair">CharacterPair</a>[]</span>
 <div class="details collapse" id="details-869">
 <div class="comment"><p>言語の括弧。
-この設定は、これらの括弧のまわりでEnterキーを押すことに暗黙のうちに影響します。</p>
+この設定は、これらの括弧のまわりで Enter キーを押すことに暗黙のうちに影響します。</p>
 </div>
 </div>
 
@@ -4356,7 +4482,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="LanguageConfiguration.onEnterRules"></a><span class="ts" id=872 data-target="#details-872" data-toggle="collapse"><span class="ident">onEnterRules</span><span>?</span><span>: </span><a class="type-ref" href="#OnEnterRule">OnEnterRule</a>[]</span>
 <div class="details collapse" id="details-872">
-<div class="comment"><p>Enterキーを押したときに評価される言語のルール。</p>
+<div class="comment"><p>Enter キーを押したときに評価される言語のルール。</p>
 </div>
 </div>
 
@@ -4365,8 +4491,9 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <a name="LanguageConfiguration.wordPattern"></a><span class="ts" id=870 data-target="#details-870" data-toggle="collapse"><span class="ident">wordPattern</span><span>?</span><span>: </span><a class="type-ref" href="#RegExp">RegExp</a></span>
 <div class="details collapse" id="details-870">
 <div class="comment"><p>言語の単語定義。
-言語がUnicode識別子(JavaScriptなど)をサポートしている場合は、既知の区切り文字の除外を使用する単語定義を提供することが望ましいです。
-例：既知の区切り文字以外のものにマッチする正規表現です(ドットは浮動小数点数で使用できます)。</p>
+言語が Unicode 識別子 (JavaScript など) をサポートしている場合は、既知の区切り文字の除外を使用する単語定義を提供することが望ましいです。
+例：既知の区切り文字以外のものにマッチする正規表現です(ドットは浮動小数点数で使用できます):
+  /(-?\d<em>.\d\w</em>)|([^`~!\@@#\%\^\&amp;*()-\=+[{]}\|\;\:\&#39;\&quot;\,.\&lt;>\/\?\s]+)/g</p>
 </div>
 </div>
 
@@ -4388,8 +4515,11 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=922 data-target="#details-922" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="rangeOrPosition"></a><span class="ts" id=923 data-target="#details-923" data-toggle="collapse"><span class="ident">rangeOrPosition</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="uri"></a><span class="ts" id=922 data-target="#details-922" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>リソース識別子。</p>
+</div></td></tr>
+<tr><td><a name="rangeOrPosition"></a><span class="ts" id=923 data-target="#details-923" data-toggle="collapse"><span class="ident">rangeOrPosition</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>範囲または位置です。
+位置は空の範囲に変換されます。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Location">Location</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -4447,7 +4577,8 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="key"></a><span class="ts" id=1054 data-target="#details-1054" data-toggle="collapse"><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="key"></a><span class="ts" id=1054 data-target="#details-1054" data-toggle="collapse"><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>文字列です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>格納された値または <code>undefined</code>。</p>
 </div></td></tr>
@@ -4464,10 +4595,12 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="key"></a><span class="ts" id=1057 data-target="#details-1057" data-toggle="collapse"><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="defaultValue"></a><span class="ts" id=1058 data-target="#details-1058" data-toggle="collapse"><span class="ident">defaultValue</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="key"></a><span class="ts" id=1057 data-target="#details-1057" data-toggle="collapse"><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>文字列です。</p>
+</div></td></tr>
+<tr><td><a name="defaultValue"></a><span class="ts" id=1058 data-target="#details-1058" data-toggle="collapse"><span class="ident">defaultValue</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>指定されたキーに値がない (<code>undefined</code>) ときに返される値。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>格納された値またはdefaultValue</p>
+<tr><td><span class="ts"><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>格納された値または defaultValue</p>
 </div></td></tr>
 </table>
 </div>
@@ -4477,13 +4610,16 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="Memento.update"></a><span class="ts" id=1060 data-target="#details-1060" data-toggle="collapse"><span class="ident">update</span><span>(</span><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">value</span><span>: </span><a class="type-instrinct">any</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">void</a>&gt;</span>
 <div class="details collapse" id="details-1060">
-<div class="comment"><p>値を保存します。値はJSON文字列でなければなりません。</p>
+<div class="comment"><p>値を保存します。値は JSON 文字列でなければなりません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="key"></a><span class="ts" id=1061 data-target="#details-1061" data-toggle="collapse"><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="value"></a><span class="ts" id=1062 data-target="#details-1062" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="key"></a><span class="ts" id=1061 data-target="#details-1061" data-toggle="collapse"><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>文字列です。</p>
+</div></td></tr>
+<tr><td><a name="value"></a><span class="ts" id=1062 data-target="#details-1062" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>値です。
+循環参照を含んではいけません。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">void</a>&gt;</span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -4554,7 +4690,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 
 
-<div class="comment"><p>Enterキーを押したときに評価されるルールを説明します。</p>
+<div class="comment"><p>Enter キーを押したときに評価されるルールを説明します。</p>
 </div>
 
 #### Properties
@@ -4625,8 +4761,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 
 <div class="comment"><p>出力チャネルは、読み込み専用のテキスト情報のコンテナです。</p>
-<p><code>OutputChannel</code> のインスタンスを取得するには
-<a href="#window.createOutputChannel">createOutputChannel</a>。</p>
+<p><code>OutputChannel</code> のインスタンスを取得するには <a href="#window.createOutputChannel">createOutputChannel</a> を用います。</p>
 </div>
 
 #### Properties
@@ -4650,7 +4785,8 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="value"></a><span class="ts" id=978 data-target="#details-978" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="value"></a><span class="ts" id=978 data-target="#details-978" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>文字列、偽の値は出力されません。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -4661,13 +4797,13 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="OutputChannel.appendLine"></a><span class="ts" id=980 data-target="#details-980" data-toggle="collapse"><span class="ident">appendLine</span><span>(</span><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-980">
-<div class="comment"><p>与えられた値と改行文字を追加する
-をチャンネルに追加します。</p>
+<div class="comment"><p>与えられた値と改行文字をチャンネルに追加します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="value"></a><span class="ts" id=981 data-target="#details-981" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="value"></a><span class="ts" id=981 data-target="#details-981" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>文字列で、偽の値が出力されます。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -4720,7 +4856,7 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="OutputChannel.show"></a><span class="ts" id=985 data-target="#details-985" data-toggle="collapse"><span class="ident">show</span><span>(</span><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-985">
-<div class="comment"><p>UIでこのチャンネルを明らかにする。</p>
+<div class="comment"><p>UIでこのチャンネルを明らかにします。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -4737,15 +4873,16 @@ Disposable のインスタンスではない dispose 関数を持つオブジェ
 
 <a name="OutputChannel.show"></a><span class="ts" id=987 data-target="#details-987" data-toggle="collapse"><span class="ident">show</span><span>(</span><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a>, <span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-987">
-<div class="comment"><p>UIでこのチャンネルを明らかにする。</p>
+<div class="comment"><p>UIでこのチャンネルを明らかにします。</p>
 <ul>
-<li><em>deprecated</em> - このメソッドは<strong>推奨されていません</strong>、1つのパラメータでオーバーロードを使用する必要があります( <code>show(preserveFocus ?: boolean)：void</code> )。</li>
+<li><em>deprecated</em> - このメソッドは<strong>推奨されていません</strong>。 1つのパラメータでオーバーロードを使用する必要があります( <code>show(preserveFocus?: boolean): void</code> )。</li>
 </ul>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="column"></a><span class="ts" id=988 data-target="#details-988" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="column"></a><span class="ts" id=988 data-target="#details-988" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"><p>この引数は<strong>非推奨</strong>です。無視されます。</p>
+</div></td></tr>
 <tr><td><a name="preserveFocus"></a><span class="ts" id=989 data-target="#details-989" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p><code>true</code> の場合、チャンネルはフォーカスを取得しません。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
@@ -5093,7 +5230,8 @@ UIに表示されます。</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="value"></a><span class="ts" id=1014 data-target="#details-1014" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="value"></a><span class="ts" id=1014 data-target="#details-1014" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>メッセージや更新されたパーセンテージ値のような進行項目</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -5145,7 +5283,7 @@ UIに表示されます。</p>
 
 <a name="ProgressOptions.title"></a><span class="ts" id=1098 data-target="#details-1098" data-toggle="collapse"><span class="ident">title</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1098">
-<div class="comment"><p>操作を説明するために人間が読める文字列。</p>
+<div class="comment"><p>操作を説明するために人類が読める文字列。</p>
 </div>
 </div>
 
@@ -6107,8 +6245,8 @@ UIに表示されます。</p>
 
 <a name="SourceControl.count"></a><span class="ts" id=1147 data-target="#details-1147" data-toggle="collapse"><span class="ident">count</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span>
 <div class="details collapse" id="details-1147">
-<div class="comment"><p>このソースコントロールのUI表示可能な<a href="#SourceControlResourceState">リソース状態</a>の数。</p>
-<p><a href="#SourceControlResourceState">リソース状態</a>の合計数に等しい が定義されていない場合、このソースコントロールの*。</p>
+<div class="comment"><p>このソースコントロールのUI表示可能な <a href="#SourceControlResourceState">リソース状態</a> の数。</p>
+<p><a href="#SourceControlResourceState">リソース状態</a> の合計数に等しい が定義されていない場合、このソースコントロールの*。</p>
 </div>
 </div>
 
@@ -6132,7 +6270,7 @@ UIに表示されます。</p>
 
 <a name="SourceControl.quickDiffProvider"></a><span class="ts" id=1148 data-target="#details-1148" data-toggle="collapse"><span class="ident">quickDiffProvider</span><span>?</span><span>: </span><a class="type-ref" href="#QuickDiffProvider">QuickDiffProvider</a></span>
 <div class="details collapse" id="details-1148">
-<div class="comment"><p>オプションの<a href="#QuickDiffProvider">Quick Diff Provider</a>。</p>
+<div class="comment"><p>オプションの <a href="#QuickDiffProvider">Quick Diff Provider</a>。</p>
 </div>
 </div>
 
@@ -6151,7 +6289,7 @@ UIに表示されます。</p>
 
 <a name="SourceControl.createResourceGroup"></a><span class="ts" id=1153 data-target="#details-1153" data-toggle="collapse"><span class="ident">createResourceGroup</span><span>(</span><span class="ident">id</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">label</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#SourceControlResourceGroup">SourceControlResourceGroup</a></span>
 <div class="details collapse" id="details-1153">
-<div class="comment"><p>新しい<a href="#SourceControlResourceGroup">リソースグループ</a>を作成します。</p>
+<div class="comment"><p>新しい <a href="#SourceControlResourceGroup">リソースグループ</a> を作成します。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -6283,7 +6421,7 @@ UIに表示されます。</p>
 
 <a name="SourceControlResourceGroup.resourceStates"></a><span class="ts" id=1141 data-target="#details-1141" data-toggle="collapse"><span class="ident">resourceStates</span><span>: </span><a class="type-ref" href="#SourceControlResourceState">SourceControlResourceState</a>[]</span>
 <div class="details collapse" id="details-1141">
-<div class="comment"><p><a href="#SourceControlResourceState">ソース制御リソースの状態</a>のグループのコレクション。</p>
+<div class="comment"><p><a href="#SourceControlResourceState">ソース制御リソースの状態</a> のグループのコレクション。</p>
 </div>
 </div>
 
@@ -6324,7 +6462,7 @@ UIに表示されます。</p>
 
 <a name="SourceControlResourceState.decorations"></a><span class="ts" id=1136 data-target="#details-1136" data-toggle="collapse"><span class="ident">decorations</span><span>?</span><span>: </span><a class="type-ref" href="#SourceControlResourceDecorations">SourceControlResourceDecorations</a></span>
 <div class="details collapse" id="details-1136">
-<div class="comment"><p>このソース制御リソース状態の<a href="#SourceControlResourceDecorations">装飾</a>。</p>
+<div class="comment"><p>このソース制御リソース状態の <a href="#SourceControlResourceDecorations">装飾</a>。</p>
 </div>
 </div>
 
@@ -6380,7 +6518,7 @@ UIに表示されます。</p>
 
 
 
-<div class="comment"><p>ステータスバー項目はステータスバーの投稿で、テキストとアイコンを表示し、クリック時にコマンドを実行できます。</p>
+<div class="comment"><p>ステータスバー項目はステータスバー提供で、テキストとアイコンを表示し、クリック時にコマンドを実行できます。</p>
 </div>
 
 #### Properties
@@ -6406,8 +6544,7 @@ UIに表示されます。</p>
 <a name="StatusBarItem.command"></a><span class="ts" id=1003 data-target="#details-1003" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-instrinct">undefined</a></span>
 <div class="details collapse" id="details-1003">
 <div class="comment"><p>クリック時に実行するコマンドの識別子。
-コマンドは
-<a href="#commands.getCommands">known</a>。</p>
+コマンドは <a href="#commands.getCommands">known</a> でなければなりません。</p>
 </div>
 </div>
 
@@ -6425,10 +6562,9 @@ UIに表示されます。</p>
 <a name="StatusBarItem.text"></a><span class="ts" id=1000 data-target="#details-1000" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1000">
 <div class="comment"><p>エントリに表示するテキスト。
-以下の構文を利用して、テキストにアイコンを埋め込むことができます：</p>
-<p>`My text $(アイコン名)には$(アイコン名)のようなアイコンが含まれています。
-&#39;</p>
-<p>アイコン名が<a href="https://octicons.github.com">octicon</a>アイコンセットから取得された場合、 ライトバルブ、サムズアップ、ザップなど</p>
+以下の構文を利用して、テキストにアイコンを埋め込むことができます:</p>
+<p><code>My text $(アイコン名)には$(アイコン名)のようなアイコンが含まれています。</code></p>
+<p>ここでアイコン名は <a href="https://octicons.github.com">octicon</a> アイコンセットから取得されたもので、例えば ライトバルブ、サムズアップ、ザップなどです。</p>
 </div>
 </div>
 
@@ -6447,8 +6583,7 @@ UIに表示されます。</p>
 <a name="StatusBarItem.dispose"></a><span class="ts" id=1009 data-target="#details-1009" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-1009">
 <div class="comment"><p>廃棄し、関連するリソースを解放します。
-お電話
-<a href="#StatusBarItem.hide">非表示</a>。</p>
+<a href="#StatusBarItem.hide">hide</a> を呼びます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -6776,7 +6911,8 @@ UIに表示されます。</p>
 
 
 
-<div class="comment"><p>統合端末内の個々の端末インスタンス。</p>
+<div class="comment"><p>TODO:
+統合端末内の個々の端末インスタンス。</p>
 </div>
 
 #### Properties
@@ -6831,14 +6967,18 @@ UIに表示されます。</p>
 
 <a name="Terminal.sendText"></a><span class="ts" id=1019 data-target="#details-1019" data-toggle="collapse"><span class="ident">sendText</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">addNewLine</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-1019">
-<div class="comment"><p>端末にテキストを送信します。テキストは、基本となるptyプロセスのstdinに書き込まれます。
-(シェル)。</p>
+<div class="comment"><p>端末にテキストを送信します。
+テキストは、端末の基本的なptyプロセス（シェル）のstdinに書き込まれます。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="text"></a><span class="ts" id=1020 data-target="#details-1020" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="addNewLine"></a><span class="ts" id=1021 data-target="#details-1021" data-toggle="collapse"><span class="ident">addNewLine</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="text"></a><span class="ts" id=1020 data-target="#details-1020" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>送信するテキスト。</p>
+</div></td></tr>
+<tr><td><a name="addNewLine"></a><span class="ts" id=1021 data-target="#details-1021" data-toggle="collapse"><span class="ident">addNewLine</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>送信されるテキストに新しい行を追加するかどうかは、通常、端末でコマンドを実行する必要があります。
+追加される文字は、プラットフォームによって \n または \r\n です。
+これはデフォルトで <code>true</code> です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -6866,7 +7006,7 @@ UIに表示されます。</p>
 
 
 
-<div class="comment"><p>端末が使用すべきオプションを記述するValueオブジェクト。</p>
+<div class="comment"><p>端末が使用すべきオプションを記述する Value オブジェクト。</p>
 </div>
 
 #### Properties
@@ -6875,7 +7015,7 @@ UIに表示されます。</p>
 
 <a name="TerminalOptions.name"></a><span class="ts" id=1090 data-target="#details-1090" data-toggle="collapse"><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-1090">
-<div class="comment"><p>UIで端末を表すために人間が読める文字列。</p>
+<div class="comment"><p>UI で端末を表すために人間が読める文字列。</p>
 </div>
 </div>
 
@@ -6883,7 +7023,7 @@ UIに表示されます。</p>
 
 <a name="TerminalOptions.shellArgs"></a><span class="ts" id=1092 data-target="#details-1092" data-toggle="collapse"><span class="ident">shellArgs</span><span>?</span><span>: </span><a class="type-instrinct">string</a>[]</span>
 <div class="details collapse" id="details-1092">
-<div class="comment"><p>カスタムシェル実行ファイルのためのArgs、これはWindowsでは動作しません(#8429を参照)</p>
+<div class="comment"><p>カスタムシェル実行ファイルのための Args、これは Windows では動作しません(#8429を参照)</p>
 </div>
 </div>
 
@@ -7188,7 +7328,7 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p><a href="#TextDocument">document</a>のテキストにおける個々の変更を記述するイベント。</p>
+<div class="comment"><p><a href="#TextDocument">document</a> のテキストにおける個々の変更を記述するイベント。</p>
 </div>
 
 #### Properties
@@ -7264,7 +7404,8 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p>テキスト文書が保存される理由を表します。</p>
+<div class="comment"><p>TODO&gt;&gt;&gt;
+テキスト文書が保存される理由を表します。</p>
 </div>
 
 #### Enumeration members
@@ -7328,9 +7469,9 @@ uri スキームとは独立しています。</p>
 
 
 
-<div class="comment"><p><a href="#TextDocument">document</a>が保存されたときに発生するイベント。</p>
+<div class="comment"><p><a href="#TextDocument">document</a> が保存されたときに発生するイベント。</p>
 <p>文書を保存する前に変更を加えるには、
-<a href="#TextDocumentWillSaveEvent.waitUntil"><code>waitUntil</code></a> - [text edits]の配列(#TextEdit)に解決されるthenableで機能します。</p>
+<a href="#TextDocumentWillSaveEvent.waitUntil"><code>waitUntil</code></a> - <a href="#TextEdit">text edits</a> の配列に解決されるthenableで機能します。</p>
 </div>
 
 #### Properties
@@ -7358,7 +7499,7 @@ uri スキームとは独立しています。</p>
 <a name="TextDocumentWillSaveEvent.waitUntil"></a><span class="ts" id=1114 data-target="#details-1114" data-toggle="collapse"><span class="ident">waitUntil</span><span>(</span><span class="ident">thenable</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;<span>)</span><span>: </span><a class="type-instrinct">void</a></span>
 <div class="details collapse" id="details-1114">
 <div class="comment"><p>イベントループを一時停止し、<a href="#TextEdit">保存前編集</a>を適用することができます。
-この関数の後続の呼び出しの編集は、順番に適用されます。ザ
+この関数の後続の呼び出しの編集は、順番に適用されます。
 ドキュメントの同時修正が行われた場合、編集内容は無視されます。</p>
 <p><em>注:</em> この関数は、イベントのディスパッチ中にのみ呼び出すことができます。
 非同期で：</p>
@@ -8536,9 +8677,11 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="element"></a><span class="ts" id=1071 data-target="#details-1071" data-toggle="collapse"><span class="ident">element</span><span>?</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="element"></a><span class="ts" id=1071 data-target="#details-1071" data-toggle="collapse"><span class="ident">element</span><span>?</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>プロバイダが子を取得する要素。
+<code>undefined</code> にすることができます。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>要素が渡されない場合、 <code>element</code> の子要素またはルート。</p>
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a></span></td><td><div class="comment"><p>element が渡されない場合、 <code>element</code> の子要素またはルート。</p>
 </div></td></tr>
 </table>
 </div>
@@ -8548,12 +8691,13 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="TreeDataProvider.getTreeItem"></a><span class="ts" id=1067 data-target="#details-1067" data-toggle="collapse"><span class="ident">getTreeItem</span><span>(</span><span class="ident">element</span><span>: </span><a class="type-instrinct">T</a><span>)</span><span>: </span><a class="type-ref" href="#TreeItem">TreeItem</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TreeItem">TreeItem</a>&gt;</span>
 <div class="details collapse" id="details-1067">
-<div class="comment"><p>[要素]の<a href="#TreeItem">TreeItem</a>表現を取得する</p>
+<div class="comment"><p><code>element</code> の<a href="#TreeItem">TreeItem</a>表現を取得する</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="element"></a><span class="ts" id=1068 data-target="#details-1068" data-toggle="collapse"><span class="ident">element</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="element"></a><span class="ts" id=1068 data-target="#details-1068" data-toggle="collapse"><span class="ident">element</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>(#TreeItem)表現が要求される要素。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TreeItem">TreeItem</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TreeItem">TreeItem</a>&gt;</span></td><td><div class="comment"><p>(#TreeItem)要素の表現</p>
 </div></td></tr>
@@ -8594,7 +8738,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="TreeItem.collapsibleState"></a><span class="ts" id=1079 data-target="#details-1079" data-toggle="collapse"><span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-ref" href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a></span>
 <div class="details collapse" id="details-1079">
-<div class="comment"><p>ツリーアイテムの<a href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a>。</p>
+<div class="comment"><p>ツリーアイテムの <a href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a>。</p>
 </div>
 </div>
 
@@ -8602,7 +8746,7 @@ rgba()を使用し、透明な色を定義して他の装飾とうまく合わ�
 
 <a name="TreeItem.command"></a><span class="ts" id=1078 data-target="#details-1078" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span>
 <div class="details collapse" id="details-1078">
-<div class="comment"><p>ツリー項目が選択されたときに実行される<a href="#Command">command</a>。</p>
+<div class="comment"><p>ツリー項目が選択されたときに実行される <a href="#Command">command</a>。</p>
 </div>
 </div>
 
@@ -8875,7 +9019,7 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 
 
 
-<div class="comment"><p>はエディタウィンドウの列を示します。
+<div class="comment"><p>エディタウィンドウの列を示します。
 列は、エディタを並べて表示するために使用されます。</p>
 </div>
 
@@ -8911,7 +9055,7 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 ワークスペース固有の値はインストール全体の値をシャドウします。</p>
 <p><em>注：</em>現在の<a href="#workspace.rootPath">workspace</a>のマージされた設定は、 には <code>launch.json</code> や <code>tasks.json</code> のようなファイルの設定も含まれています。
 それらのベース名はセクション識別子の一部になります。
-以下のスニペットは <code>launch.json</code> からすべての設定を取得する方法を示しています：</p>
+以下のスニペットは <code>launch.json</code> からすべての設定を取得する方法を示しています:</p>
 
 <pre><code class="lang-ts"><span class="hljs-comment">// launch.json configuration</span>
 <span class="hljs-keyword">const</span> config = workspace.getConfiguration(<span class="hljs-string">'launch'</span>);
@@ -8932,7 +9076,8 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="section"></a><span class="ts" id=893 data-target="#details-893" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="section"></a><span class="ts" id=893 data-target="#details-893" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>設定名、<em>ドット付きの</em> 名前をサポートします。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">T</a> &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>値 <code>section</code> は <code>undefined</code> を表します。</p>
 </div></td></tr>
@@ -8949,8 +9094,10 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="section"></a><span class="ts" id=896 data-target="#details-896" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="defaultValue"></a><span class="ts" id=897 data-target="#details-897" data-toggle="collapse"><span class="ident">defaultValue</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="section"></a><span class="ts" id=896 data-target="#details-896" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>設定名、_ドット付きの名前をサポートします。</p>
+</div></td></tr>
+<tr><td><a name="defaultValue"></a><span class="ts" id=897 data-target="#details-897" data-toggle="collapse"><span class="ident">defaultValue</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>値が見つからなかったときは値を返すべきです、 <code>undefined</code> です。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>値 <code>section</code> は、デフォルトまたはデフォルトを示します。</p>
 </div></td></tr>
@@ -8967,9 +9114,10 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="section"></a><span class="ts" id=900 data-target="#details-900" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="section"></a><span class="ts" id=900 data-target="#details-900" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>設定名、_ドット付きの名前をサポートします。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>セクションが <code>undefined</code> に解決されない場合はtrueを返します。</p>
+<tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>セクションが <code>undefined</code> に解決されない場合は <code>true</code> を返します。</p>
 </div></td></tr>
 </table>
 </div>
@@ -8980,15 +9128,16 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <a name="WorkspaceConfiguration.inspect"></a><span class="ts" id=902 data-target="#details-902" data-toggle="collapse"><span class="ident">inspect</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span>{defaultValue: <a class="type-instrinct">T</a>, globalValue: <a class="type-instrinct">T</a>, key: <a class="type-instrinct">string</a>, workspaceValue: <a class="type-instrinct">T</a>} &#124; <a class="type-instrinct">undefined</a></span>
 <div class="details collapse" id="details-902">
 <div class="comment"><p>構成設定に関するすべての情報を取得します。
-構成値は、<em>デフォルト</em>値、グローバルまたはインストール全体の値、および作業領域固有の値で構成されることがよくあります。
-有効な値(<a href="#WorkspaceConfiguration.get"><code>get</code></a>によって返される)は、 <code>globalValue</code> によって上書きされる <code>defaultValue</code> のように計算されます。</p>
+構成値は、<em>デフォルト</em> 値、グローバルまたはインストール全体の値、および作業領域固有の値で構成されることがよくあります。
+有効な値 (<a href="#WorkspaceConfiguration.get"><code>get</code></a>によって返される) は、 <code>globalValue</code> によって上書きされる <code>defaultValue</code> のように計算されます。</p>
 <p><code>globalValue</code> は <code>workspaceValue</code> によって上書きされます。</p>
-<p><em>注：</em>設定名は設定ツリーの葉を示さなければなりません( <code>editor.fontSize</code> と <code>editor</code> )。そうでなければ結果は返されません。</p>
+<p><em>注:</em> 設定名は設定ツリーの葉を示さなければなりません (<code>editor.fontSize</code> と <code>editor</code>)。そうでなければ結果は返されません。</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="section"></a><span class="ts" id=904 data-target="#details-904" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="section"></a><span class="ts" id=904 data-target="#details-904" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>設定名、_ドット付きの名前をサポートします。</p>
+</div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts">{defaultValue: <a class="type-instrinct">T</a>, globalValue: <a class="type-instrinct">T</a>, key: <a class="type-instrinct">string</a>, workspaceValue: <a class="type-instrinct">T</a>} &#124; <a class="type-instrinct">undefined</a></span></td><td><div class="comment"><p>構成設定または `未定義 &#39;に関する情報。</p>
 </div></td></tr>
@@ -9002,16 +9151,18 @@ assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'<
 <div class="details collapse" id="details-911">
 <div class="comment"><p>設定値を更新する。
 現在の値を変更することができます
-<a href="#workspace.rootPath">workspace</a>のみ、またはエディタのすべてのインスタンスに対してグローバルに適用されます。
+<a href="#workspace.rootPath">workspace</a> のみ、またはエディタのすべてのインスタンスに対してグローバルに適用されます。
 更新された設定値は保持されます。</p>
-<p><em>注1：</em>特定のワークスペース値の存在下でインストール全体の値( <code>global：true</code> )を設定すると、そのワークスペースでは観測可能な効果はありません。</p>
-<p>注2：*設定値を削除するには <code>undefined</code> を使います： <code>config.update( &#39;somekey&#39;、undefined)</code></p>
+<p><em>注1：</em>特定のワークスペース値の存在下でインストール全体の値 (<code>global: true</code>) を設定すると、そのワークスペースでは観測可能な効果はありません。</p>
+<p>注2：*設定値を削除するには <code>undefined</code> を使います： <code>config.update(&#39;somekey&#39;, undefined)</code></p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="section"></a><span class="ts" id=912 data-target="#details-912" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"></div></td></tr>
-<tr><td><a name="value"></a><span class="ts" id=913 data-target="#details-913" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="section"></a><span class="ts" id=912 data-target="#details-912" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>設定名、_ドット付きの名前をサポートします。</p>
+</div></td></tr>
+<tr><td><a name="value"></a><span class="ts" id=913 data-target="#details-913" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>新しい値。</p>
+</div></td></tr>
 <tr><td><a name="global"></a><span class="ts" id=914 data-target="#details-914" data-toggle="collapse"><span class="ident">global</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p><code>true</code> はエディタのすべてのインスタンスの設定値を変更します。</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
